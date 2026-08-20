@@ -1,0 +1,13 @@
+$ [ Cell ]
+$100 -1 #( %disp1_zone% ) TRCL=30	$Deep space
+
+2500 %air%  %workzone_walls%  %sample_zone% #2501 #2502 #2503 #2504 #2506 #103 #2505	$fill w/ air
+$2500 %air%  %workzone%  %sample_zone% #2501 #2502 #2503 #2504 #2505 #2506	$fill w/ air
+
+2501 %Al% %Al_base%	$sAl base
+2502 %Al%  %petri_holder%	$Petri holder
+2503 %PS%  %Petri_dish%	$Petri dish
+2504 %PS%  %Petri_lid%	$Petri lid
+2505 %tissue%  %monolayer%	$cells
+2506 %water%  %medium_vol0% (%medium_vol1% 
+			: %medium_vol2%) #2505	$medium with meniscus

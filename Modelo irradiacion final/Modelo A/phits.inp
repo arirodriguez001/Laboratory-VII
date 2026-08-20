@@ -1,0 +1,259 @@
+$OMP = 0
+$$MPI = 32
+$RWT = 2
+[ Title ]
+Vertical external proton beam - modular input
+[ Parameters ]
+$file(1)	= /home/jesusfigari/stage/phits $ folder for NEURUS
+icntl	= 0 $0: transport	5: source	8: 2D geometry	11: 3D geometry	14: volume	16: script mode	17: Anatally mode
+maxcas	= 25000 $ (D=10) number of particles per one batch
+maxbch	= 5000 $ (D=10) number of batches
+istdev	= 2 $Statistical uncertainties estimated from the standard error of: 1=each batch result. 2=each history result. 
+nspred	= 2 $2= Coulomb diﬀusion by the Lynch’s formula based on the Moliere theory
+nedisp	= 1 $1= Landau Vavilov energy straggling
+istdcut	= 1 $Stop when its statistical uncertainty becomes less than stdcut.
+delt0	= 4e-5 $Minimum ﬂight mesh [cm], should be set to 1/10 of the minimum thickness of thin films less than 1 cm when describing a scattering process.
+ireschk	= 1 $Control parameter for tally consistency check. The inconsistency of a tally may occur as the result of the loss of signiﬁcant digits in the PHITS input ﬁle
+nlost	= 10000 $number of tolerance of lost particles before stopping the run.
+$itall	= 1 $Output numerical and image files after every batch.
+e-mode	= 0 $When e-mode≠0 and high-energy nuclear data libraries are used, PHITS determines the reaction point using the total cross section contained in the high-energy nuclear data libraries while the information on secondary particles is evaluated using the nuclear reaction models
+$igeomem = 200000
+
+$  required options for DCHAIN (also e-mode=0)
+$ igamma	= 3 $ (D=2) 0:No, 1:Old, 2:EBITEM,3:EBITEM+Isomer
+$ jmout	= 1 $ (D=0) Density echo, 0:input, 1:number densityc 
+$ dmax(1)	= 200.0 $ (D=emin(1)) data max. energy of proton (MeV) 
+$ dmax(2)	= 200.0 $ (D=emin(2)) data max. energy of neutron (MeV) 
+
+set: c1[ 0.5 ]	$beam radius
+set: c2[ 20.0 ]	$accelerator terminal tension
+$$infl:{c2.inp} $Reemplazar una variable linealmente
+
+set:%thisdata%[_21MeV_dchain]	$for tallies
+file(6)	= phits%thisdata%.out
+
+[ Source ]
+totfact	= 1.0e-9 / 1.602177e-19	$Transform from particles to beam current: proton/s = nanocurrent (nA = 10^(-9) C/s) / charge (C/proton)
+proj	= proton
+s-type	= 1	$1 = monoenergetic, 11 = emitance beam, 13 = xy Gaussian beam 
+  r0	= c1
+  z0	= -3.0	$ minimum position of z-axis [cm]
+  z1	= -3.0	$ maximum position of z-axis [cm]
+ dir	= 1.0	$ z-direction of beam [cosine]
+  e0	= c2
+
+[ Material ]
+mat[1] C -0.000124 N -0.755267 O -0.231781 Ar -0.012827	$ air (ICRU)
+$dedxfile = air_icru90.txt
+set:%air%[1  -1.205e-3]
+
+mat[2] Al 1	$ aluminum
+set:%Al%[2  -2.6989]
+ 
+mat[3] Fe -98.5 C -0.25 Mn -0.95 Si -0.3	$ structural steel
+set:%body%[3  -5.2]
+
+mat[4] Fe -69.255 C -0.07 Mn -2.0 Si -0.75 P -0.045 S -0.030 Cr -18.5 Ni -9.25 N -0.10	$ 304S stainless steel
+set:%stainless%[4  -8.03]
+
+mat[5] Cr -0.222 Mg -0.016 Fe -0.181 Co -0.417 Ni -0.128 Mo -0.014 W -0.008	$ havar
+set:%havar%[5  -8.3]
+
+mat[6] Pb 1	$ lead
+set:%Pb%[6  -11.35]
+
+mat[7] C 8 H 8	$ polystyrene
+set:%PS%[7  -1.050] $density according to Petri dish datasheet
+
+mat[8] H 2 O 1	$ water (ICRU)
+$dedxfile = water_liquid_icru90.txt
+set:%water%[8  -1.0]
+
+mat[9] C 6 H 11 N 1 O 1	$ nylon 6
+set:%nylon%[9  -1.14]
+
+mat[10] C 3 H 4 O 2	$polylactic acid plastic for 3D printers
+set:%PLA%[10  -1.24]
+
+mat[11] C -(4*0.6+3*0.4) H -(6*0.6+3*0.4) N -(1*0.4)	$Nitrile butadiene rubber (o-ring)
+set:%NBR%[11  -1.0]
+
+mat[12] O -76.2 C -11.1 H -10.1 N -2.6	$ICRU-4 Soft tissue
+set:%tissue%[12 -1.04]
+
+mat[13] Si 1
+set:%Si%[13 -2.329]
+
+mat[14] C 10 H 8 O 4	$Mylar
+set:%Mylar%[14 -1.397]
+
+mat[15] H -0.102 C -0.11 N -0.033 O -0.745 Na -0.001 P -0.001 S -0.002 Cl -0.003 K -0.002 Fe -0.001	$ICRU blood composition
+set:%blood%[15  -1.06]
+
+mat[16] H -0.100588  C -0.228250  N -0.046420  O -0.619002  Na -0.000070  Mg -0.000060  P -0.000330  S -0.001590  Cl -0.002670  K -0.000850  Ca -0.000150  Fe -0.000010  Zn -0.000010      $ skin
+
+mat[17]  C 5 H 8 O 2         $ acrilico 
+set:%acrilico%[17  -1.18]
+
+mat[18]  H -0.104472  C -0.232190  N -0.024880  O -0.630238  Na -0.001130  Mg -0.000130  P -0.001330  S -0.001990  Cl -0.001340  K -0.001990  Ca -0.000230  Fe -0.000050  Zn -0.000030   # soft tissue (ICRP) (pouch)
+set:%skin%[18  -1.1]
+
+mat[19]  C -0.8563  H -0.1437   $ plastico SRIM (C2H4)
+set:%plastic%[19 -0.93]
+
+mat[20]  C -0.6170  H -0.0850  O -0.2980   $ Scotch Magic Tape 810 aprox: acrilico + acetato de celulosa
+set:%scotch%[20 -1.20]
+
+[ Mat Name Color ]
+mat name   color
+1	Air    cyan
+2	Al     lightgray
+3	{Structure - steel}   brown
+4	{Stainless steel}    gray
+5	Havar  rrr
+6	Pb     matblack
+7	{Petri dish - polystyrene}   {0.7 0.3 1.0}
+8	Water  ccc
+9	Nylon  gg
+10	{3D printer - PLA}   orange
+11	{O-ring}  black
+12	{ICRU-4 soft tissue}   magenta
+13	Si   yellow
+14	Mylar  pastelpink
+15	Blood  red
+16  pouch  pink
+17  acrilico white
+18  skin  brown
+19 plastic black
+20 scotch  red
+
+[ Surface ]
+$Room
+1 RCC 0.0  0.0  -50.0  0.0  0.0  200.0  200.0	$Vertical beam room
+
+$ Magnet body main workzone%
+2 PZ  0.0	$ beam exit window
+3 PZ  63.0	$ magnet body top (entrance box)
+4 PX  -30.0
+5 PX   30.0
+6 PY  -19.0
+7 PY   19.0
+8 PZ  102.5
+9 PZ  101.0	$ magnet body bottom
+
+set:%workzone%[4 -5 6 -7 2 -9]
+set:%workzone_walls%[4 -5 6 -7]
+
+set: c3[ 1.87 ]	$attenuator distance from havar
+set: c4[ 7.6 ]	$disp 1 distance from havar
+set: c5[ 34.58 ]	$disp 2 distance from havar
+set: c6[ c5 + 0.2665 ]	$occluder distance from havar
+set: c7[ 101.0 ]	$sample table distance from havar
+set: c8[ 19.4 ]	$pin diodes distance from havar (originally 19.4 cm)
+
+infl:{Su_iman.inp}
+infl:{Su_viga.inp}
+infl:{Su_atenuador.inp}
+infl:{Su_dispersor1.inp}
+infl:{Su_dispersor2.inp}
+infl:{Su_oclusor.inp}
+$infl:{Su_fondo.inp}
+$infl:{Su_fondo_mylar.inp}
+$infl:{Su_diodos.inp}
+$infl:{Su_ridge_filter_4.inp}
+infl:{Su_ridge_filter_9.inp}
+
+$set: c100[ c7 + c61 - c63 - c68 ]	$cell monolayer start
+$set: c101[ c100 + c68 ]	$cell monolayer
+$set: c102[ c7 + c61 - c63 - c601 ]	$Liquid medium start
+$set: c103[ c102 + c69 ]	$Liquid medium
+$For inverted Petri
+$$set: c100[ c7 + c61 - c66 - c67 + c65 ]	$cell monolayer start
+$$set: c101[ c100 + c68 ]	$cell monolayer
+
+$ POUCH (hamster cheek pouch)
+100 90 ell -0.15 0.0 60.48  1.65 0.0 0.0  -0.8
+
+$ Planos de corte para definir el pouch (espesor 0.2 cm)
+202 90 pz 60.58
+201 90 pz 60.38
+
+$ Gel de ultrasonido de 0.09cm de altura total, 0.04 respecto pouch
+4000 90 rpp -1.4685 1.7315  -1.750 1.750  60.33 60.58  
+
+$ Cinta scotch --> asumiendo grosor 0.005 cm respecto del pouch
+8000 90 rpp -1.4685 1.7315  -1.750 1.750  60.375 60.38
+
+$ POSICIONADOR 
+infl:{Su_posicionador.inp}
+
+$ HAMSTER 
+infl:{Su_hamster.inp}
+
+[ Transform ]
+TR10  0 0 c3  0 0 0  0 0  0 0  0 0  3	$attenuator height
+TR20  0 0 c4  0 0 0  0 0  0 0  0 0  3	$disp 1 height
+TR21 0 -0.2251 0  0 0 0  0 0 0 0 0 0  2	$disp 1 y-correction
+TR30  0 0 c5  0 0 0  0 0  0 0  0 0  3	$disp 2 height
+*TR31 0 0 0  0 0 0  3 21.841 0 0 0 0  3 	$disp 2 rotation = atan2( 2.0/4.99 )
+TR40  0 0 c6  0 0 0  0 0  0 0  0 0  3	$occluder height
+TR50  0 0 101.0  0 0 0  0 0  0 0  0 0  3	$sample table height
+TR60  0 0 c8  0 0 0  0 0  0 0  0 0  3	$pin diodes height
+$TR61  0 0 c100  0 0 0  0 0  0 0  0 0  3	$monolayer cell height
+$TR62  0 0 c102  0 0 0  0 0  0 0  0 0  3	$liquid medium height
+*TR90  0 0.15 c900   0 0 0   3 90  0 0  0 0   3
+set: c900[ 38 ]
+
+[ Cell ]
+infl:{Ce_iman.inp}
+infl:{Ce_viga.inp}
+
+set:%outside_stuff%[#101 #102 #103 #104]
+set:%exclusions%[#510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008 ]
+
+infl:{Ce_atenuador.inp}
+infl:{Ce_dispersor1.inp}
+infl:{Ce_dispersor2.inp}
+infl:{Ce_oclusor.inp}
+$infl:{Ce_fondo.inp}
+$infl:{Ce_fondo_mylar.inp}
+$infl:{Ce_diodos.inp}
+$infl:{Ce_ridge_filter_4.inp}
+infl:{Ce_ridge_filter_9.inp}
+
+$ Pouch
+510 16 -1.0  -100  201  -202 #6006 #6005 #6004 #800 
+
+$ Gel ultrasonido
+600 8 -1.0  -4000 #510 #700 #800 #6006 #6005 #6004 #9000 #9001 #9002 #9003
+ 
+$ Cinta scotch
+800 20 -1.20  -8000 #6006 #9000 #9001 #9002 #9003
+
+
+$ POSICIONADOR 
+infl:{Ce_posicionador.inp}
+ 
+$ HAMSTER 
+infl:{Ce_hamster.inp}
+
+1 -1     1  $Deep space
+$2 %air% -1 #(%workzone_walls% ((%att_zone%):(%disp1_zone%):(%disp2_zone%):(%ocl_zone%):(%sample_zone%):(%pin_zone%)))  #510 
+$     %outside_stuff% %exclusions% $Cover unused workzone with air
+
+$ Modifica la Celda 2 así:
+$2 %air% -1 #(%workzone_walls% ((%att_zone%):(%disp1_zone%):(%disp2_zone%):(%ocl_zone%):(%pin_zone%))) #510 #600 #700 #103 #6000 #6001 #6002 #6003 
+$      %outside_stuff% %exclusions%
+2 %air% -1 #(%workzone_walls% ((%att_zone%):(%disp1_zone%):(%disp2_zone%):(%ocl_zone%):(%pin_zone%))) 
+     %exclusions%
+     #9000
+     #9001
+     #9002
+     #9003
+     #9004
+     %outside_stuff%
+
+infl:{volumes.inp}
+infl:{tallies.inp}
+
+[ E n d ]

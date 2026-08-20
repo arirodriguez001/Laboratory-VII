@@ -1,0 +1,23 @@
+[ Volume ]
+ reg    vol
+ %cell_iman%    %vol_iman%
+ %cell_atbase%   %vol_atbase%
+ %cell_atgrid%   %vol_atgrid%
+ %cell_atbits%   %vol_atbits%
+ %cell_atholder% %vol_atholder%
+ %cell_disp1%    %vol_disp1%
+ %cell_disp2%    %vol_disp2%
+ %cell_oclusor%  %vol_oclusor%
+
+$ --- ESTAS LÍNEAS ESTÁN DANDO EL ERROR ---
+$ %cell_albase%     %vol_albase%    <-- Comenta esta
+$ %cell_petrihold%  %vol_petrihold% <-- Y esta
+$ %cell_petri%      %vol_petri%     <-- Y esta
+$ %cell_medium%     %vol_medium%    <-- Y esta
+$ -----------------------------------------
+
+ %cell_rfbase%   %vol_rfbase%  
+ %cell_rfgrid%   %vol_rfgrid%
+
+$ --- No olvides definir el volumen de tu nuevo Pouch ---
+700  100.53

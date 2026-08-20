@@ -1,0 +1,22 @@
+$ [ Cell ]
+$100 -1  %att_zone%	$Deep space
+
+2100 %air%  %workzone_walls% %att_zone% #2101 #2102 #2106 #2107 #2108 #510 #700 %exclusions%	$fill w/ air
+2101 %Al%   %attn_base%	$attenuator base
+2102 0      %attn_grid% #2106 FILL=1	$attenuator grid area
+2103 0      %attn_unit%  LAT=1 U=1 FILL=2	$attenuator fundamental unit
+2104 %Al%   %attn_hole%  U=2	$material
+2105 %air% -%attn_hole%  U=2	$holes
+2106 %stainless% %attn_bits%	$drill bits stuck
+2107 %PLA%  %attn_holder% #2101 #2102 #2106	$attenuator holder 3D printed
+
+2108 %Al%   %attn_plate% #2107	$plate
+
+set:%cell_atbase%[2101]
+set:%vol_atbase%[((25-PI*c21*c21)*c20)]
+set:%cell_atgrid%[( 2104 < 2103 < 2102 )]
+set:%vol_atgrid%[(PI*c21*c21*c20*42/43)]
+set:%cell_atbits%[2106]
+set:%vol_atbits%[(2*PI*c23*c23*c20)]
+set:%cell_atholder%[2107]
+set:%vol_atholder%[(8.016+47.61*c24-25*c20-PI*2.25*(c24-c20))]

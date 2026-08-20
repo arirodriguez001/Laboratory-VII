@@ -1,0 +1,70 @@
+[ T-Track ]
+    title = Flujo de protones detector origen
+     mesh =  r-z            # mesh type is r-z scoring mesh
+       x0 =   0.000000      # center x-position of r-z mesh
+       y0 =   0.000000      # center y-position of r-z mesh
+   r-type =    2            # r-mesh is linear given by rmin, rmax and nr
+     rmin =   0.000000      # minimum value of r-mesh points
+     rmax =  5.0000000E-02  # maximum value of r-mesh points
+#    rdel =  5.0000000E-02  # mesh width of r-mesh points
+       nr =      1          # number of r-mesh points
+#    data = ( r(i), i = 1, nr + 1 )
+#           0.00000E+00  5.00000E-02
+   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   98.38000      # minimum value of z-mesh points
+     zmax =   98.58000      # maximum value of z-mesh points
+#    zdel =  0.2000000      # mesh width of z-mesh points
+       nz =      1          # number of z-mesh points
+#    data = ( z(i), i = 1, nz + 1 )
+#           9.83800E+01  9.85800E+01
+   e-type =    1            # e-mesh is given by the below data
+       ne =      1          # number of e-mesh points
+#    data = ( e(i), i = 1, ne + 1 )
+            0.00000E+00  1.00000E+03
+     unit =    1            # unit is [1/cm^2/source]
+ material =  all            # (D=all) number of specific material
+     axis =       z            # axis of output
+     file = flujo_detector_origen.out  # file name of output for the above axis
+     part =  proton   
+# kf/name :  2212     
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat 5:bmp style
+    resol =    1            # (D=1) resolution of gshow or rshow
+    width = 0.5000000       # (D=0.5) width of lines for gshow or rshow
+   epsout =    1            # (D=0) generate eps file by ANGEL
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :          10 (  0)           0 (  0)          10 (  0)
+
+#------------------------------------------------------------------------------
+#newpage:
+#   no. =  1   ie  =  1   ir  =  1
+#   e = (   0.0000E+00  -   1.0000E+03  )
+#   r = (   0.0000E+00  -   5.0000E-02  )
+
+x: z [cm]
+y: Flux [1/cm^2/source]              
+p: xlin ylog afac(0.8) form(0.9)
+h: n            x            y(proton  ),hh0l n  
+#  z-lower      z-upper        proton    r.err 
+   9.8380E+01   9.8580E+01   8.2048E+05  0.0856
+
+#   sum over    1.5708E-03   8.2048E+05  0.0856
+
+'no. =  1,  ie =  1,  ir =  1'
+msuc: {\huge Flujo de protones detector origen}
+msdr: {\it plotted by \ANGEL \version}
+msdl: {\it calculated by \PHITS  3.35}
+wt: s(0.7)
+\vspace{-3}
+  emin  &=&   0.0000E+00 [MeV]
+  emax  &=&   1.0000E+03 [MeV]
+  rmin  &=&   0.0000E+00 [cm]
+  rmax  &=&   5.0000E-02 [cm]
+e:
+ 
+# Information for Restart Calculation
+# This calculation was newly started
+# istdev =  2 # 1:Batch variance, 2:History variance
+# resc2  = 1.78282245838290929E-02 # Total source weight or Total source weight / maxcas
+# resc3  = 1.11275000000000000E+08 # Total history number or Total batch number
+# maxcas =       25000 # History / Batch, only used for istdev=1
+# bitrseed = 1100001011011001101101101111111101010111001010000110110100011100 # bit data of rseed

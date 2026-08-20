@@ -1,0 +1,11 @@
+# Ignorar TODO
+*
+
+# Permitir estas carpetas
+
+!Modelo irradiacion final/
+!Modelo irradiacion final/**
+
+# Permitir archivos importantes
+!.gitignore
+!README.md

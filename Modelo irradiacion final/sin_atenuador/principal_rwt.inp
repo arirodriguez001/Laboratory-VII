@@ -1,0 +1,1095 @@
+$omp=0
+$$mpi=32
+$rwt=0
+[ Title ]
+Vertical external proton beam - modular input
+
+[ Parameters ]
+file(1) = /share/gidans/sebastiangossio/Programas/PIHTS-IFORT/phits
+#file(1)=c:/phits
+
+icntl	= 0 $0: transport	5: source	8: 2D geometry	11: 3D geometry	14: volume	16: script mode	17: Anatally mode
+maxcas	= 10000 $ (D=10) number of particles per one batch
+maxbch	= 200000 $ (D=10) number of batches
+istdev	= 2 $Statistical uncertainties estimated from the standard error of: 1=each batch result. 2=each history result.
+nspred	= 2 $2= Coulomb diﬀusion by the Lynch’s formula based on the Moliere theory
+nedisp	= 1 $1= Landau Vavilov energy straggling
+istdcut	= 1 $Stop when its statistical uncertainty becomes less than stdcut.
+delt0	= 4e-5 $Minimum ﬂight mesh [cm], should be set to 1/10 of the minimum thickness of thin films less than 1 cm when describing a scattering process.
+ireschk	= 1 $Control parameter for tally consistency check. The inconsistency of a tally may occur as the result of the loss of signiﬁcant digits in the PHITS input ﬁle
+nlost	= 10000 $number of tolerance of lost particles before stopping the run.
+e-mode	= 0 $When e-mode≠0 and high-energy nuclear data libraries are used, PHITS determines the reaction point using the total cross section contained in the high-energy nuclear data libraries while
+$igeomem = 200000
+itall    =       0 # 1:actualiza los graficos,0: no actualiza, -1: no graba nada
+
+$  required options for DCHAIN (also e-mode=0)
+$ igamma	= 3 $ (D=2) 0:No, 1:Old, 2:EBITEM,3:EBITEM+Isomer
+$ jmout	= 1 $ (D=0) Density echo, 0:input, 1:number densityc
+$ dmax(1)	= 200.0 $ (D=emin(1)) data max. energy of proton (MeV)
+$ dmax(2)	= 200.0 $ (D=emin(2)) data max. energy of neutron (MeV)
+
+set: c1[ 0.5 ]	$beam radius
+set: c2[ 19.5 ]	$accelerator terminal tension
+$$infl:{c2.inp} $Reemplazar una variable linealmente
+
+$set:%thisdata%[_21MeV_dchain]	$for tallies
+file(6)	= ./out/phits.out
+file(22) = ./out/batch.out
+
+
+[ Source ]
+totfact	= 1.0e-9 / 1.602177e-19	$Transform from particles to beam current: proton/s = nanocurrent (nA = 10^(-9) C/s) / charge (C/proton)
+proj	= proton
+s-type	= 1	$1 = monoenergetic, 11 = emitance beam, 13 = xy Gaussian beam
+  r0	= c1
+  z0	= -3.0	$ minimum position of z-axis [cm]
+  z1	= -3.0	$ maximum position of z-axis [cm]
+ dir	= 1.0	$ z-direction of beam [cosine]
+  e0	= c2
+
+[ Material ]
+mat[1] C -0.000124 N -0.755267 O -0.231781 Ar -0.012827	$ air (ICRU)
+$dedxfile = air_icru90.txt
+$set:%air%[1  -1.205e-3]
+
+mat[2] Al 1	$ aluminum
+$set:%Al%[2  -2.6989]
+
+mat[3] Fe -98.5 C -0.25 Mn -0.95 Si -0.3	$ structural steel
+$set:%body%[3  -5.2]
+
+mat[4] Fe -69.255 C -0.07 Mn -2.0 Si -0.75 P -0.045 S -0.030 Cr -18.5 Ni -9.25 N -0.10	$ 304S stainless steel
+$set:%stainless%[4  -8.03]
+
+mat[5] Cr -0.222 Mg -0.016 Fe -0.181 Co -0.417 Ni -0.128 Mo -0.014 W -0.008	$ havar
+$set:%havar%[5  -8.3]
+
+mat[6] Pb 1	$ lead
+$set:%Pb%[6  -11.35]
+
+mat[7] C 8 H 8	$ polystyrene
+$set:%PS%[7  -1.050] $density according to Petri dish datasheet
+
+mat[8] H 2 O 1	$ water (ICRU)
+$dedxfile = water_liquid_icru90.txt
+$set:%water%[8  -1.0]
+
+mat[9] C 6 H 11 N 1 O 1	$ nylon 6
+$set:%nylon%[9  -1.14]
+
+mat[10] C 3 H 4 O 2	$polylactic acid plastic for 3D printers
+$set:%PLA%[10  -1.24]
+
+mat[11] C -(4*0.6+3*0.4) H -(6*0.6+3*0.4) N -(1*0.4)	$Nitrile butadiene rubber (o-ring)
+$set:%NBR%[11  -1.0]
+
+mat[12] O -76.2 C -11.1 H -10.1 N -2.6	$ICRU-4 Soft tissue
+$set:%tissue%[12 -1.04]
+
+mat[13] Si 1
+$set:%Si%[13 -2.329]
+
+mat[14] C 10 H 8 O 4	$Mylar
+$set:%Mylar%[14 -1.397]
+
+mat[15] H -0.102 C -0.11 N -0.033 O -0.745 Na -0.001 P -0.001 S -0.002 Cl -0.003 K -0.002 Fe -0.001	$ICRU blood composition
+$set:%blood%[15  -1.06]
+
+mat[16] H -0.100588  C -0.228250  N -0.046420  O -0.619002  Na -0.000070  Mg -0.000060  P -0.000330  S -0.001590  Cl -0.002670  K -0.000850  Ca -0.000150  Fe -0.000010  Zn -0.000010      $ skin
+
+mat[17]  C 5 H 8 O 2         $ acrilico
+$set:%acrilico%[17  -1.18]
+
+mat[18]  H -0.104472  C -0.232190  N -0.024880  O -0.630238  Na -0.001130  Mg -0.000130  P -0.001330  S -0.001990  Cl -0.001340  K -0.001990  Ca -0.000230  Fe -0.000050  Zn -0.000030   # soft tissue (
+$set:%skin%[18  -1.1]
+
+mat[19]  C -0.8563  H -0.1437   $ plastico SRIM (C2H4)
+$set:%plastic%[19 -0.93]
+
+mat[20]  C -0.6170  H -0.0850  O -0.2980   $ Scotch Magic Tape 810 aprox: acrilico + acetato de celulosa
+$set:%scotch%[20 -1.20]
+
+[ Mat Name Color ]
+mat name   color
+1	Air    cyan
+2	Al     lightgray
+3	{Structure - steel}   brown
+4	{Stainless steel}    gray
+5	Havar  rrr
+6	Pb     matblack
+7	{Petri dish - polystyrene}   {0.7 0.3 1.0}
+8	Water  ccc
+9	Nylon  gg
+10	{3D printer - PLA}   orange
+11	{O-ring}  black
+12	{ICRU-4 soft tissue}   magenta
+13	Si   yellow
+14	Mylar  pastelpink
+15	Blood  red
+16  pouch  pink
+17  acrilico white
+18  skin  brown
+19 plastic black
+20 scotch  red
+
+[ Surface ]
+$Room
+1 RCC 0.0  0.0  -50.0  0.0  0.0  200.0  200.0	$Vertical beam room
+
+$ Magnet body main workzone%
+2 PZ  0.0	$ beam exit window
+3 PZ  63.0	$ magnet body top (entrance box)
+4 PX  -30.0
+5 PX   30.0
+6 PY  -19.0
+7 PY   19.0
+8 PZ  102.5
+9 PZ  101.0	$ magnet body bottom
+
+$set:%workzone%[4 -5 6 -7 2 -9]
+$set:%workzone_walls%[4 -5 6 -7]
+
+set: c3[ 1.87 ]	$attenuator distance from havar
+set: c4[ 7.6 ]	$disp 1 distance from havar
+set: c5[ 34.58 ]	$disp 2 distance from havar
+set: c6[ c5 + 0.2665 ]	$occluder distance from havar
+set: c7[ 101.0 ]	$sample table distance from havar
+set: c8[ 19.4 ]	$pin diodes distance from havar (originally 19.4 cm)
+
+$[ Surface ]
+$Beam external exit
+10 RCC 0.0  0.0  0.0  0.0  0.0 -25.0  1.0	$ inside accelerator (vacuum)
+$set:%vacuum_inside%[10]
+
+11 RCC 0.0  0.0  0.0  0.0  0.0 -4e-4  1.50	$ Havar
+$set:%havar_foil%[11]
+
+12 RCC 0.0  0.0  0.0  0.0  0.0 -2.50  3.5		$ stainless exit
+13 RCC 0.0  0.0  0.0  0.0  0.0 -25.0  1.6		$ stainless tube
+$set:%exit_tube%[(-12:-13) 10]
+
+
+$Inside box
+14 PX   -9.5
+15 PX    9.5
+16 PY  -17.5
+17 PY   17.5
+18 PZ   64.5
+$set:%box_inside%[14 -15 16 -17 18 -9]
+
+$All access
+19 CZ  5.02	$ hole 1
+20 RPP -8.0  8.0 -22.0 -16.0  81.0  97.0	$ lateral access
+21 CZ	 5.928	$ hole 2
+$set:%box_access%[19 20 21]
+
+$outside body parts
+22 PZ   (63.0-36.0)	$back wall height
+23 PY   (19.0+15.0)	$all the way back
+24 PX  -53.5	$arm inside
+25 PX   53.5	$arm inside
+26 PX  -(53.5+20.5)	$extreme lateral
+27 PX   (53.5+20.5)	$extreme lateral
+28 PZ   (33.0-50.0)	$extreme top
+29 P   -30.0 -19.0 63.0   -30.0 19.0 63.0   -53.5 19.0 (63.0-23.168)	$sqrt(33^2-(53.5-30)^2)
+30 P    30.0 -19.0 63.0    30.0 19.0 63.0    53.5 19.0 (63.0-23.168)
+31 P   -(53.5+20.5) -19.0 (63.0-23.168-11.5)   -53.5 -19.0 (63.0-23.168-11.5)  -53.5 19.0 (33.0-50.0)
+$set:%magnet_geom%[((24 -25) ((6 -7 (3:29:30)):(7 -23 22)):(((26 -24):(25 -27)) 6 -23)) 28 31 -8]
+
+set: c10[ 63.0 - 1.0 ]	$baseline
+set: c11[ 12.5 ]	$distance from center
+
+$ [ Surface ]
+1000 PX  -30.0
+1001 PX   30.0
+1002 PY  -19.0
+1003 PY   19.0
+1004 PZ   (c10-85.0-1.0)
+1005 PZ   63.0
+
+$set:%profilezone%[1000 -1001 1002 -1003 1004 -1005]
+
+$ extreme boundaries
+1006 RPP  (-c11-2.25) (-c11+2.25) (-c11-2.25) (-c11+2.25) (c10-85.0)  (c10)	$front left
+1007 RPP  (c11-2.25)  (c11+2.25)  (-c11-2.25) (-c11+2.25) (c10-85.0)  (c10)	$front right
+1008 RPP  (-c11-2.25) (-c11+2.25) (c11-2.25)  (c11+2.25)  (c10-62.0)  (c10)	$back left
+1009 RPP  (c11-2.25)  (c11+2.25)  (c11-2.25)  (c11+2.25)  (c10-62.0)  (c10)	$back right
+
+$ side pieces
+1010 RPP  (-c11+2.25) (c11-2.25)  (-c11-2.25) (-c11+2.25) (c10-10.3-4.5)  (c10-10.3)	$front lower
+1011 RPP  (-c11+2.25) (c11-2.25)  (-c11-2.25) (-c11+2.25) (c10-74.7-4.5)  (c10-74.7)	$front upper
+1012 RPP  (-c11+2.25) (c11-2.25)   (c11-2.25) (c11+2.25)  (c10-9.0-4.5)   (c10-9.0)	$back lower
+1013 RPP  (-c11+2.25) (c11-2.25)   (c11-2.25) (c11+2.25)  (c10-47.6-4.5)   (c10-47.6)	$back upper
+set: c20[ 0.25 ]	$attenuator thickness
+set: c21[ 1.0 ]	$attenuator internal radius
+set: c22[ 0.08 ]	$ attenuator fundamental unit
+set: c23[ 0.01375 ]	$ attenuator holes mean radius
+set: c24[ 0.8 ]	$attenuator holder 3D printed thickness
+set: c25[ 0.17 ]	$depth consumed for attenuator holder
+set: c26[ 0.3 ]	$plate thickness
+$set: %attn_TR%[10]	$attn translation number (leave blank for not)
+
+$[ Surface ]
+$ workspace
+1100 PX  -30.0
+1101 PX   30.0
+1102 PY  -19.0
+1103 PY   19.0
+1104 10 PZ   -c3
+1105 10 PZ   (c24-c25+c26+0.1)	$bottom of the plate
+$set:%att_zone%[1100 -1101 1102 -1103 1104 -1105]
+$set:%att_zone%[1104 -1105]	$use with %workzone%
+
+$1200 RCC  -30.0  30.0 -19.0  19.0  0.0  (c24-c25+c26)	$bottom of the plate
+$set:%att_zone%[1200 -1201 1202 -1203 1204 -1205]
+
+$ attenuator base
+1106 PX -2.5
+1107 PX  2.5
+1108 PY -2.5
+1109 PY  2.5
+1110 10 PZ  0.0
+1111 10 PZ  c20
+1112 CZ  c21	$grid zone
+$set:%attn_base%[1106 -1107 1108 -1109 1110 -1111 1112]
+$set:%attn_grid%[1110 -1111 -1112]
+
+$grid cell
+1113 PX -c22
+1114 PX  c22
+1115 PY -c22
+1116 PY  c22
+$set:%attn_unit%[1113 -1114 1115 -1116]
+
+1117 CZ  c23	$attenuator holes
+$set:%attn_hole%[1117]
+
+1118 C/Z	 0.16  0.96  0.015	$drill bit 1
+1119 C/Z	 0.32 -0.32  0.015	$drill bit 2
+$set:%attn_bits%[(-1118:-1119) -1112  1110 -1111]
+
+$ attenuator holder 3D printed
+1120 CZ  1.5	$beam hole
+1121 PX -3.45
+1122 PX  3.45
+1123 PY -3.45
+1124 PY  3.45
+1125 10 PZ  c24
+1126 10 RPP  -1.0 1.0  -8.45 -3.44  0 0.8	$tab
+$set:%attn_holder%[-1126:(1121 -1122  1123 -1124  1110 -1125) 1120]
+
+$ attenuator holder plate
+1127 PX -14.75
+1128 PX  14.75
+1129 PY -4.5
+1130 PY  4.5
+1131 10  PZ (c24-c25)
+1132 10  PZ (c24-c25+c26)
+$set:%attn_plate%[1127 -1128 1129 -1130 1131 -1132 1120]
+set: c30[ 43.3e-4 ] $dispersor 1 thickness
+$set: %disp1_TR%[20]	$disp 1 translation number (leave blank for not)
+
+$[ Surface ]
+1200 PX  -30.0
+1201 PX   30.0
+1202 PY  -19.0
+1203 PY   19.0
+1204 20 PZ   (-0.6-1.0)
+1205 20 PZ   (c30+0.30+1.0)
+$set:%disp1_zone%[1200 -1201 1202 -1203 1204 -1205]
+$set:%disp1_zone%[1204 -1205]	$use with %workzone%
+
+$Pb foil
+1206 PX  -2.0
+1207 PX   2.0
+1208 PY  -2.0
+1209 PY   2.0
+1210 20 PZ   0.0
+1211 20 PZ   c30
+$set:%disp1_foil%[1206 -1207  1208 -1209  1210 -1211]
+
+$O-ring
+1212 20 TZ  0 0 -0.15  (1.5+0.3) 0.15 0.15
+$set:%oring%[-1212]
+
+$ dispersor 1 sandwiches
+1213 PX -3.25
+1214 PX  3.25
+1215 PY -3.25
+1216 PY  3.25
+1217 20 PZ -0.60	$top sandwich
+1218 20 PZ -0.30
+1219 20 PZ (c30+0.30)	$bottom sandwich
+1220 CZ   1.5 $ beam hole
+$set:%disp1_sandw%[1213 -1214 1215 -1216  1217 -1219 #(1218 -1211) 1220]
+
+$ plate
+1221 PX -14.75
+1222 PX  14.75
+1223 PY -4.5
+1224 PY  4.5
+$plate slot
+1225 PX -2.535
+1226 PX  2.535
+1227 PY (4.5-2.23)
+$set:%disp1_plate%[1221 -1222 1223 -1224  1218 -1211 #(1225 -1226 -1227)]
+set: c40[ 35.0e-4 ]	$dispersor 2 thickness
+set: c41[ 0.175 ]	$o-ring thickness
+$set: %disp2_TR%[30]	$disp 2 translation number (leave blank for not)
+
+$[ Surface ]
+1300 PX  -30.0
+1301 PX   30.0
+1302 PY  -19.0
+1303 PY   19.0
+1304 30 PZ   (-2*c41-1.14)
+1305 30 PZ   (0.21)
+$set:%disp2_zone%[1300 -1301 1302 -1303 1304 -1305]
+$set:%disp2_zone%[1304 -1305]	$use with %workzone%
+
+$Pb foil (lower pz from attenuator)
+1306 PX  -3.7
+1307 PX   3.7
+1308 PY  -3.7
+1309 PY   3.7
+1310 30 PZ   0.0
+1311 30 PZ   c40
+$set:%disp2_foil%[1306 -1307  1308 -1309  1310 -1311]
+
+$O-ring
+1312 30 TZ  0 0 (-c41)  (3.5+0.35) (c41) (c41)
+$set:%oring2%[-1312]
+
+$ dispersor 2 sandwiches
+1313 PX -4.75
+1314 PX  4.75
+1315 PY -6.0
+1316 PY  6.0
+1317 30 PZ (-2*c41-0.14)	$top sandwich
+1318 30 PZ (-2*c41)
+1319 30 PZ (c40+0.14)	$bottom sandwich
+1320 CZ  3.5 $ beam hole
+$set:%disp2_sandw%[1313 -1314 1315 -1316  1317 -1319 #(1318 -1311) 1320]
+set: c50[ 0.62 ]	$occluder radius, ANTES TENIA
+set: c51[ 0.2 ]	$occluder thickness (effective)
+set: c52[ 0.335 ]	$occluder leg radius
+set: c53[ 5.44 - 0.45 ]	$distance from center to occluder hang screws
+set: c54[ 0.01175 ]	$nylon wire radius
+set: c55[ 2*c54 + 0.2 ]	$plate top surface
+set: c56[ 0.2 ]	$plate thickness
+$set: %ocl_TR%[40]	$occluder translation number (leave blank for not)
+
+$[ Surface ]
+1400 PX  -30.0
+1401 PX   30.0
+1402 PY  -19.0
+1403 PY   19.0
+1404 40 PZ   (-0.2665+0.21)
+1405 40 PZ   (c51+1.2)
+$set:%ocl_zone%[1400 -1401 1402 -1403 1404 -1405]
+$set:%ocl_zone%[1404 -1405]	$use with %workzone%
+
+$occluder
+1406 CZ  c50
+1407 40 PZ  0.0
+1408 40 PZ  c51
+
+$occluder leg
+1409 CZ  c52
+1410 40 PZ  (c51+0.2)
+$set:%occluder%[1407 ((-1406 -1408):(-1409 -1410))]
+
+$nylon wires
+1411 40 RCC  (-c53)     (c52+c54) (c51+c54)   (2*c53) 0.0 0.0  c54
+1412 40 RCC  (-c53)    -(c52+c54) (c51+c54)   (2*c53) 0.0 0.0  c54
+1413 40 RCC -(c52+c54)  (-c53)    (c51+c54)   0.0 (2*c53) 0.0  c54
+1414 40 RCC  (c52+c54)  (-c53)    (c51+c54)   0.0 (2*c53) 0.0  c54
+$set:%ocl_wires%[-1411:-1412:-1413:-1414]
+
+$ occluder holder plate
+1415 PX -14.75
+1416 PX  14.75
+1417 PY -7.0
+1418 PY  7.0
+1419 40 PZ  c55
+1420 40 PZ  (c55+c56)
+1421 CZ  4.0
+$set:%ocl_plate%[1415 -1416 1417 -1418 1419 -1420 1421]
+$infl:{./dat/Su_fondo.inp}
+$infl:{./dat/Su_fondo_mylar.inp}
+$infl:{./dat/Su_diodos.inp}
+$infl:{./dat/Su_ridge_filter_4.inp}
+set: c70[ 0.146255 ]	$pin radius r = sqrt(0.24 * 0.28 / pi)
+set: c701[ 0.04/2 ]	$step 1 width
+set: c702[ 0.04/2 ]	$step 2 width
+set: c703[ 0.05/2 ]	$step 3 width
+set: c704[ 0.05/2 ]	$step 4 width
+set: c705[ 0.05/2 ]	$step 5 width
+set: c706[ 0.06/2 ]	$step 6 width
+set: c707[ 0.07/2 ]	$step 7 width
+set: c708[ 0.09/2 ]	$step 8 width
+set: c709[ 0.18/2 ]	$step 9 width
+set: c71[ c701 + c702 + c703 + c704 + c705 + c706 + c707 + c708 + c709 ]	$half width
+set: c75[ 0.02 ]	$steps thickness
+set: c76[ 0.5 ]	$Ridge filter 3D print base thickness
+set: c77[ -c76 + 0.42 ]	$steps max height - depth from printed surface
+$set: %pin_TR%[60]	$attn translation number (leave blank for not)
+
+$[ Surface ]
+$ workspace
+1600 PX  -30.0
+1601 PX   30.0
+1602 PY  -19.0
+1603 PY   19.0
+1604 60 PZ  0.0
+1605 60 PZ  0.43	$bottom of the plate
+1621 60 PZ (-c76)
+1623 60 PZ (c76)
+$set:%pin_zone%[1621 -1623]	$use with %workzone%
+
+
+$ PiN diodes
+1607 C/Z  4.5  4.5  c70
+1608 C/Z  4.5 -4.5  c70
+1609 C/Z -4.5  4.5  c70
+1610 C/Z -4.5 -4.5  c70
+$set:%pin_diodes%[1604 -1605 (-1607:-1608:-1609:-1610)]
+
+$Pin diodes plate
+1611 PX -14.75
+1612 PX  14.75
+1613 PY -9.5
+1614 PY  9.5
+
+$beam hole (square)
+1615 PX -2.5
+1616 PX  2.5
+1617 PY -2.5
+1618 PY  2.5
+$set:%pins_plate%[1611 -1612 1613 -1614 1604 -1605 #(1615 -1616 1617 -1618)]
+
+
+$RIDGE FILTER body 3D printed
+1619 PX -3.75
+1620 PX  3.75
+1622 PY  3.1
+1624 CZ  2.25	$beam hole
+
+$RIDGE FILTER TAB 3D printed
+1625 PX  -8.5
+1626 PY (-2.5+2.0)
+$set:%ridge_filter_base%[1617 1624 ((1615 -1616 -1618 1604 -1623):(((1619 -1622):(1625 -1626)) -1620 1621 -1604))]
+
+$RIDGE filter grid zone
+1627 60 PZ (c77)
+$1628 PX  2.0	$real print limit
+1629 60 PZ (c77+8*c75)	$bottom of ladders
+$set:%ridge_filter_grid%[1627 -1629 -1624]
+
+$RIDGE filter unit (U=1)
+1630 PX -(c71)
+1631 PX  (c71)
+$set:%ridge_unit%[1630 -1631]
+
+$RIDGE filter ladder (U=2)
+$step 1
+1632 PX -(c701)
+1633 PX  (c701)
+1634 60 PZ (c77+c75)
+$step 2
+1635 PX -(c701+c702)
+1636 PX  (c701+c702)
+1637 60 PZ (c77+2*c75)
+$step 3
+1638 PX -(c701+c702+c703)
+1639 PX  (c701+c702+c703)
+1640 60 PZ (c77+3*c75)
+$step 4
+1641 PX -(c701+c702+c703+c704)
+1642 PX  (c701+c702+c703+c704)
+1643 60 PZ (c77+4*c75)
+$step 5
+1644 PX -(c701+c702+c703+c704+c705)
+1645 PX  (c701+c702+c703+c704+c705)
+1646 60 PZ (c77+5*c75)
+$step 6
+1647 PX -(c701+c702+c703+c704+c705+c706)
+1648 PX  (c701+c702+c703+c704+c705+c706)
+1649 60 PZ (c77+6*c75)
+$step 7
+1650 PX -(c701+c702+c703+c704+c705+c706+c707)
+1651 PX  (c701+c702+c703+c704+c705+c706+c707)
+1652 60 PZ (c77+7*c75)
+$step 8
+1653 PX -(c701+c702+c703+c704+c705+c706+c707+c708)
+1654 PX  (c701+c702+c703+c704+c705+c706+c707+c708)
+$set:%ridge_ladder_a%[(1632 -1633):(1634 1635 -1636):(1637 1638 -1639):(1640 1641 -1642):(1643 1644 -1645)]
+$set:%ridge_ladder_b%[(1646 1647 -1648):(1649 1650 -1651):(1652 1653 -1654)]
+
+$set: c100[ c7 + c61 - c63 - c68 ]	$cell monolayer start
+$set: c101[ c100 + c68 ]	$cell monolayer
+$set: c102[ c7 + c61 - c63 - c601 ]	$Liquid medium start
+$set: c103[ c102 + c69 ]	$Liquid medium
+$For inverted Petri
+$$set: c100[ c7 + c61 - c66 - c67 + c65 ]	$cell monolayer start
+$$set: c101[ c100 + c68 ]	$cell monolayer
+
+$ POUCH (hamster cheek pouch)
+100 90 ell -0.15 0.0 60.48  1.65 0.0 0.0  -0.8
+
+$ Planos de corte para definir el pouch (espesor 0.2 cm)
+202 90 pz 60.58
+201 90 pz 60.38
+
+$ Gel de ultrasonido de 0.1cm de altura total, 0.05 respecto pouch
+4000 90 rpp -1.4685 1.7315  -1.750 1.750  60.33 60.58
+
+$ Cinta scotch --> asumiendo grosor 0.005 cm respecto del pouch
+8000 90 rpp -1.4685 1.7315  -1.750 1.750  60.375 60.38
+
+$ POSICIONADOR
+$[ S u r f a c e ]
+
+$ Caja exterior de acrilico
+3000 90 rpp -14.9385 -1.4685  -2.609 2.621  58.08 63.0
+
+$ Hueco interior
+3100 90 rpp -14.6885 -1.7185  -2.359 2.371  58.08 62.75
+
+$ Hueco hacia trampolin
+3200 90 rpp -1.7185 -1.4685  -1.750 1.750  60.18 61.01
+
+$ Trampolin / soporte del pouch igual al real
+3300 90 rpp -1.4685 1.7315  -1.750 1.750  60.58 61.01
+
+$------------------------ Pileta trampolin de PLA ------------------------
+
+$ Pared izq (hacia y positivo)
+3400 90 rpp -1.4685 1.7315   1.750 2.05  60.58 61.01
+
+$ Pared der
+3500 90 rpp -1.4685 1.7315  -2.05 -1.750  60.58 61.01
+
+$ Pared frontal
+3600 90 rpp 1.7315 2.0315  -2.05 2.05  60.33 61.01
+
+$------------nivel para poner gel--------------------------------
+
+$ nivel izq
+9000 90 rpp -1.4685 1.7315   1.75 2.05  60.33 60.38
+
+$ nivel der
+9001 90 rpp -1.4685 1.7315  -2.05 -1.75  60.33 60.38
+
+$ nivel izq inferior / extensión
+9002 90 rpp -1.4685 1.7315   1.35 2.05   60.38 60.58
+
+$ nivel der inferior / extensión
+9003 90 rpp -1.4685 1.7315  -2.05 -1.35  60.38 60.58
+
+$ tapa completa abajo
+
+9004 90 rpp -1.4685 2.05 -2.05 2.05 61.01 61.21
+
+$-------------BLINDAJE-------------------------------
+$ Tapa: superficie superior
+3700 90 rpp -14.9385 -1.4685  -2.609 2.621  57.58 58.08
+
+$------------guillotina----------------------------
+
+3800 90 rpp -1.7185 -1.4685  -1.750 1.750  58.08 60.38  $ le dejo 2 mm de aire
+
+$ HAMSTER
+$[ S u r f a c e ]
+
+$ Hamster elipsoidal centrado y apoyado en el hueco 3100
+$ 5000 ell -8.2035 0.006 60.08 6.0 0.0 0.0 2.0                 $ xo, yo, zo, log del semieje en x, long del semieje en y, long del semieje en z.
+
+$ Hamster centrado en el hueco y apoyado sobre la base
+5000 90 ell -7.5 0.006 60.75  6.0 0.0 0.0  -2.0
+
+10000 rcc 0 0 98.13  0 0 0.2 0.05
+
+
+[ Transform ]
+set: c900[ 38 ]
+
+TR10  0 0 c3  0 0 0  0 0  0 0  0 0  3	$attenuator height
+TR20  0 0 c4  0 0 0  0 0  0 0  0 0  3	$disp 1 height
+TR21 0 -0.2251 0  0 0 0  0 0 0 0 0 0  2	$disp 1 y-correction
+TR30  0 0 c5  0 0 0  0 0  0 0  0 0  3	$disp 2 height
+*TR31 0 0 0  0 0 0  3 21.841 0 0 0 0  3 	$disp 2 rotation = atan2( 2.0/4.99 )
+TR40  0 0 c6  0 0 0  0 0  0 0  0 0  3	$occluder height
+TR50  0 0 101.0  0 0 0  0 0  0 0  0 0  3	$sample table height
+TR60  0 0 c8  0 0 0  0 0  0 0  0 0  3	$pin diodes height
+$TR61  0 0 c100  0 0 0  0 0  0 0  0 0  3	$monolayer cell height
+$TR62  0 0 c102  0 0 0  0 0  0 0  0 0  3	$liquid medium height
+*TR90  0 0.15 c900   0 0 0   3 90  0 0  0 0   3
+tr100  -4  -7.8 0
+tr101   4  -7.8 0
+
+[ Cell ]
+
+10000 1  -1.205e-3  -10000
+$10001 %air%  -10000 trcl=100
+$10002 %air%  -10000 trcl=101
+
+$[ Cell ]
+101 0 -10  11	$ Vacuum inside accelerator tube
+102 4  -8.03   (-12:-13) 10   11	$ accelerator tube exit
+103 3  -5.2 ((24 -25) ((6 -7 (3:29:30)):(7 -23 22)):(((26 -24):(25 -27)) 6 -23)) 28 31 -8 19 20 21 #(14 -15 16 -17 18 -9)	$ magnet body
+104 5  -8.3 -11	$Havar
+
+$set:%cell_iman%[104]
+$set:%vol_iman%[28.274334E-4] $(PI*1.5^2*4.0E-4)
+$[ Cell ]
+$2000 %air%  %profilezone% #2001 $#101 #102 #104  #510 #6000 #6001 #6002 #6003 #700 #6009 #6008 $Air inside
+2001 2  -2.6989   -1006:-1007:-1008:-1009:-1010:-1011:-1012:-1013  #700 $profiles for pilar #6000 #6001 #6002 #6003
+
+$set:%outside_stuff%[#101 #102 #103 #104]
+$set:%exclusions%[#510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008 #10000]
+
+$ [ Cell ]
+$100 -1  %att_zone%	$Deep space
+
+2100 1  -1.205e-3  4 -5 6 -7 1104 -1105 #2101 #2102 #2106 #2107 #2108 #510 #700 #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008 #10000	$fill w/ air
+2101 1  -1.205e-3   1106 -1107 1108 -1109 1110 -1111 1112	$attenuator base
+2102 0      1110 -1111 -1112 #2106 FILL=1	$attenuator grid area
+2103 0      1113 -1114 1115 -1116  LAT=1 U=1 FILL=2	$attenuator fundamental unit
+2104 1  -1.205e-3   1117  U=2	$material
+2105 1  -1.205e-3 -1117  U=2	$holes
+2106 1  -1.205e-3 (-1118:-1119) -1112  1110 -1111	$drill bits stuck
+2107 1  -1.205e-3  -1126:(1121 -1122  1123 -1124  1110 -1125) 1120 #2101 #2102 #2106	$attenuator holder 3D printed
+
+2108 1  -1.205e-3   1127 -1128 1129 -1130 1131 -1132 1120 #2107	$plate
+
+$set:%cell_atbase%[2101]
+$set:%vol_atbase%[((25-PI*c21*c21)*c20)]
+$set:%cell_atgrid%[( 2104 < 2103 < 2102 )]
+$set:%vol_atgrid%[(PI*c21*c21*c20*42/43)]
+$set:%cell_atbits%[2106]
+$set:%vol_atbits%[(2*PI*c23*c23*c20)]
+$set:%cell_atholder%[2107]
+$set:%vol_atholder%[(8.016+47.61*c24-25*c20-PI*2.25*(c24-c20))]
+$ [ Cell ]
+$100 -1 #( %disp1_zone% ) #510 #600 TRCL=30	#700 $Deep space
+
+2200 1  -1.205e-3  4 -5 6 -7 1204 -1205 #2201 #2202 #2203 #2204 #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008 #10000	$fill w/ air
+2201 6  -11.35   1206 -1207  1208 -1209  1210 -1211 TRCL=21	$scatterer foil 1
+2202 11  -1.0  -1212 TRCL=21	$O-ring
+2203 2  -2.6989   1213 -1214 1215 -1216  1217 -1219 #(1218 -1211) 1220 TRCL=21	$Al sandwich
+2204 2  -2.6989   1221 -1222 1223 -1224  1218 -1211 #(1225 -1226 -1227)	$plate
+
+$set:%cell_disp1%[2201]
+$set:%vol_disp1%[(16*c30)]
+$ [ Cell ]
+$100 -1 #( %disp1_zone% ) TRCL=30	$Deep space
+
+2300 1  -1.205e-3  4 -5 6 -7 1304 -1305 #2301 #2302 #2303 #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008 #10000	$fill w/ air
+2301 6  -11.35   1306 -1307  1308 -1309  1310 -1311 TRCL=31	$scatterer foil 2
+2302 11  -1.0  -1312	$O-ring
+2303 2  -2.6989   1313 -1314 1315 -1316  1317 -1319 #(1318 -1311) 1320 TRCL=31	$Al sandwich
+
+$set:%cell_disp2%[2301]
+$set:%vol_disp2%[(54.76*c40)]
+$ [ Cell ]
+$100 -1 #( %disp1_zone% ) TRCL=30	$Deep space
+
+2400 1  -1.205e-3    4 -5 6 -7  1404 -1405 #2401 #2402 #2403 #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008 #10000	$fill w/ air
+2401 2  -2.6989     1407 ((-1406 -1408):(-1409 -1410))	$occluder
+2402 9  -1.14  -1411:-1412:-1413:-1414
+2403 2  -2.6989     1415 -1416 1417 -1418 1419 -1420 1421
+
+$set:%cell_oclusor%[2401]
+$set:%vol_oclusor%[(PI*(c50*c50*c51+c52*c52*0.2))]
+$infl:{./dat/Ce_fondo.inp}
+$infl:{./dat/Ce_fondo_mylar.inp}
+$infl:{./dat/Ce_diodos.inp}
+$infl:{./dat/Ce_ridge_filter_4.inp}
+$ [ Cell ]
+$100 -1  %att_zone%	$Deep space
+
+2600 1  -1.205e-3  4 -5 6 -7 1621 -1623 #2601 #2602 #2603 #2604 #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008 #10000	$fill w/ air
+2601 13 -2.329  1604 -1605 (-1607:-1608:-1609:-1610)
+2602 2  -2.6989  1611 -1612 1613 -1614 1604 -1605 #(1615 -1616 1617 -1618) #2601
+2603 10  -1.24 1617 1624 ((1615 -1616 -1618 1604 -1623):(((1619 -1622):(1625 -1626)) -1620 1621 -1604))
+2604 0     1627 -1629 -1624 FILL=3
+2605 0     1630 -1631 LAT=1 U=3 FILL=4
+2606 10  -1.24 (1632 -1633):(1634 1635 -1636):(1637 1638 -1639):(1640 1641 -1642):(1643 1644 -1645)
+			: (1646 1647 -1648):(1649 1650 -1651):(1652 1653 -1654) U=4	$ladder
+2607 1  -1.205e-3 #((1632 -1633):(1634 1635 -1636):(1637 1638 -1639):(1640 1641 -1642):(1643 1644 -1645)
+			: (1646 1647 -1648):(1649 1650 -1651):(1652 1653 -1654)) U=4	$air
+
+$set:%cell_rfbase%[2603]
+$set:%vol_rfbase%[(c76*40.19137)]  $5*5+5*7.5-2*PI*2.25^2+4.75*2.0
+$set:%cell_rfgrid%[(2606 < 2605 < 2604)]
+$set:%vol_rfgrid%[(15.850477*c75*(8*c701+7*c702+6*c703+5*c704+4*c705+3*c706+2*c707+c708)/c71)] $PI*2.25^2*8*c75/(8*c71)*sum*0.996615 (volume dif)
+
+$ Pouch
+510 16 -1.0  -100  201  -202 #6006 #6005 #6004 #800
+
+$ Gel ultrasonido
+600 8 -1.0  -4000 #510 #700 #800 #6006 #6005 #6004 #9000 #9001 #9002 #9003
+
+$ Cinta scotch
+800 20 -1.20  -8000 #6006 #9000 #9001 #9002 #9003
+
+
+$ POSICIONADOR
+$ [ C e l l ]
+
+$ Caja acrilica hueca
+6000 17  -1.18  -3000 3100 3200 #6001 #6002 #6003 #510 #600 #700 #800 #6008 #9000 #9001 #9002 #9003 #9004
+
+$ Aire dentro de la caja
+6001 1  -1.205e-3       -3100 #510 #600 #700 #800 #6008
+
+$ Aire en el hueco hacia el trampolin
+6002 1  -1.205e-3       -3200 #510 #600 #700 #800 #6008 #9000 #9001 #9002 #9003
+
+$ Trampolin acrilico
+6003 17  -1.18  -3300 #510 #600 #700 #6006 #6005 #6004
+
+$------------------------ Pileta trampolin de PLA ------------------------
+
+$ Pared izq #510 #600 #700 #800 #2001 #6003
+6004 10  -1.24  -3400
+
+$ Pared der #510 #600 #700 #800 #2001
+6005 10  -1.24  -3500
+
+$ Pared frontal #510 #600 #800 #700 #2001
+6006 10  -1.24  -3600
+
+$---------------------
+
+$nivel izq
+9000 10  -1.24  -9000
+
+$nivel der
+9001 10  -1.24 -9001
+
+$ nivel izq inferior / extensión
+9002 10  -1.24 -9002
+
+$ nivel der inferior / extensión
+9003 10  -1.24 -9003
+
+$ tapa completa abajo
+9004 10  -1.24 -9004
+
+$-------------BLINDAJE-------------------------------
+$ Tapa: superficie superior
+6007 19 -0.93 -3700 #6008
+
+$ ------------ guillotina----------------------------
+6008 10  -1.24  -3800 #9000 #9001 #9002 #9003
+
+
+$ HAMSTER
+$ [ C e l l ]
+
+$ Hamster (elipsoide), excluyendo el pouch
+700 18  -1.1  -5000 #510
+
+1 -1     1  $Deep space
+$2 %air% -1 #(%workzone_walls% ((%att_zone%):(%disp1_zone%):(%disp2_zone%):(%ocl_zone%):(%sample_zone%):(%pin_zone%)))  #510
+$     %outside_stuff% %exclusions% $Cover unused workzone with air
+
+$ Modifica la Celda 2 así:
+$2 %air% -1 #(%workzone_walls% ((%att_zone%):(%disp1_zone%):(%disp2_zone%):(%ocl_zone%):(%pin_zone%))) #510 #600 #700 #103 #6000 #6001 #6002 #6003
+$      %outside_stuff% %exclusions%
+2 1  -1.205e-3 -1 #(4 -5 6 -7 ((1104 -1105):(1204 -1205):(1304 -1305):(1404 -1405):(1621 -1623)))
+     #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008 #10000
+     #9000
+     #9001
+     #9002
+     #9003
+     #9004
+     #101 #102 #103 #104
+
+[ Volume ]
+ reg    vol
+ 104    28.274334E-4
+ 2101   ((25-PI*c21*c21)*c20)
+ ( 2104 < 2103 < 2102 )   (PI*c21*c21*c20*42/43)
+ 2106   (2*PI*c23*c23*c20)
+ 2107 (8.016+47.61*c24-25*c20-PI*2.25*(c24-c20))
+ 2201    (16*c30)
+ 2301    (54.76*c40)
+ 2401  (PI*(c50*c50*c51+c52*c52*0.2))
+
+$ --- ESTAS LÍNEAS ESTÁN DANDO EL ERROR ---
+$ %cell_albase%     %vol_albase%    <-- Comenta esta
+$ %cell_petrihold%  %vol_petrihold% <-- Y esta
+$ %cell_petri%      %vol_petri%     <-- Y esta
+$ %cell_medium%     %vol_medium%    <-- Y esta
+$ -----------------------------------------
+
+ 2603   (c76*40.19137)
+ (2606 < 2605 < 2604)   (15.850477*c75*(8*c701+7*c702+6*c703+5*c704+4*c705+3*c706+2*c707+c708)/c71)
+
+$ --- No olvides definir el volumen de tu nuevo Pouch ---
+ 700  100.53
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ MODELO L $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+[ T - T r a c k ] $ flujo de protones a la altura del pouch
+mesh = xyz
+x-type = 4
+xdel = 0.3
+xmin= -10
+xmax=  10
+#xmin = -4.
+#xmax = 4.
+y-type = 4
+ydel = 0.3
+ymin= -15
+ymax=  15
+z-type = 1
+nz = 1
+98.470 98.490            $ centro del pouch z= 98.480 +- 0.01 cm / para ver la cinta: 98.373  98.378 /98.485  98.49
+part = proton photon
+e-type = 1
+ne = 1
+0.0 1000.0
+unit = 1
+axis = xy
+file = ./out/track_xy_L.out
+gshow = 1
+epsout = 1
+
+
+[ T - T r a c k ] $ flujo de particulas en yz
+mesh = xyz
+x-type = 1
+nx = 1
+0. 0.1
+y-type = 2
+ny = 150
+ymin = -10.
+ymax = 10.
+z-type = 2
+nz = 500
+zmin = -10
+zmax = 110.
+part = proton
+e-type = 1
+ne = 1
+0.0 1000.0
+unit = 1
+axis = yz
+file = ./out/track_yz_L.out
+gshow = 1
+epsout = 1
+
+[ T - T r a c k ]  $ flujo de particulas en yz
+mesh = xyz
+x-type = 1
+nx = 1
+0. 0.1
+y-type = 2
+ny = 150
+ymin = -10.
+ymax = 10.
+z-type = 2
+nz = 500
+zmin = -10
+zmax = 110.
+part = photon
+e-type = 1
+ne = 1
+0.0 1000.0
+unit = 1
+axis = yz
+file = ./out/track_yz_gamma_L.out
+gshow = 1
+epsout = 1
+
+[ T - D e p o s i t ]  $ dosis depositada en profundidad
+title = Bragg peak in pouch
+mesh = r-z
+r-type = 2
+rmin = 0.0
+rmax = 0.5
+nr = 1
+z-type = 2
+zmin = 97
+zmax = 100
+nz = 300
+part = proton
+output = dose
+unit = 0
+axis = z
+file = ./out/bragg_pouch_zL.out
+epsout = 1
+
+[ T - D e p o s i t ]  $ dosis radial en el pouch
+title = Bragg peak in pouch, ahora con radio 1
+mesh = r-z
+r-type = 2
+rmin = 0.0
+rmax = 1.7
+nr = 60
+z-type = 2
+zmin = 98.38
+zmax = 98.58
+nz = 1
+part = proton
+output = dose
+unit = 0
+axis = r
+file = ./out/bragg_pouch_rL.out
+epsout = 1
+
+[ T - Track ]  $ para ver que particulas le llega al hamster
+title = Espectro de energia
+mesh = reg
+reg = 700
+e-type = 2
+ne = 100
+emin = 1.0e-9
+emax = 25.0
+unit = 1
+axis = eng
+file = ./out/energy_hamster_L.out
+part = proton neutron alpha photon positron
+
+[ T - D e p o s i t ]   $ histograma dosis-volumen del pouch
+title = Histograma
+mesh = xyz
+x-type = 2
+xmin = -0.8
+xmax = 0.8
+nx = 16
+y-type = 2
+ymin = -1.65
+ymax = 1.65
+ny = 33
+z-type = 2
+zmin = 98.38
+zmax = 98.58
+nz = 4
+part = proton
+output = dose
+unit = 0
+axis = z
+file = ./out/histograma_dosis_L.out
+epsout = 1
+
+[ T - Deposit]
+title = Dosis xy
+mesh = xyz
+x-type = 2
+xmin = -0.8
+xmax = 0.8
+nx = 16
+y-type = 2
+ymin = -1.65
+ymax = 1.65
+ny = 33
+z-type = 2
+zmin = 98.38
+zmax = 98.58
+nz = 4
+part = proton photon
+unit = 0
+axis = xy
+file = ./out/dosis_pauch_L.out
+epsout = 1
+gshow = 1
+
+[ T - D e p o s i t ]
+
+title = Dosis depositada en el hamster de photones protones
+
+mesh = reg
+
+reg = 700
+unit = 0
+axis = reg
+file = ./out/dosis_hamster_L.out
+part = proton photon
+output = dose
+epsout = 1
+
+[ T - D e p o s i t ]
+
+title = Dosis depositada en el hamster de photones protones
+
+mesh = reg
+
+reg = 510
+unit = 0
+axis = reg
+file = ./out/dosis_pouch_L.out
+part = proton photon
+output = dose
+epsout = 1
+
+[ T - T r a c k ] $ flujo de protones a la altura del pouch
+mesh = xyz
+x-type = 2
+nx = 1
+xmin= -0.01
+xmax=  0.01
+#xmin = -4.
+#xmax = 4.
+y-type = 4
+ydel = 0.3
+ymin= -3
+ymax=  3
+z-type = 2
+nz = 100
+zmin= 95
+zmax =100
+part = proton photon
+e-type = 1
+ne = 1
+0.0 1000.0
+unit = 1
+axis = yz
+file = ./out/track_xz.out
+gshow = 1
+epsout = 1
+
+
+[ T - T r a c k ] $ flujo de protones a la altura del pouch
+mesh = xyz
+x-type = 4
+xdel = 0.1
+xmin= -10
+xmax=  10
+#xmin = -4.
+#xmax = 4.
+y-type = 4
+ydel = 0.1
+ymin= -15
+ymax=  15
+z-type = 1
+nz = 1
+98.13 98.33            $ centro del pouch z= 98.480 +- 0.01 cm / para ver la cinta: 98.373  98.378 /98.485  98.49
+part = proton
+e-type = 1
+ne = 1
+0.0 1000.0
+unit = 1
+axis = xy
+file = ./out/mapa_flujo.out
+gshow = 1
+epsout = 1
+
+[ T - T r a c k ] $ flujo de protones a la altura del  pouch y laterales
+mesh = reg
+reg= 10000
+part = proton
+e-type = 1
+ne = 1
+0.0 1000.0
+unit = 1
+axis = reg
+file = ./out/flujo_cilindros.out
+gshow = 1
+epsout = 1
+
+[ E n d ]
