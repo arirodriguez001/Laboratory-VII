@@ -1,0 +1,37 @@
+set: c40[ 35.0e-4 ]	$dispersor 2 thickness
+set: c41[ 0.175 ]	$o-ring thickness
+set: %disp2_TR%[30]	$disp 2 translation number (leave blank for not)
+
+$[ Surface ]
+1300 PX  -30.0
+1301 PX   30.0
+1302 PY  -19.0
+1303 PY   19.0
+1304 %disp2_TR% PZ   (-2*c41-1.14)
+1305 %disp2_TR% PZ   (0.21)
+$set:%disp2_zone%[1300 -1301 1302 -1303 1304 -1305]
+set:%disp2_zone%[1304 -1305]	$use with %workzone%
+
+$Pb foil (lower pz from attenuator)
+1306 PX  -3.7
+1307 PX   3.7
+1308 PY  -3.7
+1309 PY   3.7
+1310 %disp2_TR% PZ   0.0
+1311 %disp2_TR% PZ   c40
+set:%disp2_foil%[1306 -1307  1308 -1309  1310 -1311]
+
+$O-ring
+1312 %disp2_TR% TZ  0 0 (-c41)  (3.5+0.35) (c41) (c41)
+set:%oring2%[-1312]
+
+$ dispersor 2 sandwiches
+1313 PX -4.75
+1314 PX  4.75
+1315 PY -6.0
+1316 PY  6.0
+1317 %disp2_TR% PZ (-2*c41-0.14)	$top sandwich
+1318 %disp2_TR% PZ (-2*c41) 
+1319 %disp2_TR% PZ (c40+0.14)	$bottom sandwich
+1320 CZ  3.5 $ beam hole
+set:%disp2_sandw%[1313 -1314 1315 -1316  1317 -1319 #(1318 -1311) 1320]

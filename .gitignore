@@ -6,6 +6,9 @@
 !Modelo irradiacion final/
 !Modelo irradiacion final/**
 
+!pouch_cr-39/
+!pouch_cr-39/**
+
 # Permitir archivos importantes
 !.gitignore
 !README.md

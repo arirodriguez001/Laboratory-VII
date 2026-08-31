@@ -1,0 +1,38 @@
+$ [S u r f a c e]
+
+$ [S u r f a c e]
+
+$ escalones descendientes hacia y negativo
+$ 4 escalones, cada uno formado por 2 RPP de 250 um
+
+7001 90 rpp  0.9315  1.7315  -1.35 1.35  60.380 60.405   $ escalon 1 - 250 um
+7002 90 rpp  0.9315  1.7315  -1.35 1.35  60.405 60.430   $ escalon 1 - 250 um
+
+7003 90 rpp  0.1315  1.7315  -1.35 1.35  60.430 60.455   $ escalon 2 - 250 um
+7004 90 rpp  0.1315  1.7315  -1.35 1.35  60.455 60.480   $ escalon 2 - 250 um
+
+7005 90 rpp -0.6685  1.7315  -1.35 1.35  60.480 60.505   $ escalon 3 - 250 um
+7006 90 rpp -0.6685  1.7315  -1.35 1.35  60.505 60.530   $ escalon 3 - 250 um
+
+7007 90 rpp -1.4685  1.7315  -1.35 1.35  60.530 60.555   $ escalon 4 - 250 um
+7008 90 rpp -1.4685  1.7315  -1.35 1.35  60.555 60.580   $ escalon 4 - 250 um
+
+$ escalones descendientes hacia y negativo
+
+$7001 90 rpp  0.6647  1.7315  -1.35 1.35  60.38  60.405   $ escalon 1 - 250 um
+$7002 90 rpp  0.6647  1.7315  -1.35 1.35  60.405 60.43    $ escalon 1 - 250 um
+
+$7003 90 rpp -0.4019  1.7315  -1.35 1.35  60.43  60.455   $ escalon 2 - 250 um
+$7004 90 rpp -0.4019  1.7315  -1.35 1.35  60.455 60.48    $ escalon 2 - 250 um
+
+$7005 90 rpp -1.4685  1.7315  -1.35 1.35  60.48  60.53    $ escalon 3 - 500 um
+$7006 90 rpp -1.4685  1.7315  -1.35 1.35  60.53  60.58    $ escalon 4 - 500 um
+
+$ escalones descendientes hacia y positivo
+
+$7001 90 rpp -1.4685 -0.4019 -1.35 1.35 60.38 60.405 $ escalon 1 de 250 um(superior) el y lo tengo que ir cambiando, el x es fijo (o sea aca el x lo tengo q ir cambiando y el y lo dejo fijo)
+$7002 90 rpp -1.4685 -0.4019 -1.35 1.35 60.405 60.43 $ escalon 1
+$7003 90 rpp -1.4685 0.6647 -1.35 1.35 60.43 60.455 $ escalon 2
+$7004 90 rpp -1.4685 0.6647 -1.35 1.35 60.455 60.48 $ escalon 2 
+$7005 90 rpp -1.4685 1.7315 -1.35 1.35 60.48 60.53 $ escalon 3 (inferior)
+$7006 90 rpp -1.4685 1.7315 -1.35 1.35 60.53 60.58 $ escalon 4 (inferior)
