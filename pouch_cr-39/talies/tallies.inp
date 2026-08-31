@@ -1,79 +1,440 @@
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ MODELO L $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ CR 39 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-[ T - T r a c k ] $ flujo de protones a la altura del pouch
-mesh = xyz
-x-type = 4
-xdel = 0.3                
-xmin= -10 
-xmax=  10 
-#xmin = -4.
-#xmax = 4.
-y-type = 4
-ydel = 0.3 
-ymin= -15 
-ymax=  15              
-z-type = 1
-nz = 1
-98.470 98.490            $ centro del pouch z= 98.480 +- 0.01 cm / para ver la cinta: 98.373  98.378 /98.485  98.49
-part = proton photon 
-e-type = 1
+
+$$$$$ lamina 1 $$$$$
+
+[T-Track]
+
+mesh = reg
+reg = 7001
+volume
+reg    vol
+7001   0.054
+part = proton
+e-type = 2
 ne = 1
-0.0 1000.0
+emin = 1.0e-9
+emax = 1000.0
+unit = 1
+axis = reg 
+file = ./out/flujo1_reg.out
+
+[T-Track]
+
+mesh = xyz
+x-type = 2
+nx = 27
+xmin = -1.35
+xmax =  1.35
+y-type = 2
+ny = 8
+ymin = 1.0815
+ymax = 1.8815
+z-type = 2
+nz = 1
+zmin = 98.380
+zmax = 98.405
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-9
+emax = 25.0
 unit = 1
 axis = xy
-file = ./out/track_xy_L.out
-gshow = 1
+file = ./out/flujo1_xyz.out
 epsout = 1
 
+$$$$$ lamina 2 $$$$$
 
-[ T - T r a c k ] $ flujo de particulas en yz
-mesh = xyz
-x-type = 1
-nx = 1
-0. 0.1
-y-type = 2
-ny = 150          
-ymin = -10.
-ymax = 10.
-z-type = 2            
-nz = 500
-zmin = -10 
-zmax = 110.
+[T-Track]
+
+mesh = reg
+reg = 7002
+volume
+reg    vol
+7002   0.054
 part = proton
-e-type = 1
+e-type = 2
 ne = 1
-0.0 1000.0
+emin = 1.0e-9
+emax = 25.0
 unit = 1
-axis = yz
-file = ./out/track_yz_L.out
-gshow = 1
+axis = reg
+file = ./out/flujo2_reg.out
 epsout = 1
 
-[ T - T r a c k ]  $ flujo de particulas en yz
+[T-Track]
+
 mesh = xyz
-x-type = 1
-nx = 1
-0. 0.1
+x-type = 2
+nx = 27
+xmin = -1.35
+xmax =  1.35
 y-type = 2
-ny = 150          
-ymin = -10.
-ymax = 10.
-z-type = 2            
-nz = 500
-zmin = -10 
-zmax = 110.
-part = photon
-e-type = 1
+ny = 8
+ymin = 1.0815
+ymax = 1.8815
+z-type = 2
+nz = 1
+zmin = 98.405
+zmax = 98.430
+part = proton
+e-type = 2
 ne = 1
-0.0 1000.0
+emin = 1.0e-9
+emax = 25.0
 unit = 1
-axis = yz
-file = ./out/track_yz_gamma_L.out
-gshow = 1
+axis = xy
+file = ./out/flujo2_xyz.out
 epsout = 1
+
+$$$$$ lamina 3 $$$$$
+
+[T-Track]
+
+mesh = reg
+reg = 7003
+volume
+reg    vol
+7003   0.108
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-9
+emax = 25.0
+unit = 1
+axis = reg
+file = ./out/flujo3_reg.out
+epsout = 1
+
+[T-Track]
+
+mesh = xyz
+x-type = 2
+nx = 27
+xmin = -1.35
+xmax = 1.35
+y-type = 2
+ny = 16
+ymin = 0.2815
+ymax = 1.8815
+z-type = 2
+nz = 1
+zmin = 98.430
+zmax = 98.455
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-9
+emax = 25.0
+unit = 1
+axis = xy
+file = ./out/flujo3_xyz.out
+epsout = 1
+
+$$$$$ lamina 4 $$$$$
+
+[T-Track]
+
+mesh = reg
+reg = 7004
+volume
+reg    vol
+7004   0.108
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-9
+emax = 25.0
+unit = 1
+axis = reg
+file = ./out/flujo4_reg.out
+epsout = 1
+
+[T-Track]
+
+mesh = xyz
+x-type = 2
+nx = 27
+xmin = -1.35
+xmax = 1.35
+y-type = 2
+ny = 16
+ymin = 0.2815
+ymax = 1.8815
+z-type = 2
+nz = 1
+zmin = 98.455
+zmax = 98.480
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-9
+emax = 25.0
+unit = 1
+axis = xy
+file = ./out/flujo4_xyz.out
+epsout = 1
+
+$$$$$ lamina 5 $$$$$
+
+[T-Track]
+
+mesh = reg
+reg = 7005
+volume
+reg    vol
+7005   0.162
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-9
+emax = 25.0
+unit = 1
+axis = reg
+file = ./out/flujo5_reg.out
+epsout = 1
+
+[T-Track]
+
+mesh = xyz
+x-type = 2
+nx = 27
+xmin = -1.35
+xmax = 1.35
+y-type = 2
+ny = 24
+ymin = -0.5185
+ymax = 1.8815
+z-type = 2
+nz = 1
+zmin = 98.480
+zmax = 98.505
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-9
+emax = 25.0
+unit = 1
+axis = xy
+file = ./out/flujo5_xyz.out
+epsout = 1
+
+$$$$$$$ lamina 6 $$$$$
+
+[T-Track]
+
+mesh = reg
+reg = 7006
+volume
+reg    vol
+7006   0.162
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-9
+emax = 25.0
+unit = 1
+axis = reg
+file = ./out/flujo6_reg.out
+epsout = 1
+
+[T-Track]
+
+mesh = xyz
+x-type = 2
+nx = 27
+xmin = -1.35
+xmax = 1.35
+y-type = 2
+ny = 24
+ymin = -0.5185
+ymax = 1.8815
+z-type = 2
+nz = 1
+zmin = 98.505
+zmax = 98.530
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-9
+emax = 25.0
+unit = 1
+axis = xy
+file = ./out/flujo6_xyz.out
+epsout = 1
+
+$$$$$$ lamina 7 $$$$$
+
+[T-Track]
+
+mesh = reg
+reg = 7007
+volume
+reg    vol
+7007   0.216
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-9
+emax = 25.0
+unit = 1
+axis = reg
+file = ./out/flujo7_reg.out
+epsout = 1
+
+[T-Track]
+
+mesh = xyz
+x-type = 2
+nx = 27
+xmin = -1.35
+xmax = 1.35
+y-type = 2
+ny = 32
+ymin = -1.3185
+ymax = 1.8815
+z-type = 2
+nz = 1
+zmin = 98.530
+zmax = 98.555
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-9
+emax = 25.0
+unit = 1
+axis = xy
+file = ./out/flujo7_xyz.out
+epsout = 1
+
+$$$$$ lamina 8 $$$$$
+
+[T-Track]
+
+mesh = reg
+reg = 7008
+volume
+reg    vol
+7008   0.216
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-9
+emax = 25.0
+unit = 1
+axis = reg
+file = ./out/flujo8_reg.out
+epsout = 1
+
+[T-Track]
+
+mesh = xyz
+x-type = 2
+nx = 27
+xmin = -1.35
+xmax = 1.35
+y-type = 2
+ny = 32
+ymin = -1.3185
+ymax = 1.8815
+z-type = 2
+nz = 1
+zmin = 98.555
+zmax = 98.580
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-9
+emax = 25.0
+unit = 1
+axis = xy
+file = ./out/flujo8_xyz.out
+epsout = 1
+
+$ Medimos dosis: 
+
+[ T - D e p o s i t ]   $ histograma dosis-volumen CR39 + gel
+
+title = Histograma
+mesh = xyz
+x-type = 2
+xmin = -1.7500
+xmax = 1.7500
+nx = 35
+y-type = 2
+ymin = -1.3185
+ymax = 1.8815
+ny = 32
+z-type = 2
+zmin = 98.330
+zmax = 98.580
+nz = 10
+part = proton
+output = dose
+unit = 0
+axis = z
+file = ./out/histograma_dosis_CR39.out
+epsout = 1
+
+$ Espectros a la entrada y salida:
+
+[ T - C r o s s ]
+
+title = Espectro entrada CR39
+mesh = xyz
+x-type = 2
+xmin = -1.35
+xmax = 1.35
+nx = 1
+y-type = 2
+ymin = 1.0815
+ymax = 1.8815
+ny = 1
+z-type = 1
+nz = 0
+98.3801
+part = proton
+e-type = 2
+ne = 100
+emin = 1.0e-9
+emax = 25.0
+output = f-curr
+unit = 2
+axis = eng
+file = ./out/espectro_entrada_CR39.out
+epsout = 1
+
+[ T - C r o s s ]
+
+title = Espectro salida CR39
+mesh = xyz
+x-type = 2
+xmin = -1.35
+xmax = 1.35
+nx = 1
+y-type = 2
+ymin = -1.3185
+ymax = 1.8815
+ny = 1
+z-type = 1
+nz = 0
+98.5799
+part = proton
+e-type = 2
+ne = 100
+emin = 1.0e-9
+emax = 25.0
+output = f-curr
+unit = 2
+axis = eng
+file = ./out/espectro_salida_CR39.out
+epsout = 1
+
+$ Pico de Bragg (SOBP)
 
 [ T - D e p o s i t ]  $ dosis depositada en profundidad
-title = Bragg peak in pouch
+title = Bragg peak in cr
 mesh = r-z
 r-type = 2
 rmin = 0.0
@@ -87,173 +448,11 @@ part = proton
 output = dose
 unit = 0
 axis = z
-file = ./out/bragg_pouch_zL.out
+file = ./out/bragg_cr.out
 epsout = 1
 
-[ T - D e p o s i t ]  $ dosis radial en el pouch
-title = Bragg peak in pouch, ahora con radio 1
-mesh = r-z
-r-type = 2
-rmin = 0.0
-rmax = 1.7     
-nr = 60
-z-type = 2
-zmin = 98.38
-zmax = 98.58
-nz = 1
-part = proton
-output = dose
-unit = 0
-axis = r
-file = ./out/bragg_pouch_rL.out
-epsout = 1
-
-[ T - Track ]  $ para ver que particulas le llega al hamster
-title = Espectro de energia
-mesh = reg
-reg = 700
-e-type = 2
-ne = 100
-emin = 1.0e-9
-emax = 25.0
-unit = 1
-axis = eng
-file = ./out/energy_hamster_L.out
-part = proton neutron alpha photon positron
-
-[ T - D e p o s i t ]   $ histograma dosis-volumen del pouch
-title = Histograma
-mesh = xyz
-x-type = 2               
-xmin = -0.8
-xmax = 0.8
-nx = 16
-y-type = 2                 
-ymin = -1.65
-ymax = 1.65
-ny = 33 
-z-type = 2
-zmin = 98.38
-zmax = 98.58
-nz = 4
-part = proton
-output = dose
-unit = 0
-axis = z
-file = ./out/histograma_dosis_L.out
-epsout = 1
-
-[ T - Deposit]   
-title = Dosis xy 
-mesh = xyz
-x-type = 2               
-xmin = -0.8
-xmax = 0.8
-nx = 16
-y-type = 2                 
-ymin = -1.65
-ymax = 1.65
-ny = 33 
-z-type = 2
-zmin = 98.38
-zmax = 98.58
-nz = 4
-part = proton photon 
-unit = 0
-axis = xy 
-file = ./out/dosis_pauch_L.out
-epsout = 1
-gshow = 1
-
-[ T - D e p o s i t ]
-
-title = Dosis depositada en el hamster de photones protones
-
-mesh = reg
-
-reg = 700
-unit = 0
-axis = reg
-file = ./out/dosis_hamster_L.out
-part = proton photon 
-output = dose
-epsout = 1
-
-[ T - D e p o s i t ] off
-
-title = Dosis depositada en el hamster de photones protones
-
-mesh = reg
-
-reg = 510
-unit = 0
-axis = reg
-file = ./out/dosis_pouch_L.out
-part = proton photon 
-output = dose
-epsout = 1
-
-[ T - T r a c k ] $ flujo de protones a la altura del pouch
-mesh = xyz
-x-type = 2
-nx = 1                 
-xmin= -0.01
-xmax=  0.01
-#xmin = -4.
-#xmax = 4.
-y-type = 4
-ydel = 0.3 
-ymin= -3 
-ymax=  3              
-z-type = 2
-nz = 100
-zmin= 95
-zmax =100 
-part = proton photon 
-e-type = 1
-ne = 1
-0.0 1000.0
-unit = 1
-axis = yz
-file = ./out/track_xz.out
-gshow = 1
-epsout = 1
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 
-[ T - T r a c k ] $ flujo de protones a la altura del pouch
-mesh = xyz
-x-type = 4
-xdel = 0.1                
-xmin= -10 
-xmax=  10 
-#xmin = -4.
-#xmax = 4.
-y-type = 4
-ydel = 0.1 
-ymin= -15 
-ymax=  15              
-z-type = 1
-nz = 1
-98.13 98.33            $ centro del pouch z= 98.480 +- 0.01 cm / para ver la cinta: 98.373  98.378 /98.485  98.49
-part = proton 
-e-type = 1
-ne = 1
-0.0 1000.0
-unit = 1
-axis = xy
-file = ./out/mapa_flujo.out
-gshow = 1
-epsout = 1
 
-[ T - T r a c k ] off $ flujo de protones a la altura del  pouch y laterales 
-mesh = reg 
-reg= 10000 
-part = proton 
-e-type = 1
-ne = 1
-0.0 1000.0
-unit = 1
-axis = reg
-file = ./out/flujo_cilindros.out
-gshow = 1
-epsout = 1
+
