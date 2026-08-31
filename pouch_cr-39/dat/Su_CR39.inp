@@ -17,6 +17,8 @@ $ 4 escalones, cada uno formado por 2 RPP de 250 um
 7007 90 rpp -1.4685  1.7315  -1.35 1.35  60.530 60.555   $ escalon 4 - 250 um
 7008 90 rpp -1.4685  1.7315  -1.35 1.35  60.555 60.580   $ escalon 4 - 250 um
 
+$$$$$$$$$$$$$$$$$$$$$$$$$4 otras versiones $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
 $ escalones descendientes hacia y negativo
 
 $7001 90 rpp  0.6647  1.7315  -1.35 1.35  60.38  60.405   $ escalon 1 - 250 um
