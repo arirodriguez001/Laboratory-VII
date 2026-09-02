@@ -5,12 +5,12 @@ $RWT = 2
 Vertical external proton beam - modular input
 
 [ Parameters ]
-file(1) = /share/gidans/sebastiangossio/Programas/PIHTS-IFORT/phits   
-#file(1)=c:/phits
+#file(1) = C:\Users\Jessica Riback\Desktop\Labo 6y7 Basili-Rodriguez\Labo 7\bin\phits335_win.exe
+file(1)= C:\phits2
 
 icntl	= 0 $0: transport	5: source	8: 2D geometry	11: 3D geometry	14: volume	16: script mode	17: Anatally mode
-maxcas	= 10000 $ (D=10) number of particles per one batch
-maxbch	= 200000 $ (D=10) number of batches
+maxcas	= 25000 $ (D=10) number of particles per one batch
+maxbch	= 5000 $ (D=10) number of batches
 istdev	= 2 $Statistical uncertainties estimated from the standard error of: 1=each batch result. 2=each history result.
 nspred	= 2 $2= Coulomb diﬀusion by the Lynch’s formula based on the Moliere theory
 nedisp	= 1 $1= Landau Vavilov energy straggling
@@ -177,11 +177,11 @@ $$set: c100[ c7 + c61 - c66 - c67 + c65 ]	$cell monolayer start
 $$set: c101[ c100 + c68 ]	$cell monolayer
 
 $ POUCH (hamster cheek pouch)
-100 90 ell -0.15 0.0 60.48  1.65 0.0 0.0  -0.8
+100 90 ell -0.15 0.0 60.5175  1.65 0.0 0.0  -0.8
 
-$ Planos de corte para definir el pouch (espesor 0.2 cm)
+$ Planos de corte para definir el pouch (espesor 0.125 cm = 1.25 mm)
 202 90 pz 60.58
-201 90 pz 60.38
+201 90 pz 60.455
 
 $ Gel de ultrasonido de 0.1cm de altura total, 0.05 respecto pouch
 4000 90 rpp -1.4685 1.7315  -1.750 1.750  60.33 60.58  
@@ -195,7 +195,7 @@ infl:{./dat/Su_posicionador.inp}
 $ HAMSTER 
 infl:{./dat/Su_hamster.inp}
 
-10000 rcc 0 0 98.13  0 0 0.2 0.05 
+$ 10000 rcc 0 0 98.13  0 0 0.2 0.05 
 
 
 [ Transform ]
@@ -217,7 +217,7 @@ tr101   4  -7.8 0
 
 [ Cell ]
 
-10000 %air%  -10000
+$10000 %air%  -10000
 $10001 %air%  -10000 trcl=100  
 $10002 %air%  -10000 trcl=101 
 
@@ -225,7 +225,7 @@ infl:{./dat/Ce_iman.inp}
 infl:{./dat/Ce_viga.inp}
 
 set:%outside_stuff%[#101 #102 #103 #104]
-set:%exclusions%[#510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008 #10000]
+set:%exclusions%[#510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008] $ 24-8 saque el cilindrito de aire del medio del pouch #10000
 
 infl:{./dat/Ce_atenuador.inp}
 infl:{./dat/Ce_dispersor1.inp}

@@ -5,12 +5,12 @@ $rwt=0
 Vertical external proton beam - modular input
 
 [ Parameters ]
-file(1) = /share/gidans/sebastiangossio/Programas/PIHTS-IFORT/phits
-#file(1)=c:/phits
+#file(1) = C:\Users\Jessica Riback\Desktop\Labo 6y7 Basili-Rodriguez\Labo 7\bin\phits335_win.exe
+file(1)= C:\phits2
 
 icntl	= 0 $0: transport	5: source	8: 2D geometry	11: 3D geometry	14: volume	16: script mode	17: Anatally mode
-maxcas	= 10000 $ (D=10) number of particles per one batch
-maxbch	= 200000 $ (D=10) number of batches
+maxcas	= 25000 $ (D=10) number of particles per one batch
+maxbch	= 5000 $ (D=10) number of batches
 istdev	= 2 $Statistical uncertainties estimated from the standard error of: 1=each batch result. 2=each history result.
 nspred	= 2 $2= Coulomb diﬀusion by the Lynch’s formula based on the Moliere theory
 nedisp	= 1 $1= Landau Vavilov energy straggling
@@ -535,11 +535,11 @@ $$set: c100[ c7 + c61 - c66 - c67 + c65 ]	$cell monolayer start
 $$set: c101[ c100 + c68 ]	$cell monolayer
 
 $ POUCH (hamster cheek pouch)
-100 90 ell -0.15 0.0 60.48  1.65 0.0 0.0  -0.8
+100 90 ell -0.15 0.0 60.5175  1.65 0.0 0.0  -0.8
 
-$ Planos de corte para definir el pouch (espesor 0.2 cm)
+$ Planos de corte para definir el pouch (espesor 0.125 cm = 1.25 mm)
 202 90 pz 60.58
-201 90 pz 60.38
+201 90 pz 60.455
 
 $ Gel de ultrasonido de 0.1cm de altura total, 0.05 respecto pouch
 4000 90 rpp -1.4685 1.7315  -1.750 1.750  60.33 60.58
@@ -593,7 +593,7 @@ $ tapa completa abajo
 
 $-------------BLINDAJE-------------------------------
 $ Tapa: superficie superior
-3700 90 rpp -14.9385 -1.4685  -2.609 2.621  57.58 58.08
+3700 90 rpp -14.9385 -1.4685  -2.609 2.621  57.08 58.08  $ 24-8 le duplique la altura del blindaje
 
 $------------guillotina----------------------------
 
@@ -608,7 +608,7 @@ $ 5000 ell -8.2035 0.006 60.08 6.0 0.0 0.0 2.0                 $ xo, yo, zo, log
 $ Hamster centrado en el hueco y apoyado sobre la base
 5000 90 ell -7.5 0.006 60.75  6.0 0.0 0.0  -2.0
 
-10000 rcc 0 0 98.13  0 0 0.2 0.05
+$ 10000 rcc 0 0 98.13  0 0 0.2 0.05
 
 
 [ Transform ]
@@ -630,7 +630,7 @@ tr101   4  -7.8 0
 
 [ Cell ]
 
-10000 1  -1.205e-3  -10000
+$10000 %air%  -10000
 $10001 %air%  -10000 trcl=100
 $10002 %air%  -10000 trcl=101
 
@@ -647,12 +647,12 @@ $2000 %air%  %profilezone% #2001 $#101 #102 #104  #510 #6000 #6001 #6002 #6003 #
 2001 2  -2.6989   -1006:-1007:-1008:-1009:-1010:-1011:-1012:-1013  #700 $profiles for pilar #6000 #6001 #6002 #6003
 
 $set:%outside_stuff%[#101 #102 #103 #104]
-$set:%exclusions%[#510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008 #10000]
+$set:%exclusions%[#510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008] $ 24-8 saque el cilindrito de aire del medio del pouch #10000
 
 $ [ Cell ]
 $100 -1  %att_zone%	$Deep space
 
-2100 1  -1.205e-3  4 -5 6 -7 1104 -1105 #2101 #2102 #2106 #2107 #2108 #510 #700 #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008 #10000	$fill w/ air
+2100 1  -1.205e-3  4 -5 6 -7 1104 -1105 #2101 #2102 #2106 #2107 #2108 #510 #700 #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008	$fill w/ air
 2101 1  -1.205e-3   1106 -1107 1108 -1109 1110 -1111 1112	$attenuator base
 2102 0      1110 -1111 -1112 #2106 FILL=1	$attenuator grid area
 2103 0      1113 -1114 1115 -1116  LAT=1 U=1 FILL=2	$attenuator fundamental unit
@@ -674,7 +674,7 @@ $set:%vol_atholder%[(8.016+47.61*c24-25*c20-PI*2.25*(c24-c20))]
 $ [ Cell ]
 $100 -1 #( %disp1_zone% ) #510 #600 TRCL=30	#700 $Deep space
 
-2200 1  -1.205e-3  4 -5 6 -7 1204 -1205 #2201 #2202 #2203 #2204 #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008 #10000	$fill w/ air
+2200 1  -1.205e-3  4 -5 6 -7 1204 -1205 #2201 #2202 #2203 #2204 #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008	$fill w/ air
 2201 6  -11.35   1206 -1207  1208 -1209  1210 -1211 TRCL=21	$scatterer foil 1
 2202 11  -1.0  -1212 TRCL=21	$O-ring
 2203 2  -2.6989   1213 -1214 1215 -1216  1217 -1219 #(1218 -1211) 1220 TRCL=21	$Al sandwich
@@ -685,7 +685,7 @@ $set:%vol_disp1%[(16*c30)]
 $ [ Cell ]
 $100 -1 #( %disp1_zone% ) TRCL=30	$Deep space
 
-2300 1  -1.205e-3  4 -5 6 -7 1304 -1305 #2301 #2302 #2303 #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008 #10000	$fill w/ air
+2300 1  -1.205e-3  4 -5 6 -7 1304 -1305 #2301 #2302 #2303 #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008	$fill w/ air
 2301 6  -11.35   1306 -1307  1308 -1309  1310 -1311 TRCL=31	$scatterer foil 2
 2302 11  -1.0  -1312	$O-ring
 2303 2  -2.6989   1313 -1314 1315 -1316  1317 -1319 #(1318 -1311) 1320 TRCL=31	$Al sandwich
@@ -695,7 +695,7 @@ $set:%vol_disp2%[(54.76*c40)]
 $ [ Cell ]
 $100 -1 #( %disp1_zone% ) TRCL=30	$Deep space
 
-2400 1  -1.205e-3    4 -5 6 -7  1404 -1405 #2401 #2402 #2403 #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008 #10000	$fill w/ air
+2400 1  -1.205e-3    4 -5 6 -7  1404 -1405 #2401 #2402 #2403 #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008	$fill w/ air
 2401 2  -2.6989     1407 ((-1406 -1408):(-1409 -1410))	$occluder
 2402 9  -1.14  -1411:-1412:-1413:-1414
 2403 2  -2.6989     1415 -1416 1417 -1418 1419 -1420 1421
@@ -709,7 +709,7 @@ $infl:{./dat/Ce_ridge_filter_4.inp}
 $ [ Cell ]
 $100 -1  %att_zone%	$Deep space
 
-2600 1  -1.205e-3  4 -5 6 -7 1621 -1623 #2601 #2602 #2603 #2604 #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008 #10000	$fill w/ air
+2600 1  -1.205e-3  4 -5 6 -7 1621 -1623 #2601 #2602 #2603 #2604 #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008	$fill w/ air
 2601 13 -2.329  1604 -1605 (-1607:-1608:-1609:-1610)
 2602 2  -2.6989  1611 -1612 1613 -1614 1604 -1605 #(1615 -1616 1617 -1618) #2601
 2603 10  -1.24 1617 1624 ((1615 -1616 -1618 1604 -1623):(((1619 -1622):(1625 -1626)) -1620 1621 -1604))
@@ -800,7 +800,7 @@ $ Modifica la Celda 2 así:
 $2 %air% -1 #(%workzone_walls% ((%att_zone%):(%disp1_zone%):(%disp2_zone%):(%ocl_zone%):(%pin_zone%))) #510 #600 #700 #103 #6000 #6001 #6002 #6003
 $      %outside_stuff% %exclusions%
 2 1  -1.205e-3 -1 #(4 -5 6 -7 ((1104 -1105):(1204 -1205):(1304 -1305):(1404 -1405):(1621 -1623)))
-     #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008 #10000
+     #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008
      #9000
      #9001
      #9002
@@ -832,46 +832,43 @@ $ -----------------------------------------
 $ --- No olvides definir el volumen de tu nuevo Pouch ---
  700  100.53
 
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ MODELO L $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ MODELO A $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-[ T - T r a c k ] $ flujo de protones a la altura del pouch
+[ T - T r a c k ]
 mesh = xyz
-x-type = 4
-xdel = 0.3
-xmin= -10
-xmax=  10
-#xmin = -4.
-#xmax = 4.
-y-type = 4
-ydel = 0.3
-ymin= -15
-ymax=  15
+x-type = 2
+nx = 25
+xmin = -4.
+xmax = 4.
+y-type = 2
+ny = 60
+ymin = -6.
+ymax = 5.
 z-type = 1
 nz = 1
-98.470 98.490            $ centro del pouch z= 98.480 +- 0.01 cm / para ver la cinta: 98.373  98.378 /98.485  98.49
-part = proton photon
+98.5125 98.5225
+part = proton
 e-type = 1
 ne = 1
 0.0 1000.0
 unit = 1
 axis = xy
-file = ./out/track_xy_L.out
+file = ./out/track_xy.out
 gshow = 1
 epsout = 1
 
-
-[ T - T r a c k ] $ flujo de particulas en yz
+[ T - T r a c k ]
 mesh = xyz
 x-type = 1
 nx = 1
-0. 0.1
+0.0 0.1
 y-type = 2
 ny = 150
 ymin = -10.
 ymax = 10.
 z-type = 2
 nz = 500
-zmin = -10
+zmin = -10.
 zmax = 110.
 part = proton
 e-type = 1
@@ -879,34 +876,11 @@ ne = 1
 0.0 1000.0
 unit = 1
 axis = yz
-file = ./out/track_yz_L.out
+file = ./out/track_yz.out
 gshow = 1
 epsout = 1
 
-[ T - T r a c k ]  $ flujo de particulas en yz
-mesh = xyz
-x-type = 1
-nx = 1
-0. 0.1
-y-type = 2
-ny = 150
-ymin = -10.
-ymax = 10.
-z-type = 2
-nz = 500
-zmin = -10
-zmax = 110.
-part = photon
-e-type = 1
-ne = 1
-0.0 1000.0
-unit = 1
-axis = yz
-file = ./out/track_yz_gamma_L.out
-gshow = 1
-epsout = 1
-
-[ T - D e p o s i t ]  $ dosis depositada en profundidad
+[ T - D e p o s i t ]
 title = Bragg peak in pouch
 mesh = r-z
 r-type = 2
@@ -914,49 +888,49 @@ rmin = 0.0
 rmax = 0.5
 nr = 1
 z-type = 2
-zmin = 97
-zmax = 100
-nz = 300
+zmin = 97.
+zmax = 99.
+nz = 200
 part = proton
 output = dose
 unit = 0
 axis = z
-file = ./out/bragg_pouch_zL.out
+file = ./out/bragg_pouch_z.out
 epsout = 1
 
-[ T - D e p o s i t ]  $ dosis radial en el pouch
-title = Bragg peak in pouch, ahora con radio 1
+[ T - D e p o s i t ]
+title = Radial dose in pouch
 mesh = r-z
 r-type = 2
 rmin = 0.0
 rmax = 1.7
 nr = 60
 z-type = 2
-zmin = 98.38
-zmax = 98.58
+zmin = 98.455
+zmax = 98.580
 nz = 1
 part = proton
 output = dose
 unit = 0
 axis = r
-file = ./out/bragg_pouch_rL.out
+file = ./out/bragg_pouch_r.out
 epsout = 1
 
-[ T - Track ]  $ para ver que particulas le llega al hamster
-title = Espectro de energia
+[ T - T r a c k ]
+title = Espectro de energia en el gel
 mesh = reg
-reg = 700
+reg = 600
 e-type = 2
 ne = 100
 emin = 1.0e-9
 emax = 25.0
 unit = 1
 axis = eng
-file = ./out/energy_hamster_L.out
-part = proton neutron alpha photon positron
+file = ./out/energy_gel.out
+part = proton
 
-[ T - D e p o s i t ]   $ histograma dosis-volumen del pouch
-title = Histograma
+[ T - D e p o s i t ]
+title = Histograma dosis-volumen del pouch
 mesh = xyz
 x-type = 2
 xmin = -0.8
@@ -967,17 +941,17 @@ ymin = -1.65
 ymax = 1.65
 ny = 33
 z-type = 2
-zmin = 98.38
-zmax = 98.58
+zmin = 98.455
+zmax = 98.580
 nz = 4
 part = proton
 output = dose
 unit = 0
 axis = z
-file = ./out/histograma_dosis_L.out
+file = ./out/histograma_dosis.out
 epsout = 1
 
-[ T - Deposit]
+[ T - D e p o s i t ] off
 title = Dosis xy
 mesh = xyz
 x-type = 2
@@ -989,86 +963,76 @@ ymin = -1.65
 ymax = 1.65
 ny = 33
 z-type = 2
-zmin = 98.38
-zmax = 98.58
+zmin = 98.455
+zmax = 98.580
 nz = 4
 part = proton photon
+output = dose
 unit = 0
 axis = xy
-file = ./out/dosis_pauch_L.out
+file = ./out/dosis_pouch_xy.out
 epsout = 1
 gshow = 1
 
-[ T - D e p o s i t ]
-
-title = Dosis depositada en el hamster de photones protones
-
+[ T - D e p o s i t ] off
+title = Dosis depositada en el hamster
 mesh = reg
-
 reg = 700
 unit = 0
 axis = reg
-file = ./out/dosis_hamster_L.out
+file = ./out/dosis_hamster.out
 part = proton photon
 output = dose
 epsout = 1
 
-[ T - D e p o s i t ]
-
-title = Dosis depositada en el hamster de photones protones
-
+[ T - D e p o s i t ] off
+title = Dosis depositada en el pouch
 mesh = reg
-
 reg = 510
 unit = 0
 axis = reg
-file = ./out/dosis_pouch_L.out
-part = proton photon
+file = ./out/dosis_pouch.out
+part = proton
 output = dose
 epsout = 1
 
-[ T - T r a c k ] $ flujo de protones a la altura del pouch
+[ T - T r a c k ] off
 mesh = xyz
 x-type = 2
 nx = 1
-xmin= -0.01
-xmax=  0.01
-#xmin = -4.
-#xmax = 4.
+xmin = -0.01
+xmax = 0.01
 y-type = 4
 ydel = 0.3
-ymin= -3
-ymax=  3
+ymin = -3.
+ymax = 3.
 z-type = 2
 nz = 100
-zmin= 95
-zmax =100
-part = proton photon
+zmin = 95.
+zmax = 100.
+part = proton
 e-type = 1
 ne = 1
 0.0 1000.0
 unit = 1
 axis = yz
-file = ./out/track_xz.out
+file = ./out/track_yzposicionador.out
 gshow = 1
 epsout = 1
 
-
-[ T - T r a c k ] $ flujo de protones a la altura del pouch
+[ T - T r a c k ] off
 mesh = xyz
 x-type = 4
 xdel = 0.1
-xmin= -10
-xmax=  10
-#xmin = -4.
-#xmax = 4.
+xmin = -10.
+xmax = 10.
 y-type = 4
 ydel = 0.1
-ymin= -15
-ymax=  15
+ymin = -15.
+ymax = 15.
 z-type = 1
 nz = 1
-98.13 98.33            $ centro del pouch z= 98.480 +- 0.01 cm / para ver la cinta: 98.373  98.378 /98.485  98.49
+98.08 98.28
 part = proton
 e-type = 1
 ne = 1
@@ -1079,9 +1043,9 @@ file = ./out/mapa_flujo.out
 gshow = 1
 epsout = 1
 
-[ T - T r a c k ] $ flujo de protones a la altura del  pouch y laterales
+[ T - T r a c k ] off
 mesh = reg
-reg= 10000
+reg = 10000
 part = proton
 e-type = 1
 ne = 1

@@ -43,7 +43,7 @@ $ tapa completa abajo
 
 $-------------BLINDAJE-------------------------------
 $ Tapa: superficie superior
-3700 90 rpp -14.9385 -1.4685  -2.609 2.621  57.58 58.08
+3700 90 rpp -14.9385 -1.4685  -2.609 2.621  57.08 58.08  $ 24-8 le duplique la altura del blindaje
 
 $------------guillotina----------------------------
 
