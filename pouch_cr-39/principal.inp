@@ -10,7 +10,7 @@ file(1) = C:/phits
 
 icntl	= 8 $0: transport	5: source	8: 2D geometry	11: 3D geometry	14: volume	16: script mode	17: Anatally mode
 maxcas	= 10000 $ (D=10) number of particles per one batch
-maxbch	= 200000 $ (D=10) number of batches
+maxbch	= 5000 $ (D=10) number of batches
 istdev	= 2 $Statistical uncertainties estimated from the standard error of: 1=each batch result. 2=each history result.
 nspred	= 2 $2= Coulomb diﬀusion by the Lynch’s formula based on the Moliere theory
 nedisp	= 1 $1= Landau Vavilov energy straggling
@@ -134,6 +134,7 @@ mat name   color
 18  skin  brown
 19 plastic black
 20 scotch  red
+21 CR-39 pastelgreen
 
 [ Surface ]
 $Room
@@ -231,7 +232,7 @@ infl:{./dat/Ce_iman.inp}
 infl:{./dat/Ce_viga.inp}
 
 set:%outside_stuff%[#101 #102 #103 #104]
-set:%exclusions%[#600 #700 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008 ] $ #10000 #510 
+set:%exclusions%[#600 #700 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008] $ #10000 #510 
 
 infl:{./dat/Ce_atenuador.inp}
 infl:{./dat/Ce_dispersor1.inp}
@@ -247,8 +248,12 @@ $ Pouch
 $ 510 16 -1.0  -100  201  -202 #6006 #6005 #6004 $ #800 
 
 $ Gel ultrasonido
-600 8 -1.0  -4000 #700 #6006 #6005 #6004 #9000 #9001 #9002 #9003 $ #800 #510
- 
+600 8 -1.0 -4000 #700 #6006 #6005 #6004 #9000 #9001 #9002 #9003
+     7011 7012 7013 7014 7015 7016 7017 7018
+     7021 7022 7023 7024 7025 7026
+     7031 7032 7033 7034
+     7041 7042
+
 $ Cinta scotch
 $ 800 20 -1.20  -8000 #6006 #9000 #9001 #9002 #9003
 
@@ -269,13 +274,17 @@ $     %outside_stuff% %exclusions% $Cover unused workzone with air
 $ Modifica la Celda 2 así:
 $2 %air% -1 #(%workzone_walls% ((%att_zone%):(%disp1_zone%):(%disp2_zone%):(%ocl_zone%):(%pin_zone%))) #510 #600 #700 #103 #6000 #6001 #6002 #6003 
 $      %outside_stuff% %exclusions%
-2 %air% -1 #(%workzone_walls% ((%att_zone%):(%disp1_zone%):(%disp2_zone%):(%ocl_zone%):(%pin_zone%))) 
+2 %air% -1 #(%workzone_walls% ((%att_zone%):(%disp1_zone%):(%disp2_zone%):(%ocl_zone%):(%pin_zone%)))
      %exclusions%
      #9000
      #9001
      #9002
      #9003
      #9004
+     7011 7012 7013 7014 7015 7016 7017 7018
+     7021 7022 7023 7024 7025 7026
+     7031 7032 7033 7034
+     7041 7042
      %outside_stuff%
 
 infl:{./dat/volumes.inp}

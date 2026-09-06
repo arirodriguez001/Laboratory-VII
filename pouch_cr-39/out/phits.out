@@ -35,8 +35,8 @@
             |  Vertical external proton beam - modular input  |
             |_________________________________________________|
 
-                        Starting Date = 2026-08-31
-                        Starting Time = 16h 23m 04
+                        Starting Date = 2026-09-06
+                        Starting Time = 13h 31m 44
 
 >>> Input Echo >>>=============================================================
 
@@ -46,7 +46,7 @@ Vertical external proton beam - modular input
 [ Parameters ]
  icntl    =           8     # (D=0) 3:ECH 5:NOR 6:SRC 7,8:GSH 11:DSH 12:DUMP
  maxcas   =       10000     # (D=10) number of particles per one batch
- maxbch   =      200000     # (D=10) number of batches
+ maxbch   =        5000     # (D=10) number of batches
  istdev   =           2     # (D=0) 0:Auto, 1,2:Batch or History variance, <0:Restart mode
  nspred   =           2     # (D=0) 0:no, 1:original, 2:Lynch(Moliere), 10:ATIMA
  nedisp   =           1     # (D=0) 0: no, 1: with e straggling, 10: ATIMA
@@ -277,7 +277,9 @@ MAT[ 21 ]
                               : ( 1652 1653 -1654 )
                               )  u=4 
  600         8 -1.0000000E+00  -4000 #700 #6006 #6005 #6004 #9000 #9001
-                              #9002 #9003 
+                              #9002 #9003 7011 7012 7013 7014 7015 7016
+                              7017 7018 7021 7022 7023 7024 7025 7026
+                              7031 7032 7033 7034 7041 7042 
  6000       17 -1.1800000E+00  -3000 3100 3200 #6001 #6002 #6003 #600
                               #700 #6008 #9000 #9001 #9002 #9003 #9004 
  6001        1 -1.2050000E-03  -3100 #600 #700 #6008 
@@ -295,14 +297,26 @@ MAT[ 21 ]
  6007       19 -9.3000000E-01  -3700 #6008 
  6008       10 -1.2400000E+00  -3800 #9000 #9001 #9002 #9003 
  700        18 -1.1000000E+00  -5000 
- 7001       21 -1.3200000E+00  -7001 #6006 #6005 #6004 
- 7002       21 -1.3200000E+00  -7002 #6006 #6005 #6004 
- 7003       21 -1.3200000E+00  -7003 #6006 #6005 #6004 
- 7004       21 -1.3200000E+00  -7004 #6006 #6005 #6004 
- 7005       21 -1.3200000E+00  -7005 #6006 #6005 #6004 
- 7006       21 -1.3200000E+00  -7006 #6006 #6005 #6004 
- 7007       21 -1.3200000E+00  -7007 #6006 #6005 #6004 
- 7008       21 -1.3200000E+00  -7008 #6006 #6005 #6004 
+ 7011       21 -1.3200000E+00  -7011 #6006 #6005 #6004 #9003 #9002 
+ 7012       21 -1.3200000E+00  -7012 #6006 #6005 #6004 #9003 #9002 
+ 7013       21 -1.3200000E+00  -7013 #6006 #6005 #6004 #9003 #9002 
+ 7014       21 -1.3200000E+00  -7014 #6006 #6005 #6004 #9003 #9002 
+ 7015       21 -1.3200000E+00  -7015 #6006 #6005 #6004 #9003 #9002 
+ 7016       21 -1.3200000E+00  -7016 #6006 #6005 #6004 #9003 #9002 
+ 7017       21 -1.3200000E+00  -7017 #6006 #6005 #6004 #9003 #9002 
+ 7018       21 -1.3200000E+00  -7018 #6006 #6005 #6004 #9003 #9002 
+ 7021       21 -1.3200000E+00  -7021 #6006 #6005 #6004 #9003 #9002 
+ 7022       21 -1.3200000E+00  -7022 #6006 #6005 #6004 #9003 #9002 
+ 7023       21 -1.3200000E+00  -7023 #6006 #6005 #6004 #9003 #9002 
+ 7024       21 -1.3200000E+00  -7024 #6006 #6005 #6004 #9003 #9002 
+ 7025       21 -1.3200000E+00  -7025 #6006 #6005 #6004 #9003 #9002 
+ 7026       21 -1.3200000E+00  -7026 #6006 #6005 #6004 #9003 #9002 
+ 7031       21 -1.3200000E+00  -7031 #6006 #6005 #6004 #9003 #9002 
+ 7032       21 -1.3200000E+00  -7032 #6006 #6005 #6004 #9003 #9002 
+ 7033       21 -1.3200000E+00  -7033 #6006 #6005 #6004 #9003 #9002 
+ 7034       21 -1.3200000E+00  -7034 #6006 #6005 #6004 #9003 #9002 
+ 7041       21 -1.3200000E+00  -7041 #6006 #6005 #6004 #9003 #9002 
+ 7042       21 -1.3200000E+00  -7042 #6006 #6005 #6004 #9003 #9002 
  1          -1                 1 
  2           1 -1.2050000E-03  -1
                               #( 4 -5 6 -7 ( ( 1104 -1105 )
@@ -310,8 +324,10 @@ MAT[ 21 ]
                               : ( 1404 -1405 ) : ( 1621 -1623 ) ) )
                               #600 #700 #103 #6000 #6001 #6002 #6003
                               #2001 #6006 #6005 #6004 #6007 #6008 #9000
-                              #9001 #9002 #9003 #9004 #101 #102 #103
-                              #104 
+                              #9001 #9002 #9003 #9004 7011 7012 7013
+                              7014 7015 7016 7017 7018 7021 7022 7023
+                              7024 7025 7026 7031 7032 7033 7034 7041
+                              7042 #101 #102 #103 #104 
 
 [ Surface ]
  1             rcc   0.0000000E+00  0.0000000E+00 -5.0000000E+01
@@ -585,22 +601,46 @@ MAT[ 21 ]
  5000       90 ell  -7.5000000E+00  6.0000000E-03  6.0750000E+01
                      6.0000000E+00  0.0000000E+00  0.0000000E+00
                     -2.0000000E+00
- 7001       90 rpp   9.3150000E-01  1.7315000E+00 -1.3500000E+00
-                     1.3500000E+00  6.0380000E+01  6.0405000E+01
- 7002       90 rpp   9.3150000E-01  1.7315000E+00 -1.3500000E+00
-                     1.3500000E+00  6.0405000E+01  6.0430000E+01
- 7003       90 rpp   1.3150000E-01  1.7315000E+00 -1.3500000E+00
-                     1.3500000E+00  6.0430000E+01  6.0455000E+01
- 7004       90 rpp   1.3150000E-01  1.7315000E+00 -1.3500000E+00
-                     1.3500000E+00  6.0455000E+01  6.0480000E+01
- 7005       90 rpp  -6.6850000E-01  1.7315000E+00 -1.3500000E+00
-                     1.3500000E+00  6.0480000E+01  6.0505000E+01
- 7006       90 rpp  -6.6850000E-01  1.7315000E+00 -1.3500000E+00
-                     1.3500000E+00  6.0505000E+01  6.0530000E+01
- 7007       90 rpp  -1.4685000E+00  1.7315000E+00 -1.3500000E+00
-                     1.3500000E+00  6.0530000E+01  6.0555000E+01
- 7008       90 rpp  -1.4685000E+00  1.7315000E+00 -1.3500000E+00
-                     1.3500000E+00  6.0555000E+01  6.0580000E+01
+ 7011          rpp  -1.3500000E+00  1.3500000E+00  1.0815000E+00
+                     1.8815000E+00  9.8380000E+01  9.8405000E+01
+ 7012          rpp  -1.3500000E+00  1.3500000E+00  1.0815000E+00
+                     1.8815000E+00  9.8405000E+01  9.8430000E+01
+ 7013          rpp  -1.3500000E+00  1.3500000E+00  1.0815000E+00
+                     1.8815000E+00  9.8430000E+01  9.8455000E+01
+ 7014          rpp  -1.3500000E+00  1.3500000E+00  1.0815000E+00
+                     1.8815000E+00  9.8455000E+01  9.8480000E+01
+ 7015          rpp  -1.3500000E+00  1.3500000E+00  1.0815000E+00
+                     1.8815000E+00  9.8480000E+01  9.8505000E+01
+ 7016          rpp  -1.3500000E+00  1.3500000E+00  1.0815000E+00
+                     1.8815000E+00  9.8505000E+01  9.8530000E+01
+ 7017          rpp  -1.3500000E+00  1.3500000E+00  1.0815000E+00
+                     1.8815000E+00  9.8530000E+01  9.8555000E+01
+ 7018          rpp  -1.3500000E+00  1.3500000E+00  1.0815000E+00
+                     1.8815000E+00  9.8555000E+01  9.8580000E+01
+ 7021          rpp  -1.3500000E+00  1.3500000E+00  2.8150000E-01
+                     1.0815000E+00  9.8430000E+01  9.8455000E+01
+ 7022          rpp  -1.3500000E+00  1.3500000E+00  2.8150000E-01
+                     1.0815000E+00  9.8455000E+01  9.8480000E+01
+ 7023          rpp  -1.3500000E+00  1.3500000E+00  2.8150000E-01
+                     1.0815000E+00  9.8480000E+01  9.8505000E+01
+ 7024          rpp  -1.3500000E+00  1.3500000E+00  2.8150000E-01
+                     1.0815000E+00  9.8505000E+01  9.8530000E+01
+ 7025          rpp  -1.3500000E+00  1.3500000E+00  2.8150000E-01
+                     1.0815000E+00  9.8530000E+01  9.8555000E+01
+ 7026          rpp  -1.3500000E+00  1.3500000E+00  2.8150000E-01
+                     1.0815000E+00  9.8555000E+01  9.8580000E+01
+ 7031          rpp  -1.3500000E+00  1.3500000E+00 -5.1850000E-01
+                     2.8150000E-01  9.8480000E+01  9.8505000E+01
+ 7032          rpp  -1.3500000E+00  1.3500000E+00 -5.1850000E-01
+                     2.8150000E-01  9.8505000E+01  9.8530000E+01
+ 7033          rpp  -1.3500000E+00  1.3500000E+00 -5.1850000E-01
+                     2.8150000E-01  9.8530000E+01  9.8555000E+01
+ 7034          rpp  -1.3500000E+00  1.3500000E+00 -5.1850000E-01
+                     2.8150000E-01  9.8555000E+01  9.8580000E+01
+ 7041          rpp  -1.3500000E+00  1.3500000E+00 -1.3185000E+00
+                    -5.1850000E-01  9.8530000E+01  9.8555000E+01
+ 7042          rpp  -1.3500000E+00  1.3500000E+00 -1.3185000E+00
+                    -5.1850000E-01  9.8555000E+01  9.8580000E+01
 
 [ Transform ]
 tr10           0.0000000E+00  0.0000000E+00  1.8700000E+00
@@ -689,787 +729,132 @@ tr101          4.0000000E+00 -7.8000000E+00  0.0000000E+00
     18                          skin     1.00             brown   # {  0.900  1.000  0.500 }
     19                       plastic     1.00             black   # {  0.000  1.000  1.000 }
     20                        scotch     1.00               red   # {  1.000  1.000  1.000 }
-    21                            21     1.00       pastelgreen   # {  0.700  0.600  1.000 }
-
-[ T-Track ]
-    title = [t-track] in region mesh
-     mesh =  reg            # mesh type is region-wise
-      reg = 7001
-   volume                   # combined, lattice or level structure 
-   non     reg      vol     # reg definition
-    1     7001   5.4000E-02 # 7001
-   e-type =    2            # e-mesh is linear given by emin, emax and ne
-     emin =  1.0000000E-09  # minimum value of e-mesh points
-     emax =   1000.000      # maximum value of e-mesh points
-#    edel =   1000.000      # mesh width of e-mesh points
-       ne =      1          # number of e-mesh points
-#    data = ( e(i), i = 1, ne + 1 )
-#           1.00000E-09  1.00000E+03
-     unit =    1            # unit is [1/cm^2/source]
- material =  all            # (D=all) number of specific material
-     axis =     reg            # axis of output
-     file = ./out/flujo1_reg.out  # file name of output for the above axis
-     part =  proton   
-# kf/name :  2212     
-#    used :        main (  %)        temp (  %)       total (  %)
-#  memory :          10 (  0)           0 (  0)          10 (  0)
-
-[ T-Track ]
-    title = [t-track] in xyz mesh
-     mesh =  xyz            # mesh type is xyz scoring mesh
-   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
-     xmin =  -1.350000      # minimum value of x-mesh points
-     xmax =   1.350000      # maximum value of x-mesh points
-#    xdel =  0.1000000      # mesh width of x-mesh points
-       nx =     27          # number of x-mesh points
-#    data = ( x(i), i = 1, nx + 1 )
-#          -1.35000E+00 -1.25000E+00 -1.15000E+00 -1.05000E+00 -9.50000E-01
-#          -8.50000E-01 -7.50000E-01 -6.50000E-01 -5.50000E-01 -4.50000E-01
-#          -3.50000E-01 -2.50000E-01 -1.50000E-01 -5.00000E-02  5.00000E-02
-#           1.50000E-01  2.50000E-01  3.50000E-01  4.50000E-01  5.50000E-01
-#           6.50000E-01  7.50000E-01  8.50000E-01  9.50000E-01  1.05000E+00
-#           1.15000E+00  1.25000E+00  1.35000E+00
-   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
-     ymin =   1.081500      # minimum value of y-mesh points
-     ymax =   1.881500      # maximum value of y-mesh points
-#    ydel =  0.1000000      # mesh width of y-mesh points
-       ny =      8          # number of y-mesh points
-#    data = ( y(i), i = 1, ny + 1 )
-#           1.08150E+00  1.18150E+00  1.28150E+00  1.38150E+00  1.48150E+00
-#           1.58150E+00  1.68150E+00  1.78150E+00  1.88150E+00
-   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
-     zmin =   98.38000      # minimum value of z-mesh points
-     zmax =   98.40500      # maximum value of z-mesh points
-#    zdel =  2.5000000E-02  # mesh width of z-mesh points
-       nz =      1          # number of z-mesh points
-#    data = ( z(i), i = 1, nz + 1 )
-#           9.83800E+01  9.84050E+01
-   e-type =    2            # e-mesh is linear given by emin, emax and ne
-     emin =  1.0000000E-09  # minimum value of e-mesh points
-     emax =   25.00000      # maximum value of e-mesh points
-#    edel =   25.00000      # mesh width of e-mesh points
-       ne =      1          # number of e-mesh points
-#    data = ( e(i), i = 1, ne + 1 )
-#           1.00000E-09  2.50000E+01
-     unit =    1            # unit is [1/cm^2/source]
- material =  all            # (D=all) number of specific material
-  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
-     axis =      xy            # axis of output
-     file = ./out/flujo1_xyz.out  # file name of output for the above axis
-     part =  proton   
-# kf/name :  2212     
-   epsout =    1            # (D=0) generate eps file by ANGEL
-#    used :        main (  %)        temp (  %)       total (  %)
-#  memory :          45 (  0)           0 (  0)          45 (  0)
-
-[ T-Track ]
-    title = [t-track] in region mesh
-     mesh =  reg            # mesh type is region-wise
-      reg = 7002
-   volume                   # combined, lattice or level structure 
-   non     reg      vol     # reg definition
-    1     7002   5.4000E-02 # 7002
-   e-type =    2            # e-mesh is linear given by emin, emax and ne
-     emin =  1.0000000E-09  # minimum value of e-mesh points
-     emax =   25.00000      # maximum value of e-mesh points
-#    edel =   25.00000      # mesh width of e-mesh points
-       ne =      1          # number of e-mesh points
-#    data = ( e(i), i = 1, ne + 1 )
-#           1.00000E-09  2.50000E+01
-     unit =    1            # unit is [1/cm^2/source]
- material =  all            # (D=all) number of specific material
-     axis =     reg            # axis of output
-     file = ./out/flujo2_reg.out  # file name of output for the above axis
-     part =  proton   
-# kf/name :  2212     
-   epsout =    1            # (D=0) generate eps file by ANGEL
-#    used :        main (  %)        temp (  %)       total (  %)
-#  memory :          10 (  0)           0 (  0)          10 (  0)
-
-[ T-Track ]
-    title = [t-track] in xyz mesh
-     mesh =  xyz            # mesh type is xyz scoring mesh
-   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
-     xmin =  -1.350000      # minimum value of x-mesh points
-     xmax =   1.350000      # maximum value of x-mesh points
-#    xdel =  0.1000000      # mesh width of x-mesh points
-       nx =     27          # number of x-mesh points
-#    data = ( x(i), i = 1, nx + 1 )
-#          -1.35000E+00 -1.25000E+00 -1.15000E+00 -1.05000E+00 -9.50000E-01
-#          -8.50000E-01 -7.50000E-01 -6.50000E-01 -5.50000E-01 -4.50000E-01
-#          -3.50000E-01 -2.50000E-01 -1.50000E-01 -5.00000E-02  5.00000E-02
-#           1.50000E-01  2.50000E-01  3.50000E-01  4.50000E-01  5.50000E-01
-#           6.50000E-01  7.50000E-01  8.50000E-01  9.50000E-01  1.05000E+00
-#           1.15000E+00  1.25000E+00  1.35000E+00
-   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
-     ymin =   1.081500      # minimum value of y-mesh points
-     ymax =   1.881500      # maximum value of y-mesh points
-#    ydel =  0.1000000      # mesh width of y-mesh points
-       ny =      8          # number of y-mesh points
-#    data = ( y(i), i = 1, ny + 1 )
-#           1.08150E+00  1.18150E+00  1.28150E+00  1.38150E+00  1.48150E+00
-#           1.58150E+00  1.68150E+00  1.78150E+00  1.88150E+00
-   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
-     zmin =   98.40500      # minimum value of z-mesh points
-     zmax =   98.43000      # maximum value of z-mesh points
-#    zdel =  2.5000000E-02  # mesh width of z-mesh points
-       nz =      1          # number of z-mesh points
-#    data = ( z(i), i = 1, nz + 1 )
-#           9.84050E+01  9.84300E+01
-   e-type =    2            # e-mesh is linear given by emin, emax and ne
-     emin =  1.0000000E-09  # minimum value of e-mesh points
-     emax =   25.00000      # maximum value of e-mesh points
-#    edel =   25.00000      # mesh width of e-mesh points
-       ne =      1          # number of e-mesh points
-#    data = ( e(i), i = 1, ne + 1 )
-#           1.00000E-09  2.50000E+01
-     unit =    1            # unit is [1/cm^2/source]
- material =  all            # (D=all) number of specific material
-  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
-     axis =      xy            # axis of output
-     file = ./out/flujo2_xyz.out  # file name of output for the above axis
-     part =  proton   
-# kf/name :  2212     
-   epsout =    1            # (D=0) generate eps file by ANGEL
-#    used :        main (  %)        temp (  %)       total (  %)
-#  memory :          45 (  0)           0 (  0)          45 (  0)
-
-[ T-Track ]
-    title = [t-track] in region mesh
-     mesh =  reg            # mesh type is region-wise
-      reg = 7003
-   volume                   # combined, lattice or level structure 
-   non     reg      vol     # reg definition
-    1     7003   1.0800E-01 # 7003
-   e-type =    2            # e-mesh is linear given by emin, emax and ne
-     emin =  1.0000000E-09  # minimum value of e-mesh points
-     emax =   25.00000      # maximum value of e-mesh points
-#    edel =   25.00000      # mesh width of e-mesh points
-       ne =      1          # number of e-mesh points
-#    data = ( e(i), i = 1, ne + 1 )
-#           1.00000E-09  2.50000E+01
-     unit =    1            # unit is [1/cm^2/source]
- material =  all            # (D=all) number of specific material
-     axis =     reg            # axis of output
-     file = ./out/flujo3_reg.out  # file name of output for the above axis
-     part =  proton   
-# kf/name :  2212     
-   epsout =    1            # (D=0) generate eps file by ANGEL
-#    used :        main (  %)        temp (  %)       total (  %)
-#  memory :          10 (  0)           0 (  0)          10 (  0)
-
-[ T-Track ]
-    title = [t-track] in xyz mesh
-     mesh =  xyz            # mesh type is xyz scoring mesh
-   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
-     xmin =  -1.350000      # minimum value of x-mesh points
-     xmax =   1.350000      # maximum value of x-mesh points
-#    xdel =  0.1000000      # mesh width of x-mesh points
-       nx =     27          # number of x-mesh points
-#    data = ( x(i), i = 1, nx + 1 )
-#          -1.35000E+00 -1.25000E+00 -1.15000E+00 -1.05000E+00 -9.50000E-01
-#          -8.50000E-01 -7.50000E-01 -6.50000E-01 -5.50000E-01 -4.50000E-01
-#          -3.50000E-01 -2.50000E-01 -1.50000E-01 -5.00000E-02  5.00000E-02
-#           1.50000E-01  2.50000E-01  3.50000E-01  4.50000E-01  5.50000E-01
-#           6.50000E-01  7.50000E-01  8.50000E-01  9.50000E-01  1.05000E+00
-#           1.15000E+00  1.25000E+00  1.35000E+00
-   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
-     ymin =  0.2815000      # minimum value of y-mesh points
-     ymax =   1.881500      # maximum value of y-mesh points
-#    ydel =  0.1000000      # mesh width of y-mesh points
-       ny =     16          # number of y-mesh points
-#    data = ( y(i), i = 1, ny + 1 )
-#           2.81500E-01  3.81500E-01  4.81500E-01  5.81500E-01  6.81500E-01
-#           7.81500E-01  8.81500E-01  9.81500E-01  1.08150E+00  1.18150E+00
-#           1.28150E+00  1.38150E+00  1.48150E+00  1.58150E+00  1.68150E+00
-#           1.78150E+00  1.88150E+00
-   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
-     zmin =   98.43000      # minimum value of z-mesh points
-     zmax =   98.45500      # maximum value of z-mesh points
-#    zdel =  2.5000000E-02  # mesh width of z-mesh points
-       nz =      1          # number of z-mesh points
-#    data = ( z(i), i = 1, nz + 1 )
-#           9.84300E+01  9.84550E+01
-   e-type =    2            # e-mesh is linear given by emin, emax and ne
-     emin =  1.0000000E-09  # minimum value of e-mesh points
-     emax =   25.00000      # maximum value of e-mesh points
-#    edel =   25.00000      # mesh width of e-mesh points
-       ne =      1          # number of e-mesh points
-#    data = ( e(i), i = 1, ne + 1 )
-#           1.00000E-09  2.50000E+01
-     unit =    1            # unit is [1/cm^2/source]
- material =  all            # (D=all) number of specific material
-  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
-     axis =      xy            # axis of output
-     file = ./out/flujo3_xyz.out  # file name of output for the above axis
-     part =  proton   
-# kf/name :  2212     
-   epsout =    1            # (D=0) generate eps file by ANGEL
-#    used :        main (  %)        temp (  %)       total (  %)
-#  memory :          53 (  0)           0 (  0)          53 (  0)
-
-[ T-Track ]
-    title = [t-track] in region mesh
-     mesh =  reg            # mesh type is region-wise
-      reg = 7004
-   volume                   # combined, lattice or level structure 
-   non     reg      vol     # reg definition
-    1     7004   1.0800E-01 # 7004
-   e-type =    2            # e-mesh is linear given by emin, emax and ne
-     emin =  1.0000000E-09  # minimum value of e-mesh points
-     emax =   25.00000      # maximum value of e-mesh points
-#    edel =   25.00000      # mesh width of e-mesh points
-       ne =      1          # number of e-mesh points
-#    data = ( e(i), i = 1, ne + 1 )
-#           1.00000E-09  2.50000E+01
-     unit =    1            # unit is [1/cm^2/source]
- material =  all            # (D=all) number of specific material
-     axis =     reg            # axis of output
-     file = ./out/flujo4_reg.out  # file name of output for the above axis
-     part =  proton   
-# kf/name :  2212     
-   epsout =    1            # (D=0) generate eps file by ANGEL
-#    used :        main (  %)        temp (  %)       total (  %)
-#  memory :          10 (  0)           0 (  0)          10 (  0)
-
-[ T-Track ]
-    title = [t-track] in xyz mesh
-     mesh =  xyz            # mesh type is xyz scoring mesh
-   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
-     xmin =  -1.350000      # minimum value of x-mesh points
-     xmax =   1.350000      # maximum value of x-mesh points
-#    xdel =  0.1000000      # mesh width of x-mesh points
-       nx =     27          # number of x-mesh points
-#    data = ( x(i), i = 1, nx + 1 )
-#          -1.35000E+00 -1.25000E+00 -1.15000E+00 -1.05000E+00 -9.50000E-01
-#          -8.50000E-01 -7.50000E-01 -6.50000E-01 -5.50000E-01 -4.50000E-01
-#          -3.50000E-01 -2.50000E-01 -1.50000E-01 -5.00000E-02  5.00000E-02
-#           1.50000E-01  2.50000E-01  3.50000E-01  4.50000E-01  5.50000E-01
-#           6.50000E-01  7.50000E-01  8.50000E-01  9.50000E-01  1.05000E+00
-#           1.15000E+00  1.25000E+00  1.35000E+00
-   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
-     ymin =  0.2815000      # minimum value of y-mesh points
-     ymax =   1.881500      # maximum value of y-mesh points
-#    ydel =  0.1000000      # mesh width of y-mesh points
-       ny =     16          # number of y-mesh points
-#    data = ( y(i), i = 1, ny + 1 )
-#           2.81500E-01  3.81500E-01  4.81500E-01  5.81500E-01  6.81500E-01
-#           7.81500E-01  8.81500E-01  9.81500E-01  1.08150E+00  1.18150E+00
-#           1.28150E+00  1.38150E+00  1.48150E+00  1.58150E+00  1.68150E+00
-#           1.78150E+00  1.88150E+00
-   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
-     zmin =   98.45500      # minimum value of z-mesh points
-     zmax =   98.48000      # maximum value of z-mesh points
-#    zdel =  2.5000000E-02  # mesh width of z-mesh points
-       nz =      1          # number of z-mesh points
-#    data = ( z(i), i = 1, nz + 1 )
-#           9.84550E+01  9.84800E+01
-   e-type =    2            # e-mesh is linear given by emin, emax and ne
-     emin =  1.0000000E-09  # minimum value of e-mesh points
-     emax =   25.00000      # maximum value of e-mesh points
-#    edel =   25.00000      # mesh width of e-mesh points
-       ne =      1          # number of e-mesh points
-#    data = ( e(i), i = 1, ne + 1 )
-#           1.00000E-09  2.50000E+01
-     unit =    1            # unit is [1/cm^2/source]
- material =  all            # (D=all) number of specific material
-  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
-     axis =      xy            # axis of output
-     file = ./out/flujo4_xyz.out  # file name of output for the above axis
-     part =  proton   
-# kf/name :  2212     
-   epsout =    1            # (D=0) generate eps file by ANGEL
-#    used :        main (  %)        temp (  %)       total (  %)
-#  memory :          53 (  0)           0 (  0)          53 (  0)
-
-[ T-Track ]
-    title = [t-track] in region mesh
-     mesh =  reg            # mesh type is region-wise
-      reg = 7005
-   volume                   # combined, lattice or level structure 
-   non     reg      vol     # reg definition
-    1     7005   1.6200E-01 # 7005
-   e-type =    2            # e-mesh is linear given by emin, emax and ne
-     emin =  1.0000000E-09  # minimum value of e-mesh points
-     emax =   25.00000      # maximum value of e-mesh points
-#    edel =   25.00000      # mesh width of e-mesh points
-       ne =      1          # number of e-mesh points
-#    data = ( e(i), i = 1, ne + 1 )
-#           1.00000E-09  2.50000E+01
-     unit =    1            # unit is [1/cm^2/source]
- material =  all            # (D=all) number of specific material
-     axis =     reg            # axis of output
-     file = ./out/flujo5_reg.out  # file name of output for the above axis
-     part =  proton   
-# kf/name :  2212     
-   epsout =    1            # (D=0) generate eps file by ANGEL
-#    used :        main (  %)        temp (  %)       total (  %)
-#  memory :          10 (  0)           0 (  0)          10 (  0)
-
-[ T-Track ]
-    title = [t-track] in xyz mesh
-     mesh =  xyz            # mesh type is xyz scoring mesh
-   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
-     xmin =  -1.350000      # minimum value of x-mesh points
-     xmax =   1.350000      # maximum value of x-mesh points
-#    xdel =  0.1000000      # mesh width of x-mesh points
-       nx =     27          # number of x-mesh points
-#    data = ( x(i), i = 1, nx + 1 )
-#          -1.35000E+00 -1.25000E+00 -1.15000E+00 -1.05000E+00 -9.50000E-01
-#          -8.50000E-01 -7.50000E-01 -6.50000E-01 -5.50000E-01 -4.50000E-01
-#          -3.50000E-01 -2.50000E-01 -1.50000E-01 -5.00000E-02  5.00000E-02
-#           1.50000E-01  2.50000E-01  3.50000E-01  4.50000E-01  5.50000E-01
-#           6.50000E-01  7.50000E-01  8.50000E-01  9.50000E-01  1.05000E+00
-#           1.15000E+00  1.25000E+00  1.35000E+00
-   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
-     ymin = -0.5185000      # minimum value of y-mesh points
-     ymax =   1.881500      # maximum value of y-mesh points
-#    ydel =  0.1000000      # mesh width of y-mesh points
-       ny =     24          # number of y-mesh points
-#    data = ( y(i), i = 1, ny + 1 )
-#          -5.18500E-01 -4.18500E-01 -3.18500E-01 -2.18500E-01 -1.18500E-01
-#          -1.85000E-02  8.15000E-02  1.81500E-01  2.81500E-01  3.81500E-01
-#           4.81500E-01  5.81500E-01  6.81500E-01  7.81500E-01  8.81500E-01
-#           9.81500E-01  1.08150E+00  1.18150E+00  1.28150E+00  1.38150E+00
-#           1.48150E+00  1.58150E+00  1.68150E+00  1.78150E+00  1.88150E+00
-   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
-     zmin =   98.48000      # minimum value of z-mesh points
-     zmax =   98.50500      # maximum value of z-mesh points
-#    zdel =  2.5000000E-02  # mesh width of z-mesh points
-       nz =      1          # number of z-mesh points
-#    data = ( z(i), i = 1, nz + 1 )
-#           9.84800E+01  9.85050E+01
-   e-type =    2            # e-mesh is linear given by emin, emax and ne
-     emin =  1.0000000E-09  # minimum value of e-mesh points
-     emax =   25.00000      # maximum value of e-mesh points
-#    edel =   25.00000      # mesh width of e-mesh points
-       ne =      1          # number of e-mesh points
-#    data = ( e(i), i = 1, ne + 1 )
-#           1.00000E-09  2.50000E+01
-     unit =    1            # unit is [1/cm^2/source]
- material =  all            # (D=all) number of specific material
-  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
-     axis =      xy            # axis of output
-     file = ./out/flujo5_xyz.out  # file name of output for the above axis
-     part =  proton   
-# kf/name :  2212     
-   epsout =    1            # (D=0) generate eps file by ANGEL
-#    used :        main (  %)        temp (  %)       total (  %)
-#  memory :          61 (  0)           0 (  0)          61 (  0)
-
-[ T-Track ]
-    title = [t-track] in region mesh
-     mesh =  reg            # mesh type is region-wise
-      reg = 7006
-   volume                   # combined, lattice or level structure 
-   non     reg      vol     # reg definition
-    1     7006   1.6200E-01 # 7006
-   e-type =    2            # e-mesh is linear given by emin, emax and ne
-     emin =  1.0000000E-09  # minimum value of e-mesh points
-     emax =   25.00000      # maximum value of e-mesh points
-#    edel =   25.00000      # mesh width of e-mesh points
-       ne =      1          # number of e-mesh points
-#    data = ( e(i), i = 1, ne + 1 )
-#           1.00000E-09  2.50000E+01
-     unit =    1            # unit is [1/cm^2/source]
- material =  all            # (D=all) number of specific material
-     axis =     reg            # axis of output
-     file = ./out/flujo6_reg.out  # file name of output for the above axis
-     part =  proton   
-# kf/name :  2212     
-   epsout =    1            # (D=0) generate eps file by ANGEL
-#    used :        main (  %)        temp (  %)       total (  %)
-#  memory :          10 (  0)           0 (  0)          10 (  0)
-
-[ T-Track ]
-    title = [t-track] in xyz mesh
-     mesh =  xyz            # mesh type is xyz scoring mesh
-   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
-     xmin =  -1.350000      # minimum value of x-mesh points
-     xmax =   1.350000      # maximum value of x-mesh points
-#    xdel =  0.1000000      # mesh width of x-mesh points
-       nx =     27          # number of x-mesh points
-#    data = ( x(i), i = 1, nx + 1 )
-#          -1.35000E+00 -1.25000E+00 -1.15000E+00 -1.05000E+00 -9.50000E-01
-#          -8.50000E-01 -7.50000E-01 -6.50000E-01 -5.50000E-01 -4.50000E-01
-#          -3.50000E-01 -2.50000E-01 -1.50000E-01 -5.00000E-02  5.00000E-02
-#           1.50000E-01  2.50000E-01  3.50000E-01  4.50000E-01  5.50000E-01
-#           6.50000E-01  7.50000E-01  8.50000E-01  9.50000E-01  1.05000E+00
-#           1.15000E+00  1.25000E+00  1.35000E+00
-   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
-     ymin = -0.5185000      # minimum value of y-mesh points
-     ymax =   1.881500      # maximum value of y-mesh points
-#    ydel =  0.1000000      # mesh width of y-mesh points
-       ny =     24          # number of y-mesh points
-#    data = ( y(i), i = 1, ny + 1 )
-#          -5.18500E-01 -4.18500E-01 -3.18500E-01 -2.18500E-01 -1.18500E-01
-#          -1.85000E-02  8.15000E-02  1.81500E-01  2.81500E-01  3.81500E-01
-#           4.81500E-01  5.81500E-01  6.81500E-01  7.81500E-01  8.81500E-01
-#           9.81500E-01  1.08150E+00  1.18150E+00  1.28150E+00  1.38150E+00
-#           1.48150E+00  1.58150E+00  1.68150E+00  1.78150E+00  1.88150E+00
-   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
-     zmin =   98.50500      # minimum value of z-mesh points
-     zmax =   98.53000      # maximum value of z-mesh points
-#    zdel =  2.5000000E-02  # mesh width of z-mesh points
-       nz =      1          # number of z-mesh points
-#    data = ( z(i), i = 1, nz + 1 )
-#           9.85050E+01  9.85300E+01
-   e-type =    2            # e-mesh is linear given by emin, emax and ne
-     emin =  1.0000000E-09  # minimum value of e-mesh points
-     emax =   25.00000      # maximum value of e-mesh points
-#    edel =   25.00000      # mesh width of e-mesh points
-       ne =      1          # number of e-mesh points
-#    data = ( e(i), i = 1, ne + 1 )
-#           1.00000E-09  2.50000E+01
-     unit =    1            # unit is [1/cm^2/source]
- material =  all            # (D=all) number of specific material
-  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
-     axis =      xy            # axis of output
-     file = ./out/flujo6_xyz.out  # file name of output for the above axis
-     part =  proton   
-# kf/name :  2212     
-   epsout =    1            # (D=0) generate eps file by ANGEL
-#    used :        main (  %)        temp (  %)       total (  %)
-#  memory :          61 (  0)           0 (  0)          61 (  0)
-
-[ T-Track ]
-    title = [t-track] in region mesh
-     mesh =  reg            # mesh type is region-wise
-      reg = 7007
-   volume                   # combined, lattice or level structure 
-   non     reg      vol     # reg definition
-    1     7007   2.1600E-01 # 7007
-   e-type =    2            # e-mesh is linear given by emin, emax and ne
-     emin =  1.0000000E-09  # minimum value of e-mesh points
-     emax =   25.00000      # maximum value of e-mesh points
-#    edel =   25.00000      # mesh width of e-mesh points
-       ne =      1          # number of e-mesh points
-#    data = ( e(i), i = 1, ne + 1 )
-#           1.00000E-09  2.50000E+01
-     unit =    1            # unit is [1/cm^2/source]
- material =  all            # (D=all) number of specific material
-     axis =     reg            # axis of output
-     file = ./out/flujo7_reg.out  # file name of output for the above axis
-     part =  proton   
-# kf/name :  2212     
-   epsout =    1            # (D=0) generate eps file by ANGEL
-#    used :        main (  %)        temp (  %)       total (  %)
-#  memory :          10 (  0)           0 (  0)          10 (  0)
-
-[ T-Track ]
-    title = [t-track] in xyz mesh
-     mesh =  xyz            # mesh type is xyz scoring mesh
-   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
-     xmin =  -1.350000      # minimum value of x-mesh points
-     xmax =   1.350000      # maximum value of x-mesh points
-#    xdel =  0.1000000      # mesh width of x-mesh points
-       nx =     27          # number of x-mesh points
-#    data = ( x(i), i = 1, nx + 1 )
-#          -1.35000E+00 -1.25000E+00 -1.15000E+00 -1.05000E+00 -9.50000E-01
-#          -8.50000E-01 -7.50000E-01 -6.50000E-01 -5.50000E-01 -4.50000E-01
-#          -3.50000E-01 -2.50000E-01 -1.50000E-01 -5.00000E-02  5.00000E-02
-#           1.50000E-01  2.50000E-01  3.50000E-01  4.50000E-01  5.50000E-01
-#           6.50000E-01  7.50000E-01  8.50000E-01  9.50000E-01  1.05000E+00
-#           1.15000E+00  1.25000E+00  1.35000E+00
-   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
-     ymin =  -1.318500      # minimum value of y-mesh points
-     ymax =   1.881500      # maximum value of y-mesh points
-#    ydel =  0.1000000      # mesh width of y-mesh points
-       ny =     32          # number of y-mesh points
-#    data = ( y(i), i = 1, ny + 1 )
-#          -1.31850E+00 -1.21850E+00 -1.11850E+00 -1.01850E+00 -9.18500E-01
-#          -8.18500E-01 -7.18500E-01 -6.18500E-01 -5.18500E-01 -4.18500E-01
-#          -3.18500E-01 -2.18500E-01 -1.18500E-01 -1.85000E-02  8.15000E-02
-#           1.81500E-01  2.81500E-01  3.81500E-01  4.81500E-01  5.81500E-01
-#           6.81500E-01  7.81500E-01  8.81500E-01  9.81500E-01  1.08150E+00
-#           1.18150E+00  1.28150E+00  1.38150E+00  1.48150E+00  1.58150E+00
-#           1.68150E+00  1.78150E+00  1.88150E+00
-   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
-     zmin =   98.53000      # minimum value of z-mesh points
-     zmax =   98.55500      # maximum value of z-mesh points
-#    zdel =  2.5000000E-02  # mesh width of z-mesh points
-       nz =      1          # number of z-mesh points
-#    data = ( z(i), i = 1, nz + 1 )
-#           9.85300E+01  9.85550E+01
-   e-type =    2            # e-mesh is linear given by emin, emax and ne
-     emin =  1.0000000E-09  # minimum value of e-mesh points
-     emax =   25.00000      # maximum value of e-mesh points
-#    edel =   25.00000      # mesh width of e-mesh points
-       ne =      1          # number of e-mesh points
-#    data = ( e(i), i = 1, ne + 1 )
-#           1.00000E-09  2.50000E+01
-     unit =    1            # unit is [1/cm^2/source]
- material =  all            # (D=all) number of specific material
-  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
-     axis =      xy            # axis of output
-     file = ./out/flujo7_xyz.out  # file name of output for the above axis
-     part =  proton   
-# kf/name :  2212     
-   epsout =    1            # (D=0) generate eps file by ANGEL
-#    used :        main (  %)        temp (  %)       total (  %)
-#  memory :          69 (  0)           0 (  0)          69 (  0)
-
-[ T-Track ]
-    title = [t-track] in region mesh
-     mesh =  reg            # mesh type is region-wise
-      reg = 7008
-   volume                   # combined, lattice or level structure 
-   non     reg      vol     # reg definition
-    1     7008   2.1600E-01 # 7008
-   e-type =    2            # e-mesh is linear given by emin, emax and ne
-     emin =  1.0000000E-09  # minimum value of e-mesh points
-     emax =   25.00000      # maximum value of e-mesh points
-#    edel =   25.00000      # mesh width of e-mesh points
-       ne =      1          # number of e-mesh points
-#    data = ( e(i), i = 1, ne + 1 )
-#           1.00000E-09  2.50000E+01
-     unit =    1            # unit is [1/cm^2/source]
- material =  all            # (D=all) number of specific material
-     axis =     reg            # axis of output
-     file = ./out/flujo8_reg.out  # file name of output for the above axis
-     part =  proton   
-# kf/name :  2212     
-   epsout =    1            # (D=0) generate eps file by ANGEL
-#    used :        main (  %)        temp (  %)       total (  %)
-#  memory :          10 (  0)           0 (  0)          10 (  0)
-
-[ T-Track ]
-    title = [t-track] in xyz mesh
-     mesh =  xyz            # mesh type is xyz scoring mesh
-   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
-     xmin =  -1.350000      # minimum value of x-mesh points
-     xmax =   1.350000      # maximum value of x-mesh points
-#    xdel =  0.1000000      # mesh width of x-mesh points
-       nx =     27          # number of x-mesh points
-#    data = ( x(i), i = 1, nx + 1 )
-#          -1.35000E+00 -1.25000E+00 -1.15000E+00 -1.05000E+00 -9.50000E-01
-#          -8.50000E-01 -7.50000E-01 -6.50000E-01 -5.50000E-01 -4.50000E-01
-#          -3.50000E-01 -2.50000E-01 -1.50000E-01 -5.00000E-02  5.00000E-02
-#           1.50000E-01  2.50000E-01  3.50000E-01  4.50000E-01  5.50000E-01
-#           6.50000E-01  7.50000E-01  8.50000E-01  9.50000E-01  1.05000E+00
-#           1.15000E+00  1.25000E+00  1.35000E+00
-   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
-     ymin =  -1.318500      # minimum value of y-mesh points
-     ymax =   1.881500      # maximum value of y-mesh points
-#    ydel =  0.1000000      # mesh width of y-mesh points
-       ny =     32          # number of y-mesh points
-#    data = ( y(i), i = 1, ny + 1 )
-#          -1.31850E+00 -1.21850E+00 -1.11850E+00 -1.01850E+00 -9.18500E-01
-#          -8.18500E-01 -7.18500E-01 -6.18500E-01 -5.18500E-01 -4.18500E-01
-#          -3.18500E-01 -2.18500E-01 -1.18500E-01 -1.85000E-02  8.15000E-02
-#           1.81500E-01  2.81500E-01  3.81500E-01  4.81500E-01  5.81500E-01
-#           6.81500E-01  7.81500E-01  8.81500E-01  9.81500E-01  1.08150E+00
-#           1.18150E+00  1.28150E+00  1.38150E+00  1.48150E+00  1.58150E+00
-#           1.68150E+00  1.78150E+00  1.88150E+00
-   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
-     zmin =   98.55500      # minimum value of z-mesh points
-     zmax =   98.58000      # maximum value of z-mesh points
-#    zdel =  2.5000000E-02  # mesh width of z-mesh points
-       nz =      1          # number of z-mesh points
-#    data = ( z(i), i = 1, nz + 1 )
-#           9.85550E+01  9.85800E+01
-   e-type =    2            # e-mesh is linear given by emin, emax and ne
-     emin =  1.0000000E-09  # minimum value of e-mesh points
-     emax =   25.00000      # maximum value of e-mesh points
-#    edel =   25.00000      # mesh width of e-mesh points
-       ne =      1          # number of e-mesh points
-#    data = ( e(i), i = 1, ne + 1 )
-#           1.00000E-09  2.50000E+01
-     unit =    1            # unit is [1/cm^2/source]
- material =  all            # (D=all) number of specific material
-  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
-     axis =      xy            # axis of output
-     file = ./out/flujo8_xyz.out  # file name of output for the above axis
-     part =  proton   
-# kf/name :  2212     
-   epsout =    1            # (D=0) generate eps file by ANGEL
-#    used :        main (  %)        temp (  %)       total (  %)
-#  memory :          69 (  0)           0 (  0)          69 (  0)
-
-[ T-Deposit ]
-    title = Histograma
-     mesh =  xyz            # mesh type is xyz scoring mesh
-   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
-     xmin =  -1.750000      # minimum value of x-mesh points
-     xmax =   1.750000      # maximum value of x-mesh points
-#    xdel =  0.1000000      # mesh width of x-mesh points
-       nx =     35          # number of x-mesh points
-#    data = ( x(i), i = 1, nx + 1 )
-#          -1.75000E+00 -1.65000E+00 -1.55000E+00 -1.45000E+00 -1.35000E+00
-#          -1.25000E+00 -1.15000E+00 -1.05000E+00 -9.50000E-01 -8.50000E-01
-#          -7.50000E-01 -6.50000E-01 -5.50000E-01 -4.50000E-01 -3.50000E-01
-#          -2.50000E-01 -1.50000E-01 -5.00000E-02  5.00000E-02  1.50000E-01
-#           2.50000E-01  3.50000E-01  4.50000E-01  5.50000E-01  6.50000E-01
-#           7.50000E-01  8.50000E-01  9.50000E-01  1.05000E+00  1.15000E+00
-#           1.25000E+00  1.35000E+00  1.45000E+00  1.55000E+00  1.65000E+00
-#           1.75000E+00
-   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
-     ymin =  -1.318500      # minimum value of y-mesh points
-     ymax =   1.881500      # maximum value of y-mesh points
-#    ydel =  0.1000000      # mesh width of y-mesh points
-       ny =     32          # number of y-mesh points
-#    data = ( y(i), i = 1, ny + 1 )
-#          -1.31850E+00 -1.21850E+00 -1.11850E+00 -1.01850E+00 -9.18500E-01
-#          -8.18500E-01 -7.18500E-01 -6.18500E-01 -5.18500E-01 -4.18500E-01
-#          -3.18500E-01 -2.18500E-01 -1.18500E-01 -1.85000E-02  8.15000E-02
-#           1.81500E-01  2.81500E-01  3.81500E-01  4.81500E-01  5.81500E-01
-#           6.81500E-01  7.81500E-01  8.81500E-01  9.81500E-01  1.08150E+00
-#           1.18150E+00  1.28150E+00  1.38150E+00  1.48150E+00  1.58150E+00
-#           1.68150E+00  1.78150E+00  1.88150E+00
-   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
-     zmin =   98.33000      # minimum value of z-mesh points
-     zmax =   98.58000      # maximum value of z-mesh points
-#    zdel =  2.5000000E-02  # mesh width of z-mesh points
-       nz =     10          # number of z-mesh points
-#    data = ( z(i), i = 1, nz + 1 )
-#           9.83300E+01  9.83550E+01  9.83800E+01  9.84050E+01  9.84300E+01
-#           9.84550E+01  9.84800E+01  9.85050E+01  9.85300E+01  9.85550E+01
-#           9.85800E+01
-     unit =    0            # unit is [Gy/source]
-   letmat =    0            # (D=0) mat ID for LET, 0:real mat, <0: electron for H2O
-  dedxfnc =    0            # (D=0) user defined multiplier, 0(no), 1, 2
- material =  all            # (D=all) number of specific material
-   output =  dose           # total deposit energy
-  deposit =    0            # (D=0) 0-> total deposit dist, 1-> each process
-     axis =     z           # axis of output
-     file = ./out/histograma_dosis_CR39.out  # file name of output for the above axis
-     part =  proton   
-# kf/name :  2212     
-   epsout =    1            # (D=0) generate eps file by ANGEL
-   mother =  all            # (D=all) number of specific mother
-#    used :        main (  %)        temp (  %)       total (  %)
-#  memory :          83 (  0)           0 (  0)          83 (  0)
+    21                         CR-39     1.00       pastelgreen   # {  0.700  0.600  1.000 }
 
 [ T-Cross ]
-    title = Espectro entrada CR39
-     mesh =  xyz            # mesh type is xyz scoring mesh
-   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
-     xmin =  -1.350000      # minimum value of x-mesh points
-     xmax =   1.350000      # maximum value of x-mesh points
-#    xdel =   2.700000      # mesh width of x-mesh points
-       nx =      1          # number of x-mesh points
-#    data = ( x(i), i = 1, nx + 1 )
-#          -1.35000E+00  1.35000E+00
-   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
-     ymin =   1.081500      # minimum value of y-mesh points
-     ymax =   1.881500      # maximum value of y-mesh points
-#    ydel =  0.8000000      # mesh width of y-mesh points
-       ny =      1          # number of y-mesh points
-#    data = ( y(i), i = 1, ny + 1 )
-#           1.08150E+00  1.88150E+00
-   z-type =    1            # z-mesh is given by the below data
-       nz =      0          # number of z-mesh points
-#    data = ( z(i), i = 1, nz + 1 )
-            9.83801E+01
+    title = Proton current through CR39 interfaces
+     mesh =  reg            # mesh type is region-wise
+      reg =   24            # number of crossing regions
+      non     r-from     r-to        area
+      1       600        7011        1.000000    
+      2       7011       7012        1.000000    
+      3       7012       7013        1.000000    
+      4       7013       7014        1.000000    
+      5       7014       7015        1.000000    
+      6       7015       7016        1.000000    
+      7       7016       7017        1.000000    
+      8       7017       7018        1.000000    
+      9       7018       6003        1.000000    
+     10       600        7021        1.000000    
+     11       7021       7022        1.000000    
+     12       7022       7023        1.000000    
+     13       7023       7024        1.000000    
+     14       7024       7025        1.000000    
+     15       7025       7026        1.000000    
+     16       7026       6003        1.000000    
+     17       600        7031        1.000000    
+     18       7031       7032        1.000000    
+     19       7032       7033        1.000000    
+     20       7033       7034        1.000000    
+     21       7034       6003        1.000000    
+     22       600        7041        1.000000    
+     23       7041       7042        1.000000    
+     24       7042       6003        1.000000    
+  eng2let =    0            # (D=0) Flag to convert energy to LET, 0: not convert, 1: convert
+     unit =    1            # unit is [1/cm^2/source]
+     axis =  reg            # axis of output
+     file = ./out/corriente_CR39.out  # file name of output for the above axis
+   output = of-curr         # surface crossing omni forward current
+     part =  proton   
+# kf/name :  2212     
+   epsout =    1            # (D=0) generate eps file by ANGEL
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :          79 (  0)           0 (  0)          79 (  0)
+
+[ T-Cross ]
+    title = Proton energy spectra through CR39 interfaces
+     mesh =  reg            # mesh type is region-wise
+      reg =   24            # number of crossing regions
+      non     r-from     r-to        area
+      1       600        7011        1.000000    
+      2       7011       7012        1.000000    
+      3       7012       7013        1.000000    
+      4       7013       7014        1.000000    
+      5       7014       7015        1.000000    
+      6       7015       7016        1.000000    
+      7       7016       7017        1.000000    
+      8       7017       7018        1.000000    
+      9       7018       6003        1.000000    
+     10       600        7021        1.000000    
+     11       7021       7022        1.000000    
+     12       7022       7023        1.000000    
+     13       7023       7024        1.000000    
+     14       7024       7025        1.000000    
+     15       7025       7026        1.000000    
+     16       7026       6003        1.000000    
+     17       600        7031        1.000000    
+     18       7031       7032        1.000000    
+     19       7032       7033        1.000000    
+     20       7033       7034        1.000000    
+     21       7034       6003        1.000000    
+     22       600        7041        1.000000    
+     23       7041       7042        1.000000    
+     24       7042       6003        1.000000    
    e-type =    2            # e-mesh is linear given by emin, emax and ne
-     emin =  1.0000000E-09  # minimum value of e-mesh points
+     emin =  1.0000000E-03  # minimum value of e-mesh points
      emax =   25.00000      # maximum value of e-mesh points
-#    edel =  0.2500000      # mesh width of e-mesh points
+#    edel =  0.2499900      # mesh width of e-mesh points
        ne =    100          # number of e-mesh points
 #    data = ( e(i), i = 1, ne + 1 )
-#           1.00000E-09  2.50000E-01  5.00000E-01  7.50000E-01  1.00000E+00
-#           1.25000E+00  1.50000E+00  1.75000E+00  2.00000E+00  2.25000E+00
-#           2.50000E+00  2.75000E+00  3.00000E+00  3.25000E+00  3.50000E+00
-#           3.75000E+00  4.00000E+00  4.25000E+00  4.50000E+00  4.75000E+00
-#           5.00000E+00  5.25000E+00  5.50000E+00  5.75000E+00  6.00000E+00
-#           6.25000E+00  6.50000E+00  6.75000E+00  7.00000E+00  7.25000E+00
-#           7.50000E+00  7.75000E+00  8.00000E+00  8.25000E+00  8.50000E+00
-#           8.75000E+00  9.00000E+00  9.25000E+00  9.50000E+00  9.75000E+00
-#           1.00000E+01  1.02500E+01  1.05000E+01  1.07500E+01  1.10000E+01
-#           1.12500E+01  1.15000E+01  1.17500E+01  1.20000E+01  1.22500E+01
-#           1.25000E+01  1.27500E+01  1.30000E+01  1.32500E+01  1.35000E+01
-#           1.37500E+01  1.40000E+01  1.42500E+01  1.45000E+01  1.47500E+01
-#           1.50000E+01  1.52500E+01  1.55000E+01  1.57500E+01  1.60000E+01
-#           1.62500E+01  1.65000E+01  1.67500E+01  1.70000E+01  1.72500E+01
-#           1.75000E+01  1.77500E+01  1.80000E+01  1.82500E+01  1.85000E+01
-#           1.87500E+01  1.90000E+01  1.92500E+01  1.95000E+01  1.97500E+01
-#           2.00000E+01  2.02500E+01  2.05000E+01  2.07500E+01  2.10000E+01
-#           2.12500E+01  2.15000E+01  2.17500E+01  2.20000E+01  2.22500E+01
-#           2.25000E+01  2.27500E+01  2.30000E+01  2.32500E+01  2.35000E+01
-#           2.37500E+01  2.40000E+01  2.42500E+01  2.45000E+01  2.47500E+01
+#           1.00000E-03  2.50990E-01  5.00980E-01  7.50970E-01  1.00096E+00
+#           1.25095E+00  1.50094E+00  1.75093E+00  2.00092E+00  2.25091E+00
+#           2.50090E+00  2.75089E+00  3.00088E+00  3.25087E+00  3.50086E+00
+#           3.75085E+00  4.00084E+00  4.25083E+00  4.50082E+00  4.75081E+00
+#           5.00080E+00  5.25079E+00  5.50078E+00  5.75077E+00  6.00076E+00
+#           6.25075E+00  6.50074E+00  6.75073E+00  7.00072E+00  7.25071E+00
+#           7.50070E+00  7.75069E+00  8.00068E+00  8.25067E+00  8.50066E+00
+#           8.75065E+00  9.00064E+00  9.25063E+00  9.50062E+00  9.75061E+00
+#           1.00006E+01  1.02506E+01  1.05006E+01  1.07506E+01  1.10006E+01
+#           1.12505E+01  1.15005E+01  1.17505E+01  1.20005E+01  1.22505E+01
+#           1.25005E+01  1.27505E+01  1.30005E+01  1.32505E+01  1.35005E+01
+#           1.37504E+01  1.40004E+01  1.42504E+01  1.45004E+01  1.47504E+01
+#           1.50004E+01  1.52504E+01  1.55004E+01  1.57504E+01  1.60004E+01
+#           1.62504E+01  1.65003E+01  1.67503E+01  1.70003E+01  1.72503E+01
+#           1.75003E+01  1.77503E+01  1.80003E+01  1.82503E+01  1.85003E+01
+#           1.87503E+01  1.90002E+01  1.92502E+01  1.95002E+01  1.97502E+01
+#           2.00002E+01  2.02502E+01  2.05002E+01  2.07502E+01  2.10002E+01
+#           2.12502E+01  2.15001E+01  2.17501E+01  2.20001E+01  2.22501E+01
+#           2.25001E+01  2.27501E+01  2.30001E+01  2.32501E+01  2.35001E+01
+#           2.37501E+01  2.40000E+01  2.42500E+01  2.45000E+01  2.47500E+01
 #           2.50000E+01
   eng2let =    0            # (D=0) Flag to convert energy to LET, 0: not convert, 1: convert
      unit =    2            # unit is [1/cm^2/MeV/source]
      axis =  eng            # axis of output
-     file = ./out/espectro_entrada_CR39.out  # file name of output for the above axis
+     file = ./out/espectros_CR39.out  # file name of output for the above axis
    output = f-curr          # surface crossing forward current spectrum
      part =  proton   
 # kf/name :  2212     
    epsout =    1            # (D=0) generate eps file by ANGEL
 #    used :        main (  %)        temp (  %)       total (  %)
-#  memory :         110 (  0)           0 (  0)         110 (  0)
-
-[ T-Cross ]
-    title = Espectro salida CR39
-     mesh =  xyz            # mesh type is xyz scoring mesh
-   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
-     xmin =  -1.350000      # minimum value of x-mesh points
-     xmax =   1.350000      # maximum value of x-mesh points
-#    xdel =   2.700000      # mesh width of x-mesh points
-       nx =      1          # number of x-mesh points
-#    data = ( x(i), i = 1, nx + 1 )
-#          -1.35000E+00  1.35000E+00
-   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
-     ymin =  -1.318500      # minimum value of y-mesh points
-     ymax =   1.881500      # maximum value of y-mesh points
-#    ydel =   3.200000      # mesh width of y-mesh points
-       ny =      1          # number of y-mesh points
-#    data = ( y(i), i = 1, ny + 1 )
-#          -1.31850E+00  1.88150E+00
-   z-type =    1            # z-mesh is given by the below data
-       nz =      0          # number of z-mesh points
-#    data = ( z(i), i = 1, nz + 1 )
-            9.85799E+01
-   e-type =    2            # e-mesh is linear given by emin, emax and ne
-     emin =  1.0000000E-09  # minimum value of e-mesh points
-     emax =   25.00000      # maximum value of e-mesh points
-#    edel =  0.2500000      # mesh width of e-mesh points
-       ne =    100          # number of e-mesh points
-#    data = ( e(i), i = 1, ne + 1 )
-#           1.00000E-09  2.50000E-01  5.00000E-01  7.50000E-01  1.00000E+00
-#           1.25000E+00  1.50000E+00  1.75000E+00  2.00000E+00  2.25000E+00
-#           2.50000E+00  2.75000E+00  3.00000E+00  3.25000E+00  3.50000E+00
-#           3.75000E+00  4.00000E+00  4.25000E+00  4.50000E+00  4.75000E+00
-#           5.00000E+00  5.25000E+00  5.50000E+00  5.75000E+00  6.00000E+00
-#           6.25000E+00  6.50000E+00  6.75000E+00  7.00000E+00  7.25000E+00
-#           7.50000E+00  7.75000E+00  8.00000E+00  8.25000E+00  8.50000E+00
-#           8.75000E+00  9.00000E+00  9.25000E+00  9.50000E+00  9.75000E+00
-#           1.00000E+01  1.02500E+01  1.05000E+01  1.07500E+01  1.10000E+01
-#           1.12500E+01  1.15000E+01  1.17500E+01  1.20000E+01  1.22500E+01
-#           1.25000E+01  1.27500E+01  1.30000E+01  1.32500E+01  1.35000E+01
-#           1.37500E+01  1.40000E+01  1.42500E+01  1.45000E+01  1.47500E+01
-#           1.50000E+01  1.52500E+01  1.55000E+01  1.57500E+01  1.60000E+01
-#           1.62500E+01  1.65000E+01  1.67500E+01  1.70000E+01  1.72500E+01
-#           1.75000E+01  1.77500E+01  1.80000E+01  1.82500E+01  1.85000E+01
-#           1.87500E+01  1.90000E+01  1.92500E+01  1.95000E+01  1.97500E+01
-#           2.00000E+01  2.02500E+01  2.05000E+01  2.07500E+01  2.10000E+01
-#           2.12500E+01  2.15000E+01  2.17500E+01  2.20000E+01  2.22500E+01
-#           2.25000E+01  2.27500E+01  2.30000E+01  2.32500E+01  2.35000E+01
-#           2.37500E+01  2.40000E+01  2.42500E+01  2.45000E+01  2.47500E+01
-#           2.50000E+01
-  eng2let =    0            # (D=0) Flag to convert energy to LET, 0: not convert, 1: convert
-     unit =    2            # unit is [1/cm^2/MeV/source]
-     axis =  eng            # axis of output
-     file = ./out/espectro_salida_CR39.out  # file name of output for the above axis
-   output = f-curr          # surface crossing forward current spectrum
-     part =  proton   
-# kf/name :  2212     
-   epsout =    1            # (D=0) generate eps file by ANGEL
-#    used :        main (  %)        temp (  %)       total (  %)
-#  memory :         110 (  0)           0 (  0)         110 (  0)
+#  memory :         178 (  0)           0 (  0)         178 (  0)
 
 [ T-Deposit ]
-    title = Bragg peak in cr
-     mesh =  r-z            # mesh type is r-z scoring mesh
-       x0 =   0.000000      # center x-position of r-z mesh
-       y0 =   0.000000      # center y-position of r-z mesh
-   r-type =    2            # r-mesh is linear given by rmin, rmax and nr
-     rmin =   0.000000      # minimum value of r-mesh points
-     rmax =  0.5000000      # maximum value of r-mesh points
-#    rdel =  0.5000000      # mesh width of r-mesh points
-       nr =      1          # number of r-mesh points
-#    data = ( r(i), i = 1, nr + 1 )
-#           0.00000E+00  5.00000E-01
+    title = Bragg peak column 1
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin = -0.2500000      # minimum value of x-mesh points
+     xmax =  0.2500000      # maximum value of x-mesh points
+#    xdel =  0.5000000      # mesh width of x-mesh points
+       nx =      1          # number of x-mesh points
+#    data = ( x(i), i = 1, nx + 1 )
+#          -2.50000E-01  2.50000E-01
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin =   1.281500      # minimum value of y-mesh points
+     ymax =   1.681500      # maximum value of y-mesh points
+#    ydel =  0.4000000      # mesh width of y-mesh points
+       ny =      1          # number of y-mesh points
+#    data = ( y(i), i = 1, ny + 1 )
+#           1.28150E+00  1.68150E+00
    z-type =    2            # z-mesh is linear given by zmin, zmax and nz
      zmin =   97.00000      # minimum value of z-mesh points
      zmax =   100.0000      # maximum value of z-mesh points
@@ -1544,13 +929,1226 @@ tr101          4.0000000E+00 -7.8000000E+00  0.0000000E+00
    output =  dose           # total deposit energy
   deposit =    0            # (D=0) 0-> total deposit dist, 1-> each process
      axis =     z           # axis of output
-     file = ./out/bragg_cr.out  # file name of output for the above axis
+     file = ./out/bragg_CR39_col1.out  # file name of output for the above axis
      part =  proton   
 # kf/name :  2212     
    epsout =    1            # (D=0) generate eps file by ANGEL
    mother =  all            # (D=all) number of specific mother
 #    used :        main (  %)        temp (  %)       total (  %)
-#  memory :         306 (  0)           0 (  0)         306 (  0)
+#  memory :         308 (  0)           0 (  0)         308 (  0)
+
+[ T-Deposit ]
+    title = Bragg peak column 2
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin = -0.2500000      # minimum value of x-mesh points
+     xmax =  0.2500000      # maximum value of x-mesh points
+#    xdel =  0.5000000      # mesh width of x-mesh points
+       nx =      1          # number of x-mesh points
+#    data = ( x(i), i = 1, nx + 1 )
+#          -2.50000E-01  2.50000E-01
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin =  0.4815000      # minimum value of y-mesh points
+     ymax =  0.8815000      # maximum value of y-mesh points
+#    ydel =  0.4000000      # mesh width of y-mesh points
+       ny =      1          # number of y-mesh points
+#    data = ( y(i), i = 1, ny + 1 )
+#           4.81500E-01  8.81500E-01
+   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   97.00000      # minimum value of z-mesh points
+     zmax =   100.0000      # maximum value of z-mesh points
+#    zdel =  1.0000000E-02  # mesh width of z-mesh points
+       nz =    300          # number of z-mesh points
+#    data = ( z(i), i = 1, nz + 1 )
+#           9.70000E+01  9.70100E+01  9.70200E+01  9.70300E+01  9.70400E+01
+#           9.70500E+01  9.70600E+01  9.70700E+01  9.70800E+01  9.70900E+01
+#           9.71000E+01  9.71100E+01  9.71200E+01  9.71300E+01  9.71400E+01
+#           9.71500E+01  9.71600E+01  9.71700E+01  9.71800E+01  9.71900E+01
+#           9.72000E+01  9.72100E+01  9.72200E+01  9.72300E+01  9.72400E+01
+#           9.72500E+01  9.72600E+01  9.72700E+01  9.72800E+01  9.72900E+01
+#           9.73000E+01  9.73100E+01  9.73200E+01  9.73300E+01  9.73400E+01
+#           9.73500E+01  9.73600E+01  9.73700E+01  9.73800E+01  9.73900E+01
+#           9.74000E+01  9.74100E+01  9.74200E+01  9.74300E+01  9.74400E+01
+#           9.74500E+01  9.74600E+01  9.74700E+01  9.74800E+01  9.74900E+01
+#           9.75000E+01  9.75100E+01  9.75200E+01  9.75300E+01  9.75400E+01
+#           9.75500E+01  9.75600E+01  9.75700E+01  9.75800E+01  9.75900E+01
+#           9.76000E+01  9.76100E+01  9.76200E+01  9.76300E+01  9.76400E+01
+#           9.76500E+01  9.76600E+01  9.76700E+01  9.76800E+01  9.76900E+01
+#           9.77000E+01  9.77100E+01  9.77200E+01  9.77300E+01  9.77400E+01
+#           9.77500E+01  9.77600E+01  9.77700E+01  9.77800E+01  9.77900E+01
+#           9.78000E+01  9.78100E+01  9.78200E+01  9.78300E+01  9.78400E+01
+#           9.78500E+01  9.78600E+01  9.78700E+01  9.78800E+01  9.78900E+01
+#           9.79000E+01  9.79100E+01  9.79200E+01  9.79300E+01  9.79400E+01
+#           9.79500E+01  9.79600E+01  9.79700E+01  9.79800E+01  9.79900E+01
+#           9.80000E+01  9.80100E+01  9.80200E+01  9.80300E+01  9.80400E+01
+#           9.80500E+01  9.80600E+01  9.80700E+01  9.80800E+01  9.80900E+01
+#           9.81000E+01  9.81100E+01  9.81200E+01  9.81300E+01  9.81400E+01
+#           9.81500E+01  9.81600E+01  9.81700E+01  9.81800E+01  9.81900E+01
+#           9.82000E+01  9.82100E+01  9.82200E+01  9.82300E+01  9.82400E+01
+#           9.82500E+01  9.82600E+01  9.82700E+01  9.82800E+01  9.82900E+01
+#           9.83000E+01  9.83100E+01  9.83200E+01  9.83300E+01  9.83400E+01
+#           9.83500E+01  9.83600E+01  9.83700E+01  9.83800E+01  9.83900E+01
+#           9.84000E+01  9.84100E+01  9.84200E+01  9.84300E+01  9.84400E+01
+#           9.84500E+01  9.84600E+01  9.84700E+01  9.84800E+01  9.84900E+01
+#           9.85000E+01  9.85100E+01  9.85200E+01  9.85300E+01  9.85400E+01
+#           9.85500E+01  9.85600E+01  9.85700E+01  9.85800E+01  9.85900E+01
+#           9.86000E+01  9.86100E+01  9.86200E+01  9.86300E+01  9.86400E+01
+#           9.86500E+01  9.86600E+01  9.86700E+01  9.86800E+01  9.86900E+01
+#           9.87000E+01  9.87100E+01  9.87200E+01  9.87300E+01  9.87400E+01
+#           9.87500E+01  9.87600E+01  9.87700E+01  9.87800E+01  9.87900E+01
+#           9.88000E+01  9.88100E+01  9.88200E+01  9.88300E+01  9.88400E+01
+#           9.88500E+01  9.88600E+01  9.88700E+01  9.88800E+01  9.88900E+01
+#           9.89000E+01  9.89100E+01  9.89200E+01  9.89300E+01  9.89400E+01
+#           9.89500E+01  9.89600E+01  9.89700E+01  9.89800E+01  9.89900E+01
+#           9.90000E+01  9.90100E+01  9.90200E+01  9.90300E+01  9.90400E+01
+#           9.90500E+01  9.90600E+01  9.90700E+01  9.90800E+01  9.90900E+01
+#           9.91000E+01  9.91100E+01  9.91200E+01  9.91300E+01  9.91400E+01
+#           9.91500E+01  9.91600E+01  9.91700E+01  9.91800E+01  9.91900E+01
+#           9.92000E+01  9.92100E+01  9.92200E+01  9.92300E+01  9.92400E+01
+#           9.92500E+01  9.92600E+01  9.92700E+01  9.92800E+01  9.92900E+01
+#           9.93000E+01  9.93100E+01  9.93200E+01  9.93300E+01  9.93400E+01
+#           9.93500E+01  9.93600E+01  9.93700E+01  9.93800E+01  9.93900E+01
+#           9.94000E+01  9.94100E+01  9.94200E+01  9.94300E+01  9.94400E+01
+#           9.94500E+01  9.94600E+01  9.94700E+01  9.94800E+01  9.94900E+01
+#           9.95000E+01  9.95100E+01  9.95200E+01  9.95300E+01  9.95400E+01
+#           9.95500E+01  9.95600E+01  9.95700E+01  9.95800E+01  9.95900E+01
+#           9.96000E+01  9.96100E+01  9.96200E+01  9.96300E+01  9.96400E+01
+#           9.96500E+01  9.96600E+01  9.96700E+01  9.96800E+01  9.96900E+01
+#           9.97000E+01  9.97100E+01  9.97200E+01  9.97300E+01  9.97400E+01
+#           9.97500E+01  9.97600E+01  9.97700E+01  9.97800E+01  9.97900E+01
+#           9.98000E+01  9.98100E+01  9.98200E+01  9.98300E+01  9.98400E+01
+#           9.98500E+01  9.98600E+01  9.98700E+01  9.98800E+01  9.98900E+01
+#           9.99000E+01  9.99100E+01  9.99200E+01  9.99300E+01  9.99400E+01
+#           9.99500E+01  9.99600E+01  9.99700E+01  9.99800E+01  9.99900E+01
+#           1.00000E+02
+     unit =    0            # unit is [Gy/source]
+   letmat =    0            # (D=0) mat ID for LET, 0:real mat, <0: electron for H2O
+  dedxfnc =    0            # (D=0) user defined multiplier, 0(no), 1, 2
+ material =  all            # (D=all) number of specific material
+   output =  dose           # total deposit energy
+  deposit =    0            # (D=0) 0-> total deposit dist, 1-> each process
+     axis =     z           # axis of output
+     file = ./out/bragg_CR39_col2.out  # file name of output for the above axis
+     part =  proton   
+# kf/name :  2212     
+   epsout =    1            # (D=0) generate eps file by ANGEL
+   mother =  all            # (D=all) number of specific mother
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :         308 (  0)           0 (  0)         308 (  0)
+
+[ T-Deposit ]
+    title = Bragg peak column 3
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin = -0.2500000      # minimum value of x-mesh points
+     xmax =  0.2500000      # maximum value of x-mesh points
+#    xdel =  0.5000000      # mesh width of x-mesh points
+       nx =      1          # number of x-mesh points
+#    data = ( x(i), i = 1, nx + 1 )
+#          -2.50000E-01  2.50000E-01
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin = -0.3185000      # minimum value of y-mesh points
+     ymax =  8.1500000E-02  # maximum value of y-mesh points
+#    ydel =  0.4000000      # mesh width of y-mesh points
+       ny =      1          # number of y-mesh points
+#    data = ( y(i), i = 1, ny + 1 )
+#          -3.18500E-01  8.15000E-02
+   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   97.00000      # minimum value of z-mesh points
+     zmax =   100.0000      # maximum value of z-mesh points
+#    zdel =  1.0000000E-02  # mesh width of z-mesh points
+       nz =    300          # number of z-mesh points
+#    data = ( z(i), i = 1, nz + 1 )
+#           9.70000E+01  9.70100E+01  9.70200E+01  9.70300E+01  9.70400E+01
+#           9.70500E+01  9.70600E+01  9.70700E+01  9.70800E+01  9.70900E+01
+#           9.71000E+01  9.71100E+01  9.71200E+01  9.71300E+01  9.71400E+01
+#           9.71500E+01  9.71600E+01  9.71700E+01  9.71800E+01  9.71900E+01
+#           9.72000E+01  9.72100E+01  9.72200E+01  9.72300E+01  9.72400E+01
+#           9.72500E+01  9.72600E+01  9.72700E+01  9.72800E+01  9.72900E+01
+#           9.73000E+01  9.73100E+01  9.73200E+01  9.73300E+01  9.73400E+01
+#           9.73500E+01  9.73600E+01  9.73700E+01  9.73800E+01  9.73900E+01
+#           9.74000E+01  9.74100E+01  9.74200E+01  9.74300E+01  9.74400E+01
+#           9.74500E+01  9.74600E+01  9.74700E+01  9.74800E+01  9.74900E+01
+#           9.75000E+01  9.75100E+01  9.75200E+01  9.75300E+01  9.75400E+01
+#           9.75500E+01  9.75600E+01  9.75700E+01  9.75800E+01  9.75900E+01
+#           9.76000E+01  9.76100E+01  9.76200E+01  9.76300E+01  9.76400E+01
+#           9.76500E+01  9.76600E+01  9.76700E+01  9.76800E+01  9.76900E+01
+#           9.77000E+01  9.77100E+01  9.77200E+01  9.77300E+01  9.77400E+01
+#           9.77500E+01  9.77600E+01  9.77700E+01  9.77800E+01  9.77900E+01
+#           9.78000E+01  9.78100E+01  9.78200E+01  9.78300E+01  9.78400E+01
+#           9.78500E+01  9.78600E+01  9.78700E+01  9.78800E+01  9.78900E+01
+#           9.79000E+01  9.79100E+01  9.79200E+01  9.79300E+01  9.79400E+01
+#           9.79500E+01  9.79600E+01  9.79700E+01  9.79800E+01  9.79900E+01
+#           9.80000E+01  9.80100E+01  9.80200E+01  9.80300E+01  9.80400E+01
+#           9.80500E+01  9.80600E+01  9.80700E+01  9.80800E+01  9.80900E+01
+#           9.81000E+01  9.81100E+01  9.81200E+01  9.81300E+01  9.81400E+01
+#           9.81500E+01  9.81600E+01  9.81700E+01  9.81800E+01  9.81900E+01
+#           9.82000E+01  9.82100E+01  9.82200E+01  9.82300E+01  9.82400E+01
+#           9.82500E+01  9.82600E+01  9.82700E+01  9.82800E+01  9.82900E+01
+#           9.83000E+01  9.83100E+01  9.83200E+01  9.83300E+01  9.83400E+01
+#           9.83500E+01  9.83600E+01  9.83700E+01  9.83800E+01  9.83900E+01
+#           9.84000E+01  9.84100E+01  9.84200E+01  9.84300E+01  9.84400E+01
+#           9.84500E+01  9.84600E+01  9.84700E+01  9.84800E+01  9.84900E+01
+#           9.85000E+01  9.85100E+01  9.85200E+01  9.85300E+01  9.85400E+01
+#           9.85500E+01  9.85600E+01  9.85700E+01  9.85800E+01  9.85900E+01
+#           9.86000E+01  9.86100E+01  9.86200E+01  9.86300E+01  9.86400E+01
+#           9.86500E+01  9.86600E+01  9.86700E+01  9.86800E+01  9.86900E+01
+#           9.87000E+01  9.87100E+01  9.87200E+01  9.87300E+01  9.87400E+01
+#           9.87500E+01  9.87600E+01  9.87700E+01  9.87800E+01  9.87900E+01
+#           9.88000E+01  9.88100E+01  9.88200E+01  9.88300E+01  9.88400E+01
+#           9.88500E+01  9.88600E+01  9.88700E+01  9.88800E+01  9.88900E+01
+#           9.89000E+01  9.89100E+01  9.89200E+01  9.89300E+01  9.89400E+01
+#           9.89500E+01  9.89600E+01  9.89700E+01  9.89800E+01  9.89900E+01
+#           9.90000E+01  9.90100E+01  9.90200E+01  9.90300E+01  9.90400E+01
+#           9.90500E+01  9.90600E+01  9.90700E+01  9.90800E+01  9.90900E+01
+#           9.91000E+01  9.91100E+01  9.91200E+01  9.91300E+01  9.91400E+01
+#           9.91500E+01  9.91600E+01  9.91700E+01  9.91800E+01  9.91900E+01
+#           9.92000E+01  9.92100E+01  9.92200E+01  9.92300E+01  9.92400E+01
+#           9.92500E+01  9.92600E+01  9.92700E+01  9.92800E+01  9.92900E+01
+#           9.93000E+01  9.93100E+01  9.93200E+01  9.93300E+01  9.93400E+01
+#           9.93500E+01  9.93600E+01  9.93700E+01  9.93800E+01  9.93900E+01
+#           9.94000E+01  9.94100E+01  9.94200E+01  9.94300E+01  9.94400E+01
+#           9.94500E+01  9.94600E+01  9.94700E+01  9.94800E+01  9.94900E+01
+#           9.95000E+01  9.95100E+01  9.95200E+01  9.95300E+01  9.95400E+01
+#           9.95500E+01  9.95600E+01  9.95700E+01  9.95800E+01  9.95900E+01
+#           9.96000E+01  9.96100E+01  9.96200E+01  9.96300E+01  9.96400E+01
+#           9.96500E+01  9.96600E+01  9.96700E+01  9.96800E+01  9.96900E+01
+#           9.97000E+01  9.97100E+01  9.97200E+01  9.97300E+01  9.97400E+01
+#           9.97500E+01  9.97600E+01  9.97700E+01  9.97800E+01  9.97900E+01
+#           9.98000E+01  9.98100E+01  9.98200E+01  9.98300E+01  9.98400E+01
+#           9.98500E+01  9.98600E+01  9.98700E+01  9.98800E+01  9.98900E+01
+#           9.99000E+01  9.99100E+01  9.99200E+01  9.99300E+01  9.99400E+01
+#           9.99500E+01  9.99600E+01  9.99700E+01  9.99800E+01  9.99900E+01
+#           1.00000E+02
+     unit =    0            # unit is [Gy/source]
+   letmat =    0            # (D=0) mat ID for LET, 0:real mat, <0: electron for H2O
+  dedxfnc =    0            # (D=0) user defined multiplier, 0(no), 1, 2
+ material =  all            # (D=all) number of specific material
+   output =  dose           # total deposit energy
+  deposit =    0            # (D=0) 0-> total deposit dist, 1-> each process
+     axis =     z           # axis of output
+     file = ./out/bragg_CR39_col3.out  # file name of output for the above axis
+     part =  proton   
+# kf/name :  2212     
+   epsout =    1            # (D=0) generate eps file by ANGEL
+   mother =  all            # (D=all) number of specific mother
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :         308 (  0)           0 (  0)         308 (  0)
+
+[ T-Deposit ]
+    title = Bragg peak column 4
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin = -0.2500000      # minimum value of x-mesh points
+     xmax =  0.2500000      # maximum value of x-mesh points
+#    xdel =  0.5000000      # mesh width of x-mesh points
+       nx =      1          # number of x-mesh points
+#    data = ( x(i), i = 1, nx + 1 )
+#          -2.50000E-01  2.50000E-01
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin =  -1.118500      # minimum value of y-mesh points
+     ymax = -0.7185000      # maximum value of y-mesh points
+#    ydel =  0.4000000      # mesh width of y-mesh points
+       ny =      1          # number of y-mesh points
+#    data = ( y(i), i = 1, ny + 1 )
+#          -1.11850E+00 -7.18500E-01
+   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   97.00000      # minimum value of z-mesh points
+     zmax =   100.0000      # maximum value of z-mesh points
+#    zdel =  1.0000000E-02  # mesh width of z-mesh points
+       nz =    300          # number of z-mesh points
+#    data = ( z(i), i = 1, nz + 1 )
+#           9.70000E+01  9.70100E+01  9.70200E+01  9.70300E+01  9.70400E+01
+#           9.70500E+01  9.70600E+01  9.70700E+01  9.70800E+01  9.70900E+01
+#           9.71000E+01  9.71100E+01  9.71200E+01  9.71300E+01  9.71400E+01
+#           9.71500E+01  9.71600E+01  9.71700E+01  9.71800E+01  9.71900E+01
+#           9.72000E+01  9.72100E+01  9.72200E+01  9.72300E+01  9.72400E+01
+#           9.72500E+01  9.72600E+01  9.72700E+01  9.72800E+01  9.72900E+01
+#           9.73000E+01  9.73100E+01  9.73200E+01  9.73300E+01  9.73400E+01
+#           9.73500E+01  9.73600E+01  9.73700E+01  9.73800E+01  9.73900E+01
+#           9.74000E+01  9.74100E+01  9.74200E+01  9.74300E+01  9.74400E+01
+#           9.74500E+01  9.74600E+01  9.74700E+01  9.74800E+01  9.74900E+01
+#           9.75000E+01  9.75100E+01  9.75200E+01  9.75300E+01  9.75400E+01
+#           9.75500E+01  9.75600E+01  9.75700E+01  9.75800E+01  9.75900E+01
+#           9.76000E+01  9.76100E+01  9.76200E+01  9.76300E+01  9.76400E+01
+#           9.76500E+01  9.76600E+01  9.76700E+01  9.76800E+01  9.76900E+01
+#           9.77000E+01  9.77100E+01  9.77200E+01  9.77300E+01  9.77400E+01
+#           9.77500E+01  9.77600E+01  9.77700E+01  9.77800E+01  9.77900E+01
+#           9.78000E+01  9.78100E+01  9.78200E+01  9.78300E+01  9.78400E+01
+#           9.78500E+01  9.78600E+01  9.78700E+01  9.78800E+01  9.78900E+01
+#           9.79000E+01  9.79100E+01  9.79200E+01  9.79300E+01  9.79400E+01
+#           9.79500E+01  9.79600E+01  9.79700E+01  9.79800E+01  9.79900E+01
+#           9.80000E+01  9.80100E+01  9.80200E+01  9.80300E+01  9.80400E+01
+#           9.80500E+01  9.80600E+01  9.80700E+01  9.80800E+01  9.80900E+01
+#           9.81000E+01  9.81100E+01  9.81200E+01  9.81300E+01  9.81400E+01
+#           9.81500E+01  9.81600E+01  9.81700E+01  9.81800E+01  9.81900E+01
+#           9.82000E+01  9.82100E+01  9.82200E+01  9.82300E+01  9.82400E+01
+#           9.82500E+01  9.82600E+01  9.82700E+01  9.82800E+01  9.82900E+01
+#           9.83000E+01  9.83100E+01  9.83200E+01  9.83300E+01  9.83400E+01
+#           9.83500E+01  9.83600E+01  9.83700E+01  9.83800E+01  9.83900E+01
+#           9.84000E+01  9.84100E+01  9.84200E+01  9.84300E+01  9.84400E+01
+#           9.84500E+01  9.84600E+01  9.84700E+01  9.84800E+01  9.84900E+01
+#           9.85000E+01  9.85100E+01  9.85200E+01  9.85300E+01  9.85400E+01
+#           9.85500E+01  9.85600E+01  9.85700E+01  9.85800E+01  9.85900E+01
+#           9.86000E+01  9.86100E+01  9.86200E+01  9.86300E+01  9.86400E+01
+#           9.86500E+01  9.86600E+01  9.86700E+01  9.86800E+01  9.86900E+01
+#           9.87000E+01  9.87100E+01  9.87200E+01  9.87300E+01  9.87400E+01
+#           9.87500E+01  9.87600E+01  9.87700E+01  9.87800E+01  9.87900E+01
+#           9.88000E+01  9.88100E+01  9.88200E+01  9.88300E+01  9.88400E+01
+#           9.88500E+01  9.88600E+01  9.88700E+01  9.88800E+01  9.88900E+01
+#           9.89000E+01  9.89100E+01  9.89200E+01  9.89300E+01  9.89400E+01
+#           9.89500E+01  9.89600E+01  9.89700E+01  9.89800E+01  9.89900E+01
+#           9.90000E+01  9.90100E+01  9.90200E+01  9.90300E+01  9.90400E+01
+#           9.90500E+01  9.90600E+01  9.90700E+01  9.90800E+01  9.90900E+01
+#           9.91000E+01  9.91100E+01  9.91200E+01  9.91300E+01  9.91400E+01
+#           9.91500E+01  9.91600E+01  9.91700E+01  9.91800E+01  9.91900E+01
+#           9.92000E+01  9.92100E+01  9.92200E+01  9.92300E+01  9.92400E+01
+#           9.92500E+01  9.92600E+01  9.92700E+01  9.92800E+01  9.92900E+01
+#           9.93000E+01  9.93100E+01  9.93200E+01  9.93300E+01  9.93400E+01
+#           9.93500E+01  9.93600E+01  9.93700E+01  9.93800E+01  9.93900E+01
+#           9.94000E+01  9.94100E+01  9.94200E+01  9.94300E+01  9.94400E+01
+#           9.94500E+01  9.94600E+01  9.94700E+01  9.94800E+01  9.94900E+01
+#           9.95000E+01  9.95100E+01  9.95200E+01  9.95300E+01  9.95400E+01
+#           9.95500E+01  9.95600E+01  9.95700E+01  9.95800E+01  9.95900E+01
+#           9.96000E+01  9.96100E+01  9.96200E+01  9.96300E+01  9.96400E+01
+#           9.96500E+01  9.96600E+01  9.96700E+01  9.96800E+01  9.96900E+01
+#           9.97000E+01  9.97100E+01  9.97200E+01  9.97300E+01  9.97400E+01
+#           9.97500E+01  9.97600E+01  9.97700E+01  9.97800E+01  9.97900E+01
+#           9.98000E+01  9.98100E+01  9.98200E+01  9.98300E+01  9.98400E+01
+#           9.98500E+01  9.98600E+01  9.98700E+01  9.98800E+01  9.98900E+01
+#           9.99000E+01  9.99100E+01  9.99200E+01  9.99300E+01  9.99400E+01
+#           9.99500E+01  9.99600E+01  9.99700E+01  9.99800E+01  9.99900E+01
+#           1.00000E+02
+     unit =    0            # unit is [Gy/source]
+   letmat =    0            # (D=0) mat ID for LET, 0:real mat, <0: electron for H2O
+  dedxfnc =    0            # (D=0) user defined multiplier, 0(no), 1, 2
+ material =  all            # (D=all) number of specific material
+   output =  dose           # total deposit energy
+  deposit =    0            # (D=0) 0-> total deposit dist, 1-> each process
+     axis =     z           # axis of output
+     file = ./out/bragg_CR39_col4.out  # file name of output for the above axis
+     part =  proton   
+# kf/name :  2212     
+   epsout =    1            # (D=0) generate eps file by ANGEL
+   mother =  all            # (D=all) number of specific mother
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :         308 (  0)           0 (  0)         308 (  0)
+
+[ T-Track ]
+    title = Proton fluence vs depth column 1
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin = -0.2500000      # minimum value of x-mesh points
+     xmax =  0.2500000      # maximum value of x-mesh points
+#    xdel =  0.5000000      # mesh width of x-mesh points
+       nx =      1          # number of x-mesh points
+#    data = ( x(i), i = 1, nx + 1 )
+#          -2.50000E-01  2.50000E-01
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin =   1.281500      # minimum value of y-mesh points
+     ymax =   1.681500      # maximum value of y-mesh points
+#    ydel =  0.4000000      # mesh width of y-mesh points
+       ny =      1          # number of y-mesh points
+#    data = ( y(i), i = 1, ny + 1 )
+#           1.28150E+00  1.68150E+00
+   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   97.00000      # minimum value of z-mesh points
+     zmax =   100.0000      # maximum value of z-mesh points
+#    zdel =  1.0000000E-02  # mesh width of z-mesh points
+       nz =    300          # number of z-mesh points
+#    data = ( z(i), i = 1, nz + 1 )
+#           9.70000E+01  9.70100E+01  9.70200E+01  9.70300E+01  9.70400E+01
+#           9.70500E+01  9.70600E+01  9.70700E+01  9.70800E+01  9.70900E+01
+#           9.71000E+01  9.71100E+01  9.71200E+01  9.71300E+01  9.71400E+01
+#           9.71500E+01  9.71600E+01  9.71700E+01  9.71800E+01  9.71900E+01
+#           9.72000E+01  9.72100E+01  9.72200E+01  9.72300E+01  9.72400E+01
+#           9.72500E+01  9.72600E+01  9.72700E+01  9.72800E+01  9.72900E+01
+#           9.73000E+01  9.73100E+01  9.73200E+01  9.73300E+01  9.73400E+01
+#           9.73500E+01  9.73600E+01  9.73700E+01  9.73800E+01  9.73900E+01
+#           9.74000E+01  9.74100E+01  9.74200E+01  9.74300E+01  9.74400E+01
+#           9.74500E+01  9.74600E+01  9.74700E+01  9.74800E+01  9.74900E+01
+#           9.75000E+01  9.75100E+01  9.75200E+01  9.75300E+01  9.75400E+01
+#           9.75500E+01  9.75600E+01  9.75700E+01  9.75800E+01  9.75900E+01
+#           9.76000E+01  9.76100E+01  9.76200E+01  9.76300E+01  9.76400E+01
+#           9.76500E+01  9.76600E+01  9.76700E+01  9.76800E+01  9.76900E+01
+#           9.77000E+01  9.77100E+01  9.77200E+01  9.77300E+01  9.77400E+01
+#           9.77500E+01  9.77600E+01  9.77700E+01  9.77800E+01  9.77900E+01
+#           9.78000E+01  9.78100E+01  9.78200E+01  9.78300E+01  9.78400E+01
+#           9.78500E+01  9.78600E+01  9.78700E+01  9.78800E+01  9.78900E+01
+#           9.79000E+01  9.79100E+01  9.79200E+01  9.79300E+01  9.79400E+01
+#           9.79500E+01  9.79600E+01  9.79700E+01  9.79800E+01  9.79900E+01
+#           9.80000E+01  9.80100E+01  9.80200E+01  9.80300E+01  9.80400E+01
+#           9.80500E+01  9.80600E+01  9.80700E+01  9.80800E+01  9.80900E+01
+#           9.81000E+01  9.81100E+01  9.81200E+01  9.81300E+01  9.81400E+01
+#           9.81500E+01  9.81600E+01  9.81700E+01  9.81800E+01  9.81900E+01
+#           9.82000E+01  9.82100E+01  9.82200E+01  9.82300E+01  9.82400E+01
+#           9.82500E+01  9.82600E+01  9.82700E+01  9.82800E+01  9.82900E+01
+#           9.83000E+01  9.83100E+01  9.83200E+01  9.83300E+01  9.83400E+01
+#           9.83500E+01  9.83600E+01  9.83700E+01  9.83800E+01  9.83900E+01
+#           9.84000E+01  9.84100E+01  9.84200E+01  9.84300E+01  9.84400E+01
+#           9.84500E+01  9.84600E+01  9.84700E+01  9.84800E+01  9.84900E+01
+#           9.85000E+01  9.85100E+01  9.85200E+01  9.85300E+01  9.85400E+01
+#           9.85500E+01  9.85600E+01  9.85700E+01  9.85800E+01  9.85900E+01
+#           9.86000E+01  9.86100E+01  9.86200E+01  9.86300E+01  9.86400E+01
+#           9.86500E+01  9.86600E+01  9.86700E+01  9.86800E+01  9.86900E+01
+#           9.87000E+01  9.87100E+01  9.87200E+01  9.87300E+01  9.87400E+01
+#           9.87500E+01  9.87600E+01  9.87700E+01  9.87800E+01  9.87900E+01
+#           9.88000E+01  9.88100E+01  9.88200E+01  9.88300E+01  9.88400E+01
+#           9.88500E+01  9.88600E+01  9.88700E+01  9.88800E+01  9.88900E+01
+#           9.89000E+01  9.89100E+01  9.89200E+01  9.89300E+01  9.89400E+01
+#           9.89500E+01  9.89600E+01  9.89700E+01  9.89800E+01  9.89900E+01
+#           9.90000E+01  9.90100E+01  9.90200E+01  9.90300E+01  9.90400E+01
+#           9.90500E+01  9.90600E+01  9.90700E+01  9.90800E+01  9.90900E+01
+#           9.91000E+01  9.91100E+01  9.91200E+01  9.91300E+01  9.91400E+01
+#           9.91500E+01  9.91600E+01  9.91700E+01  9.91800E+01  9.91900E+01
+#           9.92000E+01  9.92100E+01  9.92200E+01  9.92300E+01  9.92400E+01
+#           9.92500E+01  9.92600E+01  9.92700E+01  9.92800E+01  9.92900E+01
+#           9.93000E+01  9.93100E+01  9.93200E+01  9.93300E+01  9.93400E+01
+#           9.93500E+01  9.93600E+01  9.93700E+01  9.93800E+01  9.93900E+01
+#           9.94000E+01  9.94100E+01  9.94200E+01  9.94300E+01  9.94400E+01
+#           9.94500E+01  9.94600E+01  9.94700E+01  9.94800E+01  9.94900E+01
+#           9.95000E+01  9.95100E+01  9.95200E+01  9.95300E+01  9.95400E+01
+#           9.95500E+01  9.95600E+01  9.95700E+01  9.95800E+01  9.95900E+01
+#           9.96000E+01  9.96100E+01  9.96200E+01  9.96300E+01  9.96400E+01
+#           9.96500E+01  9.96600E+01  9.96700E+01  9.96800E+01  9.96900E+01
+#           9.97000E+01  9.97100E+01  9.97200E+01  9.97300E+01  9.97400E+01
+#           9.97500E+01  9.97600E+01  9.97700E+01  9.97800E+01  9.97900E+01
+#           9.98000E+01  9.98100E+01  9.98200E+01  9.98300E+01  9.98400E+01
+#           9.98500E+01  9.98600E+01  9.98700E+01  9.98800E+01  9.98900E+01
+#           9.99000E+01  9.99100E+01  9.99200E+01  9.99300E+01  9.99400E+01
+#           9.99500E+01  9.99600E+01  9.99700E+01  9.99800E+01  9.99900E+01
+#           1.00000E+02
+   e-type =    2            # e-mesh is linear given by emin, emax and ne
+     emin =  1.0000000E-03  # minimum value of e-mesh points
+     emax =   25.00000      # maximum value of e-mesh points
+#    edel =   24.99900      # mesh width of e-mesh points
+       ne =      1          # number of e-mesh points
+#    data = ( e(i), i = 1, ne + 1 )
+#           1.00000E-03  2.50000E+01
+     unit =    1            # unit is [1/cm^2/source]
+ material =  all            # (D=all) number of specific material
+     axis =       z            # axis of output
+     file = ./out/flujo_z_col1.out  # file name of output for the above axis
+     part =  proton   
+# kf/name :  2212     
+   epsout =    1            # (D=0) generate eps file by ANGEL
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :         311 (  0)           0 (  0)         311 (  0)
+
+[ T-Track ]
+    title = Proton fluence vs depth column 2
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin = -0.2500000      # minimum value of x-mesh points
+     xmax =  0.2500000      # maximum value of x-mesh points
+#    xdel =  0.5000000      # mesh width of x-mesh points
+       nx =      1          # number of x-mesh points
+#    data = ( x(i), i = 1, nx + 1 )
+#          -2.50000E-01  2.50000E-01
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin =  0.4815000      # minimum value of y-mesh points
+     ymax =  0.8815000      # maximum value of y-mesh points
+#    ydel =  0.4000000      # mesh width of y-mesh points
+       ny =      1          # number of y-mesh points
+#    data = ( y(i), i = 1, ny + 1 )
+#           4.81500E-01  8.81500E-01
+   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   97.00000      # minimum value of z-mesh points
+     zmax =   100.0000      # maximum value of z-mesh points
+#    zdel =  1.0000000E-02  # mesh width of z-mesh points
+       nz =    300          # number of z-mesh points
+#    data = ( z(i), i = 1, nz + 1 )
+#           9.70000E+01  9.70100E+01  9.70200E+01  9.70300E+01  9.70400E+01
+#           9.70500E+01  9.70600E+01  9.70700E+01  9.70800E+01  9.70900E+01
+#           9.71000E+01  9.71100E+01  9.71200E+01  9.71300E+01  9.71400E+01
+#           9.71500E+01  9.71600E+01  9.71700E+01  9.71800E+01  9.71900E+01
+#           9.72000E+01  9.72100E+01  9.72200E+01  9.72300E+01  9.72400E+01
+#           9.72500E+01  9.72600E+01  9.72700E+01  9.72800E+01  9.72900E+01
+#           9.73000E+01  9.73100E+01  9.73200E+01  9.73300E+01  9.73400E+01
+#           9.73500E+01  9.73600E+01  9.73700E+01  9.73800E+01  9.73900E+01
+#           9.74000E+01  9.74100E+01  9.74200E+01  9.74300E+01  9.74400E+01
+#           9.74500E+01  9.74600E+01  9.74700E+01  9.74800E+01  9.74900E+01
+#           9.75000E+01  9.75100E+01  9.75200E+01  9.75300E+01  9.75400E+01
+#           9.75500E+01  9.75600E+01  9.75700E+01  9.75800E+01  9.75900E+01
+#           9.76000E+01  9.76100E+01  9.76200E+01  9.76300E+01  9.76400E+01
+#           9.76500E+01  9.76600E+01  9.76700E+01  9.76800E+01  9.76900E+01
+#           9.77000E+01  9.77100E+01  9.77200E+01  9.77300E+01  9.77400E+01
+#           9.77500E+01  9.77600E+01  9.77700E+01  9.77800E+01  9.77900E+01
+#           9.78000E+01  9.78100E+01  9.78200E+01  9.78300E+01  9.78400E+01
+#           9.78500E+01  9.78600E+01  9.78700E+01  9.78800E+01  9.78900E+01
+#           9.79000E+01  9.79100E+01  9.79200E+01  9.79300E+01  9.79400E+01
+#           9.79500E+01  9.79600E+01  9.79700E+01  9.79800E+01  9.79900E+01
+#           9.80000E+01  9.80100E+01  9.80200E+01  9.80300E+01  9.80400E+01
+#           9.80500E+01  9.80600E+01  9.80700E+01  9.80800E+01  9.80900E+01
+#           9.81000E+01  9.81100E+01  9.81200E+01  9.81300E+01  9.81400E+01
+#           9.81500E+01  9.81600E+01  9.81700E+01  9.81800E+01  9.81900E+01
+#           9.82000E+01  9.82100E+01  9.82200E+01  9.82300E+01  9.82400E+01
+#           9.82500E+01  9.82600E+01  9.82700E+01  9.82800E+01  9.82900E+01
+#           9.83000E+01  9.83100E+01  9.83200E+01  9.83300E+01  9.83400E+01
+#           9.83500E+01  9.83600E+01  9.83700E+01  9.83800E+01  9.83900E+01
+#           9.84000E+01  9.84100E+01  9.84200E+01  9.84300E+01  9.84400E+01
+#           9.84500E+01  9.84600E+01  9.84700E+01  9.84800E+01  9.84900E+01
+#           9.85000E+01  9.85100E+01  9.85200E+01  9.85300E+01  9.85400E+01
+#           9.85500E+01  9.85600E+01  9.85700E+01  9.85800E+01  9.85900E+01
+#           9.86000E+01  9.86100E+01  9.86200E+01  9.86300E+01  9.86400E+01
+#           9.86500E+01  9.86600E+01  9.86700E+01  9.86800E+01  9.86900E+01
+#           9.87000E+01  9.87100E+01  9.87200E+01  9.87300E+01  9.87400E+01
+#           9.87500E+01  9.87600E+01  9.87700E+01  9.87800E+01  9.87900E+01
+#           9.88000E+01  9.88100E+01  9.88200E+01  9.88300E+01  9.88400E+01
+#           9.88500E+01  9.88600E+01  9.88700E+01  9.88800E+01  9.88900E+01
+#           9.89000E+01  9.89100E+01  9.89200E+01  9.89300E+01  9.89400E+01
+#           9.89500E+01  9.89600E+01  9.89700E+01  9.89800E+01  9.89900E+01
+#           9.90000E+01  9.90100E+01  9.90200E+01  9.90300E+01  9.90400E+01
+#           9.90500E+01  9.90600E+01  9.90700E+01  9.90800E+01  9.90900E+01
+#           9.91000E+01  9.91100E+01  9.91200E+01  9.91300E+01  9.91400E+01
+#           9.91500E+01  9.91600E+01  9.91700E+01  9.91800E+01  9.91900E+01
+#           9.92000E+01  9.92100E+01  9.92200E+01  9.92300E+01  9.92400E+01
+#           9.92500E+01  9.92600E+01  9.92700E+01  9.92800E+01  9.92900E+01
+#           9.93000E+01  9.93100E+01  9.93200E+01  9.93300E+01  9.93400E+01
+#           9.93500E+01  9.93600E+01  9.93700E+01  9.93800E+01  9.93900E+01
+#           9.94000E+01  9.94100E+01  9.94200E+01  9.94300E+01  9.94400E+01
+#           9.94500E+01  9.94600E+01  9.94700E+01  9.94800E+01  9.94900E+01
+#           9.95000E+01  9.95100E+01  9.95200E+01  9.95300E+01  9.95400E+01
+#           9.95500E+01  9.95600E+01  9.95700E+01  9.95800E+01  9.95900E+01
+#           9.96000E+01  9.96100E+01  9.96200E+01  9.96300E+01  9.96400E+01
+#           9.96500E+01  9.96600E+01  9.96700E+01  9.96800E+01  9.96900E+01
+#           9.97000E+01  9.97100E+01  9.97200E+01  9.97300E+01  9.97400E+01
+#           9.97500E+01  9.97600E+01  9.97700E+01  9.97800E+01  9.97900E+01
+#           9.98000E+01  9.98100E+01  9.98200E+01  9.98300E+01  9.98400E+01
+#           9.98500E+01  9.98600E+01  9.98700E+01  9.98800E+01  9.98900E+01
+#           9.99000E+01  9.99100E+01  9.99200E+01  9.99300E+01  9.99400E+01
+#           9.99500E+01  9.99600E+01  9.99700E+01  9.99800E+01  9.99900E+01
+#           1.00000E+02
+   e-type =    2            # e-mesh is linear given by emin, emax and ne
+     emin =  1.0000000E-03  # minimum value of e-mesh points
+     emax =   25.00000      # maximum value of e-mesh points
+#    edel =   24.99900      # mesh width of e-mesh points
+       ne =      1          # number of e-mesh points
+#    data = ( e(i), i = 1, ne + 1 )
+#           1.00000E-03  2.50000E+01
+     unit =    1            # unit is [1/cm^2/source]
+ material =  all            # (D=all) number of specific material
+     axis =       z            # axis of output
+     file = ./out/flujo_z_col2.out  # file name of output for the above axis
+     part =  proton   
+# kf/name :  2212     
+   epsout =    1            # (D=0) generate eps file by ANGEL
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :         311 (  0)           0 (  0)         311 (  0)
+
+[ T-Track ]
+    title = Proton fluence vs depth column 3
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin = -0.2500000      # minimum value of x-mesh points
+     xmax =  0.2500000      # maximum value of x-mesh points
+#    xdel =  0.5000000      # mesh width of x-mesh points
+       nx =      1          # number of x-mesh points
+#    data = ( x(i), i = 1, nx + 1 )
+#          -2.50000E-01  2.50000E-01
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin = -0.3185000      # minimum value of y-mesh points
+     ymax =  8.1500000E-02  # maximum value of y-mesh points
+#    ydel =  0.4000000      # mesh width of y-mesh points
+       ny =      1          # number of y-mesh points
+#    data = ( y(i), i = 1, ny + 1 )
+#          -3.18500E-01  8.15000E-02
+   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   97.00000      # minimum value of z-mesh points
+     zmax =   100.0000      # maximum value of z-mesh points
+#    zdel =  1.0000000E-02  # mesh width of z-mesh points
+       nz =    300          # number of z-mesh points
+#    data = ( z(i), i = 1, nz + 1 )
+#           9.70000E+01  9.70100E+01  9.70200E+01  9.70300E+01  9.70400E+01
+#           9.70500E+01  9.70600E+01  9.70700E+01  9.70800E+01  9.70900E+01
+#           9.71000E+01  9.71100E+01  9.71200E+01  9.71300E+01  9.71400E+01
+#           9.71500E+01  9.71600E+01  9.71700E+01  9.71800E+01  9.71900E+01
+#           9.72000E+01  9.72100E+01  9.72200E+01  9.72300E+01  9.72400E+01
+#           9.72500E+01  9.72600E+01  9.72700E+01  9.72800E+01  9.72900E+01
+#           9.73000E+01  9.73100E+01  9.73200E+01  9.73300E+01  9.73400E+01
+#           9.73500E+01  9.73600E+01  9.73700E+01  9.73800E+01  9.73900E+01
+#           9.74000E+01  9.74100E+01  9.74200E+01  9.74300E+01  9.74400E+01
+#           9.74500E+01  9.74600E+01  9.74700E+01  9.74800E+01  9.74900E+01
+#           9.75000E+01  9.75100E+01  9.75200E+01  9.75300E+01  9.75400E+01
+#           9.75500E+01  9.75600E+01  9.75700E+01  9.75800E+01  9.75900E+01
+#           9.76000E+01  9.76100E+01  9.76200E+01  9.76300E+01  9.76400E+01
+#           9.76500E+01  9.76600E+01  9.76700E+01  9.76800E+01  9.76900E+01
+#           9.77000E+01  9.77100E+01  9.77200E+01  9.77300E+01  9.77400E+01
+#           9.77500E+01  9.77600E+01  9.77700E+01  9.77800E+01  9.77900E+01
+#           9.78000E+01  9.78100E+01  9.78200E+01  9.78300E+01  9.78400E+01
+#           9.78500E+01  9.78600E+01  9.78700E+01  9.78800E+01  9.78900E+01
+#           9.79000E+01  9.79100E+01  9.79200E+01  9.79300E+01  9.79400E+01
+#           9.79500E+01  9.79600E+01  9.79700E+01  9.79800E+01  9.79900E+01
+#           9.80000E+01  9.80100E+01  9.80200E+01  9.80300E+01  9.80400E+01
+#           9.80500E+01  9.80600E+01  9.80700E+01  9.80800E+01  9.80900E+01
+#           9.81000E+01  9.81100E+01  9.81200E+01  9.81300E+01  9.81400E+01
+#           9.81500E+01  9.81600E+01  9.81700E+01  9.81800E+01  9.81900E+01
+#           9.82000E+01  9.82100E+01  9.82200E+01  9.82300E+01  9.82400E+01
+#           9.82500E+01  9.82600E+01  9.82700E+01  9.82800E+01  9.82900E+01
+#           9.83000E+01  9.83100E+01  9.83200E+01  9.83300E+01  9.83400E+01
+#           9.83500E+01  9.83600E+01  9.83700E+01  9.83800E+01  9.83900E+01
+#           9.84000E+01  9.84100E+01  9.84200E+01  9.84300E+01  9.84400E+01
+#           9.84500E+01  9.84600E+01  9.84700E+01  9.84800E+01  9.84900E+01
+#           9.85000E+01  9.85100E+01  9.85200E+01  9.85300E+01  9.85400E+01
+#           9.85500E+01  9.85600E+01  9.85700E+01  9.85800E+01  9.85900E+01
+#           9.86000E+01  9.86100E+01  9.86200E+01  9.86300E+01  9.86400E+01
+#           9.86500E+01  9.86600E+01  9.86700E+01  9.86800E+01  9.86900E+01
+#           9.87000E+01  9.87100E+01  9.87200E+01  9.87300E+01  9.87400E+01
+#           9.87500E+01  9.87600E+01  9.87700E+01  9.87800E+01  9.87900E+01
+#           9.88000E+01  9.88100E+01  9.88200E+01  9.88300E+01  9.88400E+01
+#           9.88500E+01  9.88600E+01  9.88700E+01  9.88800E+01  9.88900E+01
+#           9.89000E+01  9.89100E+01  9.89200E+01  9.89300E+01  9.89400E+01
+#           9.89500E+01  9.89600E+01  9.89700E+01  9.89800E+01  9.89900E+01
+#           9.90000E+01  9.90100E+01  9.90200E+01  9.90300E+01  9.90400E+01
+#           9.90500E+01  9.90600E+01  9.90700E+01  9.90800E+01  9.90900E+01
+#           9.91000E+01  9.91100E+01  9.91200E+01  9.91300E+01  9.91400E+01
+#           9.91500E+01  9.91600E+01  9.91700E+01  9.91800E+01  9.91900E+01
+#           9.92000E+01  9.92100E+01  9.92200E+01  9.92300E+01  9.92400E+01
+#           9.92500E+01  9.92600E+01  9.92700E+01  9.92800E+01  9.92900E+01
+#           9.93000E+01  9.93100E+01  9.93200E+01  9.93300E+01  9.93400E+01
+#           9.93500E+01  9.93600E+01  9.93700E+01  9.93800E+01  9.93900E+01
+#           9.94000E+01  9.94100E+01  9.94200E+01  9.94300E+01  9.94400E+01
+#           9.94500E+01  9.94600E+01  9.94700E+01  9.94800E+01  9.94900E+01
+#           9.95000E+01  9.95100E+01  9.95200E+01  9.95300E+01  9.95400E+01
+#           9.95500E+01  9.95600E+01  9.95700E+01  9.95800E+01  9.95900E+01
+#           9.96000E+01  9.96100E+01  9.96200E+01  9.96300E+01  9.96400E+01
+#           9.96500E+01  9.96600E+01  9.96700E+01  9.96800E+01  9.96900E+01
+#           9.97000E+01  9.97100E+01  9.97200E+01  9.97300E+01  9.97400E+01
+#           9.97500E+01  9.97600E+01  9.97700E+01  9.97800E+01  9.97900E+01
+#           9.98000E+01  9.98100E+01  9.98200E+01  9.98300E+01  9.98400E+01
+#           9.98500E+01  9.98600E+01  9.98700E+01  9.98800E+01  9.98900E+01
+#           9.99000E+01  9.99100E+01  9.99200E+01  9.99300E+01  9.99400E+01
+#           9.99500E+01  9.99600E+01  9.99700E+01  9.99800E+01  9.99900E+01
+#           1.00000E+02
+   e-type =    2            # e-mesh is linear given by emin, emax and ne
+     emin =  1.0000000E-03  # minimum value of e-mesh points
+     emax =   25.00000      # maximum value of e-mesh points
+#    edel =   24.99900      # mesh width of e-mesh points
+       ne =      1          # number of e-mesh points
+#    data = ( e(i), i = 1, ne + 1 )
+#           1.00000E-03  2.50000E+01
+     unit =    1            # unit is [1/cm^2/source]
+ material =  all            # (D=all) number of specific material
+     axis =       z            # axis of output
+     file = ./out/flujo_z_col3.out  # file name of output for the above axis
+     part =  proton   
+# kf/name :  2212     
+   epsout =    1            # (D=0) generate eps file by ANGEL
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :         311 (  0)           0 (  0)         311 (  0)
+
+[ T-Track ]
+    title = Proton fluence vs depth column 4
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin = -0.2500000      # minimum value of x-mesh points
+     xmax =  0.2500000      # maximum value of x-mesh points
+#    xdel =  0.5000000      # mesh width of x-mesh points
+       nx =      1          # number of x-mesh points
+#    data = ( x(i), i = 1, nx + 1 )
+#          -2.50000E-01  2.50000E-01
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin =  -1.118500      # minimum value of y-mesh points
+     ymax = -0.7185000      # maximum value of y-mesh points
+#    ydel =  0.4000000      # mesh width of y-mesh points
+       ny =      1          # number of y-mesh points
+#    data = ( y(i), i = 1, ny + 1 )
+#          -1.11850E+00 -7.18500E-01
+   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   97.00000      # minimum value of z-mesh points
+     zmax =   100.0000      # maximum value of z-mesh points
+#    zdel =  1.0000000E-02  # mesh width of z-mesh points
+       nz =    300          # number of z-mesh points
+#    data = ( z(i), i = 1, nz + 1 )
+#           9.70000E+01  9.70100E+01  9.70200E+01  9.70300E+01  9.70400E+01
+#           9.70500E+01  9.70600E+01  9.70700E+01  9.70800E+01  9.70900E+01
+#           9.71000E+01  9.71100E+01  9.71200E+01  9.71300E+01  9.71400E+01
+#           9.71500E+01  9.71600E+01  9.71700E+01  9.71800E+01  9.71900E+01
+#           9.72000E+01  9.72100E+01  9.72200E+01  9.72300E+01  9.72400E+01
+#           9.72500E+01  9.72600E+01  9.72700E+01  9.72800E+01  9.72900E+01
+#           9.73000E+01  9.73100E+01  9.73200E+01  9.73300E+01  9.73400E+01
+#           9.73500E+01  9.73600E+01  9.73700E+01  9.73800E+01  9.73900E+01
+#           9.74000E+01  9.74100E+01  9.74200E+01  9.74300E+01  9.74400E+01
+#           9.74500E+01  9.74600E+01  9.74700E+01  9.74800E+01  9.74900E+01
+#           9.75000E+01  9.75100E+01  9.75200E+01  9.75300E+01  9.75400E+01
+#           9.75500E+01  9.75600E+01  9.75700E+01  9.75800E+01  9.75900E+01
+#           9.76000E+01  9.76100E+01  9.76200E+01  9.76300E+01  9.76400E+01
+#           9.76500E+01  9.76600E+01  9.76700E+01  9.76800E+01  9.76900E+01
+#           9.77000E+01  9.77100E+01  9.77200E+01  9.77300E+01  9.77400E+01
+#           9.77500E+01  9.77600E+01  9.77700E+01  9.77800E+01  9.77900E+01
+#           9.78000E+01  9.78100E+01  9.78200E+01  9.78300E+01  9.78400E+01
+#           9.78500E+01  9.78600E+01  9.78700E+01  9.78800E+01  9.78900E+01
+#           9.79000E+01  9.79100E+01  9.79200E+01  9.79300E+01  9.79400E+01
+#           9.79500E+01  9.79600E+01  9.79700E+01  9.79800E+01  9.79900E+01
+#           9.80000E+01  9.80100E+01  9.80200E+01  9.80300E+01  9.80400E+01
+#           9.80500E+01  9.80600E+01  9.80700E+01  9.80800E+01  9.80900E+01
+#           9.81000E+01  9.81100E+01  9.81200E+01  9.81300E+01  9.81400E+01
+#           9.81500E+01  9.81600E+01  9.81700E+01  9.81800E+01  9.81900E+01
+#           9.82000E+01  9.82100E+01  9.82200E+01  9.82300E+01  9.82400E+01
+#           9.82500E+01  9.82600E+01  9.82700E+01  9.82800E+01  9.82900E+01
+#           9.83000E+01  9.83100E+01  9.83200E+01  9.83300E+01  9.83400E+01
+#           9.83500E+01  9.83600E+01  9.83700E+01  9.83800E+01  9.83900E+01
+#           9.84000E+01  9.84100E+01  9.84200E+01  9.84300E+01  9.84400E+01
+#           9.84500E+01  9.84600E+01  9.84700E+01  9.84800E+01  9.84900E+01
+#           9.85000E+01  9.85100E+01  9.85200E+01  9.85300E+01  9.85400E+01
+#           9.85500E+01  9.85600E+01  9.85700E+01  9.85800E+01  9.85900E+01
+#           9.86000E+01  9.86100E+01  9.86200E+01  9.86300E+01  9.86400E+01
+#           9.86500E+01  9.86600E+01  9.86700E+01  9.86800E+01  9.86900E+01
+#           9.87000E+01  9.87100E+01  9.87200E+01  9.87300E+01  9.87400E+01
+#           9.87500E+01  9.87600E+01  9.87700E+01  9.87800E+01  9.87900E+01
+#           9.88000E+01  9.88100E+01  9.88200E+01  9.88300E+01  9.88400E+01
+#           9.88500E+01  9.88600E+01  9.88700E+01  9.88800E+01  9.88900E+01
+#           9.89000E+01  9.89100E+01  9.89200E+01  9.89300E+01  9.89400E+01
+#           9.89500E+01  9.89600E+01  9.89700E+01  9.89800E+01  9.89900E+01
+#           9.90000E+01  9.90100E+01  9.90200E+01  9.90300E+01  9.90400E+01
+#           9.90500E+01  9.90600E+01  9.90700E+01  9.90800E+01  9.90900E+01
+#           9.91000E+01  9.91100E+01  9.91200E+01  9.91300E+01  9.91400E+01
+#           9.91500E+01  9.91600E+01  9.91700E+01  9.91800E+01  9.91900E+01
+#           9.92000E+01  9.92100E+01  9.92200E+01  9.92300E+01  9.92400E+01
+#           9.92500E+01  9.92600E+01  9.92700E+01  9.92800E+01  9.92900E+01
+#           9.93000E+01  9.93100E+01  9.93200E+01  9.93300E+01  9.93400E+01
+#           9.93500E+01  9.93600E+01  9.93700E+01  9.93800E+01  9.93900E+01
+#           9.94000E+01  9.94100E+01  9.94200E+01  9.94300E+01  9.94400E+01
+#           9.94500E+01  9.94600E+01  9.94700E+01  9.94800E+01  9.94900E+01
+#           9.95000E+01  9.95100E+01  9.95200E+01  9.95300E+01  9.95400E+01
+#           9.95500E+01  9.95600E+01  9.95700E+01  9.95800E+01  9.95900E+01
+#           9.96000E+01  9.96100E+01  9.96200E+01  9.96300E+01  9.96400E+01
+#           9.96500E+01  9.96600E+01  9.96700E+01  9.96800E+01  9.96900E+01
+#           9.97000E+01  9.97100E+01  9.97200E+01  9.97300E+01  9.97400E+01
+#           9.97500E+01  9.97600E+01  9.97700E+01  9.97800E+01  9.97900E+01
+#           9.98000E+01  9.98100E+01  9.98200E+01  9.98300E+01  9.98400E+01
+#           9.98500E+01  9.98600E+01  9.98700E+01  9.98800E+01  9.98900E+01
+#           9.99000E+01  9.99100E+01  9.99200E+01  9.99300E+01  9.99400E+01
+#           9.99500E+01  9.99600E+01  9.99700E+01  9.99800E+01  9.99900E+01
+#           1.00000E+02
+   e-type =    2            # e-mesh is linear given by emin, emax and ne
+     emin =  1.0000000E-03  # minimum value of e-mesh points
+     emax =   25.00000      # maximum value of e-mesh points
+#    edel =   24.99900      # mesh width of e-mesh points
+       ne =      1          # number of e-mesh points
+#    data = ( e(i), i = 1, ne + 1 )
+#           1.00000E-03  2.50000E+01
+     unit =    1            # unit is [1/cm^2/source]
+ material =  all            # (D=all) number of specific material
+     axis =       z            # axis of output
+     file = ./out/flujo_z_col4.out  # file name of output for the above axis
+     part =  proton   
+# kf/name :  2212     
+   epsout =    1            # (D=0) generate eps file by ANGEL
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :         311 (  0)           0 (  0)         311 (  0)
+
+[ T-Track ]
+    title = Proton fluence map z cut 1
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin =  -2.350000      # minimum value of x-mesh points
+     xmax =   2.350000      # maximum value of x-mesh points
+#    xdel =  0.1000000      # mesh width of x-mesh points
+       nx =     47          # number of x-mesh points
+#    data = ( x(i), i = 1, nx + 1 )
+#          -2.35000E+00 -2.25000E+00 -2.15000E+00 -2.05000E+00 -1.95000E+00
+#          -1.85000E+00 -1.75000E+00 -1.65000E+00 -1.55000E+00 -1.45000E+00
+#          -1.35000E+00 -1.25000E+00 -1.15000E+00 -1.05000E+00 -9.50000E-01
+#          -8.50000E-01 -7.50000E-01 -6.50000E-01 -5.50000E-01 -4.50000E-01
+#          -3.50000E-01 -2.50000E-01 -1.50000E-01 -5.00000E-02  5.00000E-02
+#           1.50000E-01  2.50000E-01  3.50000E-01  4.50000E-01  5.50000E-01
+#           6.50000E-01  7.50000E-01  8.50000E-01  9.50000E-01  1.05000E+00
+#           1.15000E+00  1.25000E+00  1.35000E+00  1.45000E+00  1.55000E+00
+#           1.65000E+00  1.75000E+00  1.85000E+00  1.95000E+00  2.05000E+00
+#           2.15000E+00  2.25000E+00  2.35000E+00
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin =  -2.318500      # minimum value of y-mesh points
+     ymax =   2.881500      # maximum value of y-mesh points
+#    ydel =  0.1000000      # mesh width of y-mesh points
+       ny =     52          # number of y-mesh points
+#    data = ( y(i), i = 1, ny + 1 )
+#          -2.31850E+00 -2.21850E+00 -2.11850E+00 -2.01850E+00 -1.91850E+00
+#          -1.81850E+00 -1.71850E+00 -1.61850E+00 -1.51850E+00 -1.41850E+00
+#          -1.31850E+00 -1.21850E+00 -1.11850E+00 -1.01850E+00 -9.18500E-01
+#          -8.18500E-01 -7.18500E-01 -6.18500E-01 -5.18500E-01 -4.18500E-01
+#          -3.18500E-01 -2.18500E-01 -1.18500E-01 -1.85000E-02  8.15000E-02
+#           1.81500E-01  2.81500E-01  3.81500E-01  4.81500E-01  5.81500E-01
+#           6.81500E-01  7.81500E-01  8.81500E-01  9.81500E-01  1.08150E+00
+#           1.18150E+00  1.28150E+00  1.38150E+00  1.48150E+00  1.58150E+00
+#           1.68150E+00  1.78150E+00  1.88150E+00  1.98150E+00  2.08150E+00
+#           2.18150E+00  2.28150E+00  2.38150E+00  2.48150E+00  2.58150E+00
+#           2.68150E+00  2.78150E+00  2.88150E+00
+   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   98.39000      # minimum value of z-mesh points
+     zmax =   98.39500      # maximum value of z-mesh points
+#    zdel =  5.0000000E-03  # mesh width of z-mesh points
+       nz =      1          # number of z-mesh points
+#    data = ( z(i), i = 1, nz + 1 )
+#           9.83900E+01  9.83950E+01
+   e-type =    2            # e-mesh is linear given by emin, emax and ne
+     emin =  1.0000000E-03  # minimum value of e-mesh points
+     emax =   25.00000      # maximum value of e-mesh points
+#    edel =   24.99900      # mesh width of e-mesh points
+       ne =      1          # number of e-mesh points
+#    data = ( e(i), i = 1, ne + 1 )
+#           1.00000E-03  2.50000E+01
+     unit =    1            # unit is [1/cm^2/source]
+ material =  all            # (D=all) number of specific material
+  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
+     axis =      xy            # axis of output
+     file = ./out/flujo_xy_zcut1.out  # file name of output for the above axis
+     part =  proton   
+# kf/name :  2212     
+    gshow =    3            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat 5:bmp style
+    resol =    1            # (D=1) resolution of gshow or rshow
+    width = 0.5000000       # (D=0.5) width of lines for gshow or rshow
+   epsout =    1            # (D=0) generate eps file by ANGEL
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :         109 (  0)           0 (  0)         109 (  0)
+
+[ T-Track ]
+    title = Proton fluence map z cut 2
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin =  -2.350000      # minimum value of x-mesh points
+     xmax =   2.350000      # maximum value of x-mesh points
+#    xdel =  0.1000000      # mesh width of x-mesh points
+       nx =     47          # number of x-mesh points
+#    data = ( x(i), i = 1, nx + 1 )
+#          -2.35000E+00 -2.25000E+00 -2.15000E+00 -2.05000E+00 -1.95000E+00
+#          -1.85000E+00 -1.75000E+00 -1.65000E+00 -1.55000E+00 -1.45000E+00
+#          -1.35000E+00 -1.25000E+00 -1.15000E+00 -1.05000E+00 -9.50000E-01
+#          -8.50000E-01 -7.50000E-01 -6.50000E-01 -5.50000E-01 -4.50000E-01
+#          -3.50000E-01 -2.50000E-01 -1.50000E-01 -5.00000E-02  5.00000E-02
+#           1.50000E-01  2.50000E-01  3.50000E-01  4.50000E-01  5.50000E-01
+#           6.50000E-01  7.50000E-01  8.50000E-01  9.50000E-01  1.05000E+00
+#           1.15000E+00  1.25000E+00  1.35000E+00  1.45000E+00  1.55000E+00
+#           1.65000E+00  1.75000E+00  1.85000E+00  1.95000E+00  2.05000E+00
+#           2.15000E+00  2.25000E+00  2.35000E+00
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin =  -2.318500      # minimum value of y-mesh points
+     ymax =   2.881500      # maximum value of y-mesh points
+#    ydel =  0.1000000      # mesh width of y-mesh points
+       ny =     52          # number of y-mesh points
+#    data = ( y(i), i = 1, ny + 1 )
+#          -2.31850E+00 -2.21850E+00 -2.11850E+00 -2.01850E+00 -1.91850E+00
+#          -1.81850E+00 -1.71850E+00 -1.61850E+00 -1.51850E+00 -1.41850E+00
+#          -1.31850E+00 -1.21850E+00 -1.11850E+00 -1.01850E+00 -9.18500E-01
+#          -8.18500E-01 -7.18500E-01 -6.18500E-01 -5.18500E-01 -4.18500E-01
+#          -3.18500E-01 -2.18500E-01 -1.18500E-01 -1.85000E-02  8.15000E-02
+#           1.81500E-01  2.81500E-01  3.81500E-01  4.81500E-01  5.81500E-01
+#           6.81500E-01  7.81500E-01  8.81500E-01  9.81500E-01  1.08150E+00
+#           1.18150E+00  1.28150E+00  1.38150E+00  1.48150E+00  1.58150E+00
+#           1.68150E+00  1.78150E+00  1.88150E+00  1.98150E+00  2.08150E+00
+#           2.18150E+00  2.28150E+00  2.38150E+00  2.48150E+00  2.58150E+00
+#           2.68150E+00  2.78150E+00  2.88150E+00
+   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   98.41500      # minimum value of z-mesh points
+     zmax =   98.42000      # maximum value of z-mesh points
+#    zdel =  5.0000000E-03  # mesh width of z-mesh points
+       nz =      1          # number of z-mesh points
+#    data = ( z(i), i = 1, nz + 1 )
+#           9.84150E+01  9.84200E+01
+   e-type =    2            # e-mesh is linear given by emin, emax and ne
+     emin =  1.0000000E-03  # minimum value of e-mesh points
+     emax =   25.00000      # maximum value of e-mesh points
+#    edel =   24.99900      # mesh width of e-mesh points
+       ne =      1          # number of e-mesh points
+#    data = ( e(i), i = 1, ne + 1 )
+#           1.00000E-03  2.50000E+01
+     unit =    1            # unit is [1/cm^2/source]
+ material =  all            # (D=all) number of specific material
+  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
+     axis =      xy            # axis of output
+     file = ./out/flujo_xy_zcut2.out  # file name of output for the above axis
+     part =  proton   
+# kf/name :  2212     
+    gshow =    3            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat 5:bmp style
+    resol =    1            # (D=1) resolution of gshow or rshow
+    width = 0.5000000       # (D=0.5) width of lines for gshow or rshow
+   epsout =    1            # (D=0) generate eps file by ANGEL
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :         109 (  0)           0 (  0)         109 (  0)
+
+[ T-Track ]
+    title = Proton fluence map z cut 3
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin =  -2.350000      # minimum value of x-mesh points
+     xmax =   2.350000      # maximum value of x-mesh points
+#    xdel =  0.1000000      # mesh width of x-mesh points
+       nx =     47          # number of x-mesh points
+#    data = ( x(i), i = 1, nx + 1 )
+#          -2.35000E+00 -2.25000E+00 -2.15000E+00 -2.05000E+00 -1.95000E+00
+#          -1.85000E+00 -1.75000E+00 -1.65000E+00 -1.55000E+00 -1.45000E+00
+#          -1.35000E+00 -1.25000E+00 -1.15000E+00 -1.05000E+00 -9.50000E-01
+#          -8.50000E-01 -7.50000E-01 -6.50000E-01 -5.50000E-01 -4.50000E-01
+#          -3.50000E-01 -2.50000E-01 -1.50000E-01 -5.00000E-02  5.00000E-02
+#           1.50000E-01  2.50000E-01  3.50000E-01  4.50000E-01  5.50000E-01
+#           6.50000E-01  7.50000E-01  8.50000E-01  9.50000E-01  1.05000E+00
+#           1.15000E+00  1.25000E+00  1.35000E+00  1.45000E+00  1.55000E+00
+#           1.65000E+00  1.75000E+00  1.85000E+00  1.95000E+00  2.05000E+00
+#           2.15000E+00  2.25000E+00  2.35000E+00
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin =  -2.318500      # minimum value of y-mesh points
+     ymax =   2.881500      # maximum value of y-mesh points
+#    ydel =  0.1000000      # mesh width of y-mesh points
+       ny =     52          # number of y-mesh points
+#    data = ( y(i), i = 1, ny + 1 )
+#          -2.31850E+00 -2.21850E+00 -2.11850E+00 -2.01850E+00 -1.91850E+00
+#          -1.81850E+00 -1.71850E+00 -1.61850E+00 -1.51850E+00 -1.41850E+00
+#          -1.31850E+00 -1.21850E+00 -1.11850E+00 -1.01850E+00 -9.18500E-01
+#          -8.18500E-01 -7.18500E-01 -6.18500E-01 -5.18500E-01 -4.18500E-01
+#          -3.18500E-01 -2.18500E-01 -1.18500E-01 -1.85000E-02  8.15000E-02
+#           1.81500E-01  2.81500E-01  3.81500E-01  4.81500E-01  5.81500E-01
+#           6.81500E-01  7.81500E-01  8.81500E-01  9.81500E-01  1.08150E+00
+#           1.18150E+00  1.28150E+00  1.38150E+00  1.48150E+00  1.58150E+00
+#           1.68150E+00  1.78150E+00  1.88150E+00  1.98150E+00  2.08150E+00
+#           2.18150E+00  2.28150E+00  2.38150E+00  2.48150E+00  2.58150E+00
+#           2.68150E+00  2.78150E+00  2.88150E+00
+   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   98.44000      # minimum value of z-mesh points
+     zmax =   98.44500      # maximum value of z-mesh points
+#    zdel =  5.0000000E-03  # mesh width of z-mesh points
+       nz =      1          # number of z-mesh points
+#    data = ( z(i), i = 1, nz + 1 )
+#           9.84400E+01  9.84450E+01
+   e-type =    2            # e-mesh is linear given by emin, emax and ne
+     emin =  1.0000000E-03  # minimum value of e-mesh points
+     emax =   25.00000      # maximum value of e-mesh points
+#    edel =   24.99900      # mesh width of e-mesh points
+       ne =      1          # number of e-mesh points
+#    data = ( e(i), i = 1, ne + 1 )
+#           1.00000E-03  2.50000E+01
+     unit =    1            # unit is [1/cm^2/source]
+ material =  all            # (D=all) number of specific material
+  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
+     axis =      xy            # axis of output
+     file = ./out/flujo_xy_zcut3.out  # file name of output for the above axis
+     part =  proton   
+# kf/name :  2212     
+    gshow =    3            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat 5:bmp style
+    resol =    1            # (D=1) resolution of gshow or rshow
+    width = 0.5000000       # (D=0.5) width of lines for gshow or rshow
+   epsout =    1            # (D=0) generate eps file by ANGEL
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :         109 (  0)           0 (  0)         109 (  0)
+
+[ T-Track ]
+    title = Proton fluence map z cut 4
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin =  -2.350000      # minimum value of x-mesh points
+     xmax =   2.350000      # maximum value of x-mesh points
+#    xdel =  0.1000000      # mesh width of x-mesh points
+       nx =     47          # number of x-mesh points
+#    data = ( x(i), i = 1, nx + 1 )
+#          -2.35000E+00 -2.25000E+00 -2.15000E+00 -2.05000E+00 -1.95000E+00
+#          -1.85000E+00 -1.75000E+00 -1.65000E+00 -1.55000E+00 -1.45000E+00
+#          -1.35000E+00 -1.25000E+00 -1.15000E+00 -1.05000E+00 -9.50000E-01
+#          -8.50000E-01 -7.50000E-01 -6.50000E-01 -5.50000E-01 -4.50000E-01
+#          -3.50000E-01 -2.50000E-01 -1.50000E-01 -5.00000E-02  5.00000E-02
+#           1.50000E-01  2.50000E-01  3.50000E-01  4.50000E-01  5.50000E-01
+#           6.50000E-01  7.50000E-01  8.50000E-01  9.50000E-01  1.05000E+00
+#           1.15000E+00  1.25000E+00  1.35000E+00  1.45000E+00  1.55000E+00
+#           1.65000E+00  1.75000E+00  1.85000E+00  1.95000E+00  2.05000E+00
+#           2.15000E+00  2.25000E+00  2.35000E+00
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin =  -2.318500      # minimum value of y-mesh points
+     ymax =   2.881500      # maximum value of y-mesh points
+#    ydel =  0.1000000      # mesh width of y-mesh points
+       ny =     52          # number of y-mesh points
+#    data = ( y(i), i = 1, ny + 1 )
+#          -2.31850E+00 -2.21850E+00 -2.11850E+00 -2.01850E+00 -1.91850E+00
+#          -1.81850E+00 -1.71850E+00 -1.61850E+00 -1.51850E+00 -1.41850E+00
+#          -1.31850E+00 -1.21850E+00 -1.11850E+00 -1.01850E+00 -9.18500E-01
+#          -8.18500E-01 -7.18500E-01 -6.18500E-01 -5.18500E-01 -4.18500E-01
+#          -3.18500E-01 -2.18500E-01 -1.18500E-01 -1.85000E-02  8.15000E-02
+#           1.81500E-01  2.81500E-01  3.81500E-01  4.81500E-01  5.81500E-01
+#           6.81500E-01  7.81500E-01  8.81500E-01  9.81500E-01  1.08150E+00
+#           1.18150E+00  1.28150E+00  1.38150E+00  1.48150E+00  1.58150E+00
+#           1.68150E+00  1.78150E+00  1.88150E+00  1.98150E+00  2.08150E+00
+#           2.18150E+00  2.28150E+00  2.38150E+00  2.48150E+00  2.58150E+00
+#           2.68150E+00  2.78150E+00  2.88150E+00
+   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   98.46500      # minimum value of z-mesh points
+     zmax =   98.47000      # maximum value of z-mesh points
+#    zdel =  5.0000000E-03  # mesh width of z-mesh points
+       nz =      1          # number of z-mesh points
+#    data = ( z(i), i = 1, nz + 1 )
+#           9.84650E+01  9.84700E+01
+   e-type =    2            # e-mesh is linear given by emin, emax and ne
+     emin =  1.0000000E-03  # minimum value of e-mesh points
+     emax =   25.00000      # maximum value of e-mesh points
+#    edel =   24.99900      # mesh width of e-mesh points
+       ne =      1          # number of e-mesh points
+#    data = ( e(i), i = 1, ne + 1 )
+#           1.00000E-03  2.50000E+01
+     unit =    1            # unit is [1/cm^2/source]
+ material =  all            # (D=all) number of specific material
+  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
+     axis =      xy            # axis of output
+     file = ./out/flujo_xy_zcut4.out  # file name of output for the above axis
+     part =  proton   
+# kf/name :  2212     
+    gshow =    3            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat 5:bmp style
+    resol =    1            # (D=1) resolution of gshow or rshow
+    width = 0.5000000       # (D=0.5) width of lines for gshow or rshow
+   epsout =    1            # (D=0) generate eps file by ANGEL
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :         109 (  0)           0 (  0)         109 (  0)
+
+[ T-Track ]
+    title = Proton fluence map z cut 5
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin =  -2.350000      # minimum value of x-mesh points
+     xmax =   2.350000      # maximum value of x-mesh points
+#    xdel =  0.1000000      # mesh width of x-mesh points
+       nx =     47          # number of x-mesh points
+#    data = ( x(i), i = 1, nx + 1 )
+#          -2.35000E+00 -2.25000E+00 -2.15000E+00 -2.05000E+00 -1.95000E+00
+#          -1.85000E+00 -1.75000E+00 -1.65000E+00 -1.55000E+00 -1.45000E+00
+#          -1.35000E+00 -1.25000E+00 -1.15000E+00 -1.05000E+00 -9.50000E-01
+#          -8.50000E-01 -7.50000E-01 -6.50000E-01 -5.50000E-01 -4.50000E-01
+#          -3.50000E-01 -2.50000E-01 -1.50000E-01 -5.00000E-02  5.00000E-02
+#           1.50000E-01  2.50000E-01  3.50000E-01  4.50000E-01  5.50000E-01
+#           6.50000E-01  7.50000E-01  8.50000E-01  9.50000E-01  1.05000E+00
+#           1.15000E+00  1.25000E+00  1.35000E+00  1.45000E+00  1.55000E+00
+#           1.65000E+00  1.75000E+00  1.85000E+00  1.95000E+00  2.05000E+00
+#           2.15000E+00  2.25000E+00  2.35000E+00
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin =  -2.318500      # minimum value of y-mesh points
+     ymax =   2.881500      # maximum value of y-mesh points
+#    ydel =  0.1000000      # mesh width of y-mesh points
+       ny =     52          # number of y-mesh points
+#    data = ( y(i), i = 1, ny + 1 )
+#          -2.31850E+00 -2.21850E+00 -2.11850E+00 -2.01850E+00 -1.91850E+00
+#          -1.81850E+00 -1.71850E+00 -1.61850E+00 -1.51850E+00 -1.41850E+00
+#          -1.31850E+00 -1.21850E+00 -1.11850E+00 -1.01850E+00 -9.18500E-01
+#          -8.18500E-01 -7.18500E-01 -6.18500E-01 -5.18500E-01 -4.18500E-01
+#          -3.18500E-01 -2.18500E-01 -1.18500E-01 -1.85000E-02  8.15000E-02
+#           1.81500E-01  2.81500E-01  3.81500E-01  4.81500E-01  5.81500E-01
+#           6.81500E-01  7.81500E-01  8.81500E-01  9.81500E-01  1.08150E+00
+#           1.18150E+00  1.28150E+00  1.38150E+00  1.48150E+00  1.58150E+00
+#           1.68150E+00  1.78150E+00  1.88150E+00  1.98150E+00  2.08150E+00
+#           2.18150E+00  2.28150E+00  2.38150E+00  2.48150E+00  2.58150E+00
+#           2.68150E+00  2.78150E+00  2.88150E+00
+   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   98.49000      # minimum value of z-mesh points
+     zmax =   98.49500      # maximum value of z-mesh points
+#    zdel =  5.0000000E-03  # mesh width of z-mesh points
+       nz =      1          # number of z-mesh points
+#    data = ( z(i), i = 1, nz + 1 )
+#           9.84900E+01  9.84950E+01
+   e-type =    2            # e-mesh is linear given by emin, emax and ne
+     emin =  1.0000000E-03  # minimum value of e-mesh points
+     emax =   25.00000      # maximum value of e-mesh points
+#    edel =   24.99900      # mesh width of e-mesh points
+       ne =      1          # number of e-mesh points
+#    data = ( e(i), i = 1, ne + 1 )
+#           1.00000E-03  2.50000E+01
+     unit =    1            # unit is [1/cm^2/source]
+ material =  all            # (D=all) number of specific material
+  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
+     axis =      xy            # axis of output
+     file = ./out/flujo_xy_zcut5.out  # file name of output for the above axis
+     part =  proton   
+# kf/name :  2212     
+    gshow =    3            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat 5:bmp style
+    resol =    1            # (D=1) resolution of gshow or rshow
+    width = 0.5000000       # (D=0.5) width of lines for gshow or rshow
+   epsout =    1            # (D=0) generate eps file by ANGEL
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :         109 (  0)           0 (  0)         109 (  0)
+
+[ T-Track ]
+    title = Proton fluence map z cut 6
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin =  -2.350000      # minimum value of x-mesh points
+     xmax =   2.350000      # maximum value of x-mesh points
+#    xdel =  0.1000000      # mesh width of x-mesh points
+       nx =     47          # number of x-mesh points
+#    data = ( x(i), i = 1, nx + 1 )
+#          -2.35000E+00 -2.25000E+00 -2.15000E+00 -2.05000E+00 -1.95000E+00
+#          -1.85000E+00 -1.75000E+00 -1.65000E+00 -1.55000E+00 -1.45000E+00
+#          -1.35000E+00 -1.25000E+00 -1.15000E+00 -1.05000E+00 -9.50000E-01
+#          -8.50000E-01 -7.50000E-01 -6.50000E-01 -5.50000E-01 -4.50000E-01
+#          -3.50000E-01 -2.50000E-01 -1.50000E-01 -5.00000E-02  5.00000E-02
+#           1.50000E-01  2.50000E-01  3.50000E-01  4.50000E-01  5.50000E-01
+#           6.50000E-01  7.50000E-01  8.50000E-01  9.50000E-01  1.05000E+00
+#           1.15000E+00  1.25000E+00  1.35000E+00  1.45000E+00  1.55000E+00
+#           1.65000E+00  1.75000E+00  1.85000E+00  1.95000E+00  2.05000E+00
+#           2.15000E+00  2.25000E+00  2.35000E+00
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin =  -2.318500      # minimum value of y-mesh points
+     ymax =   2.881500      # maximum value of y-mesh points
+#    ydel =  0.1000000      # mesh width of y-mesh points
+       ny =     52          # number of y-mesh points
+#    data = ( y(i), i = 1, ny + 1 )
+#          -2.31850E+00 -2.21850E+00 -2.11850E+00 -2.01850E+00 -1.91850E+00
+#          -1.81850E+00 -1.71850E+00 -1.61850E+00 -1.51850E+00 -1.41850E+00
+#          -1.31850E+00 -1.21850E+00 -1.11850E+00 -1.01850E+00 -9.18500E-01
+#          -8.18500E-01 -7.18500E-01 -6.18500E-01 -5.18500E-01 -4.18500E-01
+#          -3.18500E-01 -2.18500E-01 -1.18500E-01 -1.85000E-02  8.15000E-02
+#           1.81500E-01  2.81500E-01  3.81500E-01  4.81500E-01  5.81500E-01
+#           6.81500E-01  7.81500E-01  8.81500E-01  9.81500E-01  1.08150E+00
+#           1.18150E+00  1.28150E+00  1.38150E+00  1.48150E+00  1.58150E+00
+#           1.68150E+00  1.78150E+00  1.88150E+00  1.98150E+00  2.08150E+00
+#           2.18150E+00  2.28150E+00  2.38150E+00  2.48150E+00  2.58150E+00
+#           2.68150E+00  2.78150E+00  2.88150E+00
+   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   98.51500      # minimum value of z-mesh points
+     zmax =   98.52000      # maximum value of z-mesh points
+#    zdel =  5.0000000E-03  # mesh width of z-mesh points
+       nz =      1          # number of z-mesh points
+#    data = ( z(i), i = 1, nz + 1 )
+#           9.85150E+01  9.85200E+01
+   e-type =    2            # e-mesh is linear given by emin, emax and ne
+     emin =  1.0000000E-03  # minimum value of e-mesh points
+     emax =   25.00000      # maximum value of e-mesh points
+#    edel =   24.99900      # mesh width of e-mesh points
+       ne =      1          # number of e-mesh points
+#    data = ( e(i), i = 1, ne + 1 )
+#           1.00000E-03  2.50000E+01
+     unit =    1            # unit is [1/cm^2/source]
+ material =  all            # (D=all) number of specific material
+  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
+     axis =      xy            # axis of output
+     file = ./out/flujo_xy_zcut6.out  # file name of output for the above axis
+     part =  proton   
+# kf/name :  2212     
+    gshow =    3            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat 5:bmp style
+    resol =    1            # (D=1) resolution of gshow or rshow
+    width = 0.5000000       # (D=0.5) width of lines for gshow or rshow
+   epsout =    1            # (D=0) generate eps file by ANGEL
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :         109 (  0)           0 (  0)         109 (  0)
+
+[ T-Track ]
+    title = Proton fluence map z cut 7
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin =  -2.350000      # minimum value of x-mesh points
+     xmax =   2.350000      # maximum value of x-mesh points
+#    xdel =  0.1000000      # mesh width of x-mesh points
+       nx =     47          # number of x-mesh points
+#    data = ( x(i), i = 1, nx + 1 )
+#          -2.35000E+00 -2.25000E+00 -2.15000E+00 -2.05000E+00 -1.95000E+00
+#          -1.85000E+00 -1.75000E+00 -1.65000E+00 -1.55000E+00 -1.45000E+00
+#          -1.35000E+00 -1.25000E+00 -1.15000E+00 -1.05000E+00 -9.50000E-01
+#          -8.50000E-01 -7.50000E-01 -6.50000E-01 -5.50000E-01 -4.50000E-01
+#          -3.50000E-01 -2.50000E-01 -1.50000E-01 -5.00000E-02  5.00000E-02
+#           1.50000E-01  2.50000E-01  3.50000E-01  4.50000E-01  5.50000E-01
+#           6.50000E-01  7.50000E-01  8.50000E-01  9.50000E-01  1.05000E+00
+#           1.15000E+00  1.25000E+00  1.35000E+00  1.45000E+00  1.55000E+00
+#           1.65000E+00  1.75000E+00  1.85000E+00  1.95000E+00  2.05000E+00
+#           2.15000E+00  2.25000E+00  2.35000E+00
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin =  -2.318500      # minimum value of y-mesh points
+     ymax =   2.881500      # maximum value of y-mesh points
+#    ydel =  0.1000000      # mesh width of y-mesh points
+       ny =     52          # number of y-mesh points
+#    data = ( y(i), i = 1, ny + 1 )
+#          -2.31850E+00 -2.21850E+00 -2.11850E+00 -2.01850E+00 -1.91850E+00
+#          -1.81850E+00 -1.71850E+00 -1.61850E+00 -1.51850E+00 -1.41850E+00
+#          -1.31850E+00 -1.21850E+00 -1.11850E+00 -1.01850E+00 -9.18500E-01
+#          -8.18500E-01 -7.18500E-01 -6.18500E-01 -5.18500E-01 -4.18500E-01
+#          -3.18500E-01 -2.18500E-01 -1.18500E-01 -1.85000E-02  8.15000E-02
+#           1.81500E-01  2.81500E-01  3.81500E-01  4.81500E-01  5.81500E-01
+#           6.81500E-01  7.81500E-01  8.81500E-01  9.81500E-01  1.08150E+00
+#           1.18150E+00  1.28150E+00  1.38150E+00  1.48150E+00  1.58150E+00
+#           1.68150E+00  1.78150E+00  1.88150E+00  1.98150E+00  2.08150E+00
+#           2.18150E+00  2.28150E+00  2.38150E+00  2.48150E+00  2.58150E+00
+#           2.68150E+00  2.78150E+00  2.88150E+00
+   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   98.54000      # minimum value of z-mesh points
+     zmax =   98.54500      # maximum value of z-mesh points
+#    zdel =  5.0000000E-03  # mesh width of z-mesh points
+       nz =      1          # number of z-mesh points
+#    data = ( z(i), i = 1, nz + 1 )
+#           9.85400E+01  9.85450E+01
+   e-type =    2            # e-mesh is linear given by emin, emax and ne
+     emin =  1.0000000E-03  # minimum value of e-mesh points
+     emax =   25.00000      # maximum value of e-mesh points
+#    edel =   24.99900      # mesh width of e-mesh points
+       ne =      1          # number of e-mesh points
+#    data = ( e(i), i = 1, ne + 1 )
+#           1.00000E-03  2.50000E+01
+     unit =    1            # unit is [1/cm^2/source]
+ material =  all            # (D=all) number of specific material
+  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
+     axis =      xy            # axis of output
+     file = ./out/flujo_xy_zcut7.out  # file name of output for the above axis
+     part =  proton   
+# kf/name :  2212     
+    gshow =    3            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat 5:bmp style
+    resol =    1            # (D=1) resolution of gshow or rshow
+    width = 0.5000000       # (D=0.5) width of lines for gshow or rshow
+   epsout =    1            # (D=0) generate eps file by ANGEL
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :         109 (  0)           0 (  0)         109 (  0)
+
+[ T-Track ]
+    title = Proton fluence map z cut 8
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin =  -2.350000      # minimum value of x-mesh points
+     xmax =   2.350000      # maximum value of x-mesh points
+#    xdel =  0.1000000      # mesh width of x-mesh points
+       nx =     47          # number of x-mesh points
+#    data = ( x(i), i = 1, nx + 1 )
+#          -2.35000E+00 -2.25000E+00 -2.15000E+00 -2.05000E+00 -1.95000E+00
+#          -1.85000E+00 -1.75000E+00 -1.65000E+00 -1.55000E+00 -1.45000E+00
+#          -1.35000E+00 -1.25000E+00 -1.15000E+00 -1.05000E+00 -9.50000E-01
+#          -8.50000E-01 -7.50000E-01 -6.50000E-01 -5.50000E-01 -4.50000E-01
+#          -3.50000E-01 -2.50000E-01 -1.50000E-01 -5.00000E-02  5.00000E-02
+#           1.50000E-01  2.50000E-01  3.50000E-01  4.50000E-01  5.50000E-01
+#           6.50000E-01  7.50000E-01  8.50000E-01  9.50000E-01  1.05000E+00
+#           1.15000E+00  1.25000E+00  1.35000E+00  1.45000E+00  1.55000E+00
+#           1.65000E+00  1.75000E+00  1.85000E+00  1.95000E+00  2.05000E+00
+#           2.15000E+00  2.25000E+00  2.35000E+00
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin =  -2.318500      # minimum value of y-mesh points
+     ymax =   2.881500      # maximum value of y-mesh points
+#    ydel =  0.1000000      # mesh width of y-mesh points
+       ny =     52          # number of y-mesh points
+#    data = ( y(i), i = 1, ny + 1 )
+#          -2.31850E+00 -2.21850E+00 -2.11850E+00 -2.01850E+00 -1.91850E+00
+#          -1.81850E+00 -1.71850E+00 -1.61850E+00 -1.51850E+00 -1.41850E+00
+#          -1.31850E+00 -1.21850E+00 -1.11850E+00 -1.01850E+00 -9.18500E-01
+#          -8.18500E-01 -7.18500E-01 -6.18500E-01 -5.18500E-01 -4.18500E-01
+#          -3.18500E-01 -2.18500E-01 -1.18500E-01 -1.85000E-02  8.15000E-02
+#           1.81500E-01  2.81500E-01  3.81500E-01  4.81500E-01  5.81500E-01
+#           6.81500E-01  7.81500E-01  8.81500E-01  9.81500E-01  1.08150E+00
+#           1.18150E+00  1.28150E+00  1.38150E+00  1.48150E+00  1.58150E+00
+#           1.68150E+00  1.78150E+00  1.88150E+00  1.98150E+00  2.08150E+00
+#           2.18150E+00  2.28150E+00  2.38150E+00  2.48150E+00  2.58150E+00
+#           2.68150E+00  2.78150E+00  2.88150E+00
+   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   98.56500      # minimum value of z-mesh points
+     zmax =   98.57000      # maximum value of z-mesh points
+#    zdel =  5.0000000E-03  # mesh width of z-mesh points
+       nz =      1          # number of z-mesh points
+#    data = ( z(i), i = 1, nz + 1 )
+#           9.85650E+01  9.85700E+01
+   e-type =    2            # e-mesh is linear given by emin, emax and ne
+     emin =  1.0000000E-03  # minimum value of e-mesh points
+     emax =   25.00000      # maximum value of e-mesh points
+#    edel =   24.99900      # mesh width of e-mesh points
+       ne =      1          # number of e-mesh points
+#    data = ( e(i), i = 1, ne + 1 )
+#           1.00000E-03  2.50000E+01
+     unit =    1            # unit is [1/cm^2/source]
+ material =  all            # (D=all) number of specific material
+  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
+     axis =      xy            # axis of output
+     file = ./out/flujo_xy_zcut8.out  # file name of output for the above axis
+     part =  proton   
+# kf/name :  2212     
+    gshow =    3            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat 5:bmp style
+    resol =    1            # (D=1) resolution of gshow or rshow
+    width = 0.5000000       # (D=0.5) width of lines for gshow or rshow
+   epsout =    1            # (D=0) generate eps file by ANGEL
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :         109 (  0)           0 (  0)         109 (  0)
 
 [END] of Input Echo <<<========================================================
 
@@ -1565,28 +2163,28 @@ tr101          4.0000000E+00 -7.8000000E+00  0.0000000E+00
 *                percent =     0.00 %
 
 <<< Report of material memory for low energy>>>
-*    low energy material =    22905
+*    low energy material =    23391
 *     total memory: mdas = 80000000
 *                percent =     0.03 %
 
 <<< Report of real tally memory >>>
-*      real tally memory =     1145
+*      real tally memory =     3605
 *     total memory: mdas = 80000000
 *                percent =     0.00 %
 
 <<< Report of temporary tally memory >>>
-* temporary tally memory =    22926
+* temporary tally memory =    23396
 *     total memory: mdas = 80000000
 *                percent =     0.03 %
 
 <<< Report of total memory >>>
-*      used total memory =    22927
+*      used total memory =    23397
 *     total memory: mdas = 80000000
 *                percent =     0.03 %
 *                ---------------------
 
 -------------------------------------------------------------------------------
- job termination date : 2026/08/31
-                 time :   16:23:11
+ job termination date : 2026/09/06
+                 time :   13:32:00
 
  END 
