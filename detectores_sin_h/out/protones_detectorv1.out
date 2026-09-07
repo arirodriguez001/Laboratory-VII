@@ -1,0 +1,66 @@
+[ T-Cross ]
+    title = Proton response in air channel
+     mesh =  reg            # mesh type is region-wise
+      reg =    6            # number of crossing regions
+      non     r-from                  r-to                     area
+      1       ( 20002 < 20005 )       ( 20003 < 20005 )        1.000000    
+      2       ( 20001 < 20005 )       ( 20003 < 20005 )        1.000000    
+      3       ( 20002 < 20006 )       ( 20003 < 20006 )        1.000000    
+      4       ( 20001 < 20006 )       ( 20003 < 20006 )        1.000000    
+      5       ( 20002 < 20007 )       ( 20003 < 20007 )        1.000000    
+      6       ( 20001 < 20007 )       ( 20003 < 20007 )        1.000000    
+   e-type =    2            # e-mesh is linear given by emin, emax and ne
+     emin =   0.000000      # minimum value of e-mesh points
+     emax =   1000.000      # maximum value of e-mesh points
+#    edel =   1000.000      # mesh width of e-mesh points
+       ne =      1          # number of e-mesh points
+#    data = ( e(i), i = 1, ne + 1 )
+#           0.00000E+00  1.00000E+03
+  eng2let =    0            # (D=0) Flag to convert energy to LET, 0: not convert, 1: convert
+     unit =    1            # unit is [1/cm^2/source]
+     axis =  reg            # axis of output
+     file = ./out/protones_detector.out  # file name of output for the above axis
+   output = f-curr          # surface crossing forward current spectrum
+     part =  proton   
+# kf/name :  2212     
+   epsout =    1            # (D=0) generate eps file by ANGEL
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :          37 (  0)           0 (  0)          37 (  0)
+
+#------------------------------------------------------------------------------
+#newpage:
+#   no. =  1   ie  =  1
+#   e = (   0.0000E+00  -   1.0000E+03  )
+
+x: Serial Num. of Region
+y:  F-Curr [1/cm^2/source]                 
+p: xlin ylog afac(0.8) form(0.9)
+h: x       n            y(proton  ),l3 n   
+#  num     area         proton  
+     1     1.0000E+00   3.1754E+05  0.0099
+     2     1.0000E+00   5.7115E+03  0.0739
+     3     1.0000E+00   3.8576E+04  0.0284
+     4     1.0000E+00   5.3058E+03  0.0767
+     5     1.0000E+00   4.4943E+03  0.0833
+     6     1.0000E+00   6.5542E+02  0.2182
+
+#   sum    6.2046E+04   9.1559E-03
+
+'no. =  1,  e =  1.0000E+03'
+msuc: {\huge Proton response in air channel}
+msdr: {\it plotted by \ANGEL \version}
+msdl: {\it calculated by \PHITS  3.36}
+wt: s(0.7)
+\vspace{-3}
+  region surface crossing
+  emin  &=&   0.0000E+00 [MeV/n]
+  emax  &=&   1.0000E+03 [MeV/n]
+e:
+ 
+# Information for Restart Calculation
+# This calculation was newly started
+# istdev =  2 # 1:Batch variance, 2:History variance
+# resc2  = 3.20404958639304016E-02 # Total source weight or Total source weight / maxcas
+# resc3  = 1.99981000000000000E+08 # Total history number or Total batch number
+# maxcas =        1000 # History / Batch, only used for istdev=1
+# bitrseed = 0001010110011101111001010011000010110000011010111001001010111000 # bit data of rseed
