@@ -1,0 +1,18 @@
+$ [ Cell ]
+$100 -1  %att_zone%	$Deep space
+
+2600 %air%  %workzone_walls% %pin_zone% #2601 #2602 #2603 #2604 %exclusions%	$fill w/ air
+2601 %Si%  %pin_diodes%
+2602 %Al%  %pins_plate% #2601
+2603 %PLA% %ridge_filter_base%
+2604 0     %ridge_filter_grid% FILL=3
+2605 0     %ridge_unit% LAT=1 U=3 FILL=4
+2606 %PLA% %ridge_ladder_a% 
+			: %ridge_ladder_b% U=4	$ladder
+2607 %air% #(%ridge_ladder_a% 
+			: %ridge_ladder_b%) U=4	$air
+
+set:%cell_rfbase%[2603]
+set:%vol_rfbase%[(c76*40.19137)]  $5*5+5*7.5-2*PI*2.25^2+4.75*2.0
+set:%cell_rfgrid%[(2606 < 2605 < 2604)]
+set:%vol_rfgrid%[(15.850477*c75*(8*c701+7*c702+6*c703+5*c704+4*c705+3*c706+2*c707+c708)/c71)] $PI*2.25^2*8*c75/(8*c71)*sum*0.996615 (volume dif)
