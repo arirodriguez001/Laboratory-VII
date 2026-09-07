@@ -8,7 +8,7 @@ Vertical external proton beam - modular input
 $file(1) = /share/gidans/sebastiangossio/Programas/PIHTS-IFORT/phits
 file(1) = C:/phits
 
-icntl	= 8 $0: transport	5: source	8: 2D geometry	11: 3D geometry	14: volume	16: script mode	17: Anatally mode
+icntl	= 0 $0: transport	5: source	8: 2D geometry	11: 3D geometry	14: volume	16: script mode	17: Anatally mode
 maxcas	= 10000 $ (D=10) number of particles per one batch
 maxbch	= 5000 $ (D=10) number of batches
 istdev	= 2 $Statistical uncertainties estimated from the standard error of: 1=each batch result. 2=each history result.
@@ -1184,10 +1184,9 @@ axis = z
 file = ./out/flujo_z_col4.out
 epsout = 1
 $$$$$$$$$$$$$$$$$$$$ PARA VER QUE LAS SUPERFICIES ESTEN BIEN DEFINIDAS $$$$$$$$$$$$$$$$$$
-$$$$$$$$$$$$$$$$$$$$ CON icntl = 8 SE GRAFICA SOLO LA GEOMETRIA $$$$$$$$$$$$$$$$$$$$$$$$$
-$$$$$$$$$$$$$$$$$$$$ CON icntl = 0 SE GRAFICA FLUENCIA + GEOMETRIA $$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$ COMENTAR TODO ESTO CUANDO CORRAN SIMULACION $$$$$$$$$$$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$$$$$$$ CORTE 1: 98.380-98.405 | CENTRO 98.3925 $$$$$$$$$$$$$$$$$$$$
-[T-Track]
+[T-Track] off
 title = Proton fluence map z cut 1
 mesh = xyz
 x-type = 2
@@ -1213,8 +1212,9 @@ axis = xy
 gshow = 3
 file = ./out/flujo_xy_zcut1.out
 epsout = 1
+
 $$$$$$$$$$$$$$$$$$$$ CORTE 2: 98.405-98.430 | CENTRO 98.4175 $$$$$$$$$$$$$$$$$$$$
-[T-Track]
+[T-Track] off
 title = Proton fluence map z cut 2
 mesh = xyz
 x-type = 2
@@ -1240,8 +1240,9 @@ axis = xy
 gshow = 3
 file = ./out/flujo_xy_zcut2.out
 epsout = 1
+
 $$$$$$$$$$$$$$$$$$$$ CORTE 3: 98.430-98.455 | CENTRO 98.4425 $$$$$$$$$$$$$$$$$$$$
-[T-Track]
+[T-Track] off
 title = Proton fluence map z cut 3
 mesh = xyz
 x-type = 2
@@ -1267,8 +1268,9 @@ axis = xy
 gshow = 3
 file = ./out/flujo_xy_zcut3.out
 epsout = 1
+
 $$$$$$$$$$$$$$$$$$$$ CORTE 4: 98.455-98.480 | CENTRO 98.4675 $$$$$$$$$$$$$$$$$$$$
-[T-Track]
+[T-Track] off
 title = Proton fluence map z cut 4
 mesh = xyz
 x-type = 2
@@ -1294,8 +1296,9 @@ axis = xy
 gshow = 3
 file = ./out/flujo_xy_zcut4.out
 epsout = 1
+
 $$$$$$$$$$$$$$$$$$$$ CORTE 5: 98.480-98.505 | CENTRO 98.4925 $$$$$$$$$$$$$$$$$$$$
-[T-Track]
+[T-Track] off
 title = Proton fluence map z cut 5
 mesh = xyz
 x-type = 2
@@ -1321,8 +1324,9 @@ axis = xy
 gshow = 3
 file = ./out/flujo_xy_zcut5.out
 epsout = 1
+
 $$$$$$$$$$$$$$$$$$$$ CORTE 6: 98.505-98.530 | CENTRO 98.5175 $$$$$$$$$$$$$$$$$$$$
-[T-Track]
+[T-Track] off
 title = Proton fluence map z cut 6
 mesh = xyz
 x-type = 2
@@ -1348,8 +1352,9 @@ axis = xy
 gshow = 3
 file = ./out/flujo_xy_zcut6.out
 epsout = 1
+
 $$$$$$$$$$$$$$$$$$$$ CORTE 7: 98.530-98.555 | CENTRO 98.5425 $$$$$$$$$$$$$$$$$$$$
-[T-Track]
+[T-Track] off
 title = Proton fluence map z cut 7
 mesh = xyz
 x-type = 2
@@ -1375,8 +1380,9 @@ axis = xy
 gshow = 3
 file = ./out/flujo_xy_zcut7.out
 epsout = 1
+
 $$$$$$$$$$$$$$$$$$$$ CORTE 8: 98.555-98.580 | CENTRO 98.5675 $$$$$$$$$$$$$$$$$$$$
-[T-Track]
+[T-Track] off
 title = Proton fluence map z cut 8
 mesh = xyz
 x-type = 2
