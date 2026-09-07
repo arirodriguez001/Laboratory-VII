@@ -1,0 +1,10 @@
+$ [ Cell ]
+$100 -1 #( %disp1_zone% ) TRCL=30	$Deep space
+
+2400 %air%    %workzone_walls%  %ocl_zone% #2401 #2402 #2403 %exclusions%	$fill w/ air
+2401 %Al%     %occluder%	$occluder
+2402 %nylon%  %ocl_wires%
+2403 %Al%     %ocl_plate%
+
+set:%cell_oclusor%[2401]
+set:%vol_oclusor%[(PI*(c50*c50*c51+c52*c52*0.2))]

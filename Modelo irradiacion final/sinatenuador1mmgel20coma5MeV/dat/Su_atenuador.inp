@@ -1,0 +1,66 @@
+set: c20[ 0.25 ]	$attenuator thickness
+set: c21[ 1.0 ]	$attenuator internal radius
+set: c22[ 0.08 ]	$ attenuator fundamental unit
+set: c23[ 0.01375 ]	$ attenuator holes mean radius
+set: c24[ 0.8 ]	$attenuator holder 3D printed thickness
+set: c25[ 0.17 ]	$depth consumed for attenuator holder
+set: c26[ 0.3 ]	$plate thickness
+set: %attn_TR%[10]	$attn translation number (leave blank for not)
+
+$[ Surface ]
+$ workspace
+1100 PX  -30.0
+1101 PX   30.0
+1102 PY  -19.0
+1103 PY   19.0
+1104 %attn_TR% PZ   -c3
+1105 %attn_TR% PZ   (c24-c25+c26+0.1)	$bottom of the plate
+$set:%att_zone%[1100 -1101 1102 -1103 1104 -1105]
+set:%att_zone%[1104 -1105]	$use with %workzone%
+
+$1200 RCC  -30.0  30.0 -19.0  19.0  0.0  (c24-c25+c26)	$bottom of the plate
+$set:%att_zone%[1200 -1201 1202 -1203 1204 -1205]
+
+$ attenuator base
+1106 PX -2.5
+1107 PX  2.5 
+1108 PY -2.5 
+1109 PY  2.5 
+1110 %attn_TR% PZ  0.0
+1111 %attn_TR% PZ  c20
+1112 CZ  c21	$grid zone
+set:%attn_base%[1106 -1107 1108 -1109 1110 -1111 1112]
+set:%attn_grid%[1110 -1111 -1112]
+
+$grid cell
+1113 PX -c22
+1114 PX  c22
+1115 PY -c22
+1116 PY  c22
+set:%attn_unit%[1113 -1114 1115 -1116]
+
+1117 CZ  c23	$attenuator holes
+set:%attn_hole%[1117]
+
+1118 C/Z	 0.16  0.96  0.015	$drill bit 1
+1119 C/Z	 0.32 -0.32  0.015	$drill bit 2
+set:%attn_bits%[(-1118:-1119) -1112  1110 -1111]
+
+$ attenuator holder 3D printed
+1120 CZ  1.5	$beam hole
+1121 PX -3.45
+1122 PX  3.45
+1123 PY -3.45
+1124 PY  3.45
+1125 %attn_TR% PZ  c24
+1126 %attn_TR% RPP  -1.0 1.0  -8.45 -3.44  0 0.8	$tab
+set:%attn_holder%[-1126:(1121 -1122  1123 -1124  1110 -1125) 1120]
+
+$ attenuator holder plate 
+1127 PX -14.75 
+1128 PX  14.75 
+1129 PY -4.5 
+1130 PY  4.5 
+1131 %attn_TR%  PZ (c24-c25)
+1132 %attn_TR%  PZ (c24-c25+c26)
+set:%attn_plate%[1127 -1128 1129 -1130 1131 -1132 1120]
