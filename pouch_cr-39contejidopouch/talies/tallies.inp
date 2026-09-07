@@ -1,0 +1,549 @@
+$$$$$$$$$$$$$$$$$$$$ PROTONES QUE ATRAVIESAN CADA INTERFAZ CR-39 $$$$$$$$$$$$$$$$$$
+[T-Cross]
+title = Proton current through CR39 interfaces
+mesh = reg
+reg = 24
+r-from r-to area
+$ ================= COLUMNA 1 =================
+600 7011 1.0
+7011 7012 1.0
+7012 7013 1.0
+7013 7014 1.0
+7014 7015 1.0
+7015 7016 1.0
+7016 7017 1.0
+7017 7018 1.0
+7018 6003 1.0
+$ ================= COLUMNA 2 =================
+600 7021 1.0
+7021 7022 1.0
+7022 7023 1.0
+7023 7024 1.0
+7024 7025 1.0
+7025 7026 1.0
+7026 6003 1.0
+$ ================= COLUMNA 3 =================
+600 7031 1.0
+7031 7032 1.0
+7032 7033 1.0
+7033 7034 1.0
+7034 6003 1.0
+$ ================= COLUMNA 4 =================
+600 7041 1.0
+7041 7042 1.0
+7042 6003 1.0
+part = proton
+output = f-curr
+unit = 1
+axis = reg
+file = ./out/corriente_CR39.out
+epsout = 1
+
+$$$$$$$$$$$$$$$$$$$$ PROTONES QUE ATRAVIESAN DE AIRE A GEL $$$$$$$$$$$$$$$$$$
+[T-Cross]
+title = Corriente de protones de aire a gel
+mesh = reg
+reg = 1
+r-from r-to area
+$ ================= COLUMNA 1 =================
+2 600 1.0
+part = proton
+output = f-curr
+unit = 1
+axis = reg
+file = ./out/corriente_aireagel.out
+epsout = 1
+
+$$$$$$$$$$$$$$$$$$$$ ESPECTROS EN CADA INTERFAZ CR-39 $$$$$$$$$$$$$$$$$$
+[T-Cross]
+title = Proton energy spectra through CR39 interfaces
+mesh = reg
+reg = 24
+r-from r-to area
+$ ================= COLUMNA 1 =================
+600 7011 1.0
+7011 7012 1.0
+7012 7013 1.0
+7013 7014 1.0
+7014 7015 1.0
+7015 7016 1.0
+7016 7017 1.0
+7017 7018 1.0
+7018 6003 1.0
+$ ================= COLUMNA 2 =================
+600 7021 1.0
+7021 7022 1.0
+7022 7023 1.0
+7023 7024 1.0
+7024 7025 1.0
+7025 7026 1.0
+7026 6003 1.0
+$ ================= COLUMNA 3 =================
+600 7031 1.0
+7031 7032 1.0
+7032 7033 1.0
+7033 7034 1.0
+7034 6003 1.0
+$ ================= COLUMNA 4 =================
+600 7041 1.0
+7041 7042 1.0
+7042 6003 1.0
+part = proton
+e-type = 2
+ne = 100
+emin = 1.0e-3
+emax = 25.0
+output = f-curr
+unit = 2
+axis = eng
+file = ./out/espectros_CR39.out
+epsout = 1
+
+$$$$$$$$$$$$$$$$$$$$ ESPECTRO AIRE A GEL $$$$$$$$$$$$$$$$$$
+[T-Cross]
+title = Proton energy spectra through CR39 interfaces
+mesh = reg
+reg = 1
+r-from r-to area
+$ ================= AIRE A GEL =================
+2 600 1.0
+part = proton
+e-type = 2
+ne = 100
+emin = 1.0e-3
+emax = 25.0
+output = f-curr
+unit = 2
+axis = eng
+file = ./out/espectro_airegel.out
+epsout = 1
+
+$$$$$$$$$$$$$$$$$$$$ BRAGG COLUMNA 1 $$$$$$$$$$$$$$$$$$
+[T-Deposit]
+title = Bragg peak column 1
+mesh = xyz
+x-type = 2
+xmin = -0.25
+xmax = 0.25
+nx = 1
+y-type = 2
+ymin = 1.2815
+ymax = 1.6815
+ny = 1
+z-type = 2
+zmin = 97.0
+zmax = 100.0
+nz = 300
+part = proton
+output = dose
+unit = 0
+axis = z
+file = ./out/bragg_CR39_col1.out
+epsout = 1
+$$$$$$$$$$$$$$$$$$$$ BRAGG COLUMNA 2 $$$$$$$$$$$$$$$$$$
+[T-Deposit]
+title = Bragg peak column 2
+mesh = xyz
+x-type = 2
+xmin = -0.25
+xmax = 0.25
+nx = 1
+y-type = 2
+ymin = 0.4815
+ymax = 0.8815
+ny = 1
+z-type = 2
+zmin = 97.0
+zmax = 100.0
+nz = 300
+part = proton
+output = dose
+unit = 0
+axis = z
+file = ./out/bragg_CR39_col2.out
+epsout = 1
+$$$$$$$$$$$$$$$$$$$$ BRAGG COLUMNA 3 $$$$$$$$$$$$$$$$$$
+[T-Deposit]
+title = Bragg peak column 3
+mesh = xyz
+x-type = 2
+xmin = -0.25
+xmax = 0.25
+nx = 1
+y-type = 2
+ymin = -0.3185
+ymax = 0.0815
+ny = 1
+z-type = 2
+zmin = 97.0
+zmax = 100.0
+nz = 300
+part = proton
+output = dose
+unit = 0
+axis = z
+file = ./out/bragg_CR39_col3.out
+epsout = 1
+$$$$$$$$$$$$$$$$$$$$ BRAGG COLUMNA 4 $$$$$$$$$$$$$$$$$$
+[T-Deposit]
+title = Bragg peak column 4
+mesh = xyz
+x-type = 2
+xmin = -0.25
+xmax = 0.25
+nx = 1
+y-type = 2
+ymin = -1.1185
+ymax = -0.7185
+ny = 1
+z-type = 2
+zmin = 97.0
+zmax = 100.0
+nz = 300
+part = proton
+output = dose
+unit = 0
+axis = z
+file = ./out/bragg_CR39_col4.out
+epsout = 1
+$$$$$$$$$$$$$$$$$$$$ FLUENCIA VS Z - COLUMNA 1 $$$$$$$$$$$$$$$$$$
+[T-Track]
+title = Proton fluence vs depth column 1
+mesh = xyz
+x-type = 2
+xmin = -0.25
+xmax = 0.25
+nx = 1
+y-type = 2
+ymin = 1.2815
+ymax = 1.6815
+ny = 1
+z-type = 2
+zmin = 97.0
+zmax = 100.0
+nz = 300
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = z
+file = ./out/flujo_z_col1.out
+epsout = 1
+$$$$$$$$$$$$$$$$$$$$ FLUENCIA VS Z - COLUMNA 2 $$$$$$$$$$$$$$$$$$
+[T-Track]
+title = Proton fluence vs depth column 2
+mesh = xyz
+x-type = 2
+xmin = -0.25
+xmax = 0.25
+nx = 1
+y-type = 2
+ymin = 0.4815
+ymax = 0.8815
+ny = 1
+z-type = 2
+zmin = 97.0
+zmax = 100.0
+nz = 300
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = z
+file = ./out/flujo_z_col2.out
+epsout = 1
+$$$$$$$$$$$$$$$$$$$$ FLUENCIA VS Z - COLUMNA 3 $$$$$$$$$$$$$$$$$$
+[T-Track]
+title = Proton fluence vs depth column 3
+mesh = xyz
+x-type = 2
+xmin = -0.25
+xmax = 0.25
+nx = 1
+y-type = 2
+ymin = -0.3185
+ymax = 0.0815
+ny = 1
+z-type = 2
+zmin = 97.0
+zmax = 100.0
+nz = 300
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = z
+file = ./out/flujo_z_col3.out
+epsout = 1
+$$$$$$$$$$$$$$$$$$$$ FLUENCIA VS Z - COLUMNA 4 $$$$$$$$$$$$$$$$$$
+[T-Track]
+title = Proton fluence vs depth column 4
+mesh = xyz
+x-type = 2
+xmin = -0.25
+xmax = 0.25
+nx = 1
+y-type = 2
+ymin = -1.1185
+ymax = -0.7185
+ny = 1
+z-type = 2
+zmin = 97.0
+zmax = 100.0
+nz = 300
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = z
+file = ./out/flujo_z_col4.out
+epsout = 1
+
+$$$$$$$$$$$$$$$$$$$$ DOSIS PROMEDIO EN CADA BLOQUE DEL CR-39 $$$$$$$$$$$$$$$$$$
+[T-Deposit]
+title = Dosis en cada region CR39
+mesh = reg
+reg = 7011 7012 7013 7014 7015 7016 7017 7018
+      7021 7022 7023 7024 7025 7026
+      7031 7032 7033 7034
+      7041 7042
+
+part = proton
+output = dose
+axis = reg
+file = ./out/dosis_CR39_por_bloque.out
+epsout = 1
+
+$$$$$$$$$$$$$$$$$$$$ PARA VER QUE LAS SUPERFICIES ESTEN BIEN DEFINIDAS $$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$ COMENTAR TODO ESTO CUANDO CORRAN SIMULACION $$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$ CORTE 1: 98.380-98.405 | CENTRO 98.3925 $$$$$$$$$$$$$$$$$$$$
+[T-Track] off
+title = Proton fluence map z cut 1
+mesh = xyz
+x-type = 2
+xmin = -2.35
+xmax = 2.35
+nx = 47
+y-type = 2
+ymin = -2.3185
+ymax = 2.8815
+ny = 52
+z-type = 2
+zmin = 98.3900
+zmax = 98.3950
+nz = 1
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = xy
+2d-type = 3
+gshow = 3
+file = ./out/flujo_xy_zcut1.out
+epsout = 1
+
+$$$$$$$$$$$$$$$$$$$$ CORTE 2: 98.405-98.430 | CENTRO 98.4175 $$$$$$$$$$$$$$$$$$$$
+[T-Track] off
+title = Proton fluence map z cut 2
+mesh = xyz
+x-type = 2
+xmin = -2.35
+xmax = 2.35
+nx = 47
+y-type = 2
+ymin = -2.3185
+ymax = 2.8815
+ny = 52
+z-type = 2
+zmin = 98.4150
+zmax = 98.4200
+nz = 1
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = xy
+2d-type = 3
+gshow = 3
+file = ./out/flujo_xy_zcut2.out
+epsout = 1
+
+$$$$$$$$$$$$$$$$$$$$ CORTE 3: 98.430-98.455 | CENTRO 98.4425 $$$$$$$$$$$$$$$$$$$$
+[T-Track] off
+title = Proton fluence map z cut 3
+mesh = xyz
+x-type = 2
+xmin = -2.35
+xmax = 2.35
+nx = 47
+y-type = 2
+ymin = -2.3185
+ymax = 2.8815
+ny = 52
+z-type = 2
+zmin = 98.4400
+zmax = 98.4450
+nz = 1
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = xy
+2d-type = 3
+gshow = 3
+file = ./out/flujo_xy_zcut3.out
+epsout = 1
+
+$$$$$$$$$$$$$$$$$$$$ CORTE 4: 98.455-98.480 | CENTRO 98.4675 $$$$$$$$$$$$$$$$$$$$
+[T-Track] off
+title = Proton fluence map z cut 4
+mesh = xyz
+x-type = 2
+xmin = -2.35
+xmax = 2.35
+nx = 47
+y-type = 2
+ymin = -2.3185
+ymax = 2.8815
+ny = 52
+z-type = 2
+zmin = 98.4650
+zmax = 98.4700
+nz = 1
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = xy
+2d-type = 3
+gshow = 3
+file = ./out/flujo_xy_zcut4.out
+epsout = 1
+
+$$$$$$$$$$$$$$$$$$$$ CORTE 5: 98.480-98.505 | CENTRO 98.4925 $$$$$$$$$$$$$$$$$$$$
+[T-Track] off
+title = Proton fluence map z cut 5
+mesh = xyz
+x-type = 2
+xmin = -2.35
+xmax = 2.35
+nx = 47
+y-type = 2
+ymin = -2.3185
+ymax = 2.8815
+ny = 52
+z-type = 2
+zmin = 98.4900
+zmax = 98.4950
+nz = 1
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = xy
+2d-type = 3
+gshow = 3
+file = ./out/flujo_xy_zcut5.out
+epsout = 1
+
+$$$$$$$$$$$$$$$$$$$$ CORTE 6: 98.505-98.530 | CENTRO 98.5175 $$$$$$$$$$$$$$$$$$$$
+[T-Track] off
+title = Proton fluence map z cut 6
+mesh = xyz
+x-type = 2
+xmin = -2.35
+xmax = 2.35
+nx = 47
+y-type = 2
+ymin = -2.3185
+ymax = 2.8815
+ny = 52
+z-type = 2
+zmin = 98.5150
+zmax = 98.5200
+nz = 1
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = xy
+2d-type = 3
+gshow = 3
+file = ./out/flujo_xy_zcut6.out
+epsout = 1
+
+$$$$$$$$$$$$$$$$$$$$ CORTE 7: 98.530-98.555 | CENTRO 98.5425 $$$$$$$$$$$$$$$$$$$$
+[T-Track] off 
+title = Proton fluence map z cut 7
+mesh = xyz
+x-type = 2
+xmin = -2.35
+xmax = 2.35
+nx = 47
+y-type = 2
+ymin = -2.3185
+ymax = 2.8815
+ny = 52
+z-type = 2
+zmin = 98.5400
+zmax = 98.5450
+nz = 1
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = xy
+2d-type = 3
+gshow = 3
+file = ./out/flujo_xy_zcut7.out
+epsout = 1
+
+$$$$$$$$$$$$$$$$$$$$ CORTE 8: 98.555-98.580 | CENTRO 98.5675 $$$$$$$$$$$$$$$$$$$$
+[T-Track] off
+title = Proton fluence map z cut 8
+mesh = xyz
+x-type = 2
+xmin = -2.35
+xmax = 2.35
+nx = 47
+y-type = 2
+ymin = -2.3185
+ymax = 2.8815
+ny = 52
+z-type = 2
+zmin = 98.5650
+zmax = 98.5700
+nz = 1
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = xy
+2d-type = 3
+gshow = 3
+file = ./out/flujo_xy_zcut8.out
+epsout = 1

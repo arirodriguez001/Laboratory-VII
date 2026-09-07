@@ -1,0 +1,45 @@
+set: c50[ 0.62 ]	$occluder radius, ANTES TENIA 
+set: c51[ 0.2 ]	$occluder thickness (effective)
+set: c52[ 0.335 ]	$occluder leg radius
+set: c53[ 5.44 - 0.45 ]	$distance from center to occluder hang screws
+set: c54[ 0.01175 ]	$nylon wire radius
+set: c55[ 2*c54 + 0.2 ]	$plate top surface
+set: c56[ 0.2 ]	$plate thickness
+set: %ocl_TR%[40]	$occluder translation number (leave blank for not)
+
+$[ Surface ]
+1400 PX  -30.0
+1401 PX   30.0
+1402 PY  -19.0
+1403 PY   19.0
+1404 %ocl_TR% PZ   (-0.2665+0.21)
+1405 %ocl_TR% PZ   (c51+1.2)
+$set:%ocl_zone%[1400 -1401 1402 -1403 1404 -1405]
+set:%ocl_zone%[1404 -1405]	$use with %workzone%
+
+$occluder
+1406 CZ  c50
+1407 %ocl_TR% PZ  0.0
+1408 %ocl_TR% PZ  c51
+
+$occluder leg
+1409 CZ  c52
+1410 %ocl_TR% PZ  (c51+0.2)
+set:%occluder%[1407 ((-1406 -1408):(-1409 -1410))]
+
+$nylon wires
+1411 %ocl_TR% RCC  (-c53)     (c52+c54) (c51+c54)   (2*c53) 0.0 0.0  c54 
+1412 %ocl_TR% RCC  (-c53)    -(c52+c54) (c51+c54)   (2*c53) 0.0 0.0  c54 
+1413 %ocl_TR% RCC -(c52+c54)  (-c53)    (c51+c54)   0.0 (2*c53) 0.0  c54 
+1414 %ocl_TR% RCC  (c52+c54)  (-c53)    (c51+c54)   0.0 (2*c53) 0.0  c54 
+set:%ocl_wires%[-1411:-1412:-1413:-1414]
+
+$ occluder holder plate
+1415 PX -14.75 
+1416 PX  14.75 
+1417 PY -7.0 
+1418 PY  7.0 
+1419 %ocl_TR% PZ  c55 
+1420 %ocl_TR% PZ  (c55+c56)
+1421 CZ  4.0 
+set:%ocl_plate%[1415 -1416 1417 -1418 1419 -1420 1421]
