@@ -9,6 +9,9 @@
 !pouch_cr-39/
 !pouch_cr-39/**
 
+!pouch_cr-39_V1/
+!pouch_cr-39_V1/**
+
 # Permitir archivos importantes
 !.gitignore
 !README.md
