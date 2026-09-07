@@ -5,11 +5,11 @@ $rwt=0
 Vertical external proton beam - modular input
 
 [ Parameters ]
-#file(1) = C:\Users\Jessica Riback\Desktop\Labo 6y7 Basili-Rodriguez\Labo 7\bin\phits335_win.exe
-file(1)= C:\phits2
+$file(1) = /share/gidans/sebastiangossio/Programas/PIHTS-IFORT/phits
+file(1) = C:/phits
 
-icntl	= 0 $0: transport	5: source	8: 2D geometry	11: 3D geometry	14: volume	16: script mode	17: Anatally mode
-maxcas	= 25000 $ (D=10) number of particles per one batch
+icntl	= 8 $0: transport	5: source	8: 2D geometry	11: 3D geometry	14: volume	16: script mode	17: Anatally mode
+maxcas	= 10000 $ (D=10) number of particles per one batch
 maxbch	= 5000 $ (D=10) number of batches
 istdev	= 2 $Statistical uncertainties estimated from the standard error of: 1=each batch result. 2=each history result.
 nspred	= 2 $2= Coulomb diﬀusion by the Lynch’s formula based on the Moliere theory
@@ -109,6 +109,9 @@ $set:%plastic%[19 -0.93]
 mat[20]  C -0.6170  H -0.0850  O -0.2980   $ Scotch Magic Tape 810 aprox: acrilico + acetato de celulosa
 $set:%scotch%[20 -1.20]
 
+mat[21]  C 12  H 18  O 7      $ CR-39 (PADC), C12H18O7
+$set:%CR39%[21 -1.32]
+
 [ Mat Name Color ]
 mat name   color
 1	Air    cyan
@@ -131,6 +134,7 @@ mat name   color
 18  skin  brown
 19 plastic black
 20 scotch  red
+21 CR-39 pastelgreen
 
 [ Surface ]
 $Room
@@ -535,17 +539,17 @@ $$set: c100[ c7 + c61 - c66 - c67 + c65 ]	$cell monolayer start
 $$set: c101[ c100 + c68 ]	$cell monolayer
 
 $ POUCH (hamster cheek pouch)
-100 90 ell -0.15 0.0 60.5175  1.65 0.0 0.0  -0.8
+$ 100 90 ell -0.15 0.0 60.48  1.65 0.0 0.0  -0.8
 
-$ Planos de corte para definir el pouch (espesor 0.125 cm = 1.25 mm)
-202 90 pz 60.58
-201 90 pz 60.455
+$ Planos de corte para definir el pouch (espesor 0.2 cm)
+$ 202 90 pz 60.58
+$ 201 90 pz 60.38
 
 $ Gel de ultrasonido de 0.1cm de altura total, 0.05 respecto pouch
 4000 90 rpp -1.4685 1.7315  -1.750 1.750  60.33 60.58
 
 $ Cinta scotch --> asumiendo grosor 0.005 cm respecto del pouch
-8000 90 rpp -1.4685 1.7315  -1.750 1.750  60.375 60.38
+$ 8000 90 rpp -1.4685 1.7315  -1.750 1.750  60.375 60.38
 
 $ POSICIONADOR
 $[ S u r f a c e ]
@@ -593,7 +597,7 @@ $ tapa completa abajo
 
 $-------------BLINDAJE-------------------------------
 $ Tapa: superficie superior
-3700 90 rpp -14.9385 -1.4685  -2.609 2.621  57.08 58.08  $ 24-8 le duplique la altura del blindaje
+3700 90 rpp -14.9385 -1.4685  -2.609 2.621  57.58 58.08
 
 $------------guillotina----------------------------
 
@@ -608,7 +612,43 @@ $ 5000 ell -8.2035 0.006 60.08 6.0 0.0 0.0 2.0                 $ xo, yo, zo, log
 $ Hamster centrado en el hueco y apoyado sobre la base
 5000 90 ell -7.5 0.006 60.75  6.0 0.0 0.0  -2.0
 
-$ 10000 rcc 0 0 98.13  0 0 0.2 0.05
+$ CR-39
+$ [S u r f a c e]
+
+$ 4 pares de escalones de 250 um descendientes hacia y negativo dividido en 4 columnas
+
+$columna 1
+
+7011 rpp  -1.35 1.35 1.0815 1.8815  98.380 98.405   $ escalon 11 - 250 um
+7012 rpp  -1.35 1.35 1.0815 1.8815  98.405 98.430   $ escalon 12 - 250 um
+7013 rpp  -1.35 1.35 1.0815 1.8815  98.430 98.455   $ escalon 13 - 250 um
+7014 rpp  -1.35 1.35 1.0815 1.8815  98.455 98.480   $ escalon 14 - 250 um
+7015 rpp  -1.35 1.35 1.0815 1.8815  98.480 98.505   $ escalon 15 - 250 um
+7016 rpp  -1.35 1.35 1.0815 1.8815  98.505 98.530   $ escalon 16 - 250 um
+7017 rpp  -1.35 1.35 1.0815 1.8815  98.530 98.555   $ escalon 17 - 250 um
+7018 rpp  -1.35 1.35 1.0815 1.8815  98.555 98.580   $ escalon 18 - 250 um
+
+$columna 2
+
+7021 rpp  -1.35 1.35 0.2815 1.0815  98.430 98.455   $ escalon 21 - 250 um
+7022 rpp  -1.35 1.35 0.2815 1.0815  98.455 98.480   $ escalon 22 - 250 um
+7023 rpp  -1.35 1.35 0.2815 1.0815  98.480 98.505   $ escalon 23 - 250 um
+7024 rpp  -1.35 1.35 0.2815 1.0815  98.505 98.530   $ escalon 24 - 250 um
+7025 rpp  -1.35 1.35 0.2815 1.0815  98.530 98.555   $ escalon 25 - 250 um
+7026 rpp  -1.35 1.35 0.2815 1.0815  98.555 98.580   $ escalon 26 - 250 um
+
+$columna 3
+7031 rpp  -1.35 1.35 -0.5185 0.2815 98.480 98.505   $ escalon 31 - 250 um
+7032 rpp  -1.35 1.35 -0.5185 0.2815 98.505 98.530   $ escalon 32 - 250 um
+7033 rpp  -1.35 1.35 -0.5185 0.2815 98.530 98.555   $ escalon 33 - 250 um
+7034 rpp  -1.35 1.35 -0.5185 0.2815 98.555 98.580   $ escalon 34 - 250 um
+
+$columna 4
+
+7041 rpp  -1.35 1.35 -1.3185 -0.5185 98.530 98.555   $ escalon 41 - 250 um
+7042 rpp  -1.35 1.35 -1.3185 -0.5185 98.555 98.580   $ escalon 42 - 250 um
+
+$ 10000 rcc 0 0 98.13  0 0 0.2 0.05 $ esto es el cilindrito en el centro del pouch
 
 
 [ Transform ]
@@ -647,12 +687,12 @@ $2000 %air%  %profilezone% #2001 $#101 #102 #104  #510 #6000 #6001 #6002 #6003 #
 2001 2  -2.6989   -1006:-1007:-1008:-1009:-1010:-1011:-1012:-1013  #700 $profiles for pilar #6000 #6001 #6002 #6003
 
 $set:%outside_stuff%[#101 #102 #103 #104]
-$set:%exclusions%[#510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008] $ 24-8 saque el cilindrito de aire del medio del pouch #10000
+$set:%exclusions%[#600 #700 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008] $ #10000 #510
 
 $ [ Cell ]
 $100 -1  %att_zone%	$Deep space
 
-2100 1  -1.205e-3  4 -5 6 -7 1104 -1105 #2101 #2102 #2106 #2107 #2108 #510 #700 #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008	$fill w/ air
+2100 1  -1.205e-3  4 -5 6 -7 1104 -1105 #2101 #2102 #2106 #2107 #2108 #700 #600 #700 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008	$fill w/ air #510
 2101 1  -1.205e-3   1106 -1107 1108 -1109 1110 -1111 1112	$attenuator base
 2102 0      1110 -1111 -1112 #2106 FILL=1	$attenuator grid area
 2103 0      1113 -1114 1115 -1116  LAT=1 U=1 FILL=2	$attenuator fundamental unit
@@ -674,7 +714,7 @@ $set:%vol_atholder%[(8.016+47.61*c24-25*c20-PI*2.25*(c24-c20))]
 $ [ Cell ]
 $100 -1 #( %disp1_zone% ) #510 #600 TRCL=30	#700 $Deep space
 
-2200 1  -1.205e-3  4 -5 6 -7 1204 -1205 #2201 #2202 #2203 #2204 #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008	$fill w/ air
+2200 1  -1.205e-3  4 -5 6 -7 1204 -1205 #2201 #2202 #2203 #2204 #600 #700 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008	$fill w/ air
 2201 6  -11.35   1206 -1207  1208 -1209  1210 -1211 TRCL=21	$scatterer foil 1
 2202 11  -1.0  -1212 TRCL=21	$O-ring
 2203 2  -2.6989   1213 -1214 1215 -1216  1217 -1219 #(1218 -1211) 1220 TRCL=21	$Al sandwich
@@ -685,7 +725,7 @@ $set:%vol_disp1%[(16*c30)]
 $ [ Cell ]
 $100 -1 #( %disp1_zone% ) TRCL=30	$Deep space
 
-2300 1  -1.205e-3  4 -5 6 -7 1304 -1305 #2301 #2302 #2303 #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008	$fill w/ air
+2300 1  -1.205e-3  4 -5 6 -7 1304 -1305 #2301 #2302 #2303 #600 #700 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008	$fill w/ air
 2301 6  -11.35   1306 -1307  1308 -1309  1310 -1311 TRCL=31	$scatterer foil 2
 2302 11  -1.0  -1312	$O-ring
 2303 2  -2.6989   1313 -1314 1315 -1316  1317 -1319 #(1318 -1311) 1320 TRCL=31	$Al sandwich
@@ -695,7 +735,7 @@ $set:%vol_disp2%[(54.76*c40)]
 $ [ Cell ]
 $100 -1 #( %disp1_zone% ) TRCL=30	$Deep space
 
-2400 1  -1.205e-3    4 -5 6 -7  1404 -1405 #2401 #2402 #2403 #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008	$fill w/ air
+2400 1  -1.205e-3    4 -5 6 -7  1404 -1405 #2401 #2402 #2403 #600 #700 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008	$fill w/ air
 2401 2  -2.6989     1407 ((-1406 -1408):(-1409 -1410))	$occluder
 2402 9  -1.14  -1411:-1412:-1413:-1414
 2403 2  -2.6989     1415 -1416 1417 -1418 1419 -1420 1421
@@ -709,7 +749,7 @@ $infl:{./dat/Ce_ridge_filter_4.inp}
 $ [ Cell ]
 $100 -1  %att_zone%	$Deep space
 
-2600 1  -1.205e-3  4 -5 6 -7 1621 -1623 #2601 #2602 #2603 #2604 #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008	$fill w/ air
+2600 1  -1.205e-3  4 -5 6 -7 1621 -1623 #2601 #2602 #2603 #2604 #600 #700 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008	$fill w/ air
 2601 13 -2.329  1604 -1605 (-1607:-1608:-1609:-1610)
 2602 2  -2.6989  1611 -1612 1613 -1614 1604 -1605 #(1615 -1616 1617 -1618) #2601
 2603 10  -1.24 1617 1624 ((1615 -1616 -1618 1604 -1623):(((1619 -1622):(1625 -1626)) -1620 1621 -1604))
@@ -726,39 +766,43 @@ $set:%cell_rfgrid%[(2606 < 2605 < 2604)]
 $set:%vol_rfgrid%[(15.850477*c75*(8*c701+7*c702+6*c703+5*c704+4*c705+3*c706+2*c707+c708)/c71)] $PI*2.25^2*8*c75/(8*c71)*sum*0.996615 (volume dif)
 
 $ Pouch
-510 16 -1.0  -100  201  -202 #6006 #6005 #6004 #800
+$ 510 16 -1.0  -100  201  -202 #6006 #6005 #6004 $ #800
 
 $ Gel ultrasonido
-600 8 -1.0  -4000 #510 #700 #800 #6006 #6005 #6004 #9000 #9001 #9002 #9003
+600 8 -1.0 -4000 #700 #6006 #6005 #6004 #9000 #9001 #9002 #9003
+     7011 7012 7013 7014 7015 7016 7017 7018
+     7021 7022 7023 7024 7025 7026
+     7031 7032 7033 7034
+     7041 7042
 
 $ Cinta scotch
-800 20 -1.20  -8000 #6006 #9000 #9001 #9002 #9003
+$ 800 20 -1.20  -8000 #6006 #9000 #9001 #9002 #9003
 
 
 $ POSICIONADOR
 $ [ C e l l ]
 
 $ Caja acrilica hueca
-6000 17  -1.18  -3000 3100 3200 #6001 #6002 #6003 #510 #600 #700 #800 #6008 #9000 #9001 #9002 #9003 #9004
+6000 17  -1.18  -3000 3100 3200 #6001 #6002 #6003 #600 #700 #6008 #9000 #9001 #9002 #9003 #9004 $ #800 #510
 
 $ Aire dentro de la caja
-6001 1  -1.205e-3       -3100 #510 #600 #700 #800 #6008
+6001 1  -1.205e-3       -3100 #600 #700 #6008 $ #800 #510
 
 $ Aire en el hueco hacia el trampolin
-6002 1  -1.205e-3       -3200 #510 #600 #700 #800 #6008 #9000 #9001 #9002 #9003
+6002 1  -1.205e-3       -3200 #600 #700 #6008 #9000 #9001 #9002 #9003 $ #800 #510
 
 $ Trampolin acrilico
-6003 17  -1.18  -3300 #510 #600 #700 #6006 #6005 #6004
+6003 17  -1.18  -3300 #600 #700 #6006 #6005 #6004 $ #510
 
 $------------------------ Pileta trampolin de PLA ------------------------
 
-$ Pared izq #510 #600 #700 #800 #2001 #6003
+$ Pared izq #510 #600 #700 #2001 #6003 $ #800
 6004 10  -1.24  -3400
 
-$ Pared der #510 #600 #700 #800 #2001
+$ Pared der #510 #600 #700 #2001 $ #800
 6005 10  -1.24  -3500
 
-$ Pared frontal #510 #600 #800 #700 #2001
+$ Pared frontal #510 #600 #700 #2001 $ #800
 6006 10  -1.24  -3600
 
 $---------------------
@@ -790,7 +834,38 @@ $ HAMSTER
 $ [ C e l l ]
 
 $ Hamster (elipsoide), excluyendo el pouch
-700 18  -1.1  -5000 #510
+700 18  -1.1  -5000 $ #510
+
+$ CR-39
+$ [C e l l]
+
+$Columna 1
+7011 21 -1.32  -7011  #6006 #6005 #6004 #9003 #9002
+7012 21 -1.32  -7012  #6006 #6005 #6004 #9003 #9002
+7013 21 -1.32  -7013  #6006 #6005 #6004 #9003 #9002
+7014 21 -1.32  -7014  #6006 #6005 #6004 #9003 #9002
+7015 21 -1.32  -7015  #6006 #6005 #6004 #9003 #9002
+7016 21 -1.32  -7016  #6006 #6005 #6004 #9003 #9002
+7017 21 -1.32  -7017  #6006 #6005 #6004 #9003 #9002
+7018 21 -1.32  -7018  #6006 #6005 #6004 #9003 #9002
+
+$Columna 2
+7021 21 -1.32  -7021  #6006 #6005 #6004 #9003 #9002
+7022 21 -1.32  -7022  #6006 #6005 #6004 #9003 #9002
+7023 21 -1.32  -7023  #6006 #6005 #6004 #9003 #9002
+7024 21 -1.32  -7024  #6006 #6005 #6004 #9003 #9002
+7025 21 -1.32  -7025  #6006 #6005 #6004 #9003 #9002
+7026 21 -1.32  -7026  #6006 #6005 #6004 #9003 #9002
+
+$Columna 3
+7031 21 -1.32  -7031  #6006 #6005 #6004 #9003 #9002
+7032 21 -1.32  -7032  #6006 #6005 #6004 #9003 #9002
+7033 21 -1.32  -7033  #6006 #6005 #6004 #9003 #9002
+7034 21 -1.32  -7034  #6006 #6005 #6004 #9003 #9002
+
+$Columna 4
+7041 21 -1.32  -7041  #6006 #6005 #6004 #9003 #9002
+7042 21 -1.32  -7042  #6006 #6005 #6004 #9003 #9002
 
 1 -1     1  $Deep space
 $2 %air% -1 #(%workzone_walls% ((%att_zone%):(%disp1_zone%):(%disp2_zone%):(%ocl_zone%):(%sample_zone%):(%pin_zone%)))  #510
@@ -800,12 +875,16 @@ $ Modifica la Celda 2 así:
 $2 %air% -1 #(%workzone_walls% ((%att_zone%):(%disp1_zone%):(%disp2_zone%):(%ocl_zone%):(%pin_zone%))) #510 #600 #700 #103 #6000 #6001 #6002 #6003
 $      %outside_stuff% %exclusions%
 2 1  -1.205e-3 -1 #(4 -5 6 -7 ((1104 -1105):(1204 -1205):(1304 -1305):(1404 -1405):(1621 -1623)))
-     #510 #600 #700 #800 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008
+     #600 #700 #103 #6000 #6001 #6002 #6003 #2001 #6006 #6005 #6004 #6007 #6008
      #9000
      #9001
      #9002
      #9003
      #9004
+     7011 7012 7013 7014 7015 7016 7017 7018
+     7021 7022 7023 7024 7025 7026
+     7031 7032 7033 7034
+     7041 7042
      #101 #102 #103 #104
 
 [ Volume ]
@@ -832,228 +911,496 @@ $ -----------------------------------------
 $ --- No olvides definir el volumen de tu nuevo Pouch ---
  700  100.53
 
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ MODELO A $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-
-[ T - T r a c k ]
-mesh = xyz
-x-type = 2
-nx = 25
-xmin = -4.
-xmax = 4.
-y-type = 2
-ny = 60
-ymin = -6.
-ymax = 5.
-z-type = 1
-nz = 1
-98.5125 98.5225
-part = proton
-e-type = 1
-ne = 1
-0.0 1000.0
-unit = 1
-axis = xy
-file = ./out/track_xy.out
-gshow = 1
-epsout = 1
-
-[ T - T r a c k ]
-mesh = xyz
-x-type = 1
-nx = 1
-0.0 0.1
-y-type = 2
-ny = 150
-ymin = -10.
-ymax = 10.
-z-type = 2
-nz = 500
-zmin = -10.
-zmax = 110.
-part = proton
-e-type = 1
-ne = 1
-0.0 1000.0
-unit = 1
-axis = yz
-file = ./out/track_yz.out
-gshow = 1
-epsout = 1
-
-[ T - D e p o s i t ]
-title = Bragg peak in pouch
-mesh = r-z
-r-type = 2
-rmin = 0.0
-rmax = 0.5
-nr = 1
-z-type = 2
-zmin = 97.
-zmax = 99.
-nz = 200
-part = proton
-output = dose
-unit = 0
-axis = z
-file = ./out/bragg_pouch_z.out
-epsout = 1
-
-[ T - D e p o s i t ]
-title = Radial dose in pouch
-mesh = r-z
-r-type = 2
-rmin = 0.0
-rmax = 1.7
-nr = 60
-z-type = 2
-zmin = 98.455
-zmax = 98.580
-nz = 1
-part = proton
-output = dose
-unit = 0
-axis = r
-file = ./out/bragg_pouch_r.out
-epsout = 1
-
-[ T - T r a c k ]
-title = Espectro de energia en el gel
+$$$$$$$$$$$$$$$$$$$$ PROTONES QUE ATRAVIESAN CADA INTERFAZ CR-39 $$$$$$$$$$$$$$$$$$
+[T-Cross]
+title = Proton current through CR39 interfaces
 mesh = reg
-reg = 600
+reg = 24
+r-from r-to area
+$ ================= COLUMNA 1 =================
+600 7011 1.0
+7011 7012 1.0
+7012 7013 1.0
+7013 7014 1.0
+7014 7015 1.0
+7015 7016 1.0
+7016 7017 1.0
+7017 7018 1.0
+7018 6003 1.0
+$ ================= COLUMNA 2 =================
+600 7021 1.0
+7021 7022 1.0
+7022 7023 1.0
+7023 7024 1.0
+7024 7025 1.0
+7025 7026 1.0
+7026 6003 1.0
+$ ================= COLUMNA 3 =================
+600 7031 1.0
+7031 7032 1.0
+7032 7033 1.0
+7033 7034 1.0
+7034 6003 1.0
+$ ================= COLUMNA 4 =================
+600 7041 1.0
+7041 7042 1.0
+7042 6003 1.0
+part = proton
+output = f-curr
+unit = 1
+axis = reg
+file = ./out/corriente_CR39.out
+epsout = 1
+$$$$$$$$$$$$$$$$$$$$ ESPECTROS EN CADA INTERFAZ CR-39 $$$$$$$$$$$$$$$$$$
+[T-Cross]
+title = Proton energy spectra through CR39 interfaces
+mesh = reg
+reg = 24
+r-from r-to area
+$ ================= COLUMNA 1 =================
+600 7011 1.0
+7011 7012 1.0
+7012 7013 1.0
+7013 7014 1.0
+7014 7015 1.0
+7015 7016 1.0
+7016 7017 1.0
+7017 7018 1.0
+7018 6003 1.0
+$ ================= COLUMNA 2 =================
+600 7021 1.0
+7021 7022 1.0
+7022 7023 1.0
+7023 7024 1.0
+7024 7025 1.0
+7025 7026 1.0
+7026 6003 1.0
+$ ================= COLUMNA 3 =================
+600 7031 1.0
+7031 7032 1.0
+7032 7033 1.0
+7033 7034 1.0
+7034 6003 1.0
+$ ================= COLUMNA 4 =================
+600 7041 1.0
+7041 7042 1.0
+7042 6003 1.0
+part = proton
 e-type = 2
 ne = 100
-emin = 1.0e-9
+emin = 1.0e-3
 emax = 25.0
-unit = 1
+output = f-curr
+unit = 2
 axis = eng
-file = ./out/energy_gel.out
-part = proton
-
-[ T - D e p o s i t ]
-title = Histograma dosis-volumen del pouch
+file = ./out/espectros_CR39.out
+epsout = 1
+$$$$$$$$$$$$$$$$$$$$ BRAGG COLUMNA 1 $$$$$$$$$$$$$$$$$$
+[T-Deposit]
+title = Bragg peak column 1
 mesh = xyz
 x-type = 2
-xmin = -0.8
-xmax = 0.8
-nx = 16
+xmin = -0.25
+xmax = 0.25
+nx = 1
 y-type = 2
-ymin = -1.65
-ymax = 1.65
-ny = 33
+ymin = 1.2815
+ymax = 1.6815
+ny = 1
 z-type = 2
-zmin = 98.455
-zmax = 98.580
-nz = 4
+zmin = 97.0
+zmax = 100.0
+nz = 300
 part = proton
 output = dose
 unit = 0
 axis = z
-file = ./out/histograma_dosis.out
+file = ./out/bragg_CR39_col1.out
 epsout = 1
-
-[ T - D e p o s i t ] off
-title = Dosis xy
+$$$$$$$$$$$$$$$$$$$$ BRAGG COLUMNA 2 $$$$$$$$$$$$$$$$$$
+[T-Deposit]
+title = Bragg peak column 2
 mesh = xyz
 x-type = 2
-xmin = -0.8
-xmax = 0.8
-nx = 16
-y-type = 2
-ymin = -1.65
-ymax = 1.65
-ny = 33
-z-type = 2
-zmin = 98.455
-zmax = 98.580
-nz = 4
-part = proton photon
-output = dose
-unit = 0
-axis = xy
-file = ./out/dosis_pouch_xy.out
-epsout = 1
-gshow = 1
-
-[ T - D e p o s i t ] off
-title = Dosis depositada en el hamster
-mesh = reg
-reg = 700
-unit = 0
-axis = reg
-file = ./out/dosis_hamster.out
-part = proton photon
-output = dose
-epsout = 1
-
-[ T - D e p o s i t ] off
-title = Dosis depositada en el pouch
-mesh = reg
-reg = 510
-unit = 0
-axis = reg
-file = ./out/dosis_pouch.out
-part = proton
-output = dose
-epsout = 1
-
-[ T - T r a c k ] off
-mesh = xyz
-x-type = 2
+xmin = -0.25
+xmax = 0.25
 nx = 1
-xmin = -0.01
-xmax = 0.01
-y-type = 4
-ydel = 0.3
-ymin = -3.
-ymax = 3.
+y-type = 2
+ymin = 0.4815
+ymax = 0.8815
+ny = 1
 z-type = 2
-nz = 100
-zmin = 95.
-zmax = 100.
+zmin = 97.0
+zmax = 100.0
+nz = 300
 part = proton
-e-type = 1
-ne = 1
-0.0 1000.0
-unit = 1
-axis = yz
-file = ./out/track_yzposicionador.out
-gshow = 1
+output = dose
+unit = 0
+axis = z
+file = ./out/bragg_CR39_col2.out
 epsout = 1
-
-[ T - T r a c k ] off
+$$$$$$$$$$$$$$$$$$$$ BRAGG COLUMNA 3 $$$$$$$$$$$$$$$$$$
+[T-Deposit]
+title = Bragg peak column 3
 mesh = xyz
-x-type = 4
-xdel = 0.1
-xmin = -10.
-xmax = 10.
-y-type = 4
-ydel = 0.1
-ymin = -15.
-ymax = 15.
-z-type = 1
-nz = 1
-98.08 98.28
+x-type = 2
+xmin = -0.25
+xmax = 0.25
+nx = 1
+y-type = 2
+ymin = -0.3185
+ymax = 0.0815
+ny = 1
+z-type = 2
+zmin = 97.0
+zmax = 100.0
+nz = 300
 part = proton
-e-type = 1
+output = dose
+unit = 0
+axis = z
+file = ./out/bragg_CR39_col3.out
+epsout = 1
+$$$$$$$$$$$$$$$$$$$$ BRAGG COLUMNA 4 $$$$$$$$$$$$$$$$$$
+[T-Deposit]
+title = Bragg peak column 4
+mesh = xyz
+x-type = 2
+xmin = -0.25
+xmax = 0.25
+nx = 1
+y-type = 2
+ymin = -1.1185
+ymax = -0.7185
+ny = 1
+z-type = 2
+zmin = 97.0
+zmax = 100.0
+nz = 300
+part = proton
+output = dose
+unit = 0
+axis = z
+file = ./out/bragg_CR39_col4.out
+epsout = 1
+$$$$$$$$$$$$$$$$$$$$ FLUENCIA VS Z - COLUMNA 1 $$$$$$$$$$$$$$$$$$
+[T-Track]
+title = Proton fluence vs depth column 1
+mesh = xyz
+x-type = 2
+xmin = -0.25
+xmax = 0.25
+nx = 1
+y-type = 2
+ymin = 1.2815
+ymax = 1.6815
+ny = 1
+z-type = 2
+zmin = 97.0
+zmax = 100.0
+nz = 300
+part = proton
+e-type = 2
 ne = 1
-0.0 1000.0
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = z
+file = ./out/flujo_z_col1.out
+epsout = 1
+$$$$$$$$$$$$$$$$$$$$ FLUENCIA VS Z - COLUMNA 2 $$$$$$$$$$$$$$$$$$
+[T-Track]
+title = Proton fluence vs depth column 2
+mesh = xyz
+x-type = 2
+xmin = -0.25
+xmax = 0.25
+nx = 1
+y-type = 2
+ymin = 0.4815
+ymax = 0.8815
+ny = 1
+z-type = 2
+zmin = 97.0
+zmax = 100.0
+nz = 300
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = z
+file = ./out/flujo_z_col2.out
+epsout = 1
+$$$$$$$$$$$$$$$$$$$$ FLUENCIA VS Z - COLUMNA 3 $$$$$$$$$$$$$$$$$$
+[T-Track]
+title = Proton fluence vs depth column 3
+mesh = xyz
+x-type = 2
+xmin = -0.25
+xmax = 0.25
+nx = 1
+y-type = 2
+ymin = -0.3185
+ymax = 0.0815
+ny = 1
+z-type = 2
+zmin = 97.0
+zmax = 100.0
+nz = 300
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = z
+file = ./out/flujo_z_col3.out
+epsout = 1
+$$$$$$$$$$$$$$$$$$$$ FLUENCIA VS Z - COLUMNA 4 $$$$$$$$$$$$$$$$$$
+[T-Track]
+title = Proton fluence vs depth column 4
+mesh = xyz
+x-type = 2
+xmin = -0.25
+xmax = 0.25
+nx = 1
+y-type = 2
+ymin = -1.1185
+ymax = -0.7185
+ny = 1
+z-type = 2
+zmin = 97.0
+zmax = 100.0
+nz = 300
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = z
+file = ./out/flujo_z_col4.out
+epsout = 1
+$$$$$$$$$$$$$$$$$$$$ PARA VER QUE LAS SUPERFICIES ESTEN BIEN DEFINIDAS $$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$ CON icntl = 8 SE GRAFICA SOLO LA GEOMETRIA $$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$ CON icntl = 0 SE GRAFICA FLUENCIA + GEOMETRIA $$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$ CORTE 1: 98.380-98.405 | CENTRO 98.3925 $$$$$$$$$$$$$$$$$$$$
+[T-Track]
+title = Proton fluence map z cut 1
+mesh = xyz
+x-type = 2
+xmin = -2.35
+xmax = 2.35
+nx = 47
+y-type = 2
+ymin = -2.3185
+ymax = 2.8815
+ny = 52
+z-type = 2
+zmin = 98.3900
+zmax = 98.3950
+nz = 1
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
 unit = 1
 axis = xy
-file = ./out/mapa_flujo.out
-gshow = 1
+2d-type = 3
+gshow = 3
+file = ./out/flujo_xy_zcut1.out
 epsout = 1
-
-[ T - T r a c k ] off
-mesh = reg
-reg = 10000
+$$$$$$$$$$$$$$$$$$$$ CORTE 2: 98.405-98.430 | CENTRO 98.4175 $$$$$$$$$$$$$$$$$$$$
+[T-Track]
+title = Proton fluence map z cut 2
+mesh = xyz
+x-type = 2
+xmin = -2.35
+xmax = 2.35
+nx = 47
+y-type = 2
+ymin = -2.3185
+ymax = 2.8815
+ny = 52
+z-type = 2
+zmin = 98.4150
+zmax = 98.4200
+nz = 1
 part = proton
-e-type = 1
+e-type = 2
 ne = 1
-0.0 1000.0
+emin = 1.0e-3
+emax = 25.0
 unit = 1
-axis = reg
-file = ./out/flujo_cilindros.out
-gshow = 1
+axis = xy
+2d-type = 3
+gshow = 3
+file = ./out/flujo_xy_zcut2.out
+epsout = 1
+$$$$$$$$$$$$$$$$$$$$ CORTE 3: 98.430-98.455 | CENTRO 98.4425 $$$$$$$$$$$$$$$$$$$$
+[T-Track]
+title = Proton fluence map z cut 3
+mesh = xyz
+x-type = 2
+xmin = -2.35
+xmax = 2.35
+nx = 47
+y-type = 2
+ymin = -2.3185
+ymax = 2.8815
+ny = 52
+z-type = 2
+zmin = 98.4400
+zmax = 98.4450
+nz = 1
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = xy
+2d-type = 3
+gshow = 3
+file = ./out/flujo_xy_zcut3.out
+epsout = 1
+$$$$$$$$$$$$$$$$$$$$ CORTE 4: 98.455-98.480 | CENTRO 98.4675 $$$$$$$$$$$$$$$$$$$$
+[T-Track]
+title = Proton fluence map z cut 4
+mesh = xyz
+x-type = 2
+xmin = -2.35
+xmax = 2.35
+nx = 47
+y-type = 2
+ymin = -2.3185
+ymax = 2.8815
+ny = 52
+z-type = 2
+zmin = 98.4650
+zmax = 98.4700
+nz = 1
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = xy
+2d-type = 3
+gshow = 3
+file = ./out/flujo_xy_zcut4.out
+epsout = 1
+$$$$$$$$$$$$$$$$$$$$ CORTE 5: 98.480-98.505 | CENTRO 98.4925 $$$$$$$$$$$$$$$$$$$$
+[T-Track]
+title = Proton fluence map z cut 5
+mesh = xyz
+x-type = 2
+xmin = -2.35
+xmax = 2.35
+nx = 47
+y-type = 2
+ymin = -2.3185
+ymax = 2.8815
+ny = 52
+z-type = 2
+zmin = 98.4900
+zmax = 98.4950
+nz = 1
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = xy
+2d-type = 3
+gshow = 3
+file = ./out/flujo_xy_zcut5.out
+epsout = 1
+$$$$$$$$$$$$$$$$$$$$ CORTE 6: 98.505-98.530 | CENTRO 98.5175 $$$$$$$$$$$$$$$$$$$$
+[T-Track]
+title = Proton fluence map z cut 6
+mesh = xyz
+x-type = 2
+xmin = -2.35
+xmax = 2.35
+nx = 47
+y-type = 2
+ymin = -2.3185
+ymax = 2.8815
+ny = 52
+z-type = 2
+zmin = 98.5150
+zmax = 98.5200
+nz = 1
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = xy
+2d-type = 3
+gshow = 3
+file = ./out/flujo_xy_zcut6.out
+epsout = 1
+$$$$$$$$$$$$$$$$$$$$ CORTE 7: 98.530-98.555 | CENTRO 98.5425 $$$$$$$$$$$$$$$$$$$$
+[T-Track]
+title = Proton fluence map z cut 7
+mesh = xyz
+x-type = 2
+xmin = -2.35
+xmax = 2.35
+nx = 47
+y-type = 2
+ymin = -2.3185
+ymax = 2.8815
+ny = 52
+z-type = 2
+zmin = 98.5400
+zmax = 98.5450
+nz = 1
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = xy
+2d-type = 3
+gshow = 3
+file = ./out/flujo_xy_zcut7.out
+epsout = 1
+$$$$$$$$$$$$$$$$$$$$ CORTE 8: 98.555-98.580 | CENTRO 98.5675 $$$$$$$$$$$$$$$$$$$$
+[T-Track]
+title = Proton fluence map z cut 8
+mesh = xyz
+x-type = 2
+xmin = -2.35
+xmax = 2.35
+nx = 47
+y-type = 2
+ymin = -2.3185
+ymax = 2.8815
+ny = 52
+z-type = 2
+zmin = 98.5650
+zmax = 98.5700
+nz = 1
+part = proton
+e-type = 2
+ne = 1
+emin = 1.0e-3
+emax = 25.0
+unit = 1
+axis = xy
+2d-type = 3
+gshow = 3
+file = ./out/flujo_xy_zcut8.out
 epsout = 1
 
 [ E n d ]

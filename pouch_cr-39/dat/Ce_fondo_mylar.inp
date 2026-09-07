@@ -1,0 +1,23 @@
+$ [ Cell ]
+$100 -1 #( %disp1_zone% ) TRCL=30	$Deep space
+
+2500 %air%  %workzone_walls%  %sample_zone% #700 #2501 #2502 #2503 #2504 #2506 #103 #2505 #6000 #6001 #6002 #6003 #6009 $fill w/ air #510
+$2500 %air%  %workzone%  %sample_zone% #2501 #2502 #2503 #2504 #2505 #2506	$fill w/ air
+
+2501 %Al% %Al_base%	$sAl base
+2502 %Al%  %petri_holder%	$Petri holder
+2503 %PS%  %Petri_dish%	$Petri dish
+2504 %Mylar%  %Petri_lid%	$Petri lid
+2505 %tissue%  %monolayer%	$cells
+2506 %water%  %medium_steps% #2505	$medium with meniscus
+
+set:%cell_albase%[2501]
+set:%vol_albase%[80.104322] $PI*(13.34667+14.9350032-1.97676)-2.535
+set:%cell_petrihold%[2502]
+set:%vol_petrihold%[(7.8618356*c60)]  $PI*(6.5025-4.0)
+set:%cell_petri%[2503]
+set:%vol_petri%[(PI*(c63*c63*c67+c62*c62*c63))]
+set:%cell_mylar%[2504]
+set:%vol_mylar%[(PI*(c66*c66*0.63+(c62+c63)*(c62+c63)*c66))] 
+set:%cell_medium%[2506]
+set:%vol_medium%[(c65)] 
