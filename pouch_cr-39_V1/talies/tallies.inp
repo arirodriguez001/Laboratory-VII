@@ -1,0 +1,210 @@
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ CR 39 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+$$$$$$$$$$$$$$$$$$$$ FLUENCIA PROMEDIO EN CADA LAMINA CR-39 $$$$$$$$$$$$$$$$$$
+
+[T-Track]
+
+title = Proton fluence in CR39 layers
+
+$ Mide la fluencia promedio de protones dentro de cada lamina de CR-39.
+$ Permite comparar:
+$ lamina 1 -> lamina 2 -> ... -> lamina 8
+
+mesh = reg
+
+reg = 7001 7002 7003 7004 7005 7006 7007 7008
+
+volume
+reg     vol
+7001    1
+7002    1
+7003    1
+7004    1
+7005    1
+7006    1
+7007    1
+7008    1
+
+part = proton
+
+e-type = 2
+ne = 1
+emin = 1.0e-9
+emax = 25.0
+
+unit = 1
+axis = reg
+
+file = ./out/flujo_CR39_reg.out
+epsout = 1
+
+$$$$$$$$$$$$$$$$$$$$ MAPAS DE FLUENCIA EN LAS 8 LAMINAS CR-39 $$$$$$$$$$$$$$$$$$
+
+[T-Track]
+
+title = Proton fluence maps through CR39
+
+$ Mide la distribucion espacial de fluencia de protones en las 8 laminas.
+$ Cada bin en z corresponde a una lamina:
+$
+$ z-bin 1 = lamina 1 : 98.380 - 98.405 cm
+$ z-bin 2 = lamina 2 : 98.405 - 98.430 cm
+$ z-bin 3 = lamina 3 : 98.430 - 98.455 cm
+$ z-bin 4 = lamina 4 : 98.455 - 98.480 cm
+$ z-bin 5 = lamina 5 : 98.480 - 98.505 cm
+$ z-bin 6 = lamina 6 : 98.505 - 98.530 cm
+$ z-bin 7 = lamina 7 : 98.530 - 98.555 cm
+$ z-bin 8 = lamina 8 : 98.555 - 98.580 cm
+
+mesh = xyz
+
+x-type = 2
+nx = 27
+xmin = -1.35
+xmax =  1.35
+
+y-type = 2
+ny = 32
+ymin = -1.3185
+ymax =  1.8815
+
+z-type = 2
+nz = 8
+zmin = 98.380
+zmax = 98.580
+
+part = proton
+
+e-type = 2
+ne = 1
+emin = 1.0e-9
+emax = 25.0
+
+unit = 1
+axis = xy
+
+file = ./out/flujo_CR39_xyz.out
+epsout = 1
+
+$ Medimos dosis: 
+
+[ T - D e p o s i t ]   $ histograma dosis-volumen CR39 + gel
+
+title = Histograma
+mesh = xyz
+x-type = 2
+xmin = -1.7500
+xmax = 1.7500
+nx = 35
+y-type = 2
+ymin = -1.3185
+ymax = 1.8815
+ny = 32
+z-type = 2
+zmin = 98.330
+zmax = 98.580
+nz = 10
+part = proton
+output = dose
+unit = 0
+axis = z
+file = ./out/histograma_dosis_CR39.out
+epsout = 1
+
+
+$ Pico de Bragg (SOBP)
+
+[ T - D e p o s i t ]  $ dosis depositada en profundidad
+title = Bragg peak in cr
+mesh = r-z
+r-type = 2
+rmin = 0.0
+rmax = 0.5
+nr = 1
+z-type = 2 
+zmin = 97
+zmax = 100           
+nz = 300                    
+part = proton
+output = dose
+unit = 0
+axis = z
+file = ./out/bragg_cr.out
+epsout = 1
+
+
+$$$$$$$$$$$$$$$$$$$$ CORRIENTE A TRAVES DEL CR-39 $$$$$$$$$$$$$$$$$$$$
+
+[T-Cross]
+
+title = Proton current through CR39
+
+$ Mide la corriente total de protones que atraviesa cada interfaz:
+$ gel -> lamina 1 -> lamina 2 -> ... -> lamina 8 -> PLA
+
+mesh = reg
+
+reg = 9
+r-from     r-to        area
+600        7001        1     $ Gel -> lamina 1
+7001       7002        1     $ Lamina 1 -> lamina 2
+7002       7003        1     $ Lamina 2 -> lamina 3
+7003       7004        1     $ Lamina 3 -> lamina 4
+7004       7005        1     $ Lamina 4 -> lamina 5
+7005       7006        1     $ Lamina 5 -> lamina 6
+7006       7007        1     $ Lamina 6 -> lamina 7
+7007       7008        1     $ Lamina 7 -> lamina 8
+7008       6003        1     $ Lamina 8 -> PLA (trampolin)
+
+part = proton
+
+e-type = 2
+ne = 1
+emin = 1.0e-9
+emax = 25.0
+
+output = f-curr
+unit = 1
+axis = reg
+
+file = ./out/corriente_CR39.out
+epsout = 1
+
+$$$$$$$$$$$$$$$$$$$$ ESPECTROS A TRAVES DEL CR-39 $$$$$$$$$$$$$$$$$$$$
+
+[T-Cross]
+
+title = Proton energy spectra through CR39
+
+$ Mide el espectro energetico de los protones que atraviesan cada interfaz:
+$ permite ver como cambia la energia del haz al atravesar cada lamina
+
+mesh = reg
+
+reg = 9
+r-from     r-to        area
+600        7001        1     $ Gel -> lamina 1
+7001       7002        1     $ Lamina 1 -> lamina 2
+7002       7003        1     $ Lamina 2 -> lamina 3
+7003       7004        1     $ Lamina 3 -> lamina 4
+7004       7005        1     $ Lamina 4 -> lamina 5
+7005       7006        1     $ Lamina 5 -> lamina 6
+7006       7007        1     $ Lamina 6 -> lamina 7
+7007       7008        1     $ Lamina 7 -> lamina 8
+7008       6003        1     $ Lamina 8 -> PLA
+
+part = proton
+
+e-type = 2
+ne = 100
+emin = 1.0e-3
+emax = 25.0
+
+output = f-curr
+unit = 2
+axis = eng
+
+file = ./out/espectros_CR39.out
+epsout = 1
+
+

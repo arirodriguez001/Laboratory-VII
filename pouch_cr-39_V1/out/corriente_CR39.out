@@ -1,0 +1,72 @@
+[ T-Cross ]
+    title = Proton current through CR39
+     mesh =  reg            # mesh type is region-wise
+      reg =    9            # number of crossing regions
+      non     r-from     r-to        area
+      1       600        7001        1.000000    
+      2       7001       7002        1.000000    
+      3       7002       7003        1.000000    
+      4       7003       7004        1.000000    
+      5       7004       7005        1.000000    
+      6       7005       7006        1.000000    
+      7       7006       7007        1.000000    
+      8       7007       7008        1.000000    
+      9       7008       6003        1.000000    
+   e-type =    2            # e-mesh is linear given by emin, emax and ne
+     emin =  1.0000000E-09  # minimum value of e-mesh points
+     emax =   25.00000      # maximum value of e-mesh points
+#    edel =   25.00000      # mesh width of e-mesh points
+       ne =      1          # number of e-mesh points
+#    data = ( e(i), i = 1, ne + 1 )
+#           1.00000E-09  2.50000E+01
+  eng2let =    0            # (D=0) Flag to convert energy to LET, 0: not convert, 1: convert
+     unit =    1            # unit is [1/cm^2/source]
+     axis =  reg            # axis of output
+     file = ./out/corriente_CR39.out  # file name of output for the above axis
+   output = f-curr          # surface crossing forward current spectrum
+     part =  proton   
+# kf/name :  2212     
+   epsout =    1            # (D=0) generate eps file by ANGEL
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :          46 (  0)           0 (  0)          46 (  0)
+
+#------------------------------------------------------------------------------
+#newpage:
+#   no. =  1   ie  =  1
+#   e = (   1.0000E-09  -   2.5000E+01  )
+
+x: Serial Num. of Region
+y:  F-Curr [1/cm^2/source]                 
+p: xlin ylog afac(0.8) form(0.9)
+h: x       n            y(proton  ),l3 n   
+#  num     area         proton  
+     1     1.0000E+00   0.0000E+00  0.0000
+     2     1.0000E+00   0.0000E+00  0.0000
+     3     1.0000E+00   0.0000E+00  0.0000
+     4     1.0000E+00   0.0000E+00  0.0000
+     5     1.0000E+00   0.0000E+00  0.0000
+     6     1.0000E+00   0.0000E+00  0.0000
+     7     1.0000E+00   0.0000E+00  0.0000
+     8     1.0000E+00   0.0000E+00  0.0000
+     9     1.0000E+00   0.0000E+00  0.0000
+
+#   sum    0.0000E+00   0.0000E+00
+
+'no. =  1,  e =  2.5000E+01'
+msuc: {\huge Proton current through CR39}
+msdr: {\it plotted by \ANGEL \version}
+msdl: {\it calculated by \PHITS  3.35}
+wt: s(0.7)
+\vspace{-3}
+  region surface crossing
+  emin  &=&   1.0000E-09 [MeV]
+  emax  &=&   2.5000E+01 [MeV]
+e:
+ 
+# Information for Restart Calculation
+# This calculation was newly started
+# istdev =  2 # 1:Batch variance, 2:History variance
+# resc2  = 2.27140633519773913E-02 # Total source weight or Total source weight / maxcas
+# resc3  = 1.41770000000000000E+08 # Total history number or Total batch number
+# maxcas =       10000 # History / Batch, only used for istdev=1
+# bitrseed = 0001111011001101110111000010000100100111011001000110100100110111 # bit data of rseed
