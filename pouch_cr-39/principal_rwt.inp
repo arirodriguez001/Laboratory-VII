@@ -951,6 +951,22 @@ unit = 1
 axis = reg
 file = ./out/corriente_CR39.out
 epsout = 1
+
+$$$$$$$$$$$$$$$$$$$$ PROTONES QUE ATRAVIESAN DE AIRE A GEL $$$$$$$$$$$$$$$$$$
+[T-Cross]
+title = Corriente de protones de aire a gel
+mesh = reg
+reg = 1
+r-from r-to area
+$ ================= COLUMNA 1 =================
+2 600 1.0
+part = proton
+output = f-curr
+unit = 1
+axis = reg
+file = ./out/corriente_aireagel.out
+epsout = 1
+
 $$$$$$$$$$$$$$$$$$$$ ESPECTROS EN CADA INTERFAZ CR-39 $$$$$$$$$$$$$$$$$$
 [T-Cross]
 title = Proton energy spectra through CR39 interfaces
@@ -995,6 +1011,26 @@ unit = 2
 axis = eng
 file = ./out/espectros_CR39.out
 epsout = 1
+
+$$$$$$$$$$$$$$$$$$$$ ESPECTRO AIRE A GEL $$$$$$$$$$$$$$$$$$
+[T-Cross]
+title = Proton energy spectra through CR39 interfaces
+mesh = reg
+reg = 1
+r-from r-to area
+$ ================= AIRE A GEL =================
+2 600 1.0
+part = proton
+e-type = 2
+ne = 100
+emin = 1.0e-3
+emax = 25.0
+output = f-curr
+unit = 2
+axis = eng
+file = ./out/espectro_airegel.out
+epsout = 1
+
 $$$$$$$$$$$$$$$$$$$$ BRAGG COLUMNA 1 $$$$$$$$$$$$$$$$$$
 [T-Deposit]
 title = Bragg peak column 1
@@ -1183,6 +1219,22 @@ unit = 1
 axis = z
 file = ./out/flujo_z_col4.out
 epsout = 1
+
+$$$$$$$$$$$$$$$$$$$$ DOSIS PROMEDIO EN CADA BLOQUE DEL CR-39 $$$$$$$$$$$$$$$$$$
+[T-Deposit]
+title = Dosis en cada region CR39
+mesh = reg
+reg = 7011 7012 7013 7014 7015 7016 7017 7018
+      7021 7022 7023 7024 7025 7026
+      7031 7032 7033 7034
+      7041 7042
+
+part = proton
+output = dose
+axis = reg
+file = ./out/dosis_CR39_por_bloque.out
+epsout = 1
+
 $$$$$$$$$$$$$$$$$$$$ PARA VER QUE LAS SUPERFICIES ESTEN BIEN DEFINIDAS $$$$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$$$$$$$ COMENTAR TODO ESTO CUANDO CORRAN SIMULACION $$$$$$$$$$$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$$$$$$$ CORTE 1: 98.380-98.405 | CENTRO 98.3925 $$$$$$$$$$$$$$$$$$$$
