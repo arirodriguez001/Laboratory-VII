@@ -24,6 +24,9 @@
 !detectores_sin_h_v2_cilindors/
 !detectores_sin_h_v2_cilindors/**
 
+!qr-poster/
+!qr-poster/**
+
 # Permitir archivos importantes
 !.gitignore
 !README.md
