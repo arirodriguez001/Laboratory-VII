@@ -9,8 +9,20 @@
 !pouch_cr-39/
 !pouch_cr-39/**
 
+!pouch_cr-39contejidopouch/
+!pouch_cr-39contejidopouch/**
+
 !pouch_cr-39_V1/
 !pouch_cr-39_V1/**
+
+!detectores_sin_h/
+!detectores_sin_h/**
+
+!detectores_sin_h_v2/
+!detectores_sin_h_v2/**
+
+!detectores_sin_h_v2_cilindors/
+!detectores_sin_h_v2_cilindors/**
 
 # Permitir archivos importantes
 !.gitignore
