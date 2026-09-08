@@ -1,6 +1,6 @@
 import qrcode
 
-url = "https://arirodriguez001.github.io/rafa-qr/"
+url = "https://arirodriguez001.github.io/Laboratory-VII/qr-poster/"
 
 qr = qrcode.QRCode(
     version=None,
