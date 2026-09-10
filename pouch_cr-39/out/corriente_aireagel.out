@@ -1,0 +1,46 @@
+[ T-Cross ]
+    title = Corriente de protones de aire a gel
+     mesh =  reg            # mesh type is region-wise
+      reg =    1            # number of crossing regions
+      non     r-from  r-to       area
+      1       2       600        1.000000    
+  eng2let =    0            # (D=0) Flag to convert energy to LET, 0: not convert, 1: convert
+     unit =    1            # unit is [1/cm^2/source]
+     axis =  reg            # axis of output
+     file = ./out/corriente_aireagel.out  # file name of output for the above axis
+   output = of-curr         # surface crossing omni forward current
+     part =  proton   
+# kf/name :  2212     
+   epsout =    1            # (D=0) generate eps file by ANGEL
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :          10 (  0)           0 (  0)          10 (  0)
+
+#------------------------------------------------------------------------------
+#newpage:
+#   no. =  1
+
+x: Serial Num. of Region
+y: OF-Curr [1/cm^2/source]                 
+p: xlin ylog afac(0.8) form(0.9)
+h: x       n            y(proton  ),l3 n   
+#  num     area         proton  
+     1     1.0000E+00   4.8640E+08  0.0005
+
+#   sum    4.8640E+08   4.8646E-04
+
+'no. =  1'
+msuc: {\huge Corriente de protones de aire a gel}
+msdr: {\it plotted by \ANGEL \version}
+msdl: {\it calculated by \PHITS  3.36}
+wt: s(0.7)
+\vspace{-3}
+  region surface crossing
+e:
+ 
+# Information for Restart Calculation
+# This calculation was newly started
+# istdev =  2 # 1:Batch variance, 2:History variance
+# resc2  = 8.01085904478716915E-03 # Total source weight or Total source weight / maxcas
+# resc3  = 4.99998380000000000E+07 # Total history number or Total batch number
+# maxcas =       10018 # History / Batch, only used for istdev=1
+# bitrseed = 1010100011101000001110100101101100110101110010110011101101001001 # bit data of rseed
