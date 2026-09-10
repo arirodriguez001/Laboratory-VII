@@ -1,0 +1,1085 @@
+$OMP=0
+[title]
+Voxel Phantom
+
+[parameters]
+ icntl    =         0  # (D=0) 3:ECH 5:NOR 6:SRC 7,8:GSH 11:DSH 12:DUMP
+ maxcas   =        1E6 # (D=10) number of particles per one batch
+ maxbch   =        1E3   #(D=10) number of batches
+ #file(1)  = c:/phits        # (D=c:/phits) PHITS install folder name
+ file(1) = /share/gidans/sebastiangossio/Programas/PIHTS-IFORT/phits#    
+ file(6)  = ./out/phits.out       # (D=phits.out1) general out1put file name
+ #file(7) = /share/gidans/sebastiangossio/Programas/PIHTS-IFORT/phits/data/xsdir.jnd
+ file(22) = ./out/batch.out
+ #negs     =           -1    # (D=-1) =-1:original, =0:No, =1:EGS
+ e-mode = 2
+ nspred    =      2             #Coulomb diffusion by epie Lynch’s formula based on epie Moliere epieory
+ emin(1)   =      1.0e-7        #Proton cut-off energy [MeV]
+ emin(2)   =      1.0e-9        #Neutron
+ #emin(12)  =     1.0           #Electron
+ #emin(14)  =     1.0           #Photon
+ emin(18)  =      1.0e-9        #Alpha
+ esmin     =      1.0e-9        #Energía mínima de corte para partículas cargadas
+ #emin(12) =      1e-3 #MeV
+ #dmax(12) =      302 #MeV  
+ #emin(13) =      1e-3 #MeV
+ #dmax(13) =      302 #MeV
+ itall    =       1 # 1:actualiza los graficos,0: no actualiza, -1: no graba nada
+ istdev   =       -1 # -1 continua
+ ireschk  =       1  #1 chequea tallies
+ #etsmin(12) =1e-6 # 1 eV
+ maxbnk  = 10000*100           # (D=10000) maximum bank memory length
+#rseed=6.647299061401E+12 #valor por defecto 
+ rseed=6.647888455658E+12
+ infout1=8
+ negs=-1 
+
+#          dx    dy    dz              
+set:     c1[0.3] c2[0.3] c3[0.3] 
+#        radio de las esferas 
+set:     c4[0.1] $ detectora ISOEFECTIVA     
+set:     c20[0.3] $calculo de factor 3 mmm           
+#        cdiam      
+set:     c10[1] $1 um    
+#slices 
+set:     c7[256] c8[256] c9[128]
+# posicion de la fuente y posicion del r-z
+set:     c30[110]
+
+[ S o u r c e ] $ dump source
+    s-type = 17
+    #file = C:\ej_PHITS\Sources\RFQ\RFQ.dmp
+    file=/home/sebastiangossio/ej_phits/sources/RFQ/RFQ_part_dmp
+    #file=/home/sebastiangossio/ej_phits/sources/RFQ/RFQ.dmp
+    dump = 13
+    1 2 3 4 5 6 7 8 9 10 14 15 16
+    trcl=1
+
+
+# [ S o u r c e ] $ dump source
+#    s-type = 17
+#    file =C:\ej_PHITS\Sources\Sukuba\Sukuba.dmp
+#    #file=/home/sebastiangossio/ej_phits/sources/sukuba/sukuba
+#    dump = -8
+#    1 2 3 4 5 6 7 8
+#    wgt = 1.0
+#    factor = 1.0 
+#    trcl=1
+   
+[ Reg Name ] off 
+    reg  name           size 
+    #300  Fuente          1
+
+ [ surface ]
+  $ fundamental voxel
+  2 rpp  0 c1  0 c2  0 c3 $voxel
+  c 1 rpp  0 c7*c1 0 c8*c2  0  c9*c3 $fill
+  1 rpp  90*c1 180*c1 80*c2 190*c2  10*c3 c9*c3 $ esta recortada 
+  c 999 rpp -1*c1 (c7+1)*c1 -1*c2 (c8+1)*c2 -1*c3 (c9+1)*c3 $exterior
+  999 so 500
+  c 
+  c detectores 
+  800 so c4
+  300 so c20 
+  801 so c4+0.3
+  
+[ C e l l ]
+  $ Material universe
+  1   1 -1.0        -2  U=1             $$$ 1	PTV_BNCT	    Tissue Soft	    1.0
+  2   2 -1.0        -2  U=2             $$$ 2	GTV_3mm	        Tissue Soft	    1.0
+  3   3 -1.61       -2  U=3             $$$ 3	BONE	        Cranial Bone	1.61
+  4   4 -0.26       -2  U=4             $$$ 4	LEFT_LUNG	    Lung	        0.26
+  5   5 -1.0        -2  U=5             $$$ 5	BODY	        Tissue Soft	    1.0
+  6   6 -0.26       -2  U=6             $$$ 6	RT_LUNG	        Lung	        0.26
+  7   7 -1.05       -2  U=7             $$$ 7	RT_INNER_EAR	Muscle	        1.05
+  8   8 -1.05       -2  U=8             $$$ 8	RT_PAROTID	    Muscle	        1.05
+  9   9 -1.07       -2  U=9             $$$ 9	RT_EYE	        Eye lens	    1.07
+  10   10 -1.07     -2  U=10            $$$ 10	LT_EYE	        Eye lens	    1.07
+  11   11 -1.05     -2  U=11            $$$ 11	LT_INNER_EAR	Muscle	        1.05
+  12   12 -1.04     -2  U=12            $$$ 12	LT_OPTIC_NERVE	Brain	        1.04
+  13   13 -1.0      -2  U=13            $$$ 13	GTV70	        Tissue Soft	    1.0
+  14   14 -1.04     -2  U=14            $$$ 14	SPINAL_CORD	    Brain         	1.04
+  15   15 -1.04     -2  U=15            $$$ 15	BRAIN_STEM	    Brain 	        1.04
+  16   16 -1.07     -2  U=16            $$$ 16	LT_LENS	        Eye lens    	1.07
+  17   17 -1.04     -2  U=17            $$$ 17	BRAIN	        Brain        	1.04
+  18   18 -1.04     -2  U=18            $$$ 18	RTOPTIC_NERVE	Brain	        1.04
+  19   19 -1.07     -2  U=19            $$$ 19	RT_LENS	Eye     Lens	        1.07
+  20   20 -1.05     -2  U=20            $$$ 20	LT_PAROTID	    Muscle	        1.05
+  21   21 -1.21e-3  -2  U=21            $$$ 21	AIRE		    air       
+  $ Voxel universe                      
+  100   0             -1   #300  #801 #802 
+                                 #400 #401 #500 #501 #502 #503 #504   fill=100
+  101   0             -2         lat=1   u=100
+           fill=0:255 0:255 0:127
+  infl: {./dat/voxel.dat}
+  c detectores 
+  c detectores 
+  300 31  -1.0 -300 trcl=300 $referencia de intensidad 
+  400 32  -1.09 -800 trcl=400 $ punto de entrada 
+  401 32  -1.09 -801 800 trcl=401 $ alredor de punto de entrada
+  801 31  -1.0 -800 trcl=801
+  802 31  -1.0 -800 trcl=802
+  500 31  -1.0 -800 trcl=500
+  501 31  -1.0 -800 trcl=501
+  502 31  -1.0 -800 trcl=502
+  503 31  -1.0 -800 trcl=503
+  504 31  -1.0 -800 trcl=504
+    c
+  998 0             -999  #100 #300  #801 #802  #400 #401
+                          #500 #501 #502 #503 #504  
+  999 -1 999
+  
+  [ Transform ]
+    c Rotacion de fuente 
+    c Direccion de haz -0.8893 -0.3905 -0.2382
+    c Rotacion de fuente 
+    c Direccion de haz -0.8893 -0.3905 -0.2382
+    *tr1 	 -1.5374 47.5149 27.0219
+	 	 56.0000 0.0000 0.0000
+	 	 2 -90
+	 	 2 -103.7800
+	 	 3 23.7074
+	 	 3
+
+   c detectores 
+   tr300 140*c1 148*c2 74.5*c3 $para calcular el factor 
+   c punto de entrada
+   tr400 45.5700   43.6100   24.6400 $  
+   tr401 45.5700   43.6100   24.6400 
+   c esferas en direccion del haz 
+   tr801 41.6873   41.9050   23.6000
+   tr802 42.4340   42.2329   23.8000
+   c 
+   tr500 42.0 44.5 20.8 
+   tr501 43.0 43.0 22.3 
+   tr502 41.5 41.5 24.5
+   tr503 41.8 43.8 23.5 
+   tr504 41.8 45.0 21.6
+  
+[Volume] 
+      300        4/3*pi*c20**3      
+      {801-802}  4/3*pi*c4**3
+      (13<101)   c1*c2*c3
+      400        4/3*pi*c4**3 
+      {500-504}  4/3*pi*c4**3 
+      
+[ M a t e r i a l ] 
+  infl: {./dat/material.dat}  
+
+[ Mat Name Color ]   
+mat  name                size  color  
+  0     void              1  lightgray
+  1     PTV-BNCT          1  pastelpink                   
+  2     GTV-3mm	          1  orange
+  3     BONE	          1  pastelmagenta
+  4     LEFT-LUNG	      1  pastelgreen
+  5     BODY	          1  pastelviolet
+  6     RT-LUNG	          1  orangeyellow
+  7     RT-INNER_EAR	  1  camel
+  8     RT-PAROTID	      1  pastelyellow
+  9     RT-EYE	          1  yellow
+  10    LT-EYE	          1  pastelgreen
+  11    LT-INNER_EAR	  1  yellowgreen
+  12    LT-OPTIC-NERVE	  1  green
+  13    GTV70	          1  red 
+  14    SPINAL-CORD	      1  mossgreen
+  15    BRAIN-STEM	      1  bluegreen
+  16    LT-LENS	          1  pastelcyan
+  17    BRAIN	          1  pastelblue
+  18    RTOPTIC-NERVE	  1  cyan
+  19    RT-LENS-EYE       1  cyanblue
+  20    LT-PAROTID	      1  pastelblue
+  21    Air               1  pastelcyan  
+  31    Detector          1  blue  
+  32    Skin              1  pink   
+  
+##############################
+## Talies
+##############################
+[ T - T r a c k ] 
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       nx =    100           # number of x-mesh points
+     xmin =    40        # minimum value of x-mesh points
+     xmax =    50       # maximum value of x-mesh points
+   y-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       ny =    100        # number of x-mesh points
+     ymin =    40      # minimum value of x-mesh points
+     ymax =    50   # maximum value of x-mesh points
+   z-type =    2          # z-mesh is linear given by zmin, zmax and nz
+        nz= 100      # number of z-mesh points
+        zmin =20 
+        zmax = 30
+     part =  neutron 
+   e-type =    1            # e-mesh is given by the below data
+       ne =    2            # number of e-mesh points
+            0.0 5e-7 100 
+     unit =    1            # unit is [1/cm^2/source]
+     axis =   xy          # axis of out1put
+     file = ./out/neutron_track.out  # file name of out1put for the above axis
+    title = [T-track] 
+    gshow =    3            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+    #epsout1 =    1            # (D=0) generate eps file by ANGEL
+     gslat=    3            # muestra celdas del mismo material
+    #vtkout1=    1
+
+[ T - T r a c k ] 
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       nx =    100           # number of x-mesh points
+     xmin =    40        # minimum value of x-mesh points
+     xmax =    50       # maximum value of x-mesh points
+   y-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       ny =    100        # number of x-mesh points
+     ymin =    40      # minimum value of x-mesh points
+     ymax =    50   # maximum value of x-mesh points
+   z-type =    2          # z-mesh is linear given by zmin, zmax and nz
+        nz= 100      # number of z-mesh points
+        zmin =20 
+        zmax = 30
+     part =  photon 
+   e-type =    1            # e-mesh is given by the below data
+       ne =    1            # number of e-mesh points
+            0.0  100 
+     unit =    1            # unit is [1/cm^2/source]
+     axis =   xy          # axis of out1put
+     file = ./out/gamma_track.out1  # file name of out1put for the above axis
+    title = [T-track] 
+    gshow =    3            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+    #epsout1 =    1            # (D=0) generate eps file by ANGEL
+     gslat=    3            # muestra celdas del mismo material
+    #vtkout1=    1
+
+
+
+ 
+   [ T - track]  
+     mesh =  reg             # mesh type is xyz scoring mesh
+      reg=  300 400  801 802 500 501 502 503 504  
+     part =  neutron 
+    e-type =    1            # e-mesh is given by the below data
+       ne =    2            # number of e-mesh points
+            0 5e-7 100 
+     unit =    1            # unit is [1/cm^2/source]
+     axis =   reg            # axis of out1put
+     file = ./out/track-reg-neutrones.out # file name of out1put for the above axis
+    title =  [T-track]
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+    #epsout1 =    1            # (D=0) generate eps file by ANGEL
+     gslat=    3            # muestra celdas del mismo material     
+    samepage = eng 
+     
+
+[ T - track] 
+     mesh =  reg             # mesh type is xyz scoring mesh
+       reg=  300 400 801 802 500 501 502 503 504  
+      #(u<lat[x y z]<fill)
+      # infl={./dat/cell_tumor.dat} 
+     part =  neutron proton alpha photon 14C
+    e-type =    1            # e-mesh is given by the below data
+       ne =    1            # number of e-mesh points
+            0.0  1000.0
+     unit =    1            # unit is [1/cm^2/source]
+     axis =   reg            # axis of out1put
+     file = ./out/track-reg.out  # file name of out1put for the above axis
+    title = [T-track]
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+    #epsout1 =    1            # (D=0) generate eps file by ANGEL
+     gslat=    3            # muestra celdas del mismo material
+    samepage = part
+
+[ T - track] 
+     mesh =  reg             # mesh type is xyz scoring mesh
+        reg=  300 400 801  802 500 501 502 503 504  
+      #(u<lat[x y z]<fill)
+      # infl={./dat/cell_tumor.dat} 
+     part =  neutron  
+    e-type =    1            # e-mesh is given by the below data
+       ne =    1            # number of e-mesh points
+            0.0  100.0
+     unit =    1            # unit is [1/cm^2/source]
+     axis =   reg            # axis of out1put
+     file = ./out/kerma-reg-multiplier.out  # file name of out1put for the above axis
+    title = Dose [Gy/source] using [t-deposit] (KERMA)
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+   #epsout1 =    1            # (D=0) generate eps file by ANGEL
+     gslat=    3            # muestra celdas del mismo material
+      multiplier = all $ The following is subsection of multiplier.
+     part  = neutron
+     emax  = 2.000e+01
+     mat        mset1                   mset2                   mset3
+      all (9.7312e-012 2001 1 -4) (1.7888e-013 2002 1 -4) (9.6352e-17 2003 1 -4)
+  $ 9.7312e-12 = 1.6e-10*6.082E-02, where 6.082E-02 is atomic density of H in 10^24/g
+  $ 1.7888e-13 = 1.6e-10*1.118E-03, where 1.118E-03 is atomic density of N in 10^24/g
+  $ 9.6352e-17 = 1.6e-10*6.022E-07*1, where 6.022E-07*1 is atomic density of 10B in 10^24/g (10ppm)
+  $ 1.6e-10 is the conversion factor from MeV/g to J/kg
+  $ −4 : Average heating number [MeV/collision] 
+  z-txt= Gy/source
+  y-txt= Dose [Gy/source]
+      
+   
+  [ T - track] 
+          mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       nx =    100           # number of x-mesh points
+     xmin =    40        # minimum value of x-mesh points
+     xmax =    50       # maximum value of x-mesh points
+   y-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       ny =    100        # number of x-mesh points
+     ymin =    40      # minimum value of x-mesh points
+     ymax =    50   # maximum value of x-mesh points
+   z-type =    2          # z-mesh is linear given by zmin, zmax and nz
+        nz= 100      # number of z-mesh points
+        zmin =20 
+        zmax = 30
+     part =  neutron 
+     e-type =    1            # e-mesh is given by the below data
+       ne =    1            # number of e-mesh points
+            0.0  100.0
+       unit =  1             # 
+     axis =   xz            # axis of out1put
+     file = ./out/kerma-xz.out  # file name of out1put for the above axis
+    title =   Dose [Gy/source] using [t-deposit] (KERMA)
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+   #epsout1 =    1            # (D=0) generate eps file by ANGEL
+     gslat=    3            # muestra celdas del mismo material
+    #vtkout1=    1
+     multiplier = all $ The following is subsection of multiplier.
+     part  = neutron     
+     emax  = 2.000e+01
+     mat        mset1                   mset2                   mset3
+      all (9.7312e-012 2001 1 -4) (1.7888e-013 2002 1 -4) (9.6352e-17 2003 1 -4)
+  $ 9.7312e-12 = 1.6e-10*6.082E-02, where 6.082E-02 is atomic density of H in 10^24/g
+  $ 1.7888e-13 = 1.6e-10*1.118E-03, where 1.118E-03 is atomic density of N in 10^24/g
+  $ 9.6352e-17 = 1.6e-10*6.022E-07*1, where 6.022E-07*1 is atomic density of 10B in 10^24/g (10ppm)
+  $ 1.6e-10 is the conversion factor from MeV/g to J/kg
+  $ −4 : Average heating number [MeV/collision] 
+  z-txt= Gy/source
+  y-txt= Dose [Gy/source]
+  
+  
+    [ T - track] 
+          mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       nx =    100           # number of x-mesh points
+     xmin =    30        # minimum value of x-mesh points
+     xmax =    55       # maximum value of x-mesh points
+   y-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       ny =    100        # number of x-mesh points
+     ymin =    30      # minimum value of x-mesh points
+     ymax =    55   # maximum value of x-mesh points
+   z-type =    2          # z-mesh is linear given by zmin, zmax and nz
+        nz=    1     # number of z-mesh points
+        zmin = 24.64 
+        zmax = 24.642
+     part =  neutron 
+     e-type =    1            # e-mesh is given by the below data
+       ne =    1            # number of e-mesh points
+            0.0  100.0
+       unit =  1             # 
+     axis =   xy            # axis of out1put
+     file = ./out/punto-entrada.out  # file name of out1put for the above axis
+    title =   Dose [Gy/source] using [t-deposit] (KERMA)
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+   #epsout1 =    1            # (D=0) generate eps file by ANGEL
+     gslat=    3            # muestra celdas del mismo material
+    #vtkout1=    1
+     multiplier = all $ The following is subsection of multiplier.
+     part  = neutron     
+     emax  = 2.000e+01
+     mat        mset1                   mset2                   mset3
+      all (9.7312e-012 2001 1 -4) (1.7888e-013 2002 1 -4) (9.6352e-17 2003 1 -4)
+  $ 9.7312e-12 = 1.6e-10*6.082E-02, where 6.082E-02 is atomic density of H in 10^24/g
+  $ 1.7888e-13 = 1.6e-10*1.118E-03, where 1.118E-03 is atomic density of N in 10^24/g
+  $ 9.6352e-17 = 1.6e-10*6.022E-07*1, where 6.022E-07*1 is atomic density of 10B in 10^24/g (10ppm)
+  $ 1.6e-10 is the conversion factor from MeV/g to J/kg
+  $ −4 : Average heating number [MeV/collision] 
+  z-txt= Gy/source
+  y-txt= Dose [Gy/source]
+   
+   
+[ T - T r a c k ] 
+     mesh =  xyz           # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       nx =   300            # number of x-mesh points
+     xmin =    -1*c1        # minimum value of x-mesh points
+     xmax =    (c7+1)*c1       # maximum value of x-mesh points
+   y-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       ny =    300         # number of x-mesh points
+     ymin =   -1*c2      # minimum value of x-mesh points
+     ymax =    (c8+1)*c1      # maximum value of x-mesh points
+   z-type =    1           # z-mesh is linear given by zmin, zmax and nz
+        nz =   1             # number of z-mesh points
+            74*c3  75*c3
+     part =  neutron 
+   e-type =    1            # e-mesh is given by the below data
+       ne =    1            # number of e-mesh points
+            0.0  1000.0
+     unit =    1            # unit is [1/cm^2/source]
+     axis =   xy            # axis of out1put
+     file = ./out/kerma-xy-total.out  # file name of out1put for the above axis
+    title = Dose [Gy/source] using multiplier
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+   #epsout1 =    1            # (D=0) generate eps file by ANGEL
+     gslat=    3            # muestra celdas del mismo material
+    #vtkout1=    1
+    multiplier = all $ The following is subsection of multiplier.
+     part  = neutron
+     emax  = 2.000e+01
+     mat        mset1                   mset2                   mset3
+      all (9.7312e-012 2001 1 -4) (1.7888e-013 2002 1 -4) (9.6352e-17 2003 1 -4)
+  $ 9.7312e-12 = 1.6e-10*6.082E-02, where 6.082E-02 is atomic density of H in 10^24/g
+  $ 1.7888e-13 = 1.6e-10*1.118E-03, where 1.118E-03 is atomic density of N in 10^24/g
+  $ 9.6352e-17 = 1.6e-10*6.022E-07*1, where 6.022E-07*1 is atomic density of 10B in 10^24/g (10ppm)
+  $ 1.6e-10 is the conversion factor from MeV/g to J/kg
+  $ −4 : Average heating number [MeV/collision] 
+  z-txt= Gy/source
+  y-txt= Dose [Gy/source]
+  
+  
+     
+[ T - T r a c k ]  
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       nx =   300            # number of x-mesh points
+     xmin =    40        # minimum value of x-mesh points
+     xmax =    50       # maximum value of x-mesh points
+   y-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       ny =    300         # number of x-mesh points
+     ymin =    40    # minimum value of x-mesh points
+     ymax =    50      # maximum value of x-mesh points
+   z-type =    1           # z-mesh is linear given by zmin, zmax and nz
+        nz =   1             # number of z-mesh points
+            74*c3  75*c3
+     part =  neutron 
+   e-type =    1            # e-mesh is given by the below data
+       ne =    1            # number of e-mesh points
+            0.0  1000.0
+     unit =    1            # unit is [1/cm^2/source]
+     axis =   xy            # axis of out1put
+     file = ./out/kerma-xy-2-total.out  # file name of out1put for the above axis
+    title = Dose [Gy/source] using multiplier (KERMA)
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+   #epsout1 =    1            # (D=0) generate eps file by ANGEL
+     gslat=    3            # muestra celdas del mismo material
+    #vtkout1=    1
+    multiplier = all $ The following is subsection of multiplier.
+     part  = neutron
+     emax  = 2.000e+01
+     mat        mset1                   mset2                   mset3
+      all (9.7312e-012 2001 1 -4) (1.7888e-013 2002 1 -4) (9.6352e-17 2003 1 -4)
+  $ 9.7312e-12 = 1.6e-10*6.082E-02, where 6.082E-02 is atomic density of H in 10^24/g
+  $ 1.7888e-13 = 1.6e-10*1.118E-03, where 1.118E-03 is atomic density of N in 10^24/g
+  $ 9.6352e-17 = 1.6e-10*6.022E-07*1, where 6.022E-07*1 is atomic density of 10B in 10^24/g (10ppm)
+  $ 1.6e-10 is the conversion factor from MeV/g to J/kg
+  $ −4 : Average heating number [MeV/collision] 
+  z-txt= Gy/source
+  y-txt= Dose [Gy/source] 
+  
+  #90*c1 180*c1 80*c2 190*c2  10*c3 c9*c3
+  [ T - T r a c k ]  
+     mesh =  xyz           
+   x-type =    4           
+      xdel =   0.3          
+     xmin =    90*c1       
+     xmax =    180*c1      
+   y-type =    4           
+      ydel =   0.3       
+     ymin =    80*c2   
+     ymax =    190*c2     
+   z-type =    4        
+     zdel =   0.3           
+      zmin =   10*c3 
+      zmax =   c9*c3
+     part =  neutron 
+   e-type =    1            # e-mesh is given by the below data
+       ne =    1            # number of e-mesh points
+            0.0  1000.0
+     unit =    1            # unit is [1/cm^2/source]
+     axis =   xy            # axis of out1put
+     file = ./out/kerma-mascara-1.out  # file name of out1put for the above axis
+    title = Dose [Gy/source] using multiplier (KERMA)
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+   #epsout1 =    1            # (D=0) generate eps file by ANGEL
+     gslat=    3            # muestra celdas del mismo material
+    #vtkout1=    1
+    multiplier = all $ The following is subsection of multiplier.
+     part  = neutron
+     emax  = 2.000e+01
+     mat        mset1                   mset2                   mset3
+      all (9.7312e-012 2001 1 -4) (1.7888e-013 2002 1 -4) (9.6352e-17 2003 1 -4)
+  $ 9.7312e-12 = 1.6e-10*6.082E-02, where 6.082E-02 is atomic density of H in 10^24/g
+  $ 1.7888e-13 = 1.6e-10*1.118E-03, where 1.118E-03 is atomic density of N in 10^24/g
+  $ 9.6352e-17 = 1.6e-10*6.022E-07*1, where 6.022E-07*1 is atomic density of 10B in 10^24/g (10ppm)
+  $ 1.6e-10 is the conversion factor from MeV/g to J/kg
+  $ −4 : Average heating number [MeV/collision] 
+  z-txt= Gy/source
+  y-txt= Dose [Gy/source] 
+  
+   
+########################################
+########################################
+#0: Dose [Gy/source]; only for out1put=dose.
+#1: Dose [MeV/cm3/source]; only for out1put=dose.
+#2: Dose [MeV/source]; only for out1put=dose.
+#3: Number [1/source]; only for out1put=deposit
+#4: Number [1/nsec/source]; only for out1put=deposit
+#5: Dose [J/m3/source]; only for out1put=dose
+
+ 
+[ T - deposit]  
+     mesh =  reg             
+     reg=  300 400 801  802 500 501 502 503 504   
+     #infl={./dat/cell_tumor.dat} 
+     part =  photon 
+     output = dose 
+     unit =    0            # Gy/source 
+     axis =   reg           # axis of out1put
+     file = ./out/dose-photon-reg.out  # file name of out1put for the above axis
+    title = Dose [Gy/source|] using [t-deposit] (KERMA)
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+    #epsout1 =    1            # (D=0) generate eps file by ANGEL
+    gslat=    3            # muestra celdas del mismo material
+     
+    [ T - deposit]  
+     mesh =  reg             
+     reg=  300 400 801  802 500 501 502 503 504      
+     #infl={./dat/cell_tumor.dat} 
+     part = proton alpha Li 14C 
+     output =dose
+     deposit= 1
+     unit =    0           # Gy/source 
+     axis =   reg            # axis of out1put
+     file = ./out/dose-part.out
+     title = Energia depositada (MeV) using [t-deposit]
+     gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+     #epsout1 =    1            # (D=0) generate eps file by ANGEL
+     gslat=    3            # muestra celdas del mismo material
+     
+    [ T - deposit]  
+     mesh =  reg             
+     reg=  300 400 801  802 500 501 502 503 504      
+     #infl={./dat/cell_tumor.dat} 
+     part = proton alpha Li 14C 
+     output =deposit 
+     deposit= 1
+     unit =    3           # Gy/source 
+     axis =   reg            # axis of out1put
+     file = ./out/n-part.out
+     title = Energia depositada (MeV) using [t-deposit]
+     gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+     #epsout1 =    1            # (D=0) generate eps file by ANGEL
+     gslat=    3            # muestra celdas del mismo material
+     samepage=part 
+      e-type = 1 
+      ne=1 
+      0 1000 
+     
+    [ T - deposit ]  
+     mesh = xyz 
+     x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       nx =   13            # number of x-mesh points
+     xmin =    40       # minimum value of x-mesh points
+     xmax =    46       # maximum value of x-mesh points
+   y-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       ny =   13        # number of x-mesh points
+     ymin =    40        # minimum value of x-mesh points
+     ymax =    46        # maximum value of x-mesh points
+   z-type =    2           # z-mesh is linear given by zmin, zmax and nz
+        nz =  11            # number of z-mesh points
+       zmin = 20 
+       zmax = 25   
+     unit =    0            # 
+     axis =   xy        # axis of out1put
+     file = ./out/dose-Li-mesh.out  # file name of out1put for the above axis
+    title =   Dose [Gy/source] using [t-deposit]
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+   #epsout1 =    1            # (D=0) generate eps file by ANGEL
+     gslat=    3            # muestra celdas del mismo material
+    #vtkout1=    1
+      part=Li
+    
+    [ T - deposit ]  
+     mesh = xyz 
+     x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       nx =   13            # number of x-mesh points
+     xmin =    40       # minimum value of x-mesh points
+     xmax =    46       # maximum value of x-mesh points
+   y-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       ny =   13        # number of x-mesh points
+     ymin =    40        # minimum value of x-mesh points
+     ymax =    46        # maximum value of x-mesh points
+   z-type =    2           # z-mesh is linear given by zmin, zmax and nz
+        nz =  11            # number of z-mesh points
+       zmin = 20 
+       zmax = 25   
+     unit =    3            # 
+     axis =   xy           # axis of out1put
+     file = ./out/deposit-Li-mesh.out  # file name of out1put for the above axis
+    title =   Deposit [#/source] using [t-deposit]
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+   #epsout1 =    1            # (D=0) generate eps file by ANGEL
+     gslat=    3            # muestra celdas del mismo material
+    #vtkout1=    1
+    e-type = 1 
+      ne=3 
+      #emin=0.8 
+      #emax=1.5
+      0.8 0.9   1. 1.5  
+    output= deposit
+    part=Li
+    deposit=1
+    
+        [ T - deposit ]  
+     mesh = xyz 
+     x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       nx =   13            # number of x-mesh points
+     xmin =    40       # minimum value of x-mesh points
+     xmax =    46       # maximum value of x-mesh points
+   y-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       ny =   13        # number of x-mesh points
+     ymin =    40        # minimum value of x-mesh points
+     ymax =    46        # maximum value of x-mesh points
+   z-type =    2           # z-mesh is linear given by zmin, zmax and nz
+        nz =  11            # number of z-mesh points
+       zmin = 20 
+       zmax = 25   
+     unit =    3            # 
+     axis =   xy            # axis of out1put
+     file = ./out/deposit-alpha-mesh.out  # file name of out1put for the above axis
+    title =   Deposit [#/source] using [t-deposit]
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+   #epsout1 =    1            # (D=0) generate eps file by ANGEL
+     gslat=    3            # muestra celdas del mismo material
+    #vtkout1=    1
+    e-type = 1 
+      ne=3 
+      1.3 1.5 1.72 1.78
+    output= deposit
+    part=alpha
+    deposit=1
+    
+       [ T - deposit ]  off
+     mesh = xyz 
+     x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       nx =   13            # number of x-mesh points
+     xmin =    40       # minimum value of x-mesh points
+     xmax =    46       # maximum value of x-mesh points
+   y-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       ny =   13        # number of x-mesh points
+     ymin =    40        # minimum value of x-mesh points
+     ymax =    46        # maximum value of x-mesh points
+   z-type =    2           # z-mesh is linear given by zmin, zmax and nz
+        nz =  11            # number of z-mesh points
+       zmin = 20 
+       zmax = 25   
+     unit =   0            # 
+     axis =   xy           # axis of out1put
+     file = ./out/dose-14C-mesh.out  # file name of out1put for the above axis
+    title =   Dosis [Gy] using [t-deposit]
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+   #epsout1 =    1            # (D=0) generate eps file by ANGEL
+     gslat=    3            # muestra celdas del mismo material
+    #vtkout1=    1
+    output= dose
+    part=14C
+    
+     [ T - deposit ]  
+     mesh = xyz 
+     x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       nx =   13            # number of x-mesh points
+     xmin =    40       # minimum value of x-mesh points
+     xmax =    46       # maximum value of x-mesh points
+   y-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       ny =   13        # number of x-mesh points
+     ymin =    40        # minimum value of x-mesh points
+     ymax =    46        # maximum value of x-mesh points
+   z-type =    2           # z-mesh is linear given by zmin, zmax and nz
+        nz =  11            # number of z-mesh points
+       zmin = 20 
+       zmax = 25   
+     unit =   0            # 
+     axis =   xy            # axis of out1put
+     file = ./out/dose-alpha-mesh.out  # file name of out1put for the above axis
+    title =   Dose [Gy] using [t-deposit]
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+   #epsout1 =    1            # (D=0) generate eps file by ANGEL
+     gslat=    3            # muestra celdas del mismo material
+    #vtkout1=    1
+    output= dose
+    part=alpha
+    
+         
+    [ T - deposit ]  
+     mesh = xyz 
+     x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       nx =   13            # number of x-mesh points
+     xmin =    40       # minimum value of x-mesh points
+     xmax =    46       # maximum value of x-mesh points
+   y-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       ny =   13        # number of x-mesh points
+     ymin =    40        # minimum value of x-mesh points
+     ymax =    46        # maximum value of x-mesh points
+   z-type =    2           # z-mesh is linear given by zmin, zmax and nz
+        nz =  11            # number of z-mesh points
+       zmin = 20 
+       zmax = 25   
+     unit =    0            # 
+     axis =   xy           # axis of out1put
+     file = ./out/dose-photon-mesh.out  # file name of out1put for the above axis
+    title =   Dose [Gy/source] using [t-deposit]
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+   #epsout1 =    1            # (D=0) generate eps file by ANGEL
+     gslat=    3            # muestra celdas del mismo material
+    #vtkout1=    1
+      part=photon 
+
+    
+# unit
+# 1: Track [cm/(keV/µm)/source]
+# 2: Dose [MeV/(keV/µm)/source]
+# 3: Track [cm/ln(keV/µm)/source]
+# 4: Dose [MeV/ln(keV/µm)/source]
+# 5: Track [cm/source]
+# 6: Dose [MeV/source]
+# 7: Track [1/cm2/(keV/µm)/source]
+# 8: Dose [MeV/cm3/(keV/µm)/source]
+# 9: Track [1/cm2/ln(keV/µm)/source]
+# 10:Dose [MeV/cm3/ln(keV/µm)/source]
+# 11:Track [1/cm2/source]
+# 12:Dose [MeV/cm3/source]
+# 13: L * f (L) [dimensionless], where ∫ f (L)dL =
+# 14: L * d(L) [keV/µm], where ∫ d(L)dL = 1
+
+#LET mesh:
+#a LET mesh subsection must be added below this option. Note
+#that the LET spectrum may have unnatural peaks when a very
+#fine mesh, e.g., 20 meshes per order of magnitude, is set.
+
+   
+    [ T-LET ] 
+     title = LET
+ 	 mesh = reg
+     reg=  300 400 801  802 500 501 502 503 504         
+     l-type =  3
+     nl =  20
+     lmin =  10
+     lmax =  90
+     unit = 6
+     axis = let
+     file = ./out/let-proton-dose.out
+     #epsout1 = 1
+     #letmat = 1 $chequear
+ 	 part= proton
+     
+     [ T-LET ]
+     title = LET
+ 	 mesh = xyz 
+     x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       nx =   13            # number of x-mesh points
+     xmin =    40       # minimum value of x-mesh points
+     xmax =    46       # maximum value of x-mesh points
+   y-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       ny =   13        # number of x-mesh points
+     ymin =    40        # minimum value of x-mesh points
+     ymax =    46        # maximum value of x-mesh points
+   z-type =    2           # z-mesh is linear given by zmin, zmax and nz
+        nz =  11            # number of z-mesh points
+       zmin = 20 
+       zmax = 25        
+     l-type =  3
+        nl = 20 
+     lmin =  10
+     lmax =  90
+     unit = 6
+     axis = let
+     file =./out/let-proton-dose-mesh.out
+     #epsout1 = 1
+     #letmat = 1 $chequear
+ 	 part= proton 
+     
+     
+     
+     
+     [ T-LET ]
+     title = LET
+ 	 mesh = xyz 
+     x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       nx =   13            # number of x-mesh points
+     xmin =    40       # minimum value of x-mesh points
+     xmax =    46       # maximum value of x-mesh points
+   y-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       ny =   13        # number of x-mesh points
+     ymin =    40        # minimum value of x-mesh points
+     ymax =    46        # maximum value of x-mesh points
+   z-type =    2           # z-mesh is linear given by zmin, zmax and nz
+        nz =  11            # number of z-mesh points
+       zmin = 20 
+       zmax = 25        
+     l-type =  1
+        nl = 2  
+        0 30 90      
+     unit = 6
+     axis = xy
+     file =./out/let-proton-dose-mesh-xy.out
+     #epsout1 = 1
+     #letmat = 1 $chequear
+ 	 part= proton
+     #resol=1
+     gslat=3 
+     gshow=3
+     
+       [ T-LET ]
+     title = LET
+ 	 mesh = xyz 
+     x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       nx =   13            # number of x-mesh points
+     xmin =    40       # minimum value of x-mesh points
+     xmax =    46       # maximum value of x-mesh points
+   y-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       ny =   13        # number of x-mesh points
+     ymin =    40        # minimum value of x-mesh points
+     ymax =    46        # maximum value of x-mesh points
+   z-type =    2           # z-mesh is linear given by zmin, zmax and nz
+        nz =  11            # number of z-mesh points
+       zmin = 22.7 
+       zmax = 23.1      
+     l-type =  2
+         nl = 20 
+        lmin =  10
+        lmax =  90             
+     unit = 13
+     axis = let 
+     file =./out/let-proton-dose-mesh-xy-feta.out
+     #epsout1 = 1
+     #letmat = 1 $chequear
+ 	 part= proton
+     #resol=1
+     #gslat=3 
+     #gshow=3
+     
+     
+     [ T-LET ]  
+     title = LET
+ 	 mesh = reg
+     reg=  300 400 801  802 500 501 502 503 504           
+     l-type =  3
+       nl=30
+      lmin =  30
+      lmax =  400  
+      unit = 6
+     axis = let
+     file = ./out/let-litio-dose.out
+     #epsout1 = 1
+     #letmat = 1 $chequear
+ 	 part= Li
+     
+     [ T-LET ]  
+     title = LET
+ 	 mesh = reg
+     reg=  300 400 801  802 500 501 502 503 504           
+     l-type =  3
+      nl = 30
+     lmin =  15
+     lmax =  250
+      unit = 6
+     axis = let
+     file = ./out/let-alpha-dose.out
+     #epsout1 = 1
+     #letmat = 1 $chequear
+ 	 part= alpha
+     
+    
+     [ T-LET ]
+     title = LET
+ 	 mesh = xyz 
+     x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       nx =   13            # number of x-mesh points
+     xmin =    40       # minimum value of x-mesh points
+     xmax =    46       # maximum value of x-mesh points
+   y-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       ny =   13        # number of x-mesh points
+     ymin =    40        # minimum value of x-mesh points
+     ymax =    46        # maximum value of x-mesh points
+   z-type =    2           # z-mesh is linear given by zmin, zmax and nz
+        nz =  11            # number of z-mesh points
+       zmin = 20 
+       zmax = 25        
+     l-type =  3
+        nl = 20 
+     lmin =  15
+     lmax =  250
+     unit = 6
+     axis = let
+     file =./out/let-alpha-dose-mesh.out
+     #epsout1 = 1
+     #letmat = 1 $chequear
+ 	 part= alpha  
+     
+    [ T-LET ]
+     title = LET
+ 	 mesh = xyz 
+     x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       nx =   13            # number of x-mesh points
+     xmin =    40       # minimum value of x-mesh points
+     xmax =    46       # maximum value of x-mesh points
+   y-type =    2            # x-mesh is linear given by xmin, xmax and nx
+       ny =   13        # number of x-mesh points
+     ymin =    40        # minimum value of x-mesh points
+     ymax =    46        # maximum value of x-mesh points
+   z-type =    2           # z-mesh is linear given by zmin, zmax and nz
+        nz =  11            # number of z-mesh points
+       zmin = 20 
+       zmax = 25        
+     l-type =  3
+        nl = 30 
+     lmin =  40
+     lmax =  400
+     unit = 6
+     axis = let
+     file =./out/let-Li-dose-mesh.out
+     #epsout1 = 1
+     #letmat = 1 $chequear
+ 	 part= Li  
+    
+          
+    
+    
+#1: Track [cm/(keV/µm)/source]
+#2: Dose [MeV/(keV/µm)/source], proportional to y ∗ f (y).
+#3: Track [cm/ln(keV/µm)/source]
+#4: Dose [MeV/ln(keV/µm)/source], proportional to y ∗ d(y).
+#5: Track [cm/source]
+#6: Dose [MeV/source]
+#7: y * f (y) [dimensionless], where ∫ f (y)dy = 1.
+#8: y * d(y) [keV/µm], where ∫ d(y)dy = 1.
+#These units are for the case of se-unit=2. For se-unit=1 and
+#3, [keV/µm] is replaced by [MeV] and [Gy], respectively.
+
+
+  [ T - S E D ]  off
+    title = Energy distribution
+     mesh =  reg            # mesh type is region-wise
+     reg  =  300 400 801 802 500 501 502 503 504   
+  se-type =    3            # e-mesh is log given by emin, emax and ne
+    emin  =  1e-09  # minimum value of e-mesh points
+    emax  =  10     # maximum value of e-mesh points
+       ne =   200           # number of e-mesh points
+  se-unit =    1            # 1: deposit energy ε in MeV
+     unit =    7            #  y * f (y) [dimensionless], where ∫ f (y)dy = 1.
+    cdiam =   c10           # (D=1.0) diameter of SE cell [um]
+ material =  all            # (D=all) number of specific material
+     axis =  sed
+     file = ./out/E-distribution-unit-7.out 
+     part =  proton alpha Li       
+   #epsout1 =    1
+   model=1
+ 
+   [ T - S E D ] off 
+    title = Energy distribution
+     mesh =  reg            # mesh type is region-wise
+    reg   =  300 400 801  802 500 501 502 503 504        
+             s-type =    3            # e-mesh is log given by emin, emax and ne
+    emin  =  1e-09  # minimum value of e-mesh points
+    emax  =  10     # maximum value of e-mesh points
+       ne =   200           # number of e-mesh points
+  se-unit =    1            # 1: deposit energy ε in MeV
+     unit =    8            #  y * d (y) [dimensionless], where ∫ d(y) dy = 1.
+    cdiam =   c10           # (D=1.0) diameter of SE cell [um]
+ material =  all            # (D=all) number of specific material
+     axis =  sed
+     file = ./out/E-distribution-unit-8.out  # file name of out1put for the above axis
+     part =  proton alpha Li       
+   #epsout1 =    1
+   model=1 
+ 
+################################################## 
+      
+[T-product] off
+  mesh = reg
+  reg=  300 400 801 802 500 501 502 503 504   
+  axis = eng
+  #axis=let
+  unit = 1 # 1: [1/source]
+  file = ./out/proton-production.out
+  part= proton 
+  mother = 1
+           H
+  $e-type = 5
+  $emin = 1E-9
+  $emax = 1.4 
+  e-type=3   
+    ne=200 
+    emin=1e-9
+    emax=10
+  #epsout1 = 1
+  title = Proton production 
+  $samapage = part
+  $eng2let=2
+   
+[T-product] off
+  mesh = reg
+  reg =  300 400 801  802 500 501 502 503 504   
+  axis=eng
+  unit = 1 # 1: [1/source]
+  file = ./out/alpha-production.out
+  part=  alpha
+  mother = 1
+          10B
+    e-type=1 
+    ne=3 
+    1.3 1.5 1.72 1.78
+  #epsout1 = 1
+  title = Alpha production 
+  
+[T-product]   off
+  mesh = reg
+   reg=  300 400 801  802 500 501 502 503 504   
+  axis = eng
+  unit = 1  # 1: [1/source]
+  file = ./out/Li-production.out
+  part= Li
+  mother = 1 $numero de nucleos 
+           10B
+  e-type = 1
+  ne=3
+  0.8 0.9   1. 1.5  
+  #epsout1 = 1  
+  title = Li production 
+  
+  [T-product]  off
+  mesh = reg
+   reg =  300 400 801 802 500 501 502 503 504   
+  axis = reg
+  unit = 1  # 1: [1/source]
+  file = ./out/Ni-production.out
+  part= proton 14C 
+  mother = 1 $numero de nucleos 
+           14N
+  e-type = 1
+  ne=1
+      0  1000 
+  #epsout1 = 1  
+  title = proton 14C production 14N 
+  
+  [T-product]  off
+  mesh = reg
+   reg =  300 400 801 802 500 501 502 503 504   
+  axis = reg
+  unit = 1  # 1: [1/source]
+  file = ./out/H-production.out
+  part= proton 
+  mother = 1 $numero de nucleos 
+           1H 
+  e-type = 1
+  ne=1
+      0  1000 
+  #epsout1 = 1  
+  title = proton production  1H
+  
+
+    
+  
+  
+[end]
+
