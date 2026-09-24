@@ -1,0 +1,49 @@
+$ [ C e l l ]
+
+$ Caja acrilica hueca
+6000 %acrilico%  -3000 3100 3200 #6001 #6002 #6003 #600 #700 #6008 #9000 #9001 #9002 #9003 #9004 $ #800 #510
+
+$ Aire dentro de la caja
+6001 %air%       -3100 #600 #700 #6008 $ #800 #510
+
+$ Aire en el hueco hacia el trampolin
+6002 %air%       -3200 #600 #700 #6008 #9000 #9001 #9002 #9003 $ #800 #510
+
+$ Trampolin acrilico
+6003 %acrilico%  -3300 #600 #700 #6006 #6005 #6004 $ #510
+
+$------------------------ Pileta trampolin de PLA ------------------------
+
+$ Pared izq #510 #600 #700 #2001 #6003 $ #800
+6004 %PLA%  -3400 
+
+$ Pared der #510 #600 #700 #2001 $ #800
+6005 %PLA%  -3500 
+ 
+$ Pared frontal #510 #600 #700 #2001 $ #800
+6006 %PLA%  -3600 
+
+$---------------------
+
+$nivel izq
+9000 %PLA%  -9000 
+
+$nivel der
+9001 %PLA% -9001 
+
+$ nivel izq inferior / extensión
+9002 %PLA% -9002
+
+$ nivel der inferior / extensión
+9003 %PLA% -9003
+
+$ tapa completa abajo
+9004 %PLA% -9004
+
+$-------------BLINDAJE-------------------------------
+$ Tapa: superficie superior
+6007 %plastic% -3700 #6008
+
+$ ------------ guillotina----------------------------
+6008 %PLA%  -3800 #9000 #9001 #9002 #9003
+ 
