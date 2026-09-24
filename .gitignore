@@ -27,6 +27,13 @@
 !qr-poster/
 !qr-poster/**
 
+!pouchcr39hastadondellego/
+!pouchcr39hastadondellego/**
+
+!pouchcr39contejidopouchhastadondellegocluster/
+!pouchcr39contejidopouchhastadondellegocluster/**
+
+
 # Permitir archivos importantes
 !.gitignore
 !README.md
