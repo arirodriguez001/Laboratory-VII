@@ -1,0 +1,1938 @@
+
+Plantilla DCAP (intelmpi) rev. 201812131110
+
+User limits:
+
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 773833
+max locked memory       (kbytes, -l) unlimited
+max memory size         (kbytes, -m) 33554432
+open files                      (-n) 1024
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) 10240
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 1024
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+
+
+Slurm enviroment:
+
+SLURM_JOBID             =  79558
+SLURM_JOB_NAME          =  pouchcr39todopouch
+SLURM_JOB_NODELIST      =  compute-0-16
+SLURM_JOB_PARTITION     =  COMPARTIDA
+SLURM_JOB_ACCOUNT       =  compartida
+SLURM_MEM_PER_CPU       =  1024
+SLURM_MEM_PER_NODE      = 
+SLURM_ARRAY_JOB_ID      = 
+SLURM_ARRAY_TASK_ID     = 
+SLURMTMPDIR             = 
+SLURM_RESTART_COUNT     = 
+SLURM_TASKS_PER_NODE    =  32
+SLURM_NTASKS            =  32
+SLURM_NTASKS_PER_CORE   = 
+SLURM_NTASKS_PER_NODE   = 
+SLURM_NTASKS_PER_SOCKET = 
+SLURM_JOB_NUM_NODES     =  1
+SLURM_NNODES            =  1
+SLURM_CPUS_PER_TASK     = 
+SLURM_NPROCS            =  32
+SLURM_SUBMIT_DIR        =  /share/gidans/sebastiangossio/ej_PHITS/haz_vertical/pouchcr39contejidopouch
+SLURM_SUBMIT_HOST       =  login-0-0.local
+SLURM_CPU_FREQ_REQ      =  High
+NUM_PROCS = 32
+NUM_NODES = 1
+
+
+pwd: /share/gidans/sebastiangossio/ej_PHITS/haz_vertical/pouchcr39contejidopouch
+-np which mpiexec: 
+/share/apps/intel/impi/5.0.3.048/intel64/bin/mpiexec
+LD_LIBRARY_PATH: /share/apps/intel/impi/5.0.3.048/intel64/lib:/share/apps/intel/composer_xe_2015.3.187/mpirt/lib/intel64:/share/apps/intel/composer_xe_2015.3.187/ipp/../compiler/lib/intel64:/share/apps/intel/composer_xe_2015.3.187/ipp/lib/intel64:/share/apps/intel/composer_xe_2015.3.187/ipp/tools/intel64/perfsys:/share/apps/intel/composer_xe_2015.3.187/compiler/lib/intel64:/share/apps/intel/composer_xe_2015.3.187/mkl/lib/intel64:/share/apps/intel/composer_xe_2015.3.187/tbb/lib/intel64/gcc4.4:/share/apps/intel/composer_xe_2015.3.187/debugger/libipt/intel64/lib:/usr/local/lib:/opt/python/lib
+BEGIN MPI RUN started date-time: 2026-09-24T15:26:30-0300
+
+
+srun --verbose -n 32 /share/gidans/sebastiangossio/Programas/PIHTS-IFORT/phits/phits_LinIfort_MPI
+Program is started                on 2026/09/24 at 15h 26m 32s
+Initialization is completed          on 2026/09/24 at 15h 27m 47s
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=     1
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=     2
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=     3
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=     4
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=     5
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=     7
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=     8
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=     9
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    10
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    11
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    14
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    15
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    18
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    19
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    21
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    22
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    26
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=     6
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    12
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    13
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    16
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    17
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    20
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    23
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    24
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    25
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    27
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    28
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    29
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    30
+bat[     1] ncas=     100056. : date= 2026-09-24 : time= 17h 05m 00s: pe=    31
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=     1
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=     2
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=     3
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=     4
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=     5
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=     6
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=     7
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=     8
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=     9
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    10
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    11
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    12
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    13
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    14
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    15
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    16
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    17
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    18
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    19
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    20
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    21
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    22
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    23
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    24
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    25
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    26
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    27
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    28
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    29
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    30
+bat[     2] ncas=     200112. : date= 2026-09-24 : time= 18h 42m 03s: pe=    31
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=     1
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=     2
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=     3
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=     4
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=     5
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=     6
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=     7
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=     8
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=     9
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    10
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    11
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    12
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    13
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    14
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    15
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    16
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    17
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    18
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    19
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    20
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    21
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    22
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    23
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    24
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    25
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    26
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    27
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    28
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    29
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    30
+bat[     3] ncas=     300168. : date= 2026-09-24 : time= 20h 19m 13s: pe=    31
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=     1
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=     2
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=     3
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=     4
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=     5
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=     6
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=     7
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=     8
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=     9
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    10
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    11
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    12
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    13
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    14
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    15
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    16
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    17
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    18
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    19
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    20
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    21
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    22
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    23
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    24
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    25
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    26
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    27
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    28
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    29
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    30
+bat[     4] ncas=     400224. : date= 2026-09-24 : time= 21h 56m 12s: pe=    31
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=     1
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=     2
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=     3
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=     4
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=     5
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=     6
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=     7
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=     8
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=     9
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    10
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    11
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    12
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    13
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    14
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    15
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    16
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    17
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    18
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    19
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    20
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    21
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    22
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    23
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    24
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    25
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    26
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    27
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    28
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    29
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    30
+bat[     5] ncas=     500280. : date= 2026-09-24 : time= 23h 33m 10s: pe=    31
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=     1
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=     2
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=     3
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=     4
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=     5
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=     6
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=     7
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=     8
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=     9
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    10
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    11
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    12
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    13
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    14
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    15
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    16
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    17
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    18
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    19
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    20
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    21
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    22
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    23
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    24
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    25
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    26
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    27
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    28
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    29
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    30
+bat[     6] ncas=     600336. : date= 2026-09-25 : time= 01h 10m 08s: pe=    31
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=     1
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=     2
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=     3
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=     4
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=     5
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=     6
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=     7
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=     8
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=     9
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    10
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    11
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    12
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    13
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    14
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    15
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    16
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    17
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    18
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    19
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    20
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    21
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    22
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    23
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    24
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    25
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    26
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    27
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    28
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    29
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    30
+bat[     7] ncas=     700392. : date= 2026-09-25 : time= 02h 46m 58s: pe=    31
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=     1
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=     2
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=     3
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=     4
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=     5
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=     6
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=     7
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=     8
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=     9
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    10
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    11
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    12
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    13
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    14
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    15
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    16
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    17
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    18
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    19
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    20
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    21
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    22
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    23
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    24
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    25
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    26
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    27
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    28
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    29
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    30
+bat[     8] ncas=     800448. : date= 2026-09-25 : time= 04h 23m 46s: pe=    31
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=     1
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=     2
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=     3
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=     4
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=     5
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=     6
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=     7
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=     8
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=     9
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    10
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    11
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    12
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    13
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    14
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    15
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    16
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    17
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    18
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    19
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    20
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    21
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    22
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    23
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    24
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    25
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    26
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    27
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    28
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    29
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    30
+bat[     9] ncas=     900504. : date= 2026-09-25 : time= 06h 00m 42s: pe=    31
+
+--------------------------------------------------------------------------------
+      ncas  nocas    =         928472.     27968
+    mat =   10
+   iblz1 =   9002
+   iblz2 =   9002
+    mark =    0
+
+    x, y, z  = -1.349999457E+00 -2.653000627E-01  9.857322667E+01
+    xc,yc,zc = -1.350000000E+00 -2.653001096E-01  9.857325126E+01
+    u, v, w  = -2.209862553E-02 -1.905398257E-03  9.997539798E-01
+
+ ERROR : crossing surface does not exist in all cell
+ surface =      0
+*** Lost particle ***
+ my ip       =   7
+batch & history number:                  10               27968
+initial & final cells :                9002                9002
+location (x,y,z)        : -1.34999946E+00 -2.65300063E-01  9.85732267E+01
+direction vector (u,v,w): -2.20986255E-02 -1.90539826E-03  9.99753980E-01
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=     1
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=     2
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=     3
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=     4
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=     5
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=     6
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=     7
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=     8
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=     9
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    10
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    11
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    12
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    13
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    14
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    15
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    16
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    17
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    18
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    19
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    20
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    21
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    22
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    23
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    24
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    25
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    26
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    27
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    28
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    29
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    30
+bat[    10] ncas=    1000560. : date= 2026-09-25 : time= 07h 37m 33s: pe=    31
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=     1
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=     2
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=     3
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=     4
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=     5
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=     6
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=     7
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=     8
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=     9
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    10
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    11
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    12
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    13
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    14
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    15
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    16
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    17
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    18
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    19
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    20
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    21
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    22
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    23
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    24
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    25
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    26
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    27
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    28
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    29
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    30
+bat[    11] ncas=    1100616. : date= 2026-09-25 : time= 09h 14m 25s: pe=    31
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=     1
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=     2
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=     3
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=     4
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=     5
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=     6
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=     7
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=     8
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=     9
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    10
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    11
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    12
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    13
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    14
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    15
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    16
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    17
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    18
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    19
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    20
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    21
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    22
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    23
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    24
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    25
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    26
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    27
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    28
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    29
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    30
+bat[    12] ncas=    1200672. : date= 2026-09-25 : time= 10h 51m 20s: pe=    31
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=     1
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=     2
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=     3
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=     4
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=     5
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=     6
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=     7
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=     8
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=     9
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    10
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    11
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    12
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    13
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    14
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    15
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    16
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    17
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    18
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    19
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    20
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    21
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    22
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    23
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    24
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    25
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    26
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    27
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    28
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    29
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    30
+bat[    13] ncas=    1300728. : date= 2026-09-25 : time= 12h 28m 20s: pe=    31
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=     1
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=     2
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=     3
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=     4
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=     5
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=     6
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=     7
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=     8
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=     9
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    10
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    11
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    12
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    13
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    14
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    15
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    16
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    17
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    18
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    19
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    20
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    21
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    22
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    23
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    24
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    25
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    26
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    27
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    28
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    29
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    30
+bat[    14] ncas=    1400784. : date= 2026-09-25 : time= 14h 05m 07s: pe=    31
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=     1
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=     2
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=     3
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=     4
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=     5
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=     6
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=     7
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=     8
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=     9
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    10
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    11
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    12
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    13
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    14
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    15
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    16
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    17
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    18
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    19
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    20
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    21
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    22
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    23
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    24
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    25
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    26
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    27
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    28
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    29
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    30
+bat[    15] ncas=    1500840. : date= 2026-09-25 : time= 15h 42m 03s: pe=    31
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=     1
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=     2
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=     3
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=     4
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=     5
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=     6
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=     7
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=     8
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=     9
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    10
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    11
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    12
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    13
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    14
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    15
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    16
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    17
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    18
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    19
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    20
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    21
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    22
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    23
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    24
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    25
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    26
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    27
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    28
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    29
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    30
+bat[    16] ncas=    1600896. : date= 2026-09-25 : time= 17h 21m 59s: pe=    31
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=     1
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=     2
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=     3
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=     4
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=     5
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=     6
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=     7
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=     8
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=     9
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    10
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    11
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    12
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    13
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    14
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    15
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    16
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    17
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    18
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    19
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    20
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    21
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    22
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    23
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    25
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    27
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    29
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    30
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    31
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    24
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    26
+bat[    17] ncas=    1700952. : date= 2026-09-25 : time= 18h 58m 46s: pe=    28
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=     1
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=     2
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=     3
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=     4
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=     5
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=     6
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=     7
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=     8
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=     9
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    10
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    11
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    12
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    13
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    14
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    15
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    16
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    17
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    18
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    19
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    20
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    21
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    22
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    23
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    24
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    25
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    26
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    27
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    28
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    29
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    30
+bat[    18] ncas=    1801008. : date= 2026-09-25 : time= 20h 35m 47s: pe=    31
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=     1
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=     2
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=     3
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=     4
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=     5
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=     6
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=     7
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=     8
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=     9
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    10
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    11
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    12
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    13
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    14
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    15
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    16
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    17
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    18
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    19
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    20
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    21
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    22
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    23
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    24
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    25
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    26
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    27
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    28
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    29
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    30
+bat[    19] ncas=    1901064. : date= 2026-09-25 : time= 22h 12m 36s: pe=    31
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=     1
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=     2
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=     3
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=     4
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=     5
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=     6
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=     7
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=     8
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=     9
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    10
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    11
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    12
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    13
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    14
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    15
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    16
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    17
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    18
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    19
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    20
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    21
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    22
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    23
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    24
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    25
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    26
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    27
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    29
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    30
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    31
+bat[    20] ncas=    2001120. : date= 2026-09-25 : time= 23h 49m 29s: pe=    28
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=     1
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=     2
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=     3
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=     4
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=     5
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=     6
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=     7
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=     8
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=     9
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    10
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    11
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    12
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    13
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    14
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    15
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    16
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    17
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    18
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    19
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    20
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    21
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    22
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    23
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    24
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    25
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    26
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    27
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    28
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    29
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    30
+bat[    21] ncas=    2101176. : date= 2026-09-26 : time= 01h 26m 13s: pe=    31
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=     1
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=     2
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=     3
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=     4
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=     5
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=     6
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=     7
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=     8
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=     9
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    10
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    11
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    12
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    13
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    14
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    15
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    16
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    17
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    18
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    19
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    23
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    25
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    27
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    29
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    31
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    20
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    21
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    22
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    24
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    26
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    28
+bat[    22] ncas=    2201232. : date= 2026-09-26 : time= 03h 03m 17s: pe=    30
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=     1
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=     2
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=     3
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=     4
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=     5
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=     6
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=     7
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=     8
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=     9
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    10
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    11
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    12
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    13
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    14
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    15
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    16
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    17
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    18
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    19
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    21
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    23
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    24
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    25
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    26
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    27
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    29
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    31
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    20
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    22
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    28
+bat[    23] ncas=    2301288. : date= 2026-09-26 : time= 04h 40m 19s: pe=    30
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=     1
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=     3
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=     4
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=     5
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=     6
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=     7
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=     8
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=     9
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    10
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    11
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    12
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    13
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    14
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    15
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    16
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    17
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    18
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    19
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    20
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    21
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    22
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    23
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    24
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    25
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    26
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    27
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    28
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    29
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    30
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=    31
+bat[    24] ncas=    2401344. : date= 2026-09-26 : time= 06h 17m 16s: pe=     2
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=     1
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=     3
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=     5
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=     6
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=     7
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=     8
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=     9
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    10
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    11
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    12
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    13
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    14
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    15
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    17
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    19
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    21
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    22
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    23
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    25
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    27
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    31
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=     2
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=     4
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    16
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    18
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    20
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    24
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    26
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    28
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    29
+bat[    25] ncas=    2501400. : date= 2026-09-26 : time= 07h 54m 05s: pe=    30
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=     1
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=     2
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=     3
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=     4
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=     5
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=     6
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=     7
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=     8
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=     9
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    10
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    11
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    12
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    13
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    14
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    15
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    16
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    17
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    18
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    19
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    20
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    21
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    22
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    23
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    24
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    25
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    26
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    27
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    28
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    29
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    30
+bat[    26] ncas=    2601456. : date= 2026-09-26 : time= 09h 30m 56s: pe=    31
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=     1
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=     2
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=     3
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=     4
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=     5
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=     6
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=     7
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=     8
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=     9
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    10
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    11
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    12
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    13
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    14
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    15
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    16
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    17
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    18
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    19
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    21
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    23
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    24
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    25
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    26
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    27
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    29
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    30
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    31
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    20
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    22
+bat[    27] ncas=    2701512. : date= 2026-09-26 : time= 11h 07m 45s: pe=    28
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=     1
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=     2
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=     3
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=     4
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=     5
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=     6
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=     7
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=     8
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=     9
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    10
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    11
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    12
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    13
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    14
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    15
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    16
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    17
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    18
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    19
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    20
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    21
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    22
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    23
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    24
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    25
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    26
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    27
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    28
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    29
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    30
+bat[    28] ncas=    2801568. : date= 2026-09-26 : time= 12h 44m 32s: pe=    31
+
+--------------------------------------------------------------------------------
+      ncas  nocas    =        2832880.     31312
+    mat =   10
+   iblz1 =   9003
+   iblz2 =   9003
+    mark =    0
+
+    x, y, z  =  1.349996775E+00  1.272530397E+00  9.856495387E+01
+    xc,yc,zc =  1.350000000E+00  1.272523349E+00  9.856496400E+01
+    u, v, w  =  2.528825487E-01 -5.525955528E-01  7.941590342E-01
+
+ ERROR : crossing surface does not exist in all cell
+ surface =      0
+*** Lost particle ***
+ my ip       =  12
+batch & history number:                  29               31312
+initial & final cells :                9003                9003
+location (x,y,z)        :  1.34999677E+00  1.27253040E+00  9.85649539E+01
+direction vector (u,v,w):  2.52882549E-01 -5.52595553E-01  7.94159034E-01
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=     1
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=     3
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=     5
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=     6
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=     7
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=     8
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=     9
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    10
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    11
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    12
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    13
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    14
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    15
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    17
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    19
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    20
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    21
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    22
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    23
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    25
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    27
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    29
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    30
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    31
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=     2
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=     4
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    16
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    18
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    24
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    26
+bat[    29] ncas=    2901624. : date= 2026-09-26 : time= 14h 21m 24s: pe=    28
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=     1
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=     2
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=     3
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=     4
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=     5
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=     6
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=     7
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=     8
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=     9
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    10
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    11
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    12
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    13
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    14
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    15
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    16
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    17
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    18
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    19
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    20
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    21
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    22
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    23
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    24
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    25
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    26
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    27
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    28
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    29
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    30
+bat[    30] ncas=    3001680. : date= 2026-09-26 : time= 15h 58m 13s: pe=    31
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=     1
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=     3
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=     4
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=     5
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=     6
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=     7
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=     8
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=     9
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    10
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    11
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    12
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    13
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    14
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    15
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    16
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    17
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    18
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    19
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    20
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    21
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    22
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    23
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    24
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    26
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    27
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    28
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    29
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    30
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    31
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=     2
+bat[    31] ncas=    3101736. : date= 2026-09-26 : time= 17h 34m 59s: pe=    25
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=     1
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=     2
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=     3
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=     4
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=     5
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=     6
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=     7
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=     8
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=     9
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    10
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    11
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    12
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    13
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    14
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    15
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    16
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    17
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    18
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    19
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    20
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    21
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    22
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    23
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    24
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    25
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    26
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    27
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    28
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    29
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    30
+bat[    32] ncas=    3201792. : date= 2026-09-26 : time= 19h 11m 49s: pe=    31
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=     1
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=     2
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=     3
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=     4
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=     5
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=     6
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=     7
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=     8
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=     9
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    10
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    11
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    12
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    13
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    14
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    15
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    16
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    17
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    18
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    19
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    20
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    21
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    22
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    23
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    24
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    25
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    26
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    27
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    28
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    29
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    30
+bat[    33] ncas=    3301848. : date= 2026-09-26 : time= 20h 48m 47s: pe=    31
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=     1
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=     2
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=     3
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=     4
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=     5
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=     6
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=     7
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=     8
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=     9
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    10
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    11
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    12
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    13
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    14
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    15
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    16
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    17
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    18
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    19
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    20
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    21
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    22
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    23
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    24
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    25
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    26
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    27
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    29
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    30
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    31
+bat[    34] ncas=    3401904. : date= 2026-09-26 : time= 22h 26m 18s: pe=    28
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=     1
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=     2
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=     3
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=     4
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=     5
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=     6
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=     7
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=     8
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=     9
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    10
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    11
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    12
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    13
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    14
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    15
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    16
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    17
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    18
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    19
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    20
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    21
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    22
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    23
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    24
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    25
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    26
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    27
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    28
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    29
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    30
+bat[    35] ncas=    3501960. : date= 2026-09-27 : time= 00h 03m 08s: pe=    31
+
+--------------------------------------------------------------------------------
+      ncas  nocas    =        3589633.     87673
+    mat =   10
+   iblz1 =   9000
+   iblz2 =   9000
+    mark =    0
+
+    x, y, z  = -1.749999960E+00  8.382211962E-01  9.837845484E+01
+    xc,yc,zc = -1.750000000E+00  8.382211919E-01  9.837846713E+01
+    u, v, w  = -3.235377324E-03 -3.424030458E-04  9.999947075E-01
+
+ ERROR : crossing surface does not exist in all cell
+ surface =      0
+*** Lost particle ***
+ my ip       =   8
+batch & history number:                  36               87673
+initial & final cells :                9000                9000
+location (x,y,z)        : -1.74999996E+00  8.38221196E-01  9.83784548E+01
+direction vector (u,v,w): -3.23537732E-03 -3.42403046E-04  9.99994708E-01
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=     1
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=     2
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=     3
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=     4
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=     5
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=     6
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=     7
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=     8
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=     9
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    10
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    11
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    12
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    13
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    14
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    15
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    16
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    17
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    18
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    19
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    20
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    21
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    22
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    23
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    24
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    25
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    26
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    27
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    28
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    29
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    30
+bat[    36] ncas=    3602016. : date= 2026-09-27 : time= 01h 39m 59s: pe=    31
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=     1
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=     2
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=     3
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=     4
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=     5
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=     6
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=     7
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=     8
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=     9
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    10
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    11
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    12
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    13
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    14
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    15
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    16
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    17
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    18
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    19
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    20
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    21
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    22
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    23
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    24
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    25
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    26
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    27
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    28
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    29
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    30
+bat[    37] ncas=    3702072. : date= 2026-09-27 : time= 03h 16m 45s: pe=    31
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=     1
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=     2
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=     3
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=     4
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=     5
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=     6
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=     7
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=     8
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=     9
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    10
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    11
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    12
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    13
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    14
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    15
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    16
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    17
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    18
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    19
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    20
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    21
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    22
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    23
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    24
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    26
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    27
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    28
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    29
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    30
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    31
+bat[    38] ncas=    3802128. : date= 2026-09-27 : time= 04h 54m 02s: pe=    25
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=     1
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=     2
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=     3
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=     4
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=     5
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=     6
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=     7
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=     8
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=     9
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    10
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    11
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    12
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    13
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    14
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    15
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    16
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    17
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    18
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    19
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    20
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    21
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    22
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    23
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    24
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    25
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    26
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    27
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    29
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    30
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    31
+bat[    39] ncas=    3902184. : date= 2026-09-27 : time= 06h 30m 54s: pe=    28
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=     1
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=     3
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=     5
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=     6
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=     7
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=     8
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=     9
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    10
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    11
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    12
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    13
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    14
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    15
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    16
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    17
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    18
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    19
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    20
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    21
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    22
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    23
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    24
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    25
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    26
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    27
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    29
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    30
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    31
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=     2
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=     4
+bat[    40] ncas=    4002240. : date= 2026-09-27 : time= 08h 07m 51s: pe=    28
+
+--------------------------------------------------------------------------------
+      ncas  nocas    =        4052493.     50253
+    mat =   10
+   iblz1 =   9000
+   iblz2 =   9000
+    mark =    0
+
+    x, y, z  = -1.749999860E+00 -1.156469630E+00  9.837961281E+01
+    xc,yc,zc = -1.750000000E+00 -1.156470483E+00  9.837964378E+01
+    u, v, w  = -4.530217827E-03 -2.755803461E-02  9.996099399E-01
+
+ ERROR : crossing surface does not exist in all cell
+ surface =      0
+*** Lost particle ***
+ my ip       =   3
+batch & history number:                  41               50253
+initial & final cells :                9000                9000
+location (x,y,z)        : -1.74999986E+00 -1.15646963E+00  9.83796128E+01
+direction vector (u,v,w): -4.53021783E-03 -2.75580346E-02  9.99609940E-01
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=     1
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=     2
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=     3
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=     4
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=     5
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=     6
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=     7
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=     8
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=     9
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    10
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    11
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    12
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    13
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    14
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    15
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    16
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    17
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    18
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    19
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    20
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    21
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    22
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    23
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    24
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    25
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    26
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    27
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    28
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    29
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    30
+bat[    41] ncas=    4102296. : date= 2026-09-27 : time= 09h 44m 40s: pe=    31
+
+--------------------------------------------------------------------------------
+      ncas  nocas    =        4155861.     53565
+    mat =   10
+   iblz1 =   9003
+   iblz2 =   9003
+    mark =    0
+
+    x, y, z  =  1.349999896E+00  5.102702103E-01  9.851333587E+01
+    xc,yc,zc =  1.350000000E+00  5.102694002E-01  9.851334865E+01
+    u, v, w  =  8.111722071E-03 -6.326650910E-02  9.979637011E-01
+
+ ERROR : crossing surface does not exist in all cell
+ surface =      0
+*** Lost particle ***
+ my ip       =  12
+batch & history number:                  42               53565
+initial & final cells :                9003                9003
+location (x,y,z)        :  1.34999990E+00  5.10270210E-01  9.85133359E+01
+direction vector (u,v,w):  8.11172207E-03 -6.32665091E-02  9.97963701E-01
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=     1
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=     3
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=     4
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=     5
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=     6
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=     7
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=     8
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=     9
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    10
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    11
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    12
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    13
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    14
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    15
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    16
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    17
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    18
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    19
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    20
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    21
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    22
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    23
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    24
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    25
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    26
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    27
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    28
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    29
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    30
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=    31
+bat[    42] ncas=    4202352. : date= 2026-09-27 : time= 11h 21m 28s: pe=     2
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=     1
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=     2
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=     3
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=     4
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=     5
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=     6
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=     7
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=     8
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=     9
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    10
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    11
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    12
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    13
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    14
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    15
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    16
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    17
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    18
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    19
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    20
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    21
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    22
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    23
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    24
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    25
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    26
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    27
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    29
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    30
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    31
+bat[    43] ncas=    4302408. : date= 2026-09-27 : time= 12h 58m 16s: pe=    28
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=     1
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=     2
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=     3
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=     4
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=     5
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=     6
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=     7
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=     8
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=     9
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    10
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    11
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    12
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    13
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    14
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    15
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    16
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    17
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    18
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    19
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    20
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    21
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    22
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    23
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    24
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    25
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    26
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    27
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    28
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    29
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    30
+bat[    44] ncas=    4402464. : date= 2026-09-27 : time= 14h 35m 04s: pe=    31
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=     1
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=     3
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=     4
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=     5
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=     6
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=     7
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=     8
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=     9
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    10
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    11
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    12
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    13
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    14
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    15
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    16
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    17
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    18
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    19
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    20
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    21
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    22
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    23
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    24
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    25
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    26
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    27
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    28
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    29
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    30
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=    31
+bat[    45] ncas=    4502520. : date= 2026-09-27 : time= 16h 11m 57s: pe=     2
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=     1
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=     2
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=     3
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=     4
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=     5
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=     6
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=     7
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=     8
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=     9
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    10
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    11
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    12
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    13
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    14
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    15
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    16
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    17
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    18
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    19
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    20
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    21
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    22
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    23
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    24
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    25
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    26
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    27
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    28
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    29
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    30
+bat[    46] ncas=    4602576. : date= 2026-09-27 : time= 17h 48m 48s: pe=    31
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=     1
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=     2
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=     3
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=     4
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=     5
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=     6
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=     7
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=     8
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=     9
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    10
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    11
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    12
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    13
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    14
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    15
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    16
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    17
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    18
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    19
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    20
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    21
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    22
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    23
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    24
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    25
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    26
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    27
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    28
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    29
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    30
+bat[    47] ncas=    4702632. : date= 2026-09-27 : time= 19h 25m 45s: pe=    31
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=     1
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=     3
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=     4
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=     5
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=     6
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=     7
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=     8
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=     9
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    10
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    11
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    12
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    13
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    14
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    15
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    16
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    17
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    18
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    19
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    20
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    21
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    22
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    23
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    24
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    25
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    26
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    27
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    29
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    30
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    31
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=     2
+bat[    48] ncas=    4802688. : date= 2026-09-27 : time= 21h 02m 29s: pe=    28
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=     1
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=     2
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=     3
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=     4
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=     5
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=     6
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=     7
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=     8
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=     9
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    10
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    11
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    12
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    13
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    14
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    15
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    16
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    17
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    18
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    19
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    20
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    21
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    22
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    23
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    24
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    25
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    26
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    27
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    28
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    29
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    30
+bat[    49] ncas=    4902744. : date= 2026-09-27 : time= 22h 39m 13s: pe=    31
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=     1
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=     2
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=     3
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=     4
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=     5
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=     6
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=     7
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=     8
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=     9
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    10
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    11
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    12
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    13
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    14
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    15
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    16
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    17
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    18
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    19
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    20
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    21
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    22
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    23
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    24
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    25
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    26
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    27
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    28
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    29
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    30
+bat[    50] ncas=    5002800. : date= 2026-09-28 : time= 00h 16m 08s: pe=    31
+
+--------------------------------------------------------------------------------
+      ncas  nocas    =        5052026.     49226
+    mat =   10
+   iblz1 =   9002
+   iblz2 =   9002
+    mark =    0
+
+    x, y, z  = -1.349998782E+00 -8.539827538E-01  9.854145075E+01
+    xc,yc,zc = -1.350000000E+00 -8.539826478E-01  9.854145344E+01
+    u, v, w  = -4.119928750E-01  3.583216243E-02  9.104822498E-01
+
+ ERROR : crossing surface does not exist in all cell
+ surface =      0
+*** Lost particle ***
+ my ip       =  15
+batch & history number:                  51               49226
+initial & final cells :                9002                9002
+location (x,y,z)        : -1.34999878E+00 -8.53982754E-01  9.85414507E+01
+direction vector (u,v,w): -4.11992875E-01  3.58321624E-02  9.10482250E-01
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=     1
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=     2
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=     3
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=     4
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=     5
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=     6
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=     7
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=     8
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=     9
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    10
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    11
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    12
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    13
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    14
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    15
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    16
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    17
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    18
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    19
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    20
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    21
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    22
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    23
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    24
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    25
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    26
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    27
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    28
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    29
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    30
+bat[    51] ncas=    5102856. : date= 2026-09-28 : time= 02h 02m 05s: pe=    31
+
+--------------------------------------------------------------------------------
+      ncas  nocas    =        5123694.     20838
+    mat =   10
+   iblz1 =   9003
+   iblz2 =   9003
+    mark =    0
+
+    x, y, z  =  1.349694876E+00  8.123744059E-01  9.847576474E+01
+    xc,yc,zc =  1.350000000E+00  8.138714547E-01  9.847888399E+01
+    u, v, w  =  8.784809674E-02  4.310144453E-01  8.980586060E-01
+
+ ERROR : crossing surface does not exist in all cell
+ surface =      0
+*** Lost particle ***
+ my ip       =  10
+batch & history number:                  52               20838
+initial & final cells :                9003                9003
+location (x,y,z)        :  1.34969488E+00  8.12374406E-01  9.84757647E+01
+direction vector (u,v,w):  8.78480967E-02  4.31014445E-01  8.98058606E-01
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=     1
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=     2
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=     3
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=     4
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=     5
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=     6
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=     7
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=     8
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=     9
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    10
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    11
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    12
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    13
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    14
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    15
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    16
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    17
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    18
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    19
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    20
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    21
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    22
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    23
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    24
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    25
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    26
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    27
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    28
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    29
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    30
+bat[    52] ncas=    5202912. : date= 2026-09-28 : time= 03h 38m 51s: pe=    31
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=     1
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=     2
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=     3
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=     4
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=     5
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=     6
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=     7
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=     8
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=     9
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    10
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    11
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    12
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    13
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    14
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    15
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    16
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    17
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    18
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    19
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    20
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    21
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    22
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    23
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    24
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    25
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    26
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    27
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    28
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    29
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    30
+bat[    53] ncas=    5302968. : date= 2026-09-28 : time= 05h 15m 40s: pe=    31
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=     1
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=     3
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=     5
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=     6
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=     7
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=     8
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=     9
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    10
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    11
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    12
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    13
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    14
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    15
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    16
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    17
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    18
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    19
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    20
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    21
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    22
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    23
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    24
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    25
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    26
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    27
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    29
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    30
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    31
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=     2
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=     4
+bat[    54] ncas=    5403024. : date= 2026-09-28 : time= 06h 52m 29s: pe=    28
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=     1
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=     2
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=     3
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=     4
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=     5
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=     6
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=     7
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=     8
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=     9
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    10
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    11
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    12
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    13
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    14
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    15
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    16
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    17
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    18
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    19
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    20
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    21
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    22
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    23
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    24
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    25
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    26
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    27
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    28
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    29
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    30
+bat[    55] ncas=    5503080. : date= 2026-09-28 : time= 08h 29m 21s: pe=    31
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=     1
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=     2
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=     3
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=     4
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=     5
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=     6
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=     7
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=     8
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=     9
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    10
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    11
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    12
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    13
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    14
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    15
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    16
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    17
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    18
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    19
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    20
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    21
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    22
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    23
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    24
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    25
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    26
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    27
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    28
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    29
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    30
+bat[    56] ncas=    5603136. : date= 2026-09-28 : time= 10h 06m 14s: pe=    31
