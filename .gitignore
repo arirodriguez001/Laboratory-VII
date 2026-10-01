@@ -18,6 +18,9 @@
 !detectores_sin_h/
 !detectores_sin_h/**
 
+!espectros-detectores/
+!espectros-detectores/**
+
 !detectores_sin_h_v2/
 !detectores_sin_h_v2/**
 
