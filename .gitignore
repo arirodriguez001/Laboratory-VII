@@ -36,6 +36,9 @@
 !pouchcr39contejidopouchhastadondellegocluster/
 !pouchcr39contejidopouchhastadondellegocluster/**
 
+!ridge_filter/
+!ridge_filter/**
+
 
 # Permitir archivos importantes
 !.gitignore
