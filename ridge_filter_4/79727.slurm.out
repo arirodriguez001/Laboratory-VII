@@ -1,0 +1,72 @@
+
+Plantilla DCAP (intelmpi) rev. 201812131110
+
+User limits:
+
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 773833
+max locked memory       (kbytes, -l) unlimited
+max memory size         (kbytes, -m) 33554432
+open files                      (-n) 1024
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) 10240
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 1024
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+
+
+Slurm enviroment:
+
+SLURM_JOBID             =  79727
+SLURM_JOB_NAME          =  ridge_filter_4
+SLURM_JOB_NODELIST      =  compute-0-18
+SLURM_JOB_PARTITION     =  COMPARTIDA
+SLURM_JOB_ACCOUNT       =  compartida
+SLURM_MEM_PER_CPU       =  1024
+SLURM_MEM_PER_NODE      = 
+SLURM_ARRAY_JOB_ID      = 
+SLURM_ARRAY_TASK_ID     = 
+SLURMTMPDIR             = 
+SLURM_RESTART_COUNT     = 
+SLURM_TASKS_PER_NODE    =  32
+SLURM_NTASKS            =  32
+SLURM_NTASKS_PER_CORE   = 
+SLURM_NTASKS_PER_NODE   = 
+SLURM_NTASKS_PER_SOCKET = 
+SLURM_JOB_NUM_NODES     =  1
+SLURM_NNODES            =  1
+SLURM_CPUS_PER_TASK     = 
+SLURM_NPROCS            =  32
+SLURM_SUBMIT_DIR        =  /share/gidans/sebastiangossio/ej_PHITS/haz_vertical/ridge_filter_4
+SLURM_SUBMIT_HOST       =  login-0-0.local
+SLURM_CPU_FREQ_REQ      =  High
+NUM_PROCS = 32
+NUM_NODES = 1
+
+
+pwd: /share/gidans/sebastiangossio/ej_PHITS/haz_vertical/ridge_filter_4
+-np which mpiexec: 
+/share/apps/intel/impi/5.0.3.048/intel64/bin/mpiexec
+LD_LIBRARY_PATH: /share/apps/intel/impi/5.0.3.048/intel64/lib:/share/apps/intel/composer_xe_2015.3.187/mpirt/lib/intel64:/share/apps/intel/composer_xe_2015.3.187/ipp/../compiler/lib/intel64:/share/apps/intel/composer_xe_2015.3.187/ipp/lib/intel64:/share/apps/intel/composer_xe_2015.3.187/ipp/tools/intel64/perfsys:/share/apps/intel/composer_xe_2015.3.187/compiler/lib/intel64:/share/apps/intel/composer_xe_2015.3.187/mkl/lib/intel64:/share/apps/intel/composer_xe_2015.3.187/tbb/lib/intel64/gcc4.4:/share/apps/intel/composer_xe_2015.3.187/debugger/libipt/intel64/lib:/usr/local/lib:/opt/python/lib
+BEGIN MPI RUN started date-time: 2026-10-07T12:05:03-0300
+
+
+srun --verbose -n 32 /share/gidans/sebastiangossio/Programas/PIHTS-IFORT/phits/phits_LinIfort_MPI
+Program is started                on 2026/10/07 at 12h 05m 06s
+ !!!!!! Please check file(1) parameter or update data folder !!!!!!
+ Fission_barrier_table_PhysRevC_91_024310.dat is missing in data folder
+ ion_potential.dat is missing in data folder
+ Relaxation-NonRadiative.dat or Relaxation-Radiative.dat is missing in data fold
+ er
+ natural_abundance_50c.dat does not exist in data folder. Original data adjusted for JENDL-4 are used for natural isotope expansion
+ Error: cannot find file(7): c:/phits2/data/xsdir.jnd
+Program is finished               on 2026/10/07 at 12h 05m 06s
+
+
+END MPI RUN ended date-time: 2026-10-07T12:05:06-0300

@@ -12,7 +12,7 @@
    output =  dose           # total deposit energy
   deposit =    0            # (D=0) 0-> total deposit dist, 1-> each process
      axis =   reg           # axis of output
-     file = ./out/dosis_region4.out  # file name of output for the above axis
+     file = ./out/dosis_region5.out  # file name of output for the above axis
      part =  proton   
 # kf/name :  2212     
    epsout =    1            # (D=0) generate eps file by ANGEL
@@ -29,9 +29,9 @@ y: Dose [Gy/source]
 p: xlin ylog afac(0.8) form(0.9)
 h:   x      n     n          y(proton  ),l3 n   
 #  num    reg     volume       proton    r.err 
-    1     700   1.0000E+00   6.4738E-01  0.0007
+    1     700   1.0000E+00   2.8006E-01  0.0010
 
-#   sum over    1.0000E+00   6.4738E-01  0.0007
+#   sum over    1.0000E+00   2.8006E-01  0.0010
 
 'no. =  1'
 msuc: {\huge Dosis en region 700}
