@@ -5,8 +5,8 @@ $rwt=0
 Vertical external proton beam - modular input
 
 [ Parameters ]
-$file(1) = /share/gidans/sebastiangossio/Programas/PIHTS-IFORT/phits
-file(1)=c:/phits2
+file(1) = /share/gidans/sebastiangossio/Programas/PIHTS-IFORT/phits
+$file(1)=c:/phits2
 
 icntl	= 0 $0: transport	5: source	8: 2D geometry	11: 3D geometry	14: volume	16: script mode	17: Anatally mode
 maxcas	= 5000 $ (D=10) number of particles per one batch
