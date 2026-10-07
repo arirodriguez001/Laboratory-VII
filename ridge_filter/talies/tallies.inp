@@ -1,7 +1,7 @@
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ ridge filter $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 
-[ T - T r a c k ] off
+[ T - T r a c k ] 
 $ Antes del primer dispersor. Centro: z = 6.85 cm.
 mesh = xyz
 x-type = 4
@@ -25,7 +25,7 @@ file = ./out/track_xy_antes_disp1.out
 gshow = 1
 epsout = 1
 
-[ T - T r a c k ] 
+[ T - T r a c k ] off
 $ Antes del ridge filter. Centro: z = 19.17 cm.
 mesh = xyz
 x-type = 4
@@ -131,7 +131,7 @@ part = proton
 output = dose
 unit = 0
 axis = reg
-file = ./out/dosis_region2.out
+file = ./out/dosis_region700.out
 epsout = 1
 
 [T-Track]
@@ -147,5 +147,5 @@ ne = 20
 
 axis = eng
 unit = 2
-file = ./out/espectro_region2.out
+file = ./out/espectro_region700.out
 epsout = 1

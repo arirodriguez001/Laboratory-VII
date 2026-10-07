@@ -39,6 +39,18 @@
 !ridge_filter/
 !ridge_filter/**
 
+!ridge_filter_2/
+!ridge_filter_2/**
+
+!ridge_filter_3/
+!ridge_filter_3/**
+
+!ridge_filter_4/
+!ridge_filter_4/**
+
+!ridge_filter_5/
+!ridge_filter_5/**
+
 
 # Permitir archivos importantes
 !.gitignore

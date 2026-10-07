@@ -1,0 +1,84 @@
+set: c60[ 0.63 ]	$Petri holder width
+set: c600[ 0.04 ]	$Petri holder height
+set: c62[ 1.715 ]	$Petri dish internal radius
+set: c63[ 0.115 ]	$Petri dish thickness
+set: c64[ 0.44 ]	$Petri dish depth from holder surface
+set: c65[ 0.85 ]	$sample volume in ml (cm3)
+set: c61[ c600 - c60 + c64 ]	$Petri dish depth from holder surface
+set: c66[ 6.3e-4 ]	$MYLAR thickness
+set: c67[ 1.0 ]	$Petri dish width
+set: c68[ 11e-4 ]	$Cell monolayer
+set: c69[ c65 / (PI * c62 * c62) ]	$medium height from volume (plane)
+set: c601[ 0.274852804 ]	$max height of meniscus at border
+set: c602[ c61 - c63 ]	$Petri dish inner bottom 
+set: %sample_TR%[50]	$sample translation number (leave blank for not)
+
+$[ Surface ]
+1503 %sample_TR% PZ  0.0
+1504 %sample_TR% PZ -36.5
+1505 %sample_TR% PZ  1.6 
+set:%sample_zone%[1504 -1505]	$use with %workzone%
+
+$Al base for samples
+1507 %sample_TR% PZ -0.3
+1508 %sample_TR% PZ  0.425
+1509 CZ   6.67 
+1510 CZ   5.928	$ hole 2
+
+$Phosphoric scintillator place
+1511 PX -1.625
+1512 PX  1.625
+1513 PY -1.625
+1514 PY  1.625
+1515 %sample_TR% PZ  0.28
+
+1516 CZ  2.55	$Petri holder hole
+1517 %sample_TR% PZ  c600 $Petri holder height
+
+set:%Al_base%[1507 ((-1503 -1509):(-1508 -1510)) #(1511 -1512 1513 -1514 -1515) #(-1516 -1517)]
+
+$Petri holder
+1518 %sample_TR% PZ (c600-c60)	$Petri holder top surface
+1519 CZ  1.5275	$beam exit
+1520 CZ  2.0	$radius for inverted lid
+1521 %sample_TR% PZ (c600-c60+0.20)	$depth for inverted lid
+1522 CZ  (c62+c63)	$radius for Petri dish
+1523 %sample_TR% PZ  (c61)	$depth for Petri dish
+set:%petri_holder%[-1517 1518 -1516 1519 #(-1520 -1521) #(-1522 -1523)]
+
+$Petri dish
+1524 %sample_TR% PZ  (c61-c67)	$Petri dish top
+1527 CZ  (c62+c63)	$Petri dish radius outside 
+1529 %sample_TR% PZ  c602	$Petri dish inside bottom
+1530 CZ  c62	$Petri dish radius inside
+set:%Petri_dish%[1524 -1523 -1527 #(-1529 -1530)]
+
+$Petri dish lid
+1525 %sample_TR% PZ  (c61-c67-c66+0.63)	$Petri lid skirt
+1526 CZ  (c62+c63+c66)	$Petri lid radius outside
+1528 %sample_TR% PZ  (c61-c67-c66)	$Petri lid top
+set:%Petri_lid%[1528 -1525 -1526 #(1524 -1527)] 
+
+$Cell monolayer
+1531 %sample_TR% PZ  (c602-c68)	$monolayer surface
+set:%monolayer%[1531 -1529 -1530]
+
+$Medium with meniscus (r_n = Petri dish internal radius / 20 )
+$n	R_max = sqrt(n/20)*c62 [cm]	h [cm]
+$1	0.500	0.010943249
+$2	0.707	0.138455053
+$3	0.866	0.711048142
+$4	1.000	2.748528038
+
+
+
+1540 %sample_TR% PZ  (c602-0.001094325) 
+1541 %sample_TR% PZ  (c602-0.013845505) 
+1542 %sample_TR% PZ  (c602-0.071104814) 
+1543 %sample_TR% PZ  (c602-0.274852804) 
+
+1560 CZ  (0.500*c62)
+1561 CZ  (0.707*c62)
+1562 CZ  (0.866*c62)
+
+set:%medium_steps%[-1529 -1530 ((1540):(1541 1560):(1542 1561):(1543 1562))]
