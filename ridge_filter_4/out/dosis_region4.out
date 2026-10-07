@@ -29,9 +29,9 @@ y: Dose [Gy/source]
 p: xlin ylog afac(0.8) form(0.9)
 h:   x      n     n          y(proton  ),l3 n   
 #  num    reg     volume       proton    r.err 
-    1     700   1.0000E+00   6.4783E-01  0.0017
+    1     700   1.0000E+00   6.4763E-01  0.0017
 
-#   sum over    1.0000E+00   6.4783E-01  0.0017
+#   sum over    1.0000E+00   6.4763E-01  0.0017
 
 'no. =  1'
 msuc: {\huge Dosis en region 700}
@@ -41,7 +41,7 @@ msdl: {\it calculated by \PHITS  3.35}
 # Information for Restart Calculation
 # This calculation was newly started
 # istdev =  2 # 1:Batch variance, 2:History variance
-# resc2  = 1.16798703300841555E-03 # Total source weight or Total source weight / maxcas
-# resc3  = 7.29000000000000000E+06 # Total history number or Total batch number
+# resc2  = 1.20323492700867346E-03 # Total source weight or Total source weight / maxcas
+# resc3  = 7.51000000000000000E+06 # Total history number or Total batch number
 # maxcas =        5000 # History / Batch, only used for istdev=1
-# bitrseed = 0100111100101111100000111100110001100001001011011001001001111011 # bit data of rseed
+# bitrseed = 0111000010001100100101111100000011111110100101101100000101011000 # bit data of rseed
