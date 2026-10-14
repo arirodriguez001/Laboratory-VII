@@ -169,5 +169,5 @@ part = proton
 output = dose
 unit = 0
 axis = z
-file = .out/bragg_pouch_water.out
+file = ./out/bragg_pouch_water.out
 epsout = 1
