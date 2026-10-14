@@ -36,7 +36,7 @@
             |_________________________________________________|
 
                         Starting Date = 2026-10-14
-                        Starting Time = 13h 45m 50
+                        Starting Time = 14h 07m 11
 
 >>> Input Echo >>>=============================================================
 
@@ -665,7 +665,7 @@ tr101          4.0000000E+00 -7.8000000E+00  0.0000000E+00
  material =  all            # (D=all) number of specific material
   2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
      axis =      xy            # axis of output
-     file = ./out/track_xy_pouch.out  # file name of output for the above axis
+     file = ./out/track_xy.out  # file name of output for the above axis
      part =  proton   
 # kf/name :  2212     
     gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat 5:bmp style
@@ -689,7 +689,7 @@ tr101          4.0000000E+00 -7.8000000E+00  0.0000000E+00
    output =  dose           # total deposit energy
   deposit =    0            # (D=0) 0-> total deposit dist, 1-> each process
      axis =   reg           # axis of output
-     file = ./out/dosis_region5.out  # file name of output for the above axis
+     file = ./out/dosis.out  # file name of output for the above axis
      part =  proton   
 # kf/name :  2212     
    epsout =    1            # (D=0) generate eps file by ANGEL
@@ -718,7 +718,7 @@ tr101          4.0000000E+00 -7.8000000E+00  0.0000000E+00
      unit =    2            # unit is [1/cm^2/MeV/source]
  material =  all            # (D=all) number of specific material
      axis =     eng            # axis of output
-     file = ./out/espectro_region5.out  # file name of output for the above axis
+     file = ./out/espectro.out  # file name of output for the above axis
      part =  proton   
 # kf/name :  2212     
    epsout =    1            # (D=0) generate eps file by ANGEL
@@ -765,7 +765,7 @@ tr101          4.0000000E+00 -7.8000000E+00  0.0000000E+00
    output =  dose           # total deposit energy
   deposit =    0            # (D=0) 0-> total deposit dist, 1-> each process
      axis =     z           # axis of output
-     file = .out/bragg_pouch_water.out  # file name of output for the above axis
+     file = ./out/bragg_pouch.out  # file name of output for the above axis
      part =  proton   
 # kf/name :  2212     
    epsout =    1            # (D=0) generate eps file by ANGEL
@@ -809,4 +809,199 @@ tr101          4.0000000E+00 -7.8000000E+00  0.0000000E+00
 -------------------------------------------------------------------------------
 bat[       1] ncas =           5000.
  bitrseed = 0100001010011000001011101100011110011000110110100110010000000000
-          cpu time =   4.668 s.
+          cpu time =   5.340 s.
+
+-------------------------------------------------------------------------------
+bat[       2] ncas =          10000.
+ bitrseed = 1101111111001101100001000101010101010011110110101000101010011110
+          cpu time =   4.730 s.
+
+-------------------------------------------------------------------------------
+bat[       3] ncas =          15000.
+ bitrseed = 0111011010010100011001101100101001110100011011011011110011011010
+          cpu time =   5.039 s.
+
+-------------------------------------------------------------------------------
+bat[       4] ncas =          20000.
+ bitrseed = 1011100101110110110001110111011000111100110100001101101101110101
+          cpu time =   5.086 s.
+
+-------------------------------------------------------------------------------
+bat[       5] ncas =          25000.
+ bitrseed = 0010001001111000000001011101010001000101000111011100011011111001
+          cpu time =   4.762 s.
+
+-------------------------------------------------------------------------------
+bat[       6] ncas =          30000.
+ bitrseed = 0010111011011010101101101101010110110000111001100110110010111011
+          cpu time =   6.426 s.
+
+-------------------------------------------------------------------------------
+bat[       7] ncas =          35000.
+ bitrseed = 1100111110010100110001011111101110101011011100111100011110011001
+          cpu time =   6.309 s.
+
+-------------------------------------------------------------------------------
+bat[       8] ncas =          40000.
+ bitrseed = 1010101111011111100010011001110110011000000101010011000100100011
+          cpu time =   6.637 s.
+
+-------------------------------------------------------------------------------
+bat[       9] ncas =          45000.
+ bitrseed = 0100101001011011001000100100001001111001110011010001000110110101
+          cpu time =   7.395 s.
+
+-------------------------------------------------------------------------------
+bat[      10] ncas =          50000.
+ bitrseed = 1100111001011000110000010010000001010110111001111000010110101010
+          cpu time =   6.770 s.
+
+-------------------------------------------------------------------------------
+bat[      11] ncas =          55000.
+ bitrseed = 1101100100010001111111011010111010000011100111001110011111110001
+          cpu time =   6.766 s.
+
+===============================================================================
+
+ Summary for the end of job
+
+-------------------------------------------------------------------------------
+ number of analyz call vs ncol
+-------------------------------------------------------------------------------
+     ncol          number
+        1              1.   : start of calculation            
+        2              1.   : end of calculation              
+        3             11.   : end of a batch                  
+        4          55000.   : source                          
+        5              0.   : detection of geometry error/warn
+        6              0.   : recovery from geometry warning  
+        7              0.   : termination by geometry error   
+        8              0.   : termination by weight cut-off   
+        9              0.   : termination by time cut-off     
+       10        1079087.   : geometry boundary crossing      
+       11          13232.   : termination by energy cut-off   
+       12          42759.   : termination by escape or leakage
+       13            257.   : reaction : (n,x) type           
+       14           1888.   : reaction : (n,n'x) type         
+       15        7901946.   : sequential transport for tally  
+
+-------------------------------------------------------------------------------
+ List of transport particles (not including source)
+-------------------------------------------------------------------------------
+     Name      kf-code        mass       charge   baryon
+     proton       2212        938.3         1       1
+     neutron      2112        939.6         0       1
+     photon         22          0.0         0       0
+     deuteron  1000002       1875.6         1       2
+     3he       2000003       2808.4         2       3
+     alpha     2000004       3727.4         2       4
+
+-------------------------------------------------------------------------------
+ prod. particles       number        weight        weight per source
+-------------------------------------------------------------------------------
+     photon              712.     7.1229326E+02     8.0832434E+07
+     proton              632.     6.3200000E+02     7.1720597E+07
+     alpha               115.     1.1500000E+02     1.3050425E+07
+     neutron              66.     6.6000000E+01     7.4898092E+06
+     deuteron              8.     8.0000000E+00     9.0785566E+05
+     3he                   7.     7.0000000E+00     7.9437370E+05
+
+-------------------------------------------------------------------------------
+ stop. particles.    number        weight        weight per source
+-------------------------------------------------------------------------------
+     proton            12532.     1.2532000E+04     1.4221559E+09
+     nucleus             639.     6.3900000E+02     7.2514971E+07
+     electron            245.     2.4491097E+02     2.7792976E+07
+     alpha               115.     1.1500000E+02     1.3050425E+07
+     deuteron              8.     8.0000000E+00     9.0785566E+05
+     3he                   7.     7.0000000E+00     7.9437370E+05
+
+-------------------------------------------------------------------------------
+ leak. particles       number        weight        weight per source
+-------------------------------------------------------------------------------
+     proton            42431.     4.2431000E+04     4.8151529E+09
+     photon              262.     2.6222955E+02     2.9758322E+07
+     neutron              66.     6.5358550E+01     7.4170162E+06
+
+-------------------------------------------------------------------------------
+ source: maxcas    maxbch      irskip   average weight          total source
+-------------------------------------------------------------------------------
+        5000       10000           0    1.6021770E-10    8.8119735000022E-06
+
+-------------------------------------------------------------------------------
+ used ATIMA database
+-------------------------------------------------------------------------------
+     for dedx  =       41 / mdbatima =      500
+
+-------------------------------------------------------------------------------
+ Geometry error summary
+-------------------------------------------------------------------------------
+ Number of lost particles     =     0 / nlost =    10000
+ Number of geometry recovering =     0
+ Number of unrecovered errors =     0
+
+-------------------------------------------------------------------------------
+ initial random seed:
+   bitrseed = 0100001010011000001011101100011110011000110110100110010000000000
+ next initial random seed:
+   bitrseed = 0000100111000011101000010101000111011100111001011001110101111110
+
+-------------------------------------------------------------------------------
+ job termination date : 2026/10/14
+                 time :   14:08:23
+
+-------------------------------------------------------------------------------
+    CPU time and number of event called in PHITS
+-------------------------------------------------------------------------------
+
+                             sec
+total cpu time =           72.22
+
+
+                           count
+      analysis =        9094180.  : data processing
+         nevap =            662.  : evaporation
+        dexgam =            263.  : de-excitation
+         nreac =           2145.  : atomic and nuclear reactions
+         dklos =              0.  : particle decay
+         hydro =              0.  : nucleon-nucleon scattering
+        n-data =            317.  : neutron data library
+        h-data =              0.  : p, d, a data library
+        p-data =           1159.  : photon data library
+        e-data =              0.  : electron data library
+        p-egs5 =              0.  : photon interaction with EGS5
+        e-egs5 =              0.  : electron interaction with EGS5
+      e-tsmode =              0.  : electron track structure mode
+    ion-tsmode =              0.  : ion track structure mode
+     photonucl =              0.  : photo-nuclear reaction
+ photonucl lib =              0.  : photo-nuclear reaction with library
+       mu-reac =              0.  : muon-induced nuclear reaction
+       mu-brem =              0.  : muon-induced bremsstrahlung
+       mu-pprd =              0.  : muon-induced pair production
+        mu-cap =              0.  : muon capture in nucleus
+         elast =            379.  : elastic scattering
+         ncasc =           1314.  : nuclear reaction model
+
+       bertini =              0.  : Bertini model
+        isobar =              0.  : isobar model
+           JAM =              0.  : JAM model
+           QMD =              0.  : JQMD model
+        JAMQMD =              0.  : JAMQMD model
+          INCL =           1314.  : INCL model
+        INCELF =              0.  : INCELF model
+     frag data =              0.  : user defined cross section
+       SCINFUL =              0.  : SCINFUL mode
+
+>>> Citation Request >>>=======================================================
+
+ This execution uses model(s) that must be explicitly cited in addition to
+ the PHITS original document: T.Sato et al., J.Nucl.Sci.Technol.61, 127-135 (2024).
+ Please refer the following document(s) in your publication using this result
+
+ The INCL model:
+    A. Boudard et al., Phys. Rev C87, 014606 (2013).
+
+ The KUROTAMA model:
+    K. Iida, A. Kohama, and K. Oyamatsu, J. Phys. Soc. Japan 76, 044201 (2007).
+
+ END 

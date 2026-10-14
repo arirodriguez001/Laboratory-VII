@@ -809,7 +809,7 @@ ne = 1
 0.0 1000.0
 unit = 1
 axis = xy
-file = ./out/track_xy_pouch.out
+file = ./out/track_xy.out
 gshow = 1
 epsout = 1
 
@@ -823,7 +823,7 @@ part = proton
 output = dose
 unit = 0
 axis = reg
-file = ./out/dosis_region5.out
+file = ./out/dosis.out
 epsout = 1
 
 [T-Track]
@@ -839,7 +839,7 @@ ne = 20
 
 axis = eng
 unit = 2
-file = ./out/espectro_region5.out
+file = ./out/espectro.out
 epsout = 1
 
 [ T - D e p o s i t ]
@@ -861,7 +861,7 @@ part = proton
 output = dose
 unit = 0
 axis = z
-file = .out/bragg_pouch_water.out
+file = ./out/bragg_pouch.out
 epsout = 1
 
 [ E n d ]
