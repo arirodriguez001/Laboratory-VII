@@ -54,6 +54,9 @@
 !oclusor_chico/
 !oclusor_chico/**
 
+!sin_oclusor/
+!sin_oclusor/**
+
 
 # Permitir archivos importantes
 !.gitignore
