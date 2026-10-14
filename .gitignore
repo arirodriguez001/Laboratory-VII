@@ -51,6 +51,9 @@
 !ridge_filter_5/
 !ridge_filter_5/**
 
+!oclusor_chico/
+!oclusor_chico/**
+
 
 # Permitir archivos importantes
 !.gitignore
