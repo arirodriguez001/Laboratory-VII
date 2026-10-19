@@ -63,6 +63,15 @@
 !sin_dispersor_con_oclusor/
 !sin_dispersor_con_oclusor/**
 
+!variantes oclusor dispersor/
+!variantes oclusor dispersor/**
+
+!pouchcr39/
+!pouchcr39/**
+
+!ridgefilter/
+!ridgefilter/**
+
 # Permitir archivos importantes
 !.gitignore
 !README.md

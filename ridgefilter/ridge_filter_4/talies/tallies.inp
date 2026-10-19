@@ -1,0 +1,151 @@
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ ridge filter $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+[ T - T r a c k ] off
+$ Antes del primer dispersor. Centro: z = 6.85 cm.
+mesh = xyz
+x-type = 4
+xdel = 0.3
+xmin = -10
+xmax = 10
+y-type = 4
+ydel = 0.3
+ymin = -15
+ymax = 15
+z-type = 1
+nz = 1
+6.840 6.860
+part = proton
+e-type = 1
+ne = 1
+0.0 1000.0
+unit = 1
+axis = xy
+file = ./out/track_xy_antes_disp1.out
+gshow = 1
+epsout = 1
+
+[ T - T r a c k ] off
+$ Antes del ridge filter. Centro: z = 19.17 cm.
+mesh = xyz
+x-type = 4
+xdel = 0.3
+xmin = -10
+xmax = 10
+y-type = 4
+ydel = 0.3
+ymin = -15
+ymax = 15
+z-type = 1
+nz = 1
+19.160 19.180
+part = proton
+e-type = 1
+ne = 1
+0.0 1000.0
+unit = 1
+axis = xy
+file = ./out/track_xy_antes_ridge.out
+gshow = 1
+epsout = 1
+
+[ T - T r a c k ] off
+$ Antes del segundo dispersor. Centro: z = 33.94 cm.
+mesh = xyz
+x-type = 4
+xdel = 0.3
+xmin = -10
+xmax = 10
+y-type = 4
+ydel = 0.3
+ymin = -15
+ymax = 15
+z-type = 1
+nz = 1
+33.930 33.950
+part = proton
+e-type = 1
+ne = 1
+0.0 1000.0
+unit = 1
+axis = xy
+file = ./out/track_xy_antes_disp2.out
+gshow = 1
+epsout = 1
+
+[ T - T r a c k ] 
+$ Entre el oclusor y el pouch. Centro: z = 66.80 cm.
+mesh = xyz
+x-type = 4
+xdel = 0.3
+xmin = -10
+xmax = 10
+y-type = 4
+ydel = 0.3
+ymin = -15
+ymax = 15
+z-type = 1
+nz = 1
+66.790 66.810
+part = proton
+e-type = 1
+ne = 1
+0.0 1000.0
+unit = 1
+axis = xy
+file = ./out/track_xy_intermedio.out
+gshow = 1
+epsout = 1
+
+[ T - T r a c k ] off
+$ Posicion del pouch. Centro: z = 98.48 cm.
+mesh = xyz
+x-type = 4
+xdel = 0.3
+xmin = -10
+xmax = 10
+y-type = 4
+ydel = 0.3
+ymin = -15
+ymax = 15
+z-type = 1
+nz = 1
+98.470 98.490
+part = proton
+e-type = 1
+ne = 1
+0.0 1000.0
+unit = 1
+axis = xy
+file = ./out/track_xy_pouch.out
+gshow = 1
+epsout = 1
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+[T-Deposit]
+title = Dosis en region 700
+mesh = reg
+reg = 700
+part = proton
+output = dose
+unit = 0
+axis = reg
+file = ./out/dosis_region4.out
+epsout = 1
+
+[T-Track]
+title = Espectro de protones en region 700
+mesh = reg
+reg = 700
+part = proton
+
+e-type = 2
+emin = 0.0
+emax = 25.0
+ne = 20
+
+axis = eng
+unit = 2
+file = ./out/espectro_region4.out
+epsout = 1

@@ -1,0 +1,8 @@
+$[ Cell ]
+101 0 -%vacuum_inside%  %havar_foil%	$ Vacuum inside accelerator tube
+102 %stainless%   %exit_tube%   %havar_foil%	$ accelerator tube exit
+103 %body% %magnet_geom% %box_access% #(%box_inside%)	$ magnet body
+104 %havar% -%havar_foil%	$Havar
+
+set:%cell_iman%[104] 
+set:%vol_iman%[28.274334E-4] $(PI*1.5^2*4.0E-4)

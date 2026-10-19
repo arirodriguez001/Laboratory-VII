@@ -1,0 +1,70 @@
+[ T-Track ]
+    title = Proton fluence in CR39 layers
+     mesh =  reg            # mesh type is region-wise
+      reg = { 7001 - 7008 }
+   volume                   # combined, lattice or level structure 
+   non     reg      vol     # reg definition
+    1     7001   1.0000E+00 # 7001
+    2     7002   1.0000E+00 # 7002
+    3     7003   1.0000E+00 # 7003
+    4     7004   1.0000E+00 # 7004
+    5     7005   1.0000E+00 # 7005
+    6     7006   1.0000E+00 # 7006
+    7     7007   1.0000E+00 # 7007
+    8     7008   1.0000E+00 # 7008
+   e-type =    2            # e-mesh is linear given by emin, emax and ne
+     emin =  1.0000000E-09  # minimum value of e-mesh points
+     emax =   25.00000      # maximum value of e-mesh points
+#    edel =   25.00000      # mesh width of e-mesh points
+       ne =      1          # number of e-mesh points
+#    data = ( e(i), i = 1, ne + 1 )
+#           1.00000E-09  2.50000E+01
+     unit =    1            # unit is [1/cm^2/source]
+ material =  all            # (D=all) number of specific material
+     axis =     reg            # axis of output
+     file = ./out/flujo_CR39_reg.out  # file name of output for the above axis
+     part =  proton   
+# kf/name :  2212     
+   epsout =    1            # (D=0) generate eps file by ANGEL
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :          26 (  0)           0 (  0)          26 (  0)
+
+#------------------------------------------------------------------------------
+#newpage:
+#   no. =  1
+#  ie =  1
+#   e = (   1.0000E-09  -   2.5000E+01  )
+
+x: Serial Num. of Region
+y: Flux [1/cm^2/source]              
+p: xlin ylog afac(0.8) form(0.9)
+h:   x      n     n          y(proton  ),l3 n  
+#  num    reg     volume       proton    r.err 
+    1    7001   1.0000E+00   0.0000E+00  0.0000
+    2    7002   1.0000E+00   0.0000E+00  0.0000
+    3    7003   1.0000E+00   0.0000E+00  0.0000
+    4    7004   1.0000E+00   0.0000E+00  0.0000
+    5    7005   1.0000E+00   0.0000E+00  0.0000
+    6    7006   1.0000E+00   0.0000E+00  0.0000
+    7    7007   1.0000E+00   0.0000E+00  0.0000
+    8    7008   1.0000E+00   0.0000E+00  0.0000
+
+#   sum over    8.0000E+00   0.0000E+00  0.0000
+
+'no. =  1,  ie =  1'
+msuc: {\huge Proton fluence in CR39 layers}
+msdr: {\it plotted by \ANGEL \version}
+msdl: {\it calculated by \PHITS  3.35}
+wt: s(0.7)
+\vspace{-3}
+  emin  &=&   1.0000E-09 [MeV]
+  emax  &=&   2.5000E+01 [MeV]
+e:
+ 
+# Information for Restart Calculation
+# This calculation was newly started
+# istdev =  2 # 1:Batch variance, 2:History variance
+# resc2  = 2.27140633519773913E-02 # Total source weight or Total source weight / maxcas
+# resc3  = 1.41770000000000000E+08 # Total history number or Total batch number
+# maxcas =       10000 # History / Batch, only used for istdev=1
+# bitrseed = 0001111011001101110111000010000100100111011001000110100100110111 # bit data of rseed
