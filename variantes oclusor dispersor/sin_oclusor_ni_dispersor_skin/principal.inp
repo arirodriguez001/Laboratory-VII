@@ -96,6 +96,7 @@ mat[15] H -0.102 C -0.11 N -0.033 O -0.745 Na -0.001 P -0.001 S -0.002 Cl -0.003
 set:%blood%[15  -1.06]
 
 mat[16] H -0.100588  C -0.228250  N -0.046420  O -0.619002  Na -0.000070  Mg -0.000060  P -0.000330  S -0.001590  Cl -0.002670  K -0.000850  Ca -0.000150  Fe -0.000010  Zn -0.000010      $ skin
+set:%skin1%[16  -1.0]
 
 mat[17]  C 5 H 8 O 2         $ acrilico 
 set:%acrilico%[17  -1.18]
@@ -222,7 +223,7 @@ $infl:{./dat/Ce_ridge_filter_4.inp}
 infl:{./dat/Ce_ridge_filter_9.inp}
 
 $ cilindro de agua
-700 %air% -700
+700 %skin1% -700
 
 
 1 -1     1  $Deep space

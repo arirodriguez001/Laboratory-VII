@@ -161,11 +161,51 @@ nr = 1
 z-type = 2 
 zmin = 97
 zmax = 100           
-nz = 70                    
+nz = 300                    
 
 part = proton
 output = dose
 unit = 0
 axis = z
 file = ./out/bragg_pouch.out
+epsout = 1
+
+[ T - D e p o s i t ]  $ dosis radial en el pouch
+title = Bragg peak in pouch, ahora con radio 1
+mesh = r-z
+r-type = 2
+rmin = 0.0
+rmax = 1.7     
+nr = 60
+z-type = 2
+zmin = 98.38
+zmax = 98.58
+nz = 1
+part = proton
+output = dose
+unit = 0
+axis = r
+file = ./out/bragg_pouch_r.out
+epsout = 1
+
+[ T - D e p o s i t ]   $ histograma dosis-volumen del pouch
+title = Histograma
+mesh = xyz
+x-type = 2               
+xmin = -0.8
+xmax = 0.8
+nx = 16
+y-type = 2                 
+ymin = -1.65
+ymax = 1.65
+ny = 33 
+z-type = 2
+zmin = 98.38
+zmax = 98.58
+nz = 4
+part = proton
+output = dose
+unit = 0
+axis = z
+file = ./out/histograma_dosis.out
 epsout = 1

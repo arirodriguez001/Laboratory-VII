@@ -5,7 +5,7 @@ $rwt=0
 Vertical external proton beam - modular input
 
 [ Parameters ]
-file(1) = /share/gidans/sebastiangossio/Programas/PIHTS-IFORT/phits
+$file(1) = /share/gidans/sebastiangossio/Programas/PIHTS-IFORT/phits
 $file(1)=c:/phits2
 
 icntl	= 0 $0: transport	5: source	8: 2D geometry	11: 3D geometry	14: volume	16: script mode	17: Anatally mode
@@ -96,6 +96,7 @@ mat[15] H -0.102 C -0.11 N -0.033 O -0.745 Na -0.001 P -0.001 S -0.002 Cl -0.003
 $set:%blood%[15  -1.06]
 
 mat[16] H -0.100588  C -0.228250  N -0.046420  O -0.619002  Na -0.000070  Mg -0.000060  P -0.000330  S -0.001590  Cl -0.002670  K -0.000850  Ca -0.000150  Fe -0.000010  Zn -0.000010      $ skin
+$set:%skin1%[16  -1.1]
 
 mat[17]  C 5 H 8 O 2         $ acrilico
 $set:%acrilico%[17  -1.18]
@@ -654,7 +655,7 @@ $set:%cell_rfgrid%[(2606 < 2605 < 2604)]
 $set:%vol_rfgrid%[(15.850477*c75*(8*c701+7*c702+6*c703+5*c704+4*c705+3*c706+2*c707+c708)/c71)] $PI*2.25^2*8*c75/(8*c71)*sum*0.996615 (volume dif)
 
 $ cilindro de agua
-700 1  -1.205e-3 -700
+700 16  -1.1 -700
 
 
 1 -1     1  $Deep space
@@ -855,13 +856,53 @@ nr = 1
 z-type = 2
 zmin = 97
 zmax = 100
-nz = 70
+nz = 300
 
 part = proton
 output = dose
 unit = 0
 axis = z
 file = ./out/bragg_pouch.out
+epsout = 1
+
+[ T - D e p o s i t ]  $ dosis radial en el pouch
+title = Bragg peak in pouch, ahora con radio 1
+mesh = r-z
+r-type = 2
+rmin = 0.0
+rmax = 1.7
+nr = 60
+z-type = 2
+zmin = 98.38
+zmax = 98.58
+nz = 1
+part = proton
+output = dose
+unit = 0
+axis = r
+file = ./out/bragg_pouch_rL.out
+epsout = 1
+
+[ T - D e p o s i t ]   $ histograma dosis-volumen del pouch
+title = Histograma
+mesh = xyz
+x-type = 2
+xmin = -0.8
+xmax = 0.8
+nx = 16
+y-type = 2
+ymin = -1.65
+ymax = 1.65
+ny = 33
+z-type = 2
+zmin = 98.38
+zmax = 98.58
+nz = 4
+part = proton
+output = dose
+unit = 0
+axis = z
+file = ./out/histograma_dosis.out
 epsout = 1
 
 [ E n d ]
