@@ -57,6 +57,11 @@
 !sin_oclusor/
 !sin_oclusor/**
 
+!sin_oclusor_ni_dispersor/
+!sin_oclusor_ni_dispersor/**
+
+!sin_dispersor_con_oclusor/
+!sin_dispersor_con_oclusor/**
 
 # Permitir archivos importantes
 !.gitignore
