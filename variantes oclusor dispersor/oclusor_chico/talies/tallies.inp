@@ -123,7 +123,7 @@ epsout = 1
 
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-[T-Deposit]
+[T-Deposit] 
 title = Dosis en region 700
 mesh = reg
 reg = 700
@@ -134,7 +134,7 @@ axis = reg
 file = ./out/dosis_region5.out
 epsout = 1
 
-[T-Track]
+[T-Track] off 
 title = Espectro de protones en region 700
 mesh = reg
 reg = 700
@@ -150,7 +150,7 @@ unit = 2
 file = ./out/espectro_region5.out
 epsout = 1
 
-[ T - D e p o s i t ]
+[ T - D e p o s i t ] 
 
 title = Bragg peak in pouch
 
@@ -171,3 +171,112 @@ unit = 0
 axis = z
 file = ./out/bragg_pouch_water.out
 epsout = 1
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ prueba: hago unos tallis para graficar los oclusores xq me tira error de geometria: listo
+
+
+[ T-Track ] off
+title = Corte XZ - regiones 2400 y 2401
+mesh = xyz
+
+x-type = 2
+xmin = -1.2
+xmax = 1.2
+nx = 160
+
+y-type = 2
+ymin = -0.005
+ymax = 0.005
+ny = 1
+
+z-type = 2
+zmin = 34.65
+zmax = 35.50
+nz = 120
+
+e-type = 2
+emin = 0.0
+emax = 25.0
+ne = 1
+
+part = proton
+unit = 1
+axis = xz
+2D-type = 3
+gshow = 3
+resol = 2
+width = 0.5
+file = ./out/corte_oclusor_xz.out
+epsout = 1
+
+
+[ T-Track ] off
+title = Corte XY - oclusor z 34.95 cm
+mesh = xyz
+
+x-type = 2
+xmin = -1.2
+xmax = 1.2
+nx = 160
+
+y-type = 2
+ymin = -1.2
+ymax = 1.2
+ny = 160
+
+z-type = 2
+zmin = 34.949
+zmax = 34.951
+nz = 1
+
+e-type = 2
+emin = 0.0
+emax = 25.0
+ne = 1
+
+part = proton
+unit = 1
+axis = xy
+2D-type = 3
+gshow = 3
+resol = 2
+width = 0.5
+file = ./out/corte_oclusor_xy_1.out
+epsout = 1
+
+
+[ T-Track ] off
+title = Corte XY - oclusor z 35.15 cm
+mesh = xyz
+
+x-type = 2
+xmin = -1.2
+xmax = 1.2
+nx = 160
+
+y-type = 2
+ymin = -1.2
+ymax = 1.2
+ny = 160
+
+z-type = 2
+zmin = 35.149
+zmax = 35.151
+nz = 1
+
+e-type = 2
+emin = 0.0
+emax = 25.0
+ne = 1
+
+part = proton
+unit = 1
+axis = xy
+2D-type = 3
+gshow = 3
+resol = 2
+width = 0.5
+file = ./out/corte_oclusor_xy_2.out
+epsout = 1
+

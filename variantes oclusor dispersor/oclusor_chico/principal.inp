@@ -5,8 +5,8 @@ $RWT = 2
 Vertical external proton beam - modular input
 
 [ Parameters ]
-$file(1) = /share/gidans/sebastiangossio/Programas/PIHTS-IFORT/phits   
-file(1)=c:/phits
+file(1) = /share/gidans/sebastiangossio/Programas/PIHTS-IFORT/phits   
+$file(1)=c:/phits2
 
 icntl	= 0 $0: transport	5: source	8: 2D geometry	11: 3D geometry	14: volume	16: script mode	17: Anatally mode
 maxcas	= 5000 $ (D=10) number of particles per one batch
@@ -14,7 +14,7 @@ maxbch	= 10000 $ (D=10) number of batches
 istdev	= 2 $Statistical uncertainties estimated from the standard error of: 1=each batch result. 2=each history result.
 nspred	= 2 $2= Coulomb diﬀusion by the Lynch’s formula based on the Moliere theory
 nedisp	= 1 $1= Landau Vavilov energy straggling
-istdcut	= 1 $Stop when its statistical uncertainty becomes less than stdcut.
+istdcut	= 0 $Stop when its statistical uncertainty becomes less than stdcut.
 delt0	= 4e-5 $Minimum ﬂight mesh [cm], should be set to 1/10 of the minimum thickness of thin films less than 1 cm when describing a scattering process.
 ireschk	= 1 $Control parameter for tally consistency check. The inconsistency of a tally may occur as the result of the loss of signiﬁcant digits in the PHITS input ﬁle
 nlost	= 10000 $number of tolerance of lost particles before stopping the run.
