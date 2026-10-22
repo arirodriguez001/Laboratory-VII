@@ -72,6 +72,9 @@
 !ridgefilter/
 !ridgefilter/**
 
+!oclusor_chico_posicionador_arriba/
+!oclusor_chico_posicionador_arriba/**
+
 # Permitir archivos importantes
 !.gitignore
 !README.md
