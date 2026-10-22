@@ -124,7 +124,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 [T-Deposit]
 title = Dosis en region 700
 mesh = reg
-reg = 700
+reg = 510
 part = proton
 output = dose
 unit = 0
@@ -135,7 +135,7 @@ epsout = 1
 [T-Track]
 title = Espectro de protones en region 700
 mesh = reg
-reg = 700
+reg = 510
 part = proton
 
 e-type = 2
