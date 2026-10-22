@@ -123,7 +123,7 @@ epsout = 1
 
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-[T-Deposit] 
+[T-Deposit] off
 title = Dosis en region 700
 mesh = reg
 reg = 700
@@ -134,7 +134,7 @@ axis = reg
 file = ./out/dosis_region5.out
 epsout = 1
 
-[T-Track] off 
+[T-Track] off
 title = Espectro de protones en region 700
 mesh = reg
 reg = 700
@@ -150,7 +150,7 @@ unit = 2
 file = ./out/espectro_region5.out
 epsout = 1
 
-[ T - D e p o s i t ] 
+[ T - D e p o s i t ] off
 
 title = Bragg peak in pouch
 
