@@ -13,7 +13,7 @@
 #SBATCH --mem-per-cpu=1G         # Minimum memory required per allocated CPU
 #SBATCH --cpu-freq high          # Set the highest available cpu frequency
 #SBATCH --verbose                # Be verbose
-#SBATCH -J "ridge_filter_5"      # job name
+#SBATCH -J "oclusor chico"      # job name
 #SBATCH --mail-user=sebastian.gossio2010@gmail.com   # email address
 #SBATCH --mail-type=END
 #

@@ -1,5 +1,5 @@
-set: c50[ 0.31 ]	$occluder radius, ANTES TENIA 0.62
-set: c51[ 0.1 ]	$occluder thickness (effective) ANTES TENIA 0.2
+set: c50[ 0.31 ]	$occluder radius, ANTES TENIA 
+set: c51[ 0.1 ]	$occluder thickness (effective)
 set: c52[ 0.335 ]	$occluder leg radius
 set: c53[ 5.44 - 0.45 ]	$distance from center to occluder hang screws
 set: c54[ 0.01175 ]	$nylon wire radius

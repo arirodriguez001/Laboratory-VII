@@ -6,7 +6,7 @@ Vertical external proton beam - modular input
 
 [ Parameters ]
 $file(1) = /share/gidans/sebastiangossio/Programas/PIHTS-IFORT/phits
-file(1)=c:/phits
+file(1)=c:/phits2
 
 icntl	= 0 $0: transport	5: source	8: 2D geometry	11: 3D geometry	14: volume	16: script mode	17: Anatally mode
 maxcas	= 5000 $ (D=10) number of particles per one batch
@@ -14,7 +14,7 @@ maxbch	= 10000 $ (D=10) number of batches
 istdev	= 2 $Statistical uncertainties estimated from the standard error of: 1=each batch result. 2=each history result.
 nspred	= 2 $2= Coulomb diﬀusion by the Lynch’s formula based on the Moliere theory
 nedisp	= 1 $1= Landau Vavilov energy straggling
-istdcut	= 1 $Stop when its statistical uncertainty becomes less than stdcut.
+istdcut	= 0 $Stop when its statistical uncertainty becomes less than stdcut.
 delt0	= 4e-5 $Minimum ﬂight mesh [cm], should be set to 1/10 of the minimum thickness of thin films less than 1 cm when describing a scattering process.
 ireschk	= 1 $Control parameter for tally consistency check. The inconsistency of a tally may occur as the result of the loss of signiﬁcant digits in the PHITS input ﬁle
 nlost	= 10000 $number of tolerance of lost particles before stopping the run.
@@ -371,7 +371,7 @@ $ dispersor 2 sandwiches
 1320 CZ  3.5 $ beam hole
 $set:%disp2_sandw%[1313 -1314 1315 -1316  1317 -1319 #(1318 -1311) 1320]
 set: c50[ 0.31 ]	$occluder radius, ANTES TENIA
-set: c51[ 0.2 ]	$occluder thickness (effective)
+set: c51[ 0.1 ]	$occluder thickness (effective)
 set: c52[ 0.335 ]	$occluder leg radius
 set: c53[ 5.44 - 0.45 ]	$distance from center to occluder hang screws
 set: c54[ 0.01175 ]	$nylon wire radius
@@ -828,7 +828,7 @@ axis = reg
 file = ./out/dosis_region5.out
 epsout = 1
 
-[T-Track]
+[T-Track] off
 title = Espectro de protones en region 700
 mesh = reg
 reg = 700
@@ -863,7 +863,116 @@ part = proton
 output = dose
 unit = 0
 axis = z
-file = bragg_pouch_water.out
+file = ./out/bragg_pouch_water.out
 epsout = 1
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ prueba: hago unos tallis para graficar los oclusores xq me tira error de geometria: listo
+
+
+[ T-Track ] off
+title = Corte XZ - regiones 2400 y 2401
+mesh = xyz
+
+x-type = 2
+xmin = -1.2
+xmax = 1.2
+nx = 160
+
+y-type = 2
+ymin = -0.005
+ymax = 0.005
+ny = 1
+
+z-type = 2
+zmin = 34.65
+zmax = 35.50
+nz = 120
+
+e-type = 2
+emin = 0.0
+emax = 25.0
+ne = 1
+
+part = proton
+unit = 1
+axis = xz
+2D-type = 3
+gshow = 3
+resol = 2
+width = 0.5
+file = ./out/corte_oclusor_xz.out
+epsout = 1
+
+
+[ T-Track ] off
+title = Corte XY - oclusor z 34.95 cm
+mesh = xyz
+
+x-type = 2
+xmin = -1.2
+xmax = 1.2
+nx = 160
+
+y-type = 2
+ymin = -1.2
+ymax = 1.2
+ny = 160
+
+z-type = 2
+zmin = 34.949
+zmax = 34.951
+nz = 1
+
+e-type = 2
+emin = 0.0
+emax = 25.0
+ne = 1
+
+part = proton
+unit = 1
+axis = xy
+2D-type = 3
+gshow = 3
+resol = 2
+width = 0.5
+file = ./out/corte_oclusor_xy_1.out
+epsout = 1
+
+
+[ T-Track ] off
+title = Corte XY - oclusor z 35.15 cm
+mesh = xyz
+
+x-type = 2
+xmin = -1.2
+xmax = 1.2
+nx = 160
+
+y-type = 2
+ymin = -1.2
+ymax = 1.2
+ny = 160
+
+z-type = 2
+zmin = 35.149
+zmax = 35.151
+nz = 1
+
+e-type = 2
+emin = 0.0
+emax = 25.0
+ne = 1
+
+part = proton
+unit = 1
+axis = xy
+2D-type = 3
+gshow = 3
+resol = 2
+width = 0.5
+file = ./out/corte_oclusor_xy_2.out
+epsout = 1
+
 
 [ E n d ]
