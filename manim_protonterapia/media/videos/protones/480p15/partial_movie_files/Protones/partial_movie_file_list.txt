@@ -1,0 +1,6 @@
+# This file records the segment order used by Manim.
+file 'file:C:/Users/Jessica Riback/Desktop/Labo 6y7 Basili-Rodriguez/Labo 7/manim_protonterapia/media/videos/protones/480p15/partial_movie_files/Protones/b6e725bc94d10214f6ca88ea354cafc40f5b475322333b478952a54eeda5acaa.mp4'
+file 'file:C:/Users/Jessica Riback/Desktop/Labo 6y7 Basili-Rodriguez/Labo 7/manim_protonterapia/media/videos/protones/480p15/partial_movie_files/Protones/e2a1c6f8092a1432d032ce276d022488c8f95ce136efce14ba80f74828f7b277.mp4'
+file 'file:C:/Users/Jessica Riback/Desktop/Labo 6y7 Basili-Rodriguez/Labo 7/manim_protonterapia/media/videos/protones/480p15/partial_movie_files/Protones/2b4778cdea1d128da41015122400c5141818da335c7e3d74cb7af8a1fd6e7a40.mp4'
+file 'file:C:/Users/Jessica Riback/Desktop/Labo 6y7 Basili-Rodriguez/Labo 7/manim_protonterapia/media/videos/protones/480p15/partial_movie_files/Protones/dbfc54e69b6686f8733df04ac40456ff7bd865aa32e16be6a783842b8100c648.mp4'
+file 'file:C:/Users/Jessica Riback/Desktop/Labo 6y7 Basili-Rodriguez/Labo 7/manim_protonterapia/media/videos/protones/480p15/partial_movie_files/Protones/4c5e6102c5d86273177fdf7d7a9e647dded60e8c285d2d3d9471a89bb25d1616.mp4'

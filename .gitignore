@@ -75,6 +75,9 @@
 !oclusor_chico_posicionador_arriba/
 !oclusor_chico_posicionador_arriba/**
 
+!manim_protonterapia/
+!manim_protonterapia/**
+
 # Permitir archivos importantes
 !.gitignore
 !README.md
