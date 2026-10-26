@@ -75,6 +75,14 @@
 !oclusor_chico_posicionador_arriba/
 !oclusor_chico_posicionador_arriba/**
 
+
+!oclusor_chico_posicionador_arriba_mas_gel/
+!oclusor_chico_posicionador_arriba_mas_gel/**
+
+!sin_oclusor_posicionador_arriba/
+!sin_oclusor_posicionador_arriba/**
+
+
 # Permitir archivos importantes
 !.gitignore
 !README.md

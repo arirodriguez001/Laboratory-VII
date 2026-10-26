@@ -95,7 +95,7 @@ file = ./out/track_xy_intermedio.out
 gshow = 1
 epsout = 1
 
-[ T - T r a c k ] 
+[ T - T r a c k ] off
 $ Posicion del pouch. Centro: z = 98.48 cm.
 mesh = xyz
 x-type = 4
@@ -122,18 +122,29 @@ epsout = 1
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 [T-Deposit]
-title = Dosis en region 700
+title = Dosis en region pouch
 mesh = reg
 reg = 510
 part = proton
 output = dose
 unit = 0
 axis = reg
-file = ./out/dosis.out
+file = ./out/dosispouch.out
+epsout = 1
+
+[T-Deposit]
+title = Dosis en region gel
+mesh = reg
+reg = 600
+part = proton
+output = dose
+unit = 0
+axis = reg
+file = ./out/dosisgel.out
 epsout = 1
 
 [T-Track]
-title = Espectro de protones en region 700
+title = Espectro de protones en pouch
 mesh = reg
 reg = 510
 part = proton
@@ -145,10 +156,26 @@ ne = 20
 
 axis = eng
 unit = 2
-file = ./out/espectro.out
+file = ./out/espectropouch.out
 epsout = 1
 
-[ T - D e p o s i t ]
+[T-Track]
+title = Espectro de protones en gel
+mesh = reg
+reg = 600
+part = proton
+
+e-type = 2
+emin = 0.0
+emax = 25.0
+ne = 20
+
+axis = eng
+unit = 2
+file = ./out/espectrogel.out
+epsout = 1
+
+[ T - D e p o s i t ]off
 
 title = Bragg peak in pouch
 
@@ -170,7 +197,7 @@ axis = z
 file = ./out/bragg_pouch.out
 epsout = 1
 
-[ T - D e p o s i t ]  $ dosis radial en el pouch
+[ T - D e p o s i t ] off $ dosis radial en el pouch
 title = Bragg peak in pouch, ahora con radio 1
 mesh = r-z
 r-type = 2
@@ -188,7 +215,7 @@ axis = r
 file = ./out/bragg_pouch_r.out
 epsout = 1
 
-[ T - D e p o s i t ]   $ histograma dosis-volumen del pouch
+[ T - D e p o s i t ]off   $ histograma dosis-volumen del pouch
 title = Histograma
 mesh = xyz
 x-type = 2               
@@ -209,3 +236,37 @@ unit = 0
 axis = z
 file = ./out/histograma_dosis.out
 epsout = 1
+
+[ T-Cross ]
+    title = Comparacion del espectro antes y despues del gel
+     mesh = reg            # Malla basada en regiones/celdas [1]
+      reg = 1              # Evaluamos 2 fronteras de cruce [1]
+      r-from   r-to       area
+      2        600        1.0   $ Frontera 1: Entrada al Gel
+   e-type = 2              # 2: Malla de energía lineal [2]
+     emin = 1.0e-3            # Energía mínima [MeV] [1]
+     emax = 25.0           # Ajusta al valor máximo de tu haz [MeV] [1]
+       ne = 100            # 100 bins (da una resolución de 0.1 MeV por bin) [1]
+     unit = 2              # 2: [1/cm^2/MeV/fuente] (distribución espectral) [3]
+     axis = eng            # Eje X: Energía [1]
+   output = flux           # Fluencia de cruce (o 'current' para corriente) [1]
+     part = proton         # Especifica tu partícula (ej. proton, electron, photon) [1]
+     file = espectro_aireagel.out   # Archivo de salida numérico [1]
+   epsout = 1              # Genera el gráfico en formato EPS [3]
+
+[ T-Cross ]
+    title = Comparacion del espectro antes y despues del pouch
+     mesh = reg            # Malla basada en regiones/celdas [1]
+      reg = 1              # Evaluamos 2 fronteras de cruce [1]
+      r-from   r-to       area
+      600      510        1.0   $ Frontera 1: Entrada al pouch
+   e-type = 2              # 2: Malla de energía lineal [2]
+     emin = 1.0e-3            # Energía mínima [MeV] [1]
+     emax = 25.0           # Ajusta al valor máximo de tu haz [MeV] [1]
+       ne = 100            # 100 bins (da una resolución de 0.1 MeV por bin) [1]
+     unit = 2              # 2: [1/cm^2/MeV/fuente] (distribución espectral) [3]
+     axis = eng            # Eje X: Energía [1]
+   output = flux           # Fluencia de cruce (o 'current' para corriente) [1]
+     part = proton         # Especifica tu partícula (ej. proton, electron, photon) [1]
+     file = espectro_gelapouch.out   # Archivo de salida numérico [1]
+   epsout = 1              # Genera el gráfico en formato EPS [3]
