@@ -133,7 +133,7 @@ file = ./out/dosis.out
 epsout = 1
 
 [T-Track]
-title = Espectro de protones en region 700
+title = Espectro de protones en region
 mesh = reg
 reg = 510
 part = proton
