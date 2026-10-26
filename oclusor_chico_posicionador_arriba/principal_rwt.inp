@@ -8,9 +8,9 @@ Vertical external proton beam - modular input
 $file(1) = /share/gidans/sebastiangossio/Programas/PIHTS-IFORT/phits
 $file(1)=c:/phits
 
-icntl	= 8 $0: transport	5: source	8: 2D geometry	11: 3D geometry	14: volume	16: script mode	17: Anatally mode
-maxcas	= 10000 $ (D=10) number of particles per one batch
-maxbch	= 200000 $ (D=10) number of batches
+icntl	= 0 $0: transport	5: source	8: 2D geometry	11: 3D geometry	14: volume	16: script mode	17: Anatally mode
+maxcas	= 5000 $ (D=10) number of particles per one batch
+maxbch	= 10000 $ (D=10) number of batches
 istdev	= 2 $Statistical uncertainties estimated from the standard error of: 1=each batch result. 2=each history result.
 nspred	= 2 $2= Coulomb diﬀusion by the Lynch’s formula based on the Moliere theory
 nedisp	= 1 $1= Landau Vavilov energy straggling
@@ -889,8 +889,8 @@ rmin = 0.0
 rmax = 0.5
 nr = 1
 z-type = 2
-zmin = 97
-zmax = 100
+zmin = 60
+zmax = 62
 nz = 300
 part = proton
 output = dose
