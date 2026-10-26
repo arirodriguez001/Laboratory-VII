@@ -1,0 +1,12 @@
+# This file records the segment order used by Manim.
+file 'file:C:/Users/Jessica Riback/Desktop/Labo 6y7 Basili-Rodriguez/Labo 7/manim_protonterapia/media/videos/protones/480p15/partial_movie_files/PicoBragg/b2598ccae1df6c23391d2ffe19800511359e1745fa41e9de8a78c8fff49077ea.mp4'
+file 'file:C:/Users/Jessica Riback/Desktop/Labo 6y7 Basili-Rodriguez/Labo 7/manim_protonterapia/media/videos/protones/480p15/partial_movie_files/PicoBragg/3cc7aaf84a3679282df6c68201313fb7cc63efaa4acea439dd082e679676713d.mp4'
+file 'file:C:/Users/Jessica Riback/Desktop/Labo 6y7 Basili-Rodriguez/Labo 7/manim_protonterapia/media/videos/protones/480p15/partial_movie_files/PicoBragg/cdc3e871c2d018bab0432be4b5388b939fcec9cafe6bb7f7096276fc9bdedf61.mp4'
+file 'file:C:/Users/Jessica Riback/Desktop/Labo 6y7 Basili-Rodriguez/Labo 7/manim_protonterapia/media/videos/protones/480p15/partial_movie_files/PicoBragg/68a2e2b4891940280e1d4350df4f11099925f00d07d3344d021eee76065ee607.mp4'
+file 'file:C:/Users/Jessica Riback/Desktop/Labo 6y7 Basili-Rodriguez/Labo 7/manim_protonterapia/media/videos/protones/480p15/partial_movie_files/PicoBragg/5aa2b2a309ef085f590f253cd20f1573d92cf352887a6a5266f22e2f00cc4ab7.mp4'
+file 'file:C:/Users/Jessica Riback/Desktop/Labo 6y7 Basili-Rodriguez/Labo 7/manim_protonterapia/media/videos/protones/480p15/partial_movie_files/PicoBragg/77bc7fdbc70294c03253dd7296bfd7f1e1115263e86c94e20fff9d102e2b5cd3.mp4'
+file 'file:C:/Users/Jessica Riback/Desktop/Labo 6y7 Basili-Rodriguez/Labo 7/manim_protonterapia/media/videos/protones/480p15/partial_movie_files/PicoBragg/8d96d0330cf01db2632d56fb4cdf0d3ce62c655eaaa4e8190ed9fb09766fde69.mp4'
+file 'file:C:/Users/Jessica Riback/Desktop/Labo 6y7 Basili-Rodriguez/Labo 7/manim_protonterapia/media/videos/protones/480p15/partial_movie_files/PicoBragg/6e4026a6fc60a3e54b867801e7fd0b0c7d41f32d76eefca9844ab6806cf6c72d.mp4'
+file 'file:C:/Users/Jessica Riback/Desktop/Labo 6y7 Basili-Rodriguez/Labo 7/manim_protonterapia/media/videos/protones/480p15/partial_movie_files/PicoBragg/c9e4d356345de1990b60de468baf59aecf6bc9565d66db6188398e86d5d4aaff.mp4'
+file 'file:C:/Users/Jessica Riback/Desktop/Labo 6y7 Basili-Rodriguez/Labo 7/manim_protonterapia/media/videos/protones/480p15/partial_movie_files/PicoBragg/9c5071d6daf0d4daf1f15f4b8a3cc20c9115494e3863240824c6b1ca74c9fa2e.mp4'
+file 'file:C:/Users/Jessica Riback/Desktop/Labo 6y7 Basili-Rodriguez/Labo 7/manim_protonterapia/media/videos/protones/480p15/partial_movie_files/PicoBragg/ed3c0a67009ec5e9d182b1e60cd12e5e42a4d42bbe7b8acd9d6236722e0a54e3.mp4'
