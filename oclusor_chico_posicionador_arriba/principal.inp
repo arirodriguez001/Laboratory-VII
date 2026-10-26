@@ -183,7 +183,7 @@ $ Planos de corte para definir el pouch (espesor 0.2 cm)
 202 pz 60.58
 201 pz 60.38
 
-$ Gel de ultrasonido de 0.1cm de altura total, 0.05 respecto pouch
+$ Gel de ultrasonido de 0.25cm de altura total, 0.05 respecto pouch
 4000 rpp -1.4685 1.7315  -1.750 1.750  60.33 60.58  
 
 $ Cinta scotch --> asumiendo grosor 0.005 cm respecto del pouch

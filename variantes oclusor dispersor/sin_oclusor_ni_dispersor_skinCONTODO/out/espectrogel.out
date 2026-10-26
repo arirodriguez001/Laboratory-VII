@@ -1,0 +1,76 @@
+[ T-Track ]
+    title = Espectro de protones en gel
+     mesh =  reg            # mesh type is region-wise
+      reg = 600
+   volume                   # combined, lattice or level structure 
+   non     reg      vol     # reg definition
+    1      600   1.0000E+00 # 600
+   e-type =    2            # e-mesh is linear given by emin, emax and ne
+     emin =   0.000000      # minimum value of e-mesh points
+     emax =   25.00000      # maximum value of e-mesh points
+#    edel =   1.250000      # mesh width of e-mesh points
+       ne =     20          # number of e-mesh points
+#    data = ( e(i), i = 1, ne + 1 )
+#           0.00000E+00  1.25000E+00  2.50000E+00  3.75000E+00  5.00000E+00
+#           6.25000E+00  7.50000E+00  8.75000E+00  1.00000E+01  1.12500E+01
+#           1.25000E+01  1.37500E+01  1.50000E+01  1.62500E+01  1.75000E+01
+#           1.87500E+01  2.00000E+01  2.12500E+01  2.25000E+01  2.37500E+01
+#           2.50000E+01
+     unit =    2            # unit is [1/cm^2/MeV/source]
+ material =  all            # (D=all) number of specific material
+     axis =     eng            # axis of output
+     file = ./out/espectrogel.out  # file name of output for the above axis
+     part =  proton   
+# kf/name :  2212     
+   epsout =    1            # (D=0) generate eps file by ANGEL
+#    used :        main (  %)        temp (  %)       total (  %)
+#  memory :          27 (  0)           0 (  0)          27 (  0)
+
+#------------------------------------------------------------------------------
+#newpage:
+#   no. =  1   reg =    600
+
+x: Energy [MeV]
+y: Flux [1/cm^2/MeV/source]          
+p: xlin ylog afac(0.8) form(0.9)
+h: n            x            y(proton  ),hh0l n  
+#  e-lower      e-upper        proton    r.err 
+   0.0000E+00   1.2500E+00   1.0496E+06  0.0249
+   1.2500E+00   2.5000E+00   2.2758E+06  0.0245
+   2.5000E+00   3.7500E+00   3.6445E+06  0.0228
+   3.7500E+00   5.0000E+00   6.0929E+06  0.0199
+   5.0000E+00   6.2500E+00   7.9364E+06  0.0193
+   6.2500E+00   7.5000E+00   9.6937E+06  0.0188
+   7.5000E+00   8.7500E+00   1.1415E+07  0.0182
+   8.7500E+00   1.0000E+01   1.2511E+07  0.0184
+   1.0000E+01   1.1250E+01   1.3126E+07  0.0188
+   1.1250E+01   1.2500E+01   1.3543E+07  0.0193
+   1.2500E+01   1.3750E+01   1.4385E+07  0.0189
+   1.3750E+01   1.5000E+01   1.7143E+07  0.0169
+   1.5000E+01   1.6250E+01   1.0106E+07  0.0214
+   1.6250E+01   1.7500E+01   0.0000E+00  0.0000
+   1.7500E+01   1.8750E+01   0.0000E+00  0.0000
+   1.8750E+01   2.0000E+01   0.0000E+00  0.0000
+   2.0000E+01   2.1250E+01   0.0000E+00  0.0000
+   2.1250E+01   2.2500E+01   0.0000E+00  0.0000
+   2.2500E+01   2.3750E+01   0.0000E+00  0.0000
+   2.3750E+01   2.5000E+01   0.0000E+00  0.0000
+
+#   sum over                 6.1461E+06  0.0155
+
+'no. =  1,  reg  =    600'
+msuc: {\huge Espectro de protones en gel}
+msdr: {\it plotted by \ANGEL \version}
+msdl: {\it calculated by \PHITS  3.35}
+wt: s(0.7)
+\vspace{-3}
+   vol  &=&   1.0000E+00 [cm^3]
+e:
+ 
+# Information for Restart Calculation
+# This calculation was newly started
+# istdev =  2 # 1:Batch variance, 2:History variance
+# resc2  = 4.00544249999867124E-06 # Total source weight or Total source weight / maxcas
+# resc3  = 2.50000000000000000E+04 # Total history number or Total batch number
+# maxcas =        5000 # History / Batch, only used for istdev=1
+# bitrseed = 0010111011011010101101101101010110110000111001100110110010111011 # bit data of rseed
