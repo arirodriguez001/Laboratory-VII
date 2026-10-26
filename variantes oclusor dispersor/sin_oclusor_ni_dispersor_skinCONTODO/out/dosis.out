@@ -1,10 +1,10 @@
 [ T-Deposit ]
     title = Dosis en region 700
      mesh =  reg            # mesh type is region-wise
-      reg = 700
+      reg = 510
    volume                   # combined, lattice or level structure 
    non     reg      vol     # reg definition
-    1      700   1.0053E+02 # 700
+    1      510   1.0000E+00 # 510
      unit =    0            # unit is [Gy/source]
    letmat =    0            # (D=0) mat ID for LET, 0:real mat, <0: electron for H2O
   dedxfnc =    0            # (D=0) user defined multiplier, 0(no), 1, 2
@@ -29,9 +29,9 @@ y: Dose [Gy/source]
 p: xlin ylog afac(0.8) form(0.9)
 h:   x      n     n          y(proton  ),l3 n   
 #  num    reg     volume       proton    r.err 
-    1     700   1.0053E+02   4.8395E-08  0.1512
+    1     510   1.0000E+00   8.9185E-01  0.0005
 
-#   sum over    1.0053E+02   4.8395E-08  0.1512
+#   sum over    1.0000E+00   8.9185E-01  0.0005
 
 'no. =  1'
 msuc: {\huge Dosis en region 700}
