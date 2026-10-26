@@ -144,7 +144,11 @@ file = ./out/dosisgel.out
 epsout = 1
 
 [T-Track]
+<<<<<<< HEAD
 title = Espectro de protones en pouch
+=======
+title = Espectro de protones en region
+>>>>>>> c8b2ba064f45794f15bb1986f9b22f1d5beac51c
 mesh = reg
 reg = 510
 part = proton

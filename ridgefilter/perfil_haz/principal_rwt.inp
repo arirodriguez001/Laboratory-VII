@@ -693,7 +693,7 @@ $ -----------------------------------------
 $ --- No olvides definir el volumen de tu nuevo Pouch ---
 
 
-[ T - T r a c k ]
+[ T - T r a c k ] off
 $ 1. Antes del segundo dispersor/oclusor. Centro: z = 33.94 cm.
 mesh = xyz
 x-type = 4
@@ -717,7 +717,7 @@ file = ./out/track_xy_antes_oclusor.out
 gshow = 1
 epsout = 1
 
-[ T - T r a c k ]
+[ T - T r a c k ] off
 $ 2. Despues del oclusor. Centro: z = 45.00 cm.
 mesh = xyz
 x-type = 4
@@ -741,7 +741,7 @@ file = ./out/track_xy_despues_oclusor.out
 gshow = 1
 epsout = 1
 
-[ T - T r a c k ]
+[ T - T r a c k ] off
 $ 3. Entre el oclusor y el pouch. Centro: z = 66.80 cm.
 mesh = xyz
 x-type = 4
@@ -765,7 +765,7 @@ file = ./out/track_xy_entre_oc_y_pouch.out
 gshow = 1
 epsout = 1
 
-[ T - T r a c k ]
+[ T - T r a c k ] off
 $ 4. Posicion intermedia. Centro: z = 80.00 cm.
 mesh = xyz
 x-type = 4
@@ -789,7 +789,7 @@ file = ./out/track_xy_antes_pouch.out
 gshow = 1
 epsout = 1
 
-[ T - T r a c k ]
+[ T - T r a c k ] off
 $ 5. Altura original del pouch. Centro: z = 98.48 cm.
 mesh = xyz
 x-type = 4
@@ -813,7 +813,7 @@ file = ./out/track_xy_pouch.out
 gshow = 1
 epsout = 1
 
-[ T - T r a c k ]
+[ T - T r a c k ] off
 $ 6. Justo antes del piso. Centro: z = 100.96 cm.
 mesh = xyz
 x-type = 4
@@ -837,11 +837,57 @@ file = ./out/track_xy_piso.out
 gshow = 1
 epsout = 1
 
+[ T - T r a c k ]
+mesh = xyz
+x-type = 4
+xdel = 0.3
+xmin = -10
+xmax = 10
+y-type = 4
+ydel = 0.3
+ymin = -15
+ymax = 15
+z-type = 1
+nz = 1
+109.99 110.1
+part = proton
+e-type = 1
+ne = 1
+0.0 1000.0
+unit = 1
+axis = xy
+file = ./out/track_xy_110.out
+gshow = 1
+epsout = 1
+
+[ T - T r a c k ]
+$ 6. Justo antes del piso. Centro: z = 100.96 cm.
+mesh = xyz
+x-type = 4
+xdel = 0.3
+xmin = -10
+xmax = 10
+y-type = 4
+ydel = 0.3
+ymin = -15
+ymax = 15
+z-type = 1
+nz = 1
+119.99 120.1
+part = proton
+e-type = 1
+ne = 1
+0.0 1000.0
+unit = 1
+axis = xy
+file = ./out/track_xy_120.out
+gshow = 1
+epsout = 1
 
 $$$$$$$$$$$$$$$$$$$44 mido espectro  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 
-[ T - T r a c k ]
+[ T - T r a c k ] off
 $ 1. Espectro antes del segundo dispersor/oclusor. z = 33.94 cm
 mesh = xyz
 x-type = 2
@@ -866,7 +912,7 @@ file = ./out/espectro_antes_oclusor.out
 epsout = 1
 
 
-[ T - T r a c k ]
+[ T - T r a c k ] off
 $ 2. Espectro despues del oclusor. z = 45.00 cm
 mesh = xyz
 x-type = 2
@@ -891,7 +937,7 @@ file = ./out/espectro_despues_oclusor.out
 epsout = 1
 
 
-[ T - T r a c k ]
+[ T - T r a c k ] off
 $ 3. Espectro entre el oclusor y el pouch. z = 66.80 cm
 mesh = xyz
 x-type = 2
@@ -915,7 +961,7 @@ axis = eng
 file = ./out/espectro_entre_oc_y_pouch.out
 epsout = 1
 
-[ T - T r a c k ]
+[ T - T r a c k ] off
 $ 4. Espectro en posicion intermedia. z = 80.00 cm
 mesh = xyz
 x-type = 2
@@ -940,7 +986,7 @@ file = ./out/espectro_antes_pouch.out
 epsout = 1
 
 
-[ T - T r a c k ]
+[ T - T r a c k ] off
 $ 5. Espectro a la altura original del pouch. z = 98.48 cm
 mesh = xyz
 x-type = 2
@@ -965,7 +1011,7 @@ file = ./out/espectro_pouch.out
 epsout = 1
 
 
-[ T - T r a c k ]
+[ T - T r a c k ] off
 $ 6. Espectro justo antes del piso. z = 100.96 cm
 mesh = xyz
 x-type = 2
@@ -987,6 +1033,53 @@ emax = 25.0
 unit = 2
 axis = eng
 file = ./out/espectro_piso.out
+epsout = 1
+
+[ T - T r a c k ]
+mesh = xyz
+x-type = 2
+nx = 1
+xmin = -5
+xmax = 5
+y-type = 2
+ny = 1
+ymin = -5
+ymax = 5
+z-type = 1
+nz = 1
+109.99 110.1
+part = proton
+e-type = 2
+ne = 100
+emin = 0.001
+emax = 25.0
+unit = 2
+axis = eng
+file = ./out/espectro_110.out
+epsout = 1
+
+
+[ T - T r a c k ]
+mesh = xyz
+x-type = 2
+nx = 1
+xmin = -5
+xmax = 5
+y-type = 2
+ny = 1
+ymin = -5
+ymax = 5
+z-type = 1
+nz = 1
+119.99 120.1
+part = proton
+e-type = 2
+ne = 100
+emin = 0.001
+emax = 25.0
+unit = 2
+axis = eng
+file = ./out/espectro_120.out
 epsout = 1
 
 [ E n d ]
