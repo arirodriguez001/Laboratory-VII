@@ -1,237 +1,241 @@
 from manim import *
 import numpy as np
+from PIL import Image, ImageFilter
 
-config.background_color = "#07101E"
+_original_fromarray = Image.fromarray
+
+def _compatible_fromarray(obj, mode=None):
+    arr = np.asarray(obj)
+    if mode == "RGBA" and arr.ndim == 2:
+        arr = np.zeros((arr.shape[0], arr.shape[1], 4), dtype=np.uint8)
+    return _original_fromarray(arr, mode=mode)
+
+Image.fromarray = _compatible_fromarray
+
+config.background_color = "#030914"
 config.frame_rate = 30
 
 
 class IntroProtonterapia(Scene):
     def construct(self):
-        rng = np.random.default_rng(2026)
-        W, H = config.frame_width, config.frame_height
-        azul = "#55CCFF"
-        cyan = "#7AE7EF"
-        dorado = "#FFD07A"
-        rojo = "#FF6378"
-        gris = "#AAB9CD"
-        self.camera.background_color = "#07101E"
+        self.rng = np.random.default_rng(20261029)
+        self.W = config.frame_width
+        self.H = config.frame_height
+        self.cyan = "#78E7F8"
+        self.gold = "#FFD38A"
+        self.red = "#FF6478"
+        self.fg = "#EEF7FF"
+        self.subtitle_bg = Rectangle(width=self.W, height=1.28, fill_color="#02050D", fill_opacity=0.96, stroke_width=0).move_to([0, -self.H / 2 + 0.64, 0]).set_z_index(100)
+        self.subtitle_line = Line([-self.W / 2, -self.H / 2 + 1.28, 0], [self.W / 2, -self.H / 2 + 1.28, 0], color="#32647C", stroke_width=1).set_z_index(101)
+        self.sub = VGroup()
+        self.add(self.subtitle_bg, self.subtitle_line)
+        self.cosmos()
+        self.acelerador()
+        self.pregunta()
+        self.terapia()
+        self.bragg()
+        self.argentina()
+        self.tandar()
 
-        banda = Rectangle(width=W, height=1.40, fill_color="#020711", fill_opacity=0.94, stroke_width=0)
-        banda.move_to([0, -H / 2 + 0.70, 0])
-        linea = Line([-W / 2, -H / 2 + 1.40, 0], [W / 2, -H / 2 + 1.40, 0], color="#365776", stroke_width=1)
-        subt = VGroup()
-        inicio_subtitulo = None
-        duracion_subtitulo = 0.0
-        VELOCIDAD_NARRACION = 2.55
-        self.add(banda, linea)
-        self.bring_to_front(banda, linea)
+    def caption(self, text):
+        if len(self.sub):
+            self.remove(self.sub)
+        words = text.split()
+        lines = []
+        line = ""
+        for word in words:
+            candidate = (line + " " + word).strip()
+            if len(candidate) > 65 and line:
+                lines.append(line)
+                line = word
+            else:
+                line = candidate
+        if line:
+            lines.append(line)
+        if len(lines) > 2:
+            mid = len(words) // 2
+            lines = [" ".join(words[:mid]), " ".join(words[mid:])]
+        self.sub = VGroup(*[Text(s, font="Arial", font_size=25, color=self.fg, weight=MEDIUM) for s in lines]).arrange(DOWN, buff=0.12)
+        self.sub.scale_to_fit_width(min(self.sub.width, self.W - 0.9))
+        self.sub.move_to([0, -self.H / 2 + 0.64, 0]).set_z_index(102)
+        self.add(self.sub)
+        return max(2.7, len(words) / 2.4 + 0.4)
 
-        def subtitulo(texto):
-            nonlocal subt, inicio_subtitulo, duracion_subtitulo
-            if inicio_subtitulo is not None:
-                transcurrido = self.time - inicio_subtitulo
-                if transcurrido < duracion_subtitulo:
-                    self.wait(duracion_subtitulo - transcurrido)
-            if len(subt):
-                self.remove(subt)
-            palabras = texto.split()
-            renglones = []
-            actual = ""
-            for palabra in palabras:
-                candidato = (actual + " " + palabra).strip()
-                if len(candidato) > 73 and actual:
-                    renglones.append(actual)
-                    actual = palabra
-                else:
-                    actual = candidato
-            if actual:
-                renglones.append(actual)
-            if len(renglones) > 2:
-                renglones = [" ".join(renglones[:2]), " ".join(renglones[2:])]
-            subt = VGroup(*[
-                Text(s, font="Arial", font_size=24, color=WHITE, weight=MEDIUM)
-                for s in renglones
-            ]).arrange(DOWN, buff=0.12)
-            if subt.width > W - 1.0:
-                subt.scale_to_fit_width(W - 1.0)
-            subt.move_to([0, -H / 2 + 0.70, 0])
-            self.add(subt)
-            self.bring_to_front(banda, linea, subt)
-            inicio_subtitulo = self.time
-            duracion_subtitulo = max(2.6, len(palabras) / VELOCIDAD_NARRACION + 0.5)
+    def heading(self, main, small=None):
+        a = Text(main, font="Arial", font_size=29, weight=BOLD, color=WHITE).to_edge(UP, buff=0.28)
+        if small:
+            b = Text(small, font="Arial", font_size=16, color="#A9C4D7").next_to(a, DOWN, buff=0.14)
+            return VGroup(a, b)
+        return VGroup(a)
 
-        def rotulo(titulo, descripcion=""):
-            a = Text(titulo, font="Arial", font_size=31, weight=BOLD, color=WHITE)
-            a.to_edge(UP, buff=0.40)
-            if descripcion:
-                b = Text(descripcion, font="Arial", font_size=17, color=gris)
-                b.next_to(a, DOWN, buff=0.12)
-                return VGroup(a, b)
-            return VGroup(a)
+    def cloud(self, points, color, stroke=2):
+        obj = PMobject(color=color, stroke_width=stroke)
+        obj.add_points(np.asarray(points, dtype=float))
+        return obj
 
-        def nube(n, ancho=12.5, alto=4.4, color=azul, radio=0.018):
-            puntos = np.column_stack((
-                rng.uniform(-ancho / 2, ancho / 2, n),
-                rng.uniform(-alto / 2, alto / 2, n) + 0.32,
-                np.zeros(n)
-            ))
-            return nube_puntos(points=puntos, color=color, radius=radio), puntos
+    def cosmic_texture(self, w=1000, h=540):
+        y, x = np.mgrid[0:h, 0:w]
+        a = np.zeros((h, w, 3), dtype=float)
+        a[:] = [3, 9, 20]
+        centers = [(0.23, 0.46, 0.30, 0.15, [18, 77, 155]), (0.62, 0.42, 0.25, 0.24, [87, 28, 130]), (0.52, 0.65, 0.33, 0.13, [28, 92, 137]), (0.81, 0.26, 0.17, 0.14, [109, 42, 78])]
+        for cx, cy, sx, sy, rgb in centers:
+            field = np.exp(-0.5 * (((x / w - cx) / sx) ** 2 + ((y / h - cy) / sy) ** 2))
+            noise = self.rng.uniform(0.55, 1.25, (h, w))
+            a += field[..., None] * noise[..., None] * np.array(rgb)
+        fine = self.rng.normal(0, 4.8, (h, w, 1))
+        a = np.clip(a + fine, 0, 255).astype(np.uint8)
+        image = Image.fromarray(a, "RGB").filter(ImageFilter.GaussianBlur(1.6))
+        return ImageMobject(np.array(image)).stretch_to_fit_width(self.W).stretch_to_fit_height(self.H)
 
-        def nube_puntos(points, color, radius):
-            return PMobject(stroke_width=max(1, int(radius * 150)), color=color).add_points(points)
+    def remove_scene(self, *objects):
+        self.play(*[FadeOut(o) for o in objects], run_time=0.65)
 
-        def actualizar_puntos(obj, puntos):
-            obj.points = np.asarray(puntos)
-            return obj
+    def cosmos(self):
+        back = self.cosmic_texture()
+        p = self.rng.uniform([-6.5, -2.9, 0], [6.5, 3.0, 0], (1050, 3))
+        stars = self.cloud(p, "#D8EBFF", 1)
+        dirs = self.rng.normal(size=(2300, 2))
+        dirs /= np.linalg.norm(dirs, axis=1)[:, None]
+        radius = self.rng.random(2300) ** 0.65
+        final = np.column_stack((dirs[:, 0] * radius * 6.15, dirs[:, 1] * radius * 2.45 + 0.18, np.zeros(2300)))
+        initial = final.copy()
+        initial[:, :2] *= 0.015
+        initial[:, 1] += 0.18
+        explosion = self.cloud(initial, self.gold, 2)
+        bright = VGroup(*[Circle(radius=r, stroke_color=self.gold, stroke_opacity=alpha, stroke_width=2).shift(UP * 0.18) for r, alpha in [(0.16, 0.7), (0.3, 0.4), (0.5, 0.18)]])
+        label = self.heading("DEL UNIVERSO A LA MATERIA")
+        duration = self.caption("Cuando pensamos en protones, quizás lo primero que se nos viene a la cabeza es el origen del universo,")
+        self.play(FadeIn(back), FadeIn(stars), FadeIn(explosion), FadeIn(bright), FadeIn(label), run_time=1.15)
+        val = ValueTracker(0)
+        explosion.add_updater(lambda m: m.set_points(initial + (final - initial) * val.get_value()))
+        self.play(val.animate.set_value(1), bright.animate.scale(5), run_time=duration - 1.15, rate_func=rush_from)
+        explosion.clear_updaters()
+        duration = self.caption("el Big Bang, la formación de estrellas o incluso los grandes aceleradores de partículas")
+        sun = Circle(radius=0.75, stroke_width=0, fill_color="#FFB85D", fill_opacity=1).shift(LEFT * 1.3 + UP * 0.2)
+        sun_glow = VGroup(*[Circle(radius=r, stroke_width=0, fill_color="#FF9F40", fill_opacity=op).move_to(sun) for r, op in [(1.0, 0.20), (1.27, 0.12), (1.58, 0.06)]])
+        surface = self.cloud(np.column_stack((self.rng.normal(-1.3, 0.58, 900), self.rng.normal(0.2, 0.58, 900), np.zeros(900))), self.gold, 2)
+        self.play(FadeOut(explosion), FadeOut(bright), FadeIn(sun_glow), FadeIn(sun), FadeIn(surface), run_time=1.5)
+        self.play(Rotate(surface, angle=0.4), sun.animate.scale(1.08), run_time=duration - 1.5)
+        self.remove_scene(surface, sun, sun_glow, stars, back, label)
 
-        # 1. Universo y expansion: visualizacion conceptual, no modelo cosmologico.
-        subtitulo("Cuando pensamos en protones, quizás lo primero que se nos viene a la cabeza es el origen del universo,")
-        n = 1800
-        direcciones = rng.normal(size=(n, 2))
-        direcciones /= np.linalg.norm(direcciones, axis=1)[:, None]
-        radios = rng.random(n) ** 0.65
-        destino = np.column_stack((direcciones[:, 0] * radios * 6.5, direcciones[:, 1] * radios * 2.6 + 0.25, np.zeros(n)))
-        origen = destino.copy()
-        origen[:, :2] *= 0.015
-        origen[:, 1] += 0.25
-        expansion = nube_puntos(points=origen, color=dorado, radius=0.015)
-        etiqueta = rotulo("DEL UNIVERSO A LA MATERIA")
-        self.play(FadeIn(etiqueta), FadeIn(expansion), run_time=0.65)
+    def acelerador(self):
+        dur = self.caption("que buscan entender los misterios de la materia.")
+        bg = Rectangle(width=self.W, height=self.H, fill_color="#081625", fill_opacity=1, stroke_width=0)
+        ring_shadow = Ellipse(width=10.4, height=4.3, color="#0A1925", stroke_width=45).shift(UP * 0.12)
+        ring_outer = Ellipse(width=10.4, height=4.3, color="#608DA4", stroke_width=10).shift(UP * 0.12)
+        ring_inner = Ellipse(width=9.85, height=3.76, color="#1F4255", stroke_width=17).shift(UP * 0.12)
+        beam_path = Ellipse(width=9.45, height=3.41, color=self.cyan, stroke_width=2.4).shift(UP * 0.12)
+        pieces = VGroup()
+        for theta in np.linspace(0, TAU, 24, endpoint=False):
+            pos = [5.13 * np.cos(theta), 2.12 * np.sin(theta) + 0.12, 0]
+            block = RoundedRectangle(width=0.75, height=0.35, corner_radius=0.06, stroke_color="#8BA7B6", stroke_width=1.5, fill_color="#28445B", fill_opacity=1).move_to(pos).rotate(theta)
+            pieces.add(block)
         t = ValueTracker(0)
-        expansion.add_updater(lambda m: actualizar_puntos(m, origen + (destino - origen) * t.get_value()))
-        self.play(t.animate.set_value(1), run_time=4.2, rate_func=rush_from)
-        expansion.clear_updaters()
-        self.wait(0.4)
+        theta = self.rng.uniform(0, TAU, 1200)
+        spread = self.rng.normal(1, 0.01, 1200)
+        points = np.column_stack((4.73 * spread * np.cos(theta), 1.71 * spread * np.sin(theta) + 0.12, np.zeros(1200)))
+        moving = self.cloud(points, self.cyan, 2)
+        moving.add_updater(lambda m: m.set_points(np.column_stack((4.73 * spread * np.cos(theta + t.get_value()), 1.71 * spread * np.sin(theta + t.get_value()) + 0.12, np.zeros(1200)))))
+        label = self.heading("ACELERADOR DE PARTÍCULAS", "Visualización ilustrativa de un anillo acelerador")
+        self.play(FadeIn(bg), FadeIn(ring_shadow), Create(ring_outer), Create(ring_inner), FadeIn(pieces), Create(beam_path), FadeIn(label), FadeIn(moving), run_time=1.4)
+        self.play(t.animate.set_value(5 * TAU), run_time=max(dur - 1.4, 2.5), rate_func=linear)
+        moving.clear_updaters()
+        self.remove_scene(bg, ring_shadow, ring_outer, ring_inner, pieces, beam_path, label, moving)
 
-        subtitulo("el Big Bang, la formación de estrellas o incluso los grandes aceleradores de partículas")
-        self.play(FadeOut(expansion), run_time=0.45)
-        fondo, _ = nube(1050, color="#5380B4", radio=0.008)
-        estrella = Circle(radius=0.85, stroke_color=dorado, stroke_width=3, fill_color="#F7A83F", fill_opacity=0.27).shift(UP * 0.25)
-        halo = Circle(radius=1.26, stroke_color=dorado, stroke_width=2, stroke_opacity=0.28).shift(UP * 0.25)
-        self.play(FadeIn(fondo), Create(halo), FadeIn(estrella), run_time=1.8)
-        self.play(estrella.animate.scale(1.07), halo.animate.scale(1.09), run_time=1.3)
-        self.play(FadeOut(Group(fondo, estrella, halo, etiqueta)), run_time=0.55)
+    def pregunta(self):
+        dur = self.caption("Pero ¿y si les dijéramos que estas mismas partículas también pueden utilizarse para combatir el cáncer?")
+        background = self.cosmic_texture()
+        title = Text("¿Y SI PUDIERAN", font="Arial", color=WHITE, weight=BOLD, font_size=42)
+        title2 = Text("COMBATIR EL CÁNCER?", font="Arial", color=self.cyan, weight=BOLD, font_size=42)
+        group = VGroup(title, title2).arrange(DOWN, buff=0.24).move_to(UP * 0.4)
+        underline = Line(LEFT * 3.2, RIGHT * 3.2, color=self.cyan, stroke_width=3).next_to(group, DOWN, buff=0.38)
+        self.play(FadeIn(background), FadeIn(group, shift=UP * 0.3), Create(underline), run_time=1.6)
+        self.wait(max(0, dur - 1.6))
+        self.remove_scene(group, underline, background)
 
-        # 2. Acelerador: anillo esquematico de alta densidad de particulas.
-        subtitulo("que buscan entender los misterios de la materia.")
-        titulo_acc = rotulo("ACELERADORES DE PARTÍCULAS", "Representación esquemática")
-        anillo = Ellipse(width=8.8, height=3.6, color="#3E718E", stroke_width=7).shift(UP * 0.30)
-        guia = Ellipse(width=8.1, height=2.9, color="#78B9D4", stroke_width=1.4).shift(UP * 0.30)
-        bloques = VGroup()
-        for ang in np.linspace(0, TAU, 16, endpoint=False):
-            x, y = 4.37 * np.cos(ang), 1.78 * np.sin(ang) + 0.30
-            bloques.add(RoundedRectangle(corner_radius=0.08, width=0.42, height=0.24, fill_color="#346078", fill_opacity=1, stroke_width=0).move_to([x, y, 0]).rotate(ang))
-        angs = rng.uniform(0, TAU, 850)
-        r = rng.normal(1, 0.025, 850)
-        puntos = np.column_stack((4.0 * r * np.cos(angs), 1.43 * r * np.sin(angs) + 0.30, np.zeros(850)))
-        haz_circular = nube_puntos(points=puntos, color=cyan, radius=0.012)
-        giro = ValueTracker(0)
-        haz_circular.add_updater(lambda m: actualizar_puntos(m, np.column_stack((
-            4.0 * r * np.cos(angs + giro.get_value()),
-            1.43 * r * np.sin(angs + giro.get_value()) + 0.30,
-            np.zeros(850)
-        ))))
-        self.play(FadeIn(titulo_acc), Create(anillo), Create(guia), FadeIn(bloques), FadeIn(haz_circular), run_time=1.1)
-        self.play(giro.animate.set_value(3 * TAU), run_time=3.5, rate_func=linear)
-        haz_circular.clear_updaters()
-        self.play(FadeOut(Group(titulo_acc, anillo, guia, bloques, haz_circular)), run_time=0.6)
+    def terapia(self):
+        a = self.caption("Aunque parezca sorprendente, los protones tienen una propiedad física muy particular:")
+        back = Rectangle(width=self.W, height=self.H, fill_color="#08121D", fill_opacity=1, stroke_width=0)
+        texture = np.asarray(self.cosmic_texture().pixel_array).copy()
+        texture[:, :, 0] = (texture[:, :, 0] * 0.3).astype(np.uint8)
+        tissue_img = ImageMobject(texture).stretch_to_fit_width(10.3).stretch_to_fit_height(3.6).shift(UP * 0.3)
+        tissue_img.set_opacity(0.38)
+        outline = RoundedRectangle(width=10.5, height=3.6, corner_radius=0.28, fill_opacity=0, stroke_color="#5B9AB9", stroke_width=2).shift(UP * 0.3)
+        target = Ellipse(width=1.9, height=1.62, stroke_color="#FF8B9C", stroke_width=3, fill_color="#8D2437", fill_opacity=0.65).move_to([2.45, 0.3, 0])
+        core = Ellipse(width=1.1, height=1.0, stroke_width=0, fill_color="#E44A63", fill_opacity=0.25).move_to(target)
+        micro = self.cloud(np.column_stack((self.rng.normal(2.45, 0.42, 300), self.rng.normal(0.3, 0.33, 300), np.zeros(300))), "#FC9B9C", 1)
+        heading = self.heading("PROTONES Y TEJIDO", "Representación conceptual del depósito de energía")
+        proton_start = self.rng.uniform(-5.0, -4.65, 900)
+        yp = self.rng.normal(0.3, 0.17, 900)
+        proton = self.cloud(np.column_stack((proton_start, yp, np.zeros(900))), self.cyan, 2)
+        self.play(FadeIn(back), FadeIn(tissue_img), Create(outline), FadeIn(target), FadeIn(core), FadeIn(micro), FadeIn(heading), FadeIn(proton), run_time=1.5)
+        self.wait(max(0, a - 1.5))
+        b = self.caption("podemos aprovechar la forma en que depositan su energía en los materiales para irradiar un tumor")
+        progress = ValueTracker(0)
+        xbegin, xend = -5.0, 2.4
+        angle_noise = self.rng.normal(0, 0.19, 900)
+        phase = self.rng.random(900) * 0.65
+        proton.add_updater(lambda m: m.set_points(np.column_stack((np.minimum(xend, xbegin + (xend - xbegin) * np.minimum(1, np.maximum(0, progress.get_value() - phase))), yp + angle_noise * np.maximum(0, progress.get_value() - phase), np.zeros(900)))))
+        xdep = np.concatenate((self.rng.uniform(-5.0, 1.55, 500), self.rng.normal(2.12, 0.32, 1550)))
+        xdep = np.clip(xdep, -5.0, 2.55)
+        ydep = self.rng.normal(0.3, 0.4, len(xdep))
+        deposited = self.cloud(np.column_stack((xdep, ydep, np.zeros(len(xdep)))), self.gold, 2)
+        deposited.set_opacity(0)
+        self.add(deposited)
+        self.play(progress.animate.set_value(1.8), deposited.animate.set_opacity(0.88), run_time=b, rate_func=linear)
+        proton.clear_updaters()
+        c = self.caption("y reducir el daño a los tejidos sanos que lo rodean.")
+        self.play(Indicate(target, color=self.red, scale_factor=1.1), run_time=1.4)
+        self.wait(max(0, c - 1.4))
+        self.remove_scene(back, tissue_img, outline, target, core, micro, heading, proton, deposited)
 
-        # 3. Giro narrativo a radioterapia.
-        subtitulo("Pero ¿y si les dijéramos que estas mismas partículas también pueden utilizarse para combatir el cáncer?")
-        pregunta = Text("¿Y SI PUDIERAN COMBATIR EL CÁNCER?", font="Arial", font_size=36, weight=BOLD, color=WHITE).shift(UP * 0.6)
-        bajo = Text("De la física fundamental a la medicina", font="Arial", font_size=22, color=cyan).next_to(pregunta, DOWN, buff=0.3)
-        self.play(Write(pregunta), FadeIn(bajo, shift=UP * 0.1), run_time=2.2)
-        self.wait(1.0)
-        self.play(FadeOut(Group(pregunta, bajo)), run_time=0.5)
+    def bragg(self):
+        duration = self.caption("Esta técnica se conoce como protonterapia.")
+        title = Text("PROTONTERAPIA", font="Arial", font_size=55, color=WHITE, weight=BOLD).shift(UP * 2.15)
+        axes = Axes(x_range=[0, 10, 2], y_range=[0, 1.25, 0.25], x_length=9.65, y_length=2.95, tips=False, axis_config={"color": "#90B2C7", "stroke_width": 2}).shift(DOWN * 0.22)
+        f = lambda x: (0.14 + 0.1 * x / 10 + 0.82 * np.exp(-0.5 * ((x - 7.55) / 0.39) ** 2)) if x < 8.55 else 0.012
+        curve = axes.plot(f, x_range=[0, 9.9, 0.025], color=self.gold, stroke_width=5, use_smoothing=False)
+        glow = axes.plot(f, x_range=[0, 9.9, 0.025], color="#E88E39", stroke_width=13, stroke_opacity=0.23, use_smoothing=False)
+        xt = Text("Profundidad", font="Arial", font_size=18, color="#C0D3DF").next_to(axes, DOWN, buff=0.12)
+        yt = Text("Dosis", font="Arial", font_size=18, color="#C0D3DF").next_to(axes, LEFT, buff=0.08)
+        peak = Dot(axes.c2p(7.55, f(7.55)), radius=0.09, color=self.red)
+        text_peak = Text("Pico de Bragg", font="Arial", font_size=22, color=self.red).next_to(peak, UR, buff=0.16)
+        self.play(FadeIn(title), Create(axes), FadeIn(xt), FadeIn(yt), run_time=0.8)
+        self.play(Create(glow), Create(curve), run_time=max(2.0, duration - 1.6))
+        self.play(FadeIn(peak), FadeIn(text_peak), run_time=0.8)
+        self.remove_scene(title, axes, xt, yt, curve, glow, peak, text_peak)
 
-        # 4. Tejido, tumor y deposicion con maximo cerca del fin de alcance.
-        subtitulo("Aunque parezca sorprendente, los protones tienen una propiedad física muy particular:")
-        titulo_tejido = rotulo("ENERGÍA DEPOSITADA EN EL TEJIDO", "Modelo conceptual de un haz de protones")
-        tejido = RoundedRectangle(width=10.6, height=2.55, corner_radius=0.16, stroke_color="#5D98BB", stroke_width=2, fill_color="#1C455B", fill_opacity=0.49).shift(UP * 0.58)
-        tumor = Ellipse(width=1.65, height=1.45, stroke_color=rojo, stroke_width=3, fill_color=rojo, fill_opacity=0.22).move_to([2.20, 0.58, 0])
-        etiqueta_tumor = Text("TUMOR", font="Arial", font_size=18, weight=BOLD, color="#FF91A0").move_to(tumor)
-        zona = Text("Tejido sano", font="Arial", font_size=18, color="#9FD5EA").move_to([-2.7, 1.46, 0])
-        entrada = Arrow(start=[-6.2, 0.58, 0], end=[-5.28, 0.58, 0], color=cyan, buff=0, stroke_width=5)
-        self.play(FadeIn(titulo_tejido), FadeIn(tejido), FadeIn(tumor), FadeIn(etiqueta_tumor), FadeIn(zona), GrowArrow(entrada), run_time=1.1)
-        x0, x1 = -5.25, 2.30
-        dens = 1700
-        xx = rng.uniform(x0, x1, dens)
-        yy = rng.normal(0.58, 0.27, dens)
-        # El muestreo destaca la zona de mayor deposicion cerca del tumor.
-        p = 0.20 + 2.5 * np.exp(-0.5 * ((xx - 2.05) / 0.48) ** 2)
-        mascara = rng.random(dens) < p / 2.7
-        energia_pts = np.column_stack((xx[mascara], yy[mascara], np.zeros(mascara.sum())))
-        depositos = nube_puntos(points=energia_pts, color=dorado, radius=0.021)
-        delante = nube_puntos(points=np.column_stack((rng.uniform(-5.5, -5.15, 420), rng.normal(0.58, 0.14, 420), np.zeros(420))), color=cyan, radius=0.012)
-        self.play(FadeIn(delante), run_time=0.35)
-        subtitulo("podemos aprovechar la forma en que depositan su energía en los materiales para irradiar un tumor")
-        trayectoria = ValueTracker(x0)
-        base = rng.uniform(x0, x1, 1150)
-        offsets = rng.normal(0, 0.18, 1150)
-        moviles = nube_puntos(points=np.column_stack((base, offsets + 0.58, np.zeros(len(base)))), color=cyan, radius=0.010)
-        moviles.add_updater(lambda m: actualizar_puntos(m, np.column_stack((
-            np.minimum(x1, x0 + np.mod(base - x0 + (trayectoria.get_value() - x0) * 2.3, x1 - x0)),
-            offsets + 0.58,
-            np.zeros(len(base))
-        ))))
-        self.play(FadeIn(moviles), trayectoria.animate.set_value(x1), FadeIn(depositos), run_time=4.0, rate_func=linear)
-        moviles.clear_updaters()
-        subtitulo("y reducir el daño a los tejidos sanos que lo rodean.")
-        self.play(Indicate(tumor, color=rojo, scale_factor=1.05), run_time=0.8)
-        self.wait(0.5)
-        self.play(FadeOut(Group(titulo_tejido, tejido, tumor, etiqueta_tumor, zona, entrada, delante, depositos, moviles)), run_time=0.5)
+    def argentina(self):
+        d1 = self.caption("Y Argentina también está dando pasos importantes en este campo.")
+        backdrop = self.cosmic_texture()
+        location = Text("ARGENTINA", font="Arial", font_size=30, weight=BOLD, color=self.cyan).shift(UP * 1.75)
+        name = Text("CeArP", font="Arial", font_size=87, weight=BOLD, color=WHITE).shift(UP * 0.55)
+        expansion = Text("CENTRO ARGENTINO DE PROTONTERAPIA", font="Arial", font_size=24, color="#CCDDEA").next_to(name, DOWN, buff=0.22)
+        strip = Line(LEFT * 3.8, RIGHT * 3.8, color=self.cyan, stroke_width=2.8).next_to(expansion, DOWN, buff=0.32)
+        self.play(FadeIn(backdrop), FadeIn(location), FadeIn(name, shift=UP * 0.18), FadeIn(expansion), Create(strip), run_time=1.6)
+        self.wait(max(0, d1 - 1.6))
+        d2 = self.caption("Con la construcción del Centro Argentino de Protonterapia (CeArP), el primero de su tipo en Latinoamérica,")
+        self.wait(d2)
+        d3 = self.caption("se abre una nueva etapa para el tratamiento del cáncer en nuestro país.")
+        self.wait(d3)
+        self.remove_scene(backdrop, location, name, expansion, strip)
 
-        # 5. Pico de Bragg: curva cualitativa, no calculo dosimetrico.
-        subtitulo("Esta técnica se conoce como protonterapia.")
-        gran_titulo = Text("PROTONTERAPIA", font="Arial", font_size=55, weight=BOLD, color=WHITE).shift(UP * 1.65)
-        axes = Axes(x_range=[0, 10, 2], y_range=[0, 1.25, 0.25], x_length=9.3, y_length=2.65, tips=False, axis_config={"color": "#88A9BE", "stroke_width": 2}).shift(DOWN * 0.25)
-        funcion = lambda x: 0.14 + 0.11 * (x / 10) + 0.80 * np.exp(-0.5 * ((x - 7.7) / 0.39) ** 2) if x <= 8.55 else 0.012
-        curva = axes.plot(funcion, x_range=[0, 9.6, 0.025], color=dorado, stroke_width=5, use_smoothing=False)
-        eje_x = Text("Profundidad", font="Arial", font_size=18, color=gris).next_to(axes, DOWN, buff=0.15)
-        eje_y = Text("Dosis", font="Arial", font_size=18, color=gris).next_to(axes, LEFT, buff=0.10)
-        pico = Dot(axes.c2p(7.7, funcion(7.7)), radius=0.08, color=rojo)
-        anotacion = Text("Pico de Bragg", font="Arial", font_size=22, color=rojo).next_to(pico, UR, buff=0.15)
-        pie = Text("Curva ilustrativa: no representa un cálculo de dosis clínico", font="Arial", font_size=14, color=gris).next_to(eje_x, DOWN, buff=0.12)
-        self.play(FadeIn(gran_titulo, shift=UP * 0.2), Create(axes), FadeIn(eje_x), FadeIn(eje_y), run_time=0.9)
-        self.play(Create(curva), run_time=2.5)
-        self.play(FadeIn(pico), FadeIn(anotacion), FadeIn(pie), run_time=0.5)
-        self.wait(0.65)
-        self.play(FadeOut(Group(gran_titulo, axes, eje_x, eje_y, curva, pico, anotacion, pie)), run_time=0.6)
-
-        # 6. Argentina y CeArP: grafica editorial, sin mapa geografico inventado.
-        subtitulo("Y Argentina también está dando pasos importantes en este campo.")
-        superior = Text("ARGENTINA", font="Arial", font_size=27, weight=BOLD, color=cyan).shift(UP * 1.55)
-        cearp = Text("CeArP", font="Arial", font_size=74, weight=BOLD, color=WHITE).shift(UP * 0.45)
-        subt_cearp = Text("Centro Argentino de Protonterapia", font="Arial", font_size=25, color=gris).next_to(cearp, DOWN, buff=0.28)
-        linea_acento = Line(LEFT * 2.4, RIGHT * 2.4, stroke_width=3, color=cyan).next_to(subt_cearp, DOWN, buff=0.28)
-        self.play(FadeIn(superior), FadeIn(cearp, shift=UP * 0.1), FadeIn(subt_cearp), Create(linea_acento), run_time=1.8)
-        subtitulo("Con la construcción del Centro Argentino de Protonterapia (CeArP), el primero de su tipo en Latinoamérica,")
-        self.wait(2.35)
-        subtitulo("se abre una nueva etapa para el tratamiento del cáncer en nuestro país.")
-        self.wait(1.65)
-        self.play(FadeOut(Group(superior, cearp, subt_cearp, linea_acento)), run_time=0.5)
-
-        # 7. Investigacion: del acelerador al blanco biologico.
-        subtitulo("En paralelo, distintos grupos de investigación están trabajando para estudiar los efectos de los protones")
-        titulo_tandar = rotulo("INVESTIGACIÓN EN ARGENTINA", "Acelerador TANDAR · CNEA")
-        fuente = RoundedRectangle(width=2.7, height=0.8, corner_radius=0.12, stroke_color=cyan, stroke_width=2, fill_color="#123748", fill_opacity=1).move_to([0, 2.05, 0])
-        fuente_txt = Text("Haz de protones", font="Arial", font_size=19, color=WHITE).move_to(fuente)
-        muestra = RoundedRectangle(width=2.45, height=0.45, corner_radius=0.08, stroke_color=rojo, stroke_width=2, fill_color=rojo, fill_opacity=0.22).move_to([0, -1.27, 0])
-        muestra_txt = Text("Modelo biológico", font="Arial", font_size=18, color=WHITE).next_to(muestra, DOWN, buff=0.15)
-        haz = VGroup(*[Line([x, 1.6, 0], [x + rng.normal(0, 0.035), -1.05, 0], stroke_width=1.2, color=cyan, stroke_opacity=0.28) for x in np.linspace(-0.62, 0.62, 75)])
-        puntos_irr = nube_puntos(points=np.column_stack((rng.normal(0, 0.49, 1000), rng.uniform(-0.85, 1.4, 1000), np.zeros(1000))), color=cyan, radius=0.009)
-        self.play(FadeIn(titulo_tandar), FadeIn(fuente), FadeIn(fuente_txt), FadeIn(muestra), FadeIn(muestra_txt), Create(haz), FadeIn(puntos_irr), run_time=2.0)
-        self.wait(1.3)
-        subtitulo("y desarrollar nuevas estrategias de irradiación.")
-        self.play(Indicate(muestra, color=rojo), run_time=0.9)
-        self.wait(0.4)
-        subtitulo("Y es justamente en una de estas investigaciones donde comienza nuestro trabajo.")
-        titulo_final = Text("NUESTRO TRABAJO", font="Arial", font_size=40, weight=BOLD, color=WHITE).move_to([3.85, 0.05, 0])
-        self.play(FadeIn(titulo_final, shift=UP * 0.1), run_time=0.55)
-        self.wait(2.3)
-        self.play(FadeOut(Group(titulo_tandar, fuente, fuente_txt, muestra, muestra_txt, haz, puntos_irr, titulo_final)), run_time=0.7)
-        self.wait(0.2)
-        if inicio_subtitulo is not None:
-            restante = duracion_subtitulo - (self.time - inicio_subtitulo)
-            if restante > 0:
-                self.wait(restante)
+    def tandar(self):
+        d1 = self.caption("En paralelo, distintos grupos de investigación están trabajando para estudiar los efectos de los protones")
+        title = self.heading("INVESTIGACIÓN EN ARGENTINA", "Acelerador TANDAR · Comisión Nacional de Energía Atómica")
+        source = RoundedRectangle(width=3.0, height=0.7, corner_radius=0.1, fill_color="#25495C", fill_opacity=1, stroke_color=self.cyan, stroke_width=2).move_to([0, 2.03, 0])
+        source_text = Text("Haz vertical de protones", font="Arial", font_size=18, color=WHITE).move_to(source)
+        modules = VGroup(*[RoundedRectangle(width=1.3, height=0.15, corner_radius=0.03, fill_color="#6F8D98", fill_opacity=1, stroke_color="#AEC7D2", stroke_width=1).move_to([0, y, 0]) for y in [1.25, 0.4, -0.45]])
+        target = RoundedRectangle(width=3.4, height=0.38, corner_radius=0.06, fill_color="#B94358", fill_opacity=0.5, stroke_color=self.red, stroke_width=2).move_to([0, -1.15, 0])
+        target_text = Text("Modelo experimental", font="Arial", font_size=20, color=WHITE).next_to(target, DOWN, buff=0.18)
+        beam = self.cloud(np.column_stack((self.rng.normal(0, 0.46, 1600), self.rng.uniform(-1.08, 1.75, 1600), np.zeros(1600))), self.cyan, 2)
+        self.play(FadeIn(title), FadeIn(source), FadeIn(source_text), FadeIn(modules), FadeIn(target), FadeIn(target_text), FadeIn(beam), run_time=1.7)
+        self.wait(max(0, d1 - 1.7))
+        d2 = self.caption("y desarrollar nuevas estrategias de irradiación.")
+        self.play(Indicate(target, color=self.red, scale_factor=1.04), run_time=1.2)
+        self.wait(max(0, d2 - 1.2))
+        d3 = self.caption("Y es justamente en una de estas investigaciones donde comienza nuestro trabajo.")
+        name = Text("NUESTRO TRABAJO", font="Arial", font_size=38, weight=BOLD, color=WHITE).move_to([3.75, 0, 0])
+        self.play(FadeIn(name, shift=UP * 0.15), run_time=0.9)
+        self.wait(max(0, d3 - 0.9))
+        self.remove_scene(title, source, source_text, modules, target, target_text, beam, name)
