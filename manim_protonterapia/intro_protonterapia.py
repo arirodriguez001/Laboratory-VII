@@ -87,11 +87,28 @@ class IntroProtonterapia(Scene):
         image = Image.fromarray(a, "RGB").filter(ImageFilter.GaussianBlur(1.6))
         return ImageMobject(np.array(image)).stretch_to_fit_width(self.W).stretch_to_fit_height(self.H)
 
+    def moving_tones(self, image):
+        base = np.asarray(image.pixel_array).copy()
+        if base.shape[-1] == 4:
+            rgb = base[:, :, :3].astype(np.float32)
+        else:
+            rgb = base.astype(np.float32)
+        altered = rgb.copy()
+        altered[:, :, 0] = np.clip(rgb[:, :, 0] * 1.16 + rgb[:, :, 2] * 0.05, 0, 255)
+        altered[:, :, 1] = np.clip(rgb[:, :, 1] * 0.93 + 7, 0, 255)
+        altered[:, :, 2] = np.clip(rgb[:, :, 2] * 1.10 + 9, 0, 255)
+        layer = ImageMobject(altered.astype(np.uint8))
+        layer.stretch_to_fit_width(self.W).stretch_to_fit_height(self.H)
+        layer.set_opacity(0.0)
+        return layer
+
     def remove_scene(self, *objects):
-        self.play(*[FadeOut(o) for o in objects], run_time=0.65)
+        self.play(*[FadeOut(o) for o in objects], run_time=1.45)
 
     def cosmos(self):
         back = self.cosmic_texture()
+        tones = self.moving_tones(back)
+        self.add(tones)
         p = self.rng.uniform([-6.5, -2.9, 0], [6.5, 3.0, 0], (1050, 3))
         stars = self.cloud(p, "#D8EBFF", 1)
         dirs = self.rng.normal(size=(2300, 2))
@@ -108,15 +125,15 @@ class IntroProtonterapia(Scene):
         self.play(FadeIn(back), FadeIn(stars), FadeIn(explosion), FadeIn(bright), FadeIn(label), run_time=1.15)
         val = ValueTracker(0)
         explosion.add_updater(lambda m: m.set_points(initial + (final - initial) * val.get_value()))
-        self.play(val.animate.set_value(1), bright.animate.scale(5), run_time=duration - 1.15, rate_func=rush_from)
+        self.play(val.animate.set_value(1), bright.animate.scale(5), tones.animate.set_opacity(0.36), run_time=duration - 1.15, rate_func=smooth)
         explosion.clear_updaters()
         duration = self.caption("el Big Bang, la formación de estrellas o incluso los grandes aceleradores de partículas")
         sun = Circle(radius=0.75, stroke_width=0, fill_color="#FFB85D", fill_opacity=1).shift(LEFT * 1.3 + UP * 0.2)
         sun_glow = VGroup(*[Circle(radius=r, stroke_width=0, fill_color="#FF9F40", fill_opacity=op).move_to(sun) for r, op in [(1.0, 0.20), (1.27, 0.12), (1.58, 0.06)]])
         surface = self.cloud(np.column_stack((self.rng.normal(-1.3, 0.58, 900), self.rng.normal(0.2, 0.58, 900), np.zeros(900))), self.gold, 2)
         self.play(FadeOut(explosion), FadeOut(bright), FadeIn(sun_glow), FadeIn(sun), FadeIn(surface), run_time=1.5)
-        self.play(Rotate(surface, angle=0.4), sun.animate.scale(1.08), run_time=duration - 1.5)
-        self.remove_scene(surface, sun, sun_glow, stars, back, label)
+        self.play(Rotate(surface, angle=0.4), sun.animate.scale(1.08), tones.animate.set_opacity(0.10), run_time=duration - 1.5, rate_func=smooth)
+        self.remove_scene(surface, sun, sun_glow, stars, tones, back, label)
 
     def acelerador(self):
         dur = self.caption("que buscan entender los misterios de la materia.")
@@ -145,13 +162,15 @@ class IntroProtonterapia(Scene):
     def pregunta(self):
         dur = self.caption("Pero ¿y si les dijéramos que estas mismas partículas también pueden utilizarse para combatir el cáncer?")
         background = self.cosmic_texture()
+        tones = self.moving_tones(background)
+        self.add(tones)
         title = Text("¿Y SI PUDIERAN", font="Arial", color=WHITE, weight=BOLD, font_size=42)
         title2 = Text("COMBATIR EL CÁNCER?", font="Arial", color=self.cyan, weight=BOLD, font_size=42)
         group = VGroup(title, title2).arrange(DOWN, buff=0.24).move_to(UP * 0.4)
         underline = Line(LEFT * 3.2, RIGHT * 3.2, color=self.cyan, stroke_width=3).next_to(group, DOWN, buff=0.38)
         self.play(FadeIn(background), FadeIn(group, shift=UP * 0.3), Create(underline), run_time=1.6)
-        self.wait(max(0, dur - 1.6))
-        self.remove_scene(group, underline, background)
+        self.play(tones.animate.set_opacity(0.30), run_time=max(1.4, dur - 1.6), rate_func=smooth)
+        self.remove_scene(group, underline, tones, background)
 
     def terapia(self):
         a = self.caption("Aunque parezca sorprendente, los protones tienen una propiedad física muy particular:")
@@ -208,17 +227,19 @@ class IntroProtonterapia(Scene):
     def argentina(self):
         d1 = self.caption("Y Argentina también está dando pasos importantes en este campo.")
         backdrop = self.cosmic_texture()
+        tones = self.moving_tones(backdrop)
+        self.add(tones)
         location = Text("ARGENTINA", font="Arial", font_size=30, weight=BOLD, color=self.cyan).shift(UP * 1.75)
         name = Text("CeArP", font="Arial", font_size=87, weight=BOLD, color=WHITE).shift(UP * 0.55)
         expansion = Text("CENTRO ARGENTINO DE PROTONTERAPIA", font="Arial", font_size=24, color="#CCDDEA").next_to(name, DOWN, buff=0.22)
         strip = Line(LEFT * 3.8, RIGHT * 3.8, color=self.cyan, stroke_width=2.8).next_to(expansion, DOWN, buff=0.32)
         self.play(FadeIn(backdrop), FadeIn(location), FadeIn(name, shift=UP * 0.18), FadeIn(expansion), Create(strip), run_time=1.6)
-        self.wait(max(0, d1 - 1.6))
+        self.play(tones.animate.set_opacity(0.28), run_time=max(1.3, d1 - 1.6), rate_func=smooth)
         d2 = self.caption("Con la construcción del Centro Argentino de Protonterapia (CeArP), el primero de su tipo en Latinoamérica,")
-        self.wait(d2)
+        self.play(tones.animate.set_opacity(0.08), run_time=d2, rate_func=smooth)
         d3 = self.caption("se abre una nueva etapa para el tratamiento del cáncer en nuestro país.")
-        self.wait(d3)
-        self.remove_scene(backdrop, location, name, expansion, strip)
+        self.play(tones.animate.set_opacity(0.27), run_time=d3, rate_func=smooth)
+        self.remove_scene(backdrop, tones, location, name, expansion, strip)
 
     def tandar(self):
         d1 = self.caption("En paralelo, distintos grupos de investigación están trabajando para estudiar los efectos de los protones")
