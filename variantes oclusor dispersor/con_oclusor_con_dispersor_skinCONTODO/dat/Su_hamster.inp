@@ -1,0 +1,7 @@
+$[ S u r f a c e ]
+
+$ Hamster elipsoidal centrado y apoyado en el hueco 3100
+$ 5000 ell -8.2035 0.006 60.08 6.0 0.0 0.0 2.0                 $ xo, yo, zo, log del semieje en x, long del semieje en y, long del semieje en z.
+
+$ Hamster centrado en el hueco y apoyado sobre la base
+5000 90 ell -7.5 0.006 60.75  6.0 0.0 0.0  -2.0
