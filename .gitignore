@@ -84,6 +84,9 @@
 !manim_protonterapia/
 !manim_protonterapia/**
 
+!new-ridgefilter/
+!new-ridgefilter/**
+
 # Permitir archivos importantes
 !.gitignore
 !README.md
