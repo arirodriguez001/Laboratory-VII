@@ -243,7 +243,7 @@ infl:{./dat/Ce_ridge_filter_9.inp}
 $ Pouch
 510 16 -1.0  -100  201  -202 #6006 #6005 #6004 #800 
 
-$ Gel ultrasonido
+$polyurethane
 600 %polyurethane% -1.0  -4000 #510 #700 #800 #6006 #6005 #6004 #9000 #9001 #9002 #9003
  
 $ Cinta scotch
