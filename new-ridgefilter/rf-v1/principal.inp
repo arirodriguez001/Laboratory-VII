@@ -6,11 +6,11 @@ Vertical external proton beam - modular input
 
 [ Parameters ]
 $file(1) = /share/gidans/sebastiangossio/Programas/PIHTS-IFORT/phits   
-file(1)=c:/phits2
+$file(1)=c:/phits
 
 icntl	= 0 $0: transport	5: source	8: 2D geometry	11: 3D geometry	14: volume	16: script mode	17: Anatally mode
-maxcas	= 5000 $ (D=10) number of particles per one batch
-maxbch	= 10000 $ (D=10) number of batches
+maxcas	= 9000 $ (D=10) number of particles per one batch
+maxbch	= 90000 $ (D=10) number of batches
 istdev	= 2 $Statistical uncertainties estimated from the standard error of: 1=each batch result. 2=each history result.
 nspred	= 2 $2= Coulomb diﬀusion by the Lynch’s formula based on the Moliere theory
 nedisp	= 1 $1= Landau Vavilov energy straggling
@@ -29,7 +29,7 @@ $ dmax(1)	= 200.0 $ (D=emin(1)) data max. energy of proton (MeV)
 $ dmax(2)	= 200.0 $ (D=emin(2)) data max. energy of neutron (MeV)
 
 set: c1[ 0.5 ]	$beam radius
-set: c2[ 19.5 ]	$accelerator terminal tension
+set: c2[ 10 ]	$accelerator terminal tension
 $$infl:{c2.inp} $Reemplazar una variable linealmente
 
 set:%thisdata%[_21MeV_dchain]	$for tallies
@@ -180,7 +180,7 @@ $ cilindrito de agua
 
 $ Base (x,y,z) = (0,0,60.33) cm; vector de altura = (0,0,0.30) cm; radio = 1 cm.
 
-700 rcc 0.0 0.0 0.25 0.0 0.0 0.50  1.0             $ donde iria el pouch (tiene el mismo centro que el pouch original)
+700 rcc 0.0 0.0 0.0 0.0 0.0 0.50  1.0             $ donde iria el pouch (tiene el mismo centro que el pouch original)
 
 [ Transform ]
 set: c900[ 38 ]
@@ -219,7 +219,7 @@ $infl:{./dat/Ce_ridge_filter_4.inp}
 infl:{./dat/Ce_ridge_filter_9.inp}
 
 $ cilindro de agua
-700 %air% -700
+700 %water% -700
 
 
 1 -1     1  $Deep space

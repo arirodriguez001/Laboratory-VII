@@ -6,11 +6,11 @@ Vertical external proton beam - modular input
 
 [ Parameters ]
 $file(1) = /share/gidans/sebastiangossio/Programas/PIHTS-IFORT/phits
-file(1)=c:/phits2
+$file(1)=c:/phits
 
 icntl	= 0 $0: transport	5: source	8: 2D geometry	11: 3D geometry	14: volume	16: script mode	17: Anatally mode
-maxcas	= 5000 $ (D=10) number of particles per one batch
-maxbch	= 10000 $ (D=10) number of batches
+maxcas	= 9000 $ (D=10) number of particles per one batch
+maxbch	= 90000 $ (D=10) number of batches
 istdev	= 2 $Statistical uncertainties estimated from the standard error of: 1=each batch result. 2=each history result.
 nspred	= 2 $2= Coulomb diﬀusion by the Lynch’s formula based on the Moliere theory
 nedisp	= 1 $1= Landau Vavilov energy straggling
@@ -29,7 +29,7 @@ $ dmax(1)	= 200.0 $ (D=emin(1)) data max. energy of proton (MeV)
 $ dmax(2)	= 200.0 $ (D=emin(2)) data max. energy of neutron (MeV)
 
 set: c1[ 0.5 ]	$beam radius
-set: c2[ 19.5 ]	$accelerator terminal tension
+set: c2[ 10 ]	$accelerator terminal tension
 $$infl:{c2.inp} $Reemplazar una variable linealmente
 
 $set:%thisdata%[_21MeV_dchain]	$for tallies
@@ -537,11 +537,8 @@ $$set: c101[ c100 + c68 ]	$cell monolayer
 $ cilindrito de agua
 
 $ Base (x,y,z) = (0,0,60.33) cm; vector de altura = (0,0,0.30) cm; radio = 1 cm.
-$700 rcc 0.0 0.0 6.7  0.0 0.0 0.30  1.0              $ antes del primer dispersor
-$700 rcc 0.0 0.0 19.02  0.0 0.0 0.30  1.0             $ antes del ridge filter
-$700 rcc 0.0 0.0 33.79  0.0 0.0 0.30  1.0             $ antes del segundo dispersor / oclusor
-$700 rcc 0.0 0.0 66.65  0.0 0.0 0.30  1.0             $ entre el oclusor y el pouch
-700 rcc 0.0 0.0 98.33  0.0 0.0 0.30  1.0             $ donde iria el pouch (tiene el mismo centro que el pouch original)
+
+700 rcc 0.0 0.0 0.0 0.0 0.0 0.50  1.0             $ donde iria el pouch (tiene el mismo centro que el pouch original)
 
 [ Transform ]
 set: c900[ 38 ]
@@ -654,7 +651,7 @@ $set:%cell_rfgrid%[(2606 < 2605 < 2604)]
 $set:%vol_rfgrid%[(15.850477*c75*(8*c701+7*c702+6*c703+5*c704+4*c705+3*c706+2*c707+c708)/c71)] $PI*2.25^2*8*c75/(8*c71)*sum*0.996615 (volume dif)
 
 $ cilindro de agua
-700 1  -1.205e-3 -700
+700 8  -1.0 -700
 
 
 1 -1     1  $Deep space
@@ -692,148 +689,26 @@ $ -----------------------------------------
 
 $ --- No olvides definir el volumen de tu nuevo Pouch ---
 
-
-[ T - T r a c k ] off
-$ 1. Antes del segundo dispersor/oclusor. Centro: z = 33.94 cm.
+[ T - T r a c k ]
 mesh = xyz
 x-type = 4
 xdel = 0.3
-xmin = -10
-xmax = 10
-y-type = 4
-ydel = 0.3
-ymin = -15
-ymax = 15
-z-type = 1
-nz = 1
-33.930 33.950
+xmin = -5
+xmax = 5
+z-type = 4
+zdel = 0.3
+zmin = -5
+zmax = 5
+y-type = 1
+ny = 1
+0.01 0.1
 part = proton
 e-type = 1
 ne = 1
 0.0 1000.0
 unit = 1
-axis = xy
-file = ./out/track_xy_antes_oclusor.out
-gshow = 1
-epsout = 1
-
-[ T - T r a c k ] off
-$ 2. Despues del oclusor. Centro: z = 45.00 cm.
-mesh = xyz
-x-type = 4
-xdel = 0.3
-xmin = -10
-xmax = 10
-y-type = 4
-ydel = 0.3
-ymin = -15
-ymax = 15
-z-type = 1
-nz = 1
-44.990 45.010
-part = proton
-e-type = 1
-ne = 1
-0.0 1000.0
-unit = 1
-axis = xy
-file = ./out/track_xy_despues_oclusor.out
-gshow = 1
-epsout = 1
-
-[ T - T r a c k ] off
-$ 3. Entre el oclusor y el pouch. Centro: z = 66.80 cm.
-mesh = xyz
-x-type = 4
-xdel = 0.3
-xmin = -10
-xmax = 10
-y-type = 4
-ydel = 0.3
-ymin = -15
-ymax = 15
-z-type = 1
-nz = 1
-66.790 66.810
-part = proton
-e-type = 1
-ne = 1
-0.0 1000.0
-unit = 1
-axis = xy
-file = ./out/track_xy_entre_oc_y_pouch.out
-gshow = 1
-epsout = 1
-
-[ T - T r a c k ] off
-$ 4. Posicion intermedia. Centro: z = 80.00 cm.
-mesh = xyz
-x-type = 4
-xdel = 0.3
-xmin = -10
-xmax = 10
-y-type = 4
-ydel = 0.3
-ymin = -15
-ymax = 15
-z-type = 1
-nz = 1
-79.990 80.010
-part = proton
-e-type = 1
-ne = 1
-0.0 1000.0
-unit = 1
-axis = xy
-file = ./out/track_xy_antes_pouch.out
-gshow = 1
-epsout = 1
-
-[ T - T r a c k ] off
-$ 5. Altura original del pouch. Centro: z = 98.48 cm.
-mesh = xyz
-x-type = 4
-xdel = 0.3
-xmin = -10
-xmax = 10
-y-type = 4
-ydel = 0.3
-ymin = -15
-ymax = 15
-z-type = 1
-nz = 1
-98.470 98.490
-part = proton
-e-type = 1
-ne = 1
-0.0 1000.0
-unit = 1
-axis = xy
-file = ./out/track_xy_pouch.out
-gshow = 1
-epsout = 1
-
-[ T - T r a c k ] off
-$ 6. Justo antes del piso. Centro: z = 100.96 cm.
-mesh = xyz
-x-type = 4
-xdel = 0.3
-xmin = -10
-xmax = 10
-y-type = 4
-ydel = 0.3
-ymin = -15
-ymax = 15
-z-type = 1
-nz = 1
-100.950 100.970
-part = proton
-e-type = 1
-ne = 1
-0.0 1000.0
-unit = 1
-axis = xy
-file = ./out/track_xy_piso.out
+axis = xz
+file = ./out/track_xz_10MeV.out
 gshow = 1
 epsout = 1
 
@@ -841,245 +716,45 @@ epsout = 1
 mesh = xyz
 x-type = 4
 xdel = 0.3
-xmin = -10
-xmax = 10
+xmin = -5
+xmax = 5
 y-type = 4
 ydel = 0.3
-ymin = -15
-ymax = 15
+ymin = -5
+ymax = 5
 z-type = 1
 nz = 1
-109.99 110.1
+0.01 0.1
 part = proton
 e-type = 1
 ne = 1
 0.0 1000.0
 unit = 1
 axis = xy
-file = ./out/track_xy_110.out
+file = ./out/track_xy_10MeV.out
 gshow = 1
 epsout = 1
 
-[ T - T r a c k ]
-$ 6. Justo antes del piso. Centro: z = 100.96 cm.
-mesh = xyz
-x-type = 4
-xdel = 0.3
-xmin = -10
-xmax = 10
-y-type = 4
-ydel = 0.3
-ymin = -15
-ymax = 15
-z-type = 1
-nz = 1
-119.99 120.1
-part = proton
-e-type = 1
-ne = 1
-0.0 1000.0
-unit = 1
-axis = xy
-file = ./out/track_xy_120.out
-gshow = 1
-epsout = 1
-
-$$$$$$$$$$$$$$$$$$$44 mido espectro  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-
-
-[ T - T r a c k ] off
-$ 1. Espectro antes del segundo dispersor/oclusor. z = 33.94 cm
-mesh = xyz
-x-type = 2
-nx = 1
-xmin = -5
-xmax = 5
-y-type = 2
-ny = 1
-ymin = -5
-ymax = 5
-z-type = 1
-nz = 1
-33.930 33.950
-part = proton
-e-type = 2
-ne = 100
-emin = 0.001
-emax = 25.0
-unit = 2
-axis = eng
-file = ./out/espectro_antes_oclusor.out
-epsout = 1
-
-
-[ T - T r a c k ] off
-$ 2. Espectro despues del oclusor. z = 45.00 cm
-mesh = xyz
-x-type = 2
-nx = 1
-xmin = -5
-xmax = 5
-y-type = 2
-ny = 1
-ymin = -5
-ymax = 5
-z-type = 1
-nz = 1
-44.990 45.010
-part = proton
-e-type = 2
-ne = 100
-emin = 0.001
-emax = 25.0
-unit = 2
-axis = eng
-file = ./out/espectro_despues_oclusor.out
-epsout = 1
-
-
-[ T - T r a c k ] off
-$ 3. Espectro entre el oclusor y el pouch. z = 66.80 cm
-mesh = xyz
-x-type = 2
-nx = 1
-xmin = -5
-xmax = 5
-y-type = 2
-ny = 1
-ymin = -5
-ymax = 5
-z-type = 1
-nz = 1
-66.790 66.810
-part = proton
-e-type = 2
-ne = 100
-emin = 0.001
-emax = 25.0
-unit = 2
-axis = eng
-file = ./out/espectro_entre_oc_y_pouch.out
-epsout = 1
-
-[ T - T r a c k ] off
-$ 4. Espectro en posicion intermedia. z = 80.00 cm
-mesh = xyz
-x-type = 2
-nx = 1
-xmin = -5
-xmax = 5
-y-type = 2
-ny = 1
-ymin = -5
-ymax = 5
-z-type = 1
-nz = 1
-79.990 80.010
-part = proton
-e-type = 2
-ne = 100
-emin = 0.001
-emax = 25.0
-unit = 2
-axis = eng
-file = ./out/espectro_antes_pouch.out
-epsout = 1
-
-
-[ T - T r a c k ] off
-$ 5. Espectro a la altura original del pouch. z = 98.48 cm
-mesh = xyz
-x-type = 2
-nx = 1
-xmin = -5
-xmax = 5
-y-type = 2
-ny = 1
-ymin = -5
-ymax = 5
-z-type = 1
-nz = 1
-98.470 98.490
-part = proton
-e-type = 2
-ne = 100
-emin = 0.001
-emax = 25.0
-unit = 2
-axis = eng
-file = ./out/espectro_pouch.out
-epsout = 1
-
-
-[ T - T r a c k ] off
-$ 6. Espectro justo antes del piso. z = 100.96 cm
-mesh = xyz
-x-type = 2
-nx = 1
-xmin = -5
-xmax = 5
-y-type = 2
-ny = 1
-ymin = -5
-ymax = 5
-z-type = 1
-nz = 1
-100.950 100.970
-part = proton
-e-type = 2
-ne = 100
-emin = 0.001
-emax = 25.0
-unit = 2
-axis = eng
-file = ./out/espectro_piso.out
-epsout = 1
-
-[ T - T r a c k ]
-mesh = xyz
-x-type = 2
-nx = 1
-xmin = -5
-xmax = 5
-y-type = 2
-ny = 1
-ymin = -5
-ymax = 5
-z-type = 1
-nz = 1
-109.99 110.1
-part = proton
-e-type = 2
-ne = 100
-emin = 0.001
-emax = 25.0
-unit = 2
-axis = eng
-file = ./out/espectro_110.out
-epsout = 1
-
-
-[ T - T r a c k ]
-mesh = xyz
-x-type = 2
-nx = 1
-xmin = -5
-xmax = 5
-y-type = 2
-ny = 1
-ymin = -5
-ymax = 5
-z-type = 1
-nz = 1
-119.99 120.1
-part = proton
-e-type = 2
-ne = 100
-emin = 0.001
-emax = 25.0
-unit = 2
-axis = eng
-file = ./out/espectro_120.out
-epsout = 1
+[ T-Deposit ]
+title    = Curva de dosis en profundidad (Bragg peak)
+mesh     = xyz                  $ Malla cartesiana
+x-type   = 2
+xmin     = -0.5
+xmax     =  0.5
+nx       =  1
+y-type   = 2
+ymin     = -0.5
+ymax     =  0.5
+ny       =  1
+z-type   = 2
+zmin     = -0.5                 $ Inicio en z = -0.5 cm
+zmax     =  0.6                 $ Fin en z = 0.6 cm
+nz       =  1100                $ 1.1 cm / 0.001 cm = 1100 bins
+unit     = 0                    $ [Gy/source] (o unit = 1 para [MeV/cm^3/source])
+axis     = z                    $ Perfil 1D en funcion de z
+output   = dose                 $ Evalua la dosis absorbida
+file     = ./out/pico_bragg10MeV.out
+part     = all
+epsout   = 1
 
 [ E n d ]

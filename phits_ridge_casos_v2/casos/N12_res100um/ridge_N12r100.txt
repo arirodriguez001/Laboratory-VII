@@ -1,0 +1,2 @@
+N=12 escalones, espesor max=0.220 cm, periodo=0.6300 cm
+anchos completos (cm), escalon 1 (grueso) -> N (espesor 0): [np.float64(0.03), np.float64(0.03), np.float64(0.03), np.float64(0.03), np.float64(0.03), np.float64(0.04), np.float64(0.04), np.float64(0.04), np.float64(0.05), np.float64(0.07), np.float64(0.1), np.float64(0.14)]

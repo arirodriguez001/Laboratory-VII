@@ -87,6 +87,9 @@
 !new-ridgefilter/
 !new-ridgefilter/**
 
+!phits_ridge_casos_v2/
+!phits_ridge_casos_v2/**
+
 # Permitir archivos importantes
 !.gitignore
 !README.md
