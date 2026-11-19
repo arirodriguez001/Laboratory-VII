@@ -1,0 +1,10 @@
+$ [ Cell ]
+$100 -1 #( %disp1_zone% ) TRCL=30	$Deep space
+
+2300 %air%  %workzone_walls% %disp2_zone% #2301 #2302 #2303 %exclusions%	$fill w/ air
+2301 %Pb%   %disp2_foil% TRCL=31	$scatterer foil 2
+2302 %NBR%  %oring2%	$O-ring
+2303 %Al%   %disp2_sandw% TRCL=31	$Al sandwich
+
+set:%cell_disp2%[2301]
+set:%vol_disp2%[(54.76*c40)]

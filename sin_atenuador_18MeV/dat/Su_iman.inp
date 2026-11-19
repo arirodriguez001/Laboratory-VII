@@ -1,0 +1,40 @@
+$[ Surface ]
+$Beam external exit
+10 RCC 0.0  0.0  0.0  0.0  0.0 -25.0  1.0	$ inside accelerator (vacuum)
+set:%vacuum_inside%[10]
+
+11 RCC 0.0  0.0  0.0  0.0  0.0 -4e-4  1.50	$ Havar
+set:%havar_foil%[11]
+
+12 RCC 0.0  0.0  0.0  0.0  0.0 -2.50  3.5		$ stainless exit 
+13 RCC 0.0  0.0  0.0  0.0  0.0 -25.0  1.6		$ stainless tube 
+set:%exit_tube%[(-12:-13) 10]
+
+
+$Inside box
+14 PX   -9.5
+15 PX    9.5
+16 PY  -17.5
+17 PY   17.5
+18 PZ   64.5
+set:%box_inside%[14 -15 16 -17 18 -9]
+
+$All access
+19 CZ  5.02	$ hole 1
+20 RPP -8.0  8.0 -22.0 -16.0  81.0  97.0	$ lateral access
+21 CZ	 5.928	$ hole 2
+set:%box_access%[19 20 21]
+
+$outside body parts
+22 PZ   (63.0-36.0)	$back wall height
+23 PY   (19.0+15.0)	$all the way back
+24 PX  -53.5	$arm inside
+25 PX   53.5	$arm inside
+26 PX  -(53.5+20.5)	$extreme lateral
+27 PX   (53.5+20.5)	$extreme lateral
+28 PZ   (33.0-50.0)	$extreme top
+29 P   -30.0 -19.0 63.0   -30.0 19.0 63.0   -53.5 19.0 (63.0-23.168)	$sqrt(33^2-(53.5-30)^2)
+30 P    30.0 -19.0 63.0    30.0 19.0 63.0    53.5 19.0 (63.0-23.168)
+31 P   -(53.5+20.5) -19.0 (63.0-23.168-11.5)   -53.5 -19.0 (63.0-23.168-11.5)  -53.5 19.0 (33.0-50.0)
+set:%magnet_geom%[((24 -25) ((6 -7 (3:29:30)):(7 -23 22)):(((26 -24):(25 -27)) 6 -23)) 28 31 -8]
+
