@@ -68,3 +68,8 @@ srun: Sent KVS info to 1 nodes, up to 32 tasks per node
 srun: Sent KVS info to 1 nodes, up to 32 tasks per node
 srun: Sent KVS info to 1 nodes, up to 32 tasks per node
 srun: Sent KVS info to 1 nodes, up to 32 tasks per node
+srun: Sent KVS info to 1 nodes, up to 32 tasks per node
+srun: Sent KVS info to 1 nodes, up to 32 tasks per node
+srun: Received task exit notification for 32 tasks (status=0x0000).
+srun: compute-0-17: tasks 0-31: Completed
+srun: First task exited. Terminating job in 60s.
